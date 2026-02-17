@@ -273,7 +273,7 @@ footer .contact a{color:var(--accent);text-decoration:none}
       </div>
     </div>
     <div class="video-embed fade-in">
-      <iframe src="https://www.youtube.com/embed/OEnkdHUWcM8?rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/OEnkdHUWcM8?rel=0&modestbranding=1&enablejsapi=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -299,7 +299,7 @@ footer .contact a{color:var(--accent);text-decoration:none}
       </div>
       <div class="fade-in-right">
         <div class="video-embed small">
-          <iframe src="https://www.youtube.com/embed/vv7hEw28m-4?rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+          <iframe src="https://www.youtube.com/embed/vv7hEw28m-4?rel=0&modestbranding=1&enablejsapi=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
     </div>
@@ -327,7 +327,7 @@ footer .contact a{color:var(--accent);text-decoration:none}
       </div>
       <div class="fade-in-left">
         <div class="video-embed small">
-          <iframe src="https://www.youtube.com/embed/ZnkpGBFyQAA?rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+          <iframe src="https://www.youtube.com/embed/ZnkpGBFyQAA?rel=0&modestbranding=1&enablejsapi=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
     </div>
@@ -772,6 +772,25 @@ window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', windo
     requestAnimationFrame(draw);
   }
   draw();
+})();
+
+// Auto-play/pause YouTube videos on scroll
+(function(){
+  const vids = document.querySelectorAll('.video-embed iframe');
+  if(!vids.length) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const iframe = e.target;
+      try {
+        if(e.isIntersecting && e.intersectionRatio >= 0.5){
+          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        } else {
+          iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        }
+      } catch(err){}
+    });
+  }, { threshold: [0, 0.5] });
+  vids.forEach(v => obs.observe(v));
 })();
 
 function toggleScope(id) {
