@@ -621,7 +621,7 @@ function deleteDeal(id) { if(confirm('Delete this deal?')){saveDeals(getDeals().
 // TODOS
 // ========================
 const PEOPLE = ['Ryan','Ally','Jeff'];
-function getTodos() { return LS.get('todos', {Ryan:[],Ally:[],Jeff:[]}); }
+function getTodos() { return LS.get('todos', {Ryan:[],Ally:[{text:'Mail out Dwell items',done:false}],Jeff:[]}); }
 function saveTodos(t) { LS.set('todos',t); }
 
 function renderTodos() {
