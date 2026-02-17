@@ -426,12 +426,80 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
   <div class="modal" id="modal-content"></div>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
 <script>
-// === Storage helpers ===
-const LS = {
-  get(k, d) { try { return JSON.parse(localStorage.getItem('alt3_'+k)) || d } catch { return d } },
-  set(k, v) { localStorage.setItem('alt3_'+k, JSON.stringify(v)) }
+// 🔧 FIREBASE CONFIG — paste your config values here
+const firebaseConfig = {
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
 };
+
+// === Firebase + localStorage hybrid storage ===
+let db = null;
+let fbReady = false;
+const fbCache = {};
+const fbListeners = {};
+
+if (firebaseConfig.apiKey) {
+  try {
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.database();
+    fbReady = true;
+    console.log('🔥 Firebase connected — real-time sync enabled');
+  } catch(e) {
+    console.warn('Firebase init failed, using localStorage only:', e);
+  }
+}
+
+const LS = {
+  get(k, d) {
+    if (fbReady && fbCache[k] !== undefined) return fbCache[k];
+    try { return JSON.parse(localStorage.getItem('alt3_'+k)) || d } catch { return d }
+  },
+  set(k, v) {
+    localStorage.setItem('alt3_'+k, JSON.stringify(v));
+    if (fbReady && db) {
+      db.ref('dashboard/' + k).set(v).catch(e => console.warn('Firebase write failed:', e));
+    }
+  },
+  listen(k, renderFn) {
+    if (!fbReady || !db) return;
+    if (fbListeners[k]) return;
+    fbListeners[k] = true;
+    db.ref('dashboard/' + k).on('value', (snapshot) => {
+      const val = snapshot.val();
+      if (val !== null && val !== undefined) {
+        fbCache[k] = val;
+        localStorage.setItem('alt3_'+k, JSON.stringify(val));
+        if (renderFn) renderFn();
+      }
+    });
+  }
+};
+
+// === Seed Firebase on first use ===
+(async function seedFirebase() {
+  if (!fbReady || !db) return;
+  const snap = await db.ref('dashboard/_seeded').once('value');
+  if (snap.val()) return;
+  console.log('🌱 Seeding Firebase...');
+  const keys = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith('alt3_')) {
+      const k = key.replace('alt3_', '');
+      try { await db.ref('dashboard/' + k).set(JSON.parse(localStorage.getItem(key))); keys.push(k); } catch(e) {}
+    }
+  }
+  await db.ref('dashboard/_seeded').set(true);
+  console.log('✅ Seeded:', keys);
+})();
 
 // === Navigation ===
 document.querySelectorAll('nav button').forEach(btn => {
@@ -1109,6 +1177,20 @@ function concludeL10() {
 
 // === INIT ===
 renderDashboard(); renderPipeline(); renderTodos(); renderCalendar(); renderCRM(); renderProposals(); renderRocks(); renderScorecard(); renderIssues(); renderL10();
+
+// === Firebase real-time listeners (sync changes across devices) ===
+LS.listen('deals', () => { renderPipeline(); renderDashboard(); });
+LS.listen('todos', () => { renderTodos(); renderDashboard(); });
+LS.listen('events', renderCalendar);
+LS.listen('clients', renderCRM);
+LS.listen('proposals', renderProposals);
+LS.listen('rocks', () => { renderRocks(); renderDashboard(); });
+LS.listen('scorecard', renderScorecard);
+LS.listen('weeklyIssues', () => { renderIssues(); renderDashboard(); });
+LS.listen('quarterlyIssues', renderIssues);
+LS.listen('l10Notes', renderL10);
+LS.listen('l10History', renderL10);
+LS.listen('l10Rating', renderL10);
 </script>
 </body>
 </html>
