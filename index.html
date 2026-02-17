@@ -19,10 +19,8 @@ textarea{resize:vertical;min-height:60px}
 /* Header */
 .header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .brand{display:flex;align-items:center;gap:14px}
-.brand-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--navy),var(--navy-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#fff;letter-spacing:-1px}
-.brand h1{font-size:1.35rem;font-weight:700;color:var(--navy);letter-spacing:.5px}
-.brand h1 span{color:var(--taupe)}
-.brand-sub{font-size:.75rem;color:var(--text-dim);margin-top:1px}
+.brand-logo{height:40px;filter:brightness(0) saturate(100%) invert(17%) sepia(60%) saturate(1200%) hue-rotate(196deg) brightness(95%) contrast(95%)}
+.brand-sub{font-size:.75rem;color:var(--text-dim);margin-top:2px;letter-spacing:.5px}
 
 /* Nav */
 nav{display:flex;gap:4px;flex-wrap:wrap}
@@ -318,11 +316,8 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
 
 <div class="header">
   <div class="brand">
-    <div class="brand-icon">A3</div>
-    <div>
-      <h1>ALT<span>3</span> SMART HOMES</h1>
-      <div class="brand-sub">Operations Dashboard</div>
-    </div>
+    <img src="assets/logo.png" alt="Alt3 Smart Homes" class="brand-logo">
+    <div class="brand-sub">Operations Dashboard</div>
   </div>
   <nav id="nav">
     <button class="active" data-tab="dashboard">🏠 Dashboard</button>
