@@ -5,13 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>1240 Paddock — Intelligent Living by Alt3 Smart Homes</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap');
+@import url('https://fonts.cdnfonts.com/css/neue-montreal');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&display=swap');
 
 :root {
-  --copper: #B87333;
-  --copper-light: #D4956B;
-  --copper-dark: #8B5A2B;
-  --copper-glow: rgba(184, 115, 51, 0.3);
+  --navy: #113665;
+  --navy-light: #1a4a8a;
+  --navy-dark: #0c2647;
+  --navy-glow: rgba(17, 54, 101, 0.3);
+  --taupe: #BEB1A2;
+  --cream: #E1D8CE;
   --bg-primary: #0A0A0A;
   --bg-secondary: #111111;
   --bg-tertiary: #1A1A1A;
@@ -26,7 +29,7 @@ html {
   scroll-behavior: smooth;
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Neue Montreal', -apple-system, sans-serif;
   overflow-x: hidden;
 }
 
@@ -35,10 +38,9 @@ body { background: var(--bg-primary); }
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
-::-webkit-scrollbar-thumb { background: var(--copper); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 2px; }
 
 /* Typography */
-.serif { font-family: 'Playfair Display', Georgia, serif; }
 .mono { font-family: 'JetBrains Mono', monospace; }
 
 /* Fade-in animation classes */
@@ -56,17 +58,17 @@ body { background: var(--bg-primary); }
 .reveal-delay-3 { transition-delay: 0.45s; }
 .reveal-delay-4 { transition-delay: 0.6s; }
 
-/* Copper line accent */
+/* Navy line accent */
 .copper-line {
   width: 60px;
   height: 1px;
-  background: linear-gradient(90deg, var(--copper), transparent);
+  background: linear-gradient(90deg, var(--navy), transparent);
   margin: 24px 0;
 }
 .copper-line-center {
   width: 60px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--copper), transparent);
+  background: linear-gradient(90deg, transparent, var(--navy), transparent);
   margin: 24px auto;
 }
 
@@ -96,9 +98,9 @@ section {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(184,115,51,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 60% at 20% 80%, rgba(184,115,51,0.04) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 50% at 80% 70%, rgba(184,115,51,0.03) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(17,54,101,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 20% 80%, rgba(17,54,101,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 80% 70%, rgba(17,54,101,0.03) 0%, transparent 50%),
     var(--bg-primary);
 }
 
@@ -112,12 +114,12 @@ section {
 }
 .hero-bg::before {
   width: 400px; height: 400px;
-  background: rgba(184,115,51,0.06);
+  background: rgba(17,54,101,0.06);
   top: 10%; left: 20%;
 }
 .hero-bg::after {
   width: 300px; height: 300px;
-  background: rgba(184,115,51,0.04);
+  background: rgba(17,54,101,0.04);
   bottom: 20%; right: 15%;
   animation-delay: -10s;
   animation-direction: reverse;
@@ -141,15 +143,15 @@ section {
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--copper);
-  border: 1px solid rgba(184,115,51,0.3);
+  color: var(--taupe);
+  border: 1px solid rgba(190,177,162,0.3);
   padding: 8px 20px;
   margin-bottom: 48px;
   font-weight: 500;
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: clamp(42px, 7vw, 96px);
   font-weight: 300;
   line-height: 1.05;
@@ -157,7 +159,7 @@ section {
   margin-bottom: 24px;
 }
 .hero h1 span {
-  background: linear-gradient(135deg, var(--copper-light), var(--copper), var(--copper-dark));
+  background: linear-gradient(135deg, var(--navy-light), var(--navy), var(--navy-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -200,7 +202,7 @@ section {
   content: '';
   width: 1px;
   height: 40px;
-  background: linear-gradient(to bottom, var(--copper), transparent);
+  background: linear-gradient(to bottom, var(--navy), transparent);
 }
 
 @keyframes pulse-down {
@@ -223,14 +225,14 @@ section {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(184,115,51,0.2);
-  border: 1px solid rgba(184,115,51,0.3);
+  background: rgba(17,54,101,0.2);
+  border: 1px solid rgba(17,54,101,0.3);
   cursor: pointer;
   transition: all 0.3s;
 }
 .nav-dot.active {
-  background: var(--copper);
-  box-shadow: 0 0 12px var(--copper-glow);
+  background: var(--navy);
+  box-shadow: 0 0 12px var(--navy-glow);
 }
 
 /* ─── VISION SECTION ─── */
@@ -242,13 +244,13 @@ section {
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--taupe);
   font-weight: 500;
   margin-bottom: 20px;
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: clamp(32px, 5vw, 56px);
   font-weight: 300;
   line-height: 1.15;
@@ -288,19 +290,19 @@ section {
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, var(--copper), transparent);
+  background: linear-gradient(90deg, var(--navy), transparent);
 }
 
 .scenario-time {
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
-  color: var(--copper);
+  color: var(--taupe);
   letter-spacing: 2px;
   margin-bottom: 16px;
 }
 
 .scenario-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 16px;
@@ -333,20 +335,20 @@ section {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--copper), var(--copper-dark));
-  box-shadow: 0 0 60px var(--copper-glow), 0 0 120px rgba(184,115,51,0.1);
+  background: radial-gradient(circle, var(--navy), var(--navy-dark));
+  box-shadow: 0 0 60px var(--navy-glow), 0 0 120px rgba(17,54,101,0.1);
   animation: core-pulse 3s ease-in-out infinite;
 }
 
 @keyframes core-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 60px var(--copper-glow), 0 0 120px rgba(184,115,51,0.1); }
-  50% { transform: scale(1.05); box-shadow: 0 0 80px var(--copper-glow), 0 0 160px rgba(184,115,51,0.15); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 60px var(--navy-glow), 0 0 120px rgba(17,54,101,0.1); }
+  50% { transform: scale(1.05); box-shadow: 0 0 80px var(--navy-glow), 0 0 160px rgba(17,54,101,0.15); }
 }
 
 .brain-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(184,115,51,0.15);
+  border: 1px solid rgba(17,54,101,0.15);
   animation: ring-rotate 20s linear infinite;
 }
 .brain-ring:nth-child(2) { width: 130px; height: 130px; }
@@ -358,10 +360,10 @@ section {
   content: '';
   position: absolute;
   width: 6px; height: 6px;
-  background: var(--copper);
+  background: var(--navy);
   border-radius: 50%;
   top: -3px; left: 50%;
-  box-shadow: 0 0 10px var(--copper-glow);
+  box-shadow: 0 0 10px var(--navy-glow);
 }
 
 @keyframes ring-rotate {
@@ -385,13 +387,13 @@ section {
 
 .ai-feature {
   padding: 32px 0;
-  border-top: 1px solid rgba(184,115,51,0.15);
+  border-top: 1px solid rgba(190,177,162,0.15);
 }
 
 .ai-feature h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 12px;
 }
 
@@ -477,8 +479,8 @@ section {
   left: 20%;
   width: 60%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--copper-glow), transparent);
-  box-shadow: 0 0 30px var(--copper-glow);
+  background: linear-gradient(90deg, transparent, var(--navy-glow), transparent);
+  box-shadow: 0 0 30px var(--navy-glow);
 }
 
 .room-outdoor .room-visual-inner {
@@ -514,7 +516,7 @@ section {
 }
 
 .room-content h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: clamp(24px, 3vw, 36px);
   font-weight: 300;
   margin-bottom: 20px;
@@ -533,9 +535,9 @@ section {
   display: inline-block;
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
-  color: var(--copper-light);
-  background: rgba(184,115,51,0.08);
-  border: 1px solid rgba(184,115,51,0.15);
+  color: var(--taupe);
+  background: rgba(17,54,101,0.08);
+  border: 1px solid rgba(17,54,101,0.15);
   padding: 8px 16px;
   border-radius: 4px;
   margin-top: 8px;
@@ -577,7 +579,7 @@ section {
   transform: translateX(-50%);
   width: 0;
   height: 1px;
-  background: var(--copper);
+  background: var(--navy);
   transition: width 0.4s;
 }
 .tech-card:hover::after {
@@ -593,14 +595,14 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  background: rgba(184,115,51,0.08);
-  border: 1px solid rgba(184,115,51,0.15);
+  background: rgba(17,54,101,0.08);
+  border: 1px solid rgba(17,54,101,0.15);
 }
 
 .tech-card h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 4px;
 }
 
@@ -608,7 +610,7 @@ section {
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--taupe);
   margin-bottom: 12px;
 }
 
@@ -636,10 +638,10 @@ section {
 }
 
 .stat-number {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: clamp(48px, 6vw, 72px);
   font-weight: 300;
-  background: linear-gradient(135deg, var(--copper-light), var(--copper));
+  background: linear-gradient(135deg, var(--navy-light), var(--navy));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -657,12 +659,12 @@ section {
 .investment-quote {
   margin-top: 80px;
   padding: 48px;
-  border-left: 2px solid var(--copper);
+  border-left: 2px solid var(--navy);
   max-width: 700px;
 }
 
 .investment-quote p {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 22px;
   font-weight: 300;
   font-style: italic;
@@ -696,13 +698,13 @@ section {
 .process-step-num {
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
-  color: var(--copper);
+  color: var(--taupe);
   letter-spacing: 2px;
   margin-bottom: 16px;
 }
 
 .process-step h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 22px;
   font-weight: 400;
   margin-bottom: 12px;
@@ -716,7 +718,7 @@ section {
 }
 
 .process-arrow {
-  color: var(--copper);
+  color: var(--navy);
   font-size: 20px;
   opacity: 0.4;
   flex-shrink: 0;
@@ -737,15 +739,16 @@ section {
   transform: translateX(-50%);
   width: 1px;
   height: 80px;
-  background: linear-gradient(to bottom, transparent, var(--copper));
+  background: linear-gradient(to bottom, transparent, var(--navy));
 }
 
 .cta-button {
   display: inline-block;
   margin-top: 48px;
   padding: 16px 48px;
-  background: linear-gradient(135deg, var(--copper), var(--copper-dark));
-  color: var(--bg-primary);
+  background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+  color: #FFFFFF;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 3px;
@@ -755,7 +758,7 @@ section {
   border: none;
 }
 .cta-button:hover {
-  box-shadow: 0 8px 40px var(--copper-glow);
+  box-shadow: 0 8px 40px var(--navy-glow);
   transform: translateY(-2px);
 }
 
@@ -763,13 +766,13 @@ section {
 .footer {
   text-align: center;
   padding: 60px 24px;
-  border-top: 1px solid rgba(184,115,51,0.1);
+  border-top: 1px solid rgba(17,54,101,0.1);
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .footer-logo {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 24px;
   font-weight: 300;
   letter-spacing: 4px;
@@ -789,7 +792,7 @@ section {
   letter-spacing: 1px;
 }
 .footer-links a {
-  color: var(--copper);
+  color: var(--navy);
   text-decoration: none;
 }
 
@@ -825,7 +828,7 @@ section {
 }
 .section-sep-line {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(184,115,51,0.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(17,54,101,0.15), transparent);
 }
 </style>
 </head>
@@ -874,7 +877,7 @@ section {
     <div class="scenario-card reveal reveal-delay-1">
       <div class="scenario-time">06:30 PM — ENTERTAIN</div>
       <h3 class="scenario-title">An Evening Transformed</h3>
-      <p class="scenario-body">Guests are arriving. One word: <em>"Josh, dinner party."</em> Lights shift to a candlelit warmth. Music fills the living and dining spaces. Landscape lighting paints the exterior in soft copper tones. The home becomes the host.</p>
+      <p class="scenario-body">Guests are arriving. One word: <em>"Josh, dinner party."</em> Lights shift to a candlelit warmth. Music fills the living and dining spaces. Landscape lighting paints the exterior in soft warm tones. The home becomes the host.</p>
     </div>
     <div class="scenario-card reveal reveal-delay-2">
       <div class="scenario-time">10:30 PM — REST</div>
@@ -1112,15 +1115,15 @@ section {
 <!-- CTA -->
 <section class="cta" id="cta">
   <div class="section-label reveal">Next Step</div>
-  <h2 class="section-title reveal reveal-delay-1">Ready to Make<br>1240 Paddock <span class="serif" style="background: linear-gradient(135deg, var(--copper-light), var(--copper)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Intelligent</span>?</h2>
+  <h2 class="section-title reveal reveal-delay-1">Ready to Make<br>1240 Paddock <span style="background: linear-gradient(135deg, var(--navy-light), var(--navy)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Intelligent</span>?</h2>
   <div class="copper-line-center reveal reveal-delay-2"></div>
   <p class="section-body reveal reveal-delay-2" style="max-width: 540px; margin: 0 auto; text-align: center;">Let's schedule a design consultation to explore what's possible for your home. No pressure, no jargon — just a conversation about how you want to live.</p>
   <a href="mailto:info@alt3.com?subject=1240%20Paddock%20—%20Design%20Consultation" class="cta-button reveal reveal-delay-3">Schedule a Consultation</a>
   <div style="margin-top: 32px;" class="reveal reveal-delay-4">
     <p style="font-size: 13px; color: var(--text-muted);">
-      <a href="mailto:info@alt3.com" style="color: var(--copper); text-decoration: none;">info@alt3.com</a> &nbsp;·&nbsp;
-      <a href="https://alt3smarthomes.com" style="color: var(--copper); text-decoration: none;">alt3smarthomes.com</a> &nbsp;·&nbsp;
-      <a href="https://instagram.com/alt3smarthomes" style="color: var(--copper); text-decoration: none;">@alt3smarthomes</a>
+      <a href="mailto:info@alt3.com" style="color: var(--navy); text-decoration: none;">info@alt3.com</a> &nbsp;·&nbsp;
+      <a href="https://alt3smarthomes.com" style="color: var(--navy); text-decoration: none;">alt3smarthomes.com</a> &nbsp;·&nbsp;
+      <a href="https://instagram.com/alt3smarthomes" style="color: var(--navy); text-decoration: none;">@alt3smarthomes</a>
     </p>
   </div>
 </section>
