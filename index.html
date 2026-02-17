@@ -532,8 +532,14 @@ saveRocks=function(r){_origSaveRocks(r);stampUpdate()};
 
 function resetAllData() {
   if(!confirm('Reset all dashboard data to defaults? This clears any changes you\'ve made.')) return;
-  const keys = ['deals','todos','events','clients','proposals','rocks','scorecard','weeklyIssues','quarterlyIssues','l10Notes','l10History','l10Rating'];
-  keys.forEach(k => localStorage.removeItem('alt3-'+k));
+  // Clear ALL alt3 prefixed keys (handles both alt3_ and alt3- prefixes)
+  const toRemove = [];
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k && (k.startsWith('alt3_') || k.startsWith('alt3-'))) toRemove.push(k);
+  }
+  toRemove.forEach(k => localStorage.removeItem(k));
+  localStorage.removeItem('alt3-lastUpdated');
   location.reload();
 }
 
