@@ -79,8 +79,36 @@ section:nth-child(even){background:var(--cream-bg)}
 .voice-cmd .arrow{color:var(--accent);font-size:1.2rem}
 .voice-cmd .result{font-size:.85rem;color:var(--text-light);line-height:1.6}
 @media(max-width:640px){
-  .voice-cmd{grid-template-columns:1fr;text-align:center;gap:12px}
-  .voice-cmd .cmd{text-align:center}
+  .container{padding:0 16px}
+  section{padding:60px 0}
+  .section-title{font-size:1.6rem}
+  .voice-cmd{grid-template-columns:1fr;text-align:center;gap:12px;padding:20px}
+  .voice-cmd .cmd{text-align:center;font-size:1.1rem}
+  .voice-cmd .arrow{display:none}
+  .packages{grid-template-columns:1fr;gap:16px}
+  .package{padding:24px 20px}
+  .pkg-price{font-size:1.6rem}
+  .stats-row{grid-template-columns:1fr 1fr;gap:12px}
+  .stat-card{padding:20px 12px}
+  .stat-card .number{font-size:1.5rem}
+  .stat-card .label{font-size:.7rem}
+  .process-steps{flex-direction:column;gap:24px}
+  .process-step{min-width:auto}
+  .step-arrow{transform:rotate(90deg)}
+  .scope-detail{padding:20px 16px}
+  .scope-detail-header{flex-direction:column;gap:12px;text-align:center}
+  .scope-detail-header h3{font-size:1rem}
+  .scope-room-header{padding:12px;font-size:.82rem;flex-wrap:wrap;gap:4px}
+  .scope-item{font-size:.8rem;padding:6px 0}
+  .scope-item.sub{padding-left:8px;font-size:.78rem}
+  .scope-total{font-size:.95rem;padding:16px 12px}
+  .video-embed{margin:32px auto 0;border-radius:12px}
+  .cta-section h2{font-size:1.5rem}
+  .cta-btn{padding:14px 32px;font-size:.9rem}
+  nav{gap:4px}
+  nav a{padding:6px 10px;font-size:.7rem}
+  .hero h1{font-size:2rem}
+  .hero .subtitle{font-size:1rem}
 }
 
 /* Video embed */
