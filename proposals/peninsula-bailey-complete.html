@@ -293,7 +293,15 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
       <div><dt>Client</dt><dd>Alex Bailey<br>Keen Building Company</dd></div>
       <div><dt>Last Updated</dt><dd>February 17, 2026</dd></div>
     </dl>
-    <a href="#dashboard" class="hero-scroll" aria-label="Scroll down"></a>
+    <!-- Pending CO Banner -->
+    <div id="hero-co-banner" style="margin-top:36px">
+      <a href="#pending-co" style="display:inline-flex;align-items:center;gap:10px;background:#d4920a;color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-size:.95rem;font-weight:700;box-shadow:0 4px 20px rgba(212,146,10,.4);transition:all .25s;animation:pulse-co 2s infinite">
+        <span style="font-size:1.2rem">⚠️</span> Pending Change Order — $15,273.31 — Review & Approve
+      </a>
+    </div>
+    <style>@keyframes pulse-co{0%,100%{box-shadow:0 4px 20px rgba(212,146,10,.4)}50%{box-shadow:0 4px 30px rgba(212,146,10,.65)}}</style>
+
+    <a href="#dashboard" class="hero-scroll" aria-label="Scroll down" style="margin-top:24px"></a>
   </div>
 </section>
 
@@ -1145,10 +1153,26 @@ function confirmApproval(){
   const date=document.getElementById('approval-date').value;
   if(!name){alert('Please enter your name.');return}
   if(!date){alert('Please enter the date.');return}
-  const data=JSON.stringify({name,date});
+  const now=new Date();
+  const time=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  const data=JSON.stringify({name,date,time});
   localStorage.setItem('bailey-co-approved',data);
   hideApprovalModal();
   renderApproval(name,date);
+  // Send email notification
+  sendApprovalNotification(name,date,time);
+}
+function sendApprovalNotification(name,date,time){
+  // Primary: Google Apps Script webhook
+  const WEBHOOK_URL=window.BAILEY_WEBHOOK_URL||'';
+  const payload={name:name,date:date,time:time,amount:'15,273.31',project:'Peninsula Club — 18235 Peninsula Club Dr'};
+  if(WEBHOOK_URL){
+    fetch(WEBHOOK_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
+  }
+  // Fallback: mailto
+  const subject=encodeURIComponent('✅ Bailey Change Order Approved — $15,273.31');
+  const body=encodeURIComponent('Change Order Approved\n\nProject: Peninsula Club — 18235 Peninsula Club Dr\nClient: '+name+'\nAmount: $15,273.31\nDate: '+date+'\nTime: '+time+'\n\nApproved via Peninsula Project Portal');
+  window.open('mailto:ryan.palmer@alt3.com?subject='+subject+'&body='+body,'_blank');
 }
 function renderApproval(name,date){
   const btn=document.getElementById('approve-btn');
@@ -1158,11 +1182,14 @@ function renderApproval(name,date){
   const stamp=document.getElementById('approval-stamp');
   stamp.style.display='block';
   stamp.textContent='Change order approved by '+name+' on '+date+'. Thank you!';
+  // Hide hero banner
+  const banner=document.getElementById('hero-co-banner');
+  if(banner) banner.innerHTML='<div style="display:inline-block;background:rgba(46,125,50,.1);border:2px solid #2e7d32;color:#2e7d32;padding:12px 24px;border-radius:10px;font-weight:600">✅ Change Order Approved by '+name+'</div>';
 }
 // Restore approval on load
 (function(){
   const saved=localStorage.getItem('bailey-co-approved');
-  if(saved){const{name,date}=JSON.parse(saved);renderApproval(name,date)}
+  if(saved){const d=JSON.parse(saved);renderApproval(d.name,d.date)}
 })();
 </script>
 </body>
