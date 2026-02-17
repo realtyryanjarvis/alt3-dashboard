@@ -567,17 +567,25 @@ function renderDashboard() {
   const statusLabels = {on:'On Track',off:'Off Track',complete:'Complete'};
   const statusClass = {on:'rock-on',off:'rock-off',complete:'rock-done'};
   document.getElementById('dash-rocks').innerHTML = `
-    <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;flex-wrap:wrap">
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap">
       <span style="font-size:.78rem;font-weight:700;color:var(--navy)">${rocksComplete}/${totalRocks}</span>
       <span style="color:var(--green);font-weight:600;font-size:.7rem">● ${rocks.filter(r=>r.status==='on').length} on</span>
       <span style="color:var(--red);font-weight:600;font-size:.7rem">● ${rocks.filter(r=>r.status==='off').length} off</span>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:4px">
-      ${rocks.map(r => `<div style="display:inline-flex;align-items:center;gap:5px;padding:3px 8px;background:var(--surface);border-radius:4px;border:1px solid var(--border);font-size:.7rem;cursor:pointer" onclick="cycleRock(${r.id})">
-        <span class="rock-status ${statusClass[r.status]}" style="padding:1px 6px;border-radius:6px;font-size:.6rem;min-width:auto">${statusLabels[r.status]}</span>
-        <span style="font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px">${r.desc}</span>
-        <span style="color:var(--text-muted);font-size:.6rem">${r.owner.charAt(0)}</span>
-      </div>`).join('')}
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px">
+      ${PEOPLE.map(p => {
+        const pRocks = (rocksByOwner[p]||[]);
+        if(!pRocks.length) return '';
+        return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 10px">
+          <div style="font-size:.7rem;font-weight:700;color:var(--navy);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px">${p}</div>
+          <div style="display:flex;flex-direction:column;gap:3px">
+            ${pRocks.map(r => `<div style="display:flex;align-items:center;gap:5px;cursor:pointer" onclick="cycleRock(${r.id})">
+              <span class="rock-status ${statusClass[r.status]}" style="padding:1px 5px;border-radius:4px;font-size:.55rem;min-width:auto">${statusLabels[r.status]}</span>
+              <span style="font-size:.68rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.desc}</span>
+            </div>`).join('')}
+          </div>
+        </div>`;
+      }).join('')}
     </div>`;
 
   // Render this week's schedule — card style
