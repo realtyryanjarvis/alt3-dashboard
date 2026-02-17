@@ -574,59 +574,60 @@ function renderDashboard() {
         }).join('')}
       </div>` : '<div style="color:var(--text-muted);font-size:.85rem;margin-top:8px">No events this week — <a href="#" onclick="document.querySelector(\'[data-tab=calendar]\').click();return false">add one</a></div>'}
     </div>
+    <div style="grid-column:1/-1">
+      <h3 class="section-title">💰 Deal Flow <span style="font-size:.75rem;font-weight:400;color:var(--text-muted)">$${pipeVal.toLocaleString()} pipeline</span></h3>
+      <div class="kanban" style="margin-bottom:24px">
+        ${STAGES.filter(s=>s!=='Complete').map(stage => {
+          const cards = deals.filter(d => d.stage === stage);
+          return `<div class="kanban-col">
+            <div class="kanban-col-header">${stage} <span class="count">${cards.length}</span></div>
+            <div class="kanban-cards">${cards.map(c => `
+              <div class="kanban-card">
+                <div class="client">${c.client}</div>
+                <div class="address">${c.address}</div>
+                <div class="type-badge">${c.type}</div>
+                <div class="meta"><span class="value">$${c.value.toLocaleString()}</span><span>${c.date}</span></div>
+              </div>`).join('')}</div></div>`;
+        }).join('')}
+      </div>
+    </div>
     <div class="dash-card" style="grid-column:1/-1">
-      <h3>💰 Deal Flow</h3>
-      <div class="dash-stat" style="margin-bottom:16px">
-        <div class="stat"><div class="num">$${pipeVal.toLocaleString()}</div><div class="label">Pipeline Value</div></div>
-        <div class="stat"><div class="num">${activeDeals}</div><div class="label">Active Deals</div></div>
-        <div class="stat"><div class="num">${deals.filter(d=>d.stage==='Lead').length}</div><div class="label">Leads</div></div>
-        <div class="stat"><div class="num">${deals.filter(d=>d.stage==='Proposal Sent').length}</div><div class="label">Proposals Out</div></div>
-        <div class="stat"><div class="num">${deals.filter(d=>d.stage==='In Progress').length}</div><div class="label">In Progress</div></div>
-      </div>
-      <div style="display:grid;gap:8px">
-        ${activeDealsArr.map(d => `<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface2);border-radius:6px;border:1px solid var(--border)">
-          <div>
-            <div style="font-weight:600;font-size:.88rem">${d.client}</div>
-            <div style="font-size:.75rem;color:var(--text-muted)">${d.address} · ${d.type}</div>
-          </div>
-          <div style="text-align:right">
-            <div style="font-weight:700;color:var(--navy)">$${d.value.toLocaleString()}</div>
-            <div style="font-size:.72rem;color:var(--text-muted)">${stageIcon[d.stage]||''} ${d.stage}</div>
-          </div>
-        </div>`).join('')}
+      <h3>🪨 Rocks — Q1 2026
+        <span style="font-size:.75rem;font-weight:400;color:var(--text-muted);margin-left:8px">${rocksComplete}/${totalRocks} complete</span>
+      </h3>
+      <div class="rocks-grid" style="margin-top:12px">
+        ${PEOPLE.map(p => {
+          const pRocks = (rocksByOwner[p]||[]);
+          if(!pRocks.length) return '';
+          const statusLabels = {on:'On Track',off:'Off Track',complete:'Complete'};
+          const statusClass = {on:'rock-on',off:'rock-off',complete:'rock-done'};
+          return `<div class="rock-column">
+            <div class="rock-column-header"><span>${p}</span><span style="font-size:.75rem;color:var(--text-muted)">${pRocks.filter(r=>r.status==='complete').length}/${pRocks.length}</span></div>
+            ${pRocks.map(r => `<div class="rock-item">
+              <div class="rock-desc">${r.desc}</div>
+              <div class="rock-meta">
+                <span class="rock-status ${statusClass[r.status]}" onclick="cycleRock(${r.id})">${statusLabels[r.status]}</span>
+              </div>
+            </div>`).join('')}
+          </div>`;
+        }).join('')}
       </div>
     </div>
-    <div class="dash-card">
-      <h3>🪨 Rocks — Q1 2026</h3>
-      <div class="dash-stat" style="margin-bottom:12px">
-        <div class="stat"><div class="num">${rocksComplete}/${totalRocks}</div><div class="label">Complete</div></div>
-        <div class="stat"><div class="num">${rocks.filter(r=>r.status==='on').length}</div><div class="label">On Track</div></div>
-        <div class="stat"><div class="num">${rocks.filter(r=>r.status==='off').length}</div><div class="label">Off Track</div></div>
+    <div class="dash-card" style="grid-column:1/-1">
+      <h3>✅ To-Dos</h3>
+      <div class="todo-grid" style="margin-top:12px">
+        ${PEOPLE.map(p => `
+          <div class="todo-column">
+            <div class="todo-column-header"><span class="person">${p}</span><span style="font-size:.75rem;color:var(--text-muted)">${(todos[p]||[]).filter(t=>!t.done).length} open</span></div>
+            <div class="todo-add"><input id="dash-todo-${p}" placeholder="Add task..." onkeydown="if(event.key==='Enter')addDashTodo('${p}')"><button class="btn-primary btn-sm" onclick="addDashTodo('${p}')">+</button></div>
+            <div class="todo-list">${(todos[p]||[]).map((t,i) => `
+              <div class="todo-item${t.done?' done':''}">
+                <div class="todo-check${t.done?' checked':''}" onclick="toggleTodo('${p}',${i});renderDashboard()"></div>
+                <span class="todo-text">${t.text}</span>
+                <span class="todo-delete" onclick="deleteTodo('${p}',${i});renderDashboard()">✕</span>
+              </div>`).join('')}</div>
+          </div>`).join('')}
       </div>
-      ${PEOPLE.map(p => {
-        const pRocks = rocksByOwner[p]||[];
-        if(!pRocks.length) return '';
-        return `<div style="margin-bottom:10px">
-          <div style="font-weight:600;font-size:.8rem;color:var(--navy);margin-bottom:4px">${p}</div>
-          ${pRocks.map(r => {
-            const color = r.status==='complete'?'var(--green)':r.status==='on'?'var(--navy)':'var(--red)';
-            const icon = r.status==='complete'?'✅':r.status==='on'?'🟢':'🔴';
-            return `<div style="font-size:.8rem;padding:3px 0;color:var(--text-dim)">${icon} ${r.desc}</div>`;
-          }).join('')}
-        </div>`;
-      }).join('')}
-    </div>
-    <div class="dash-card">
-      <h3>✅ Open To-Dos <span style="font-size:.75rem;font-weight:400;color:var(--text-muted)">${openTodos} total</span></h3>
-      ${PEOPLE.map(p => {
-        const pTodos = (todos[p]||[]).filter(t=>!t.done);
-        if(!pTodos.length) return '';
-        return `<div style="margin-bottom:10px">
-          <div style="font-weight:600;font-size:.8rem;color:var(--navy);margin-bottom:4px">${p} <span style="color:var(--text-muted);font-weight:400">(${pTodos.length})</span></div>
-          ${pTodos.slice(0,5).map(t => `<div style="font-size:.8rem;padding:3px 0;color:var(--text-dim)">○ ${t.text}</div>`).join('')}
-          ${pTodos.length>5?`<div style="font-size:.72rem;color:var(--text-muted);padding:2px 0">+${pTodos.length-5} more</div>`:''}
-        </div>`;
-      }).join('') || '<div style="color:var(--text-muted);font-size:.85rem">All clear! 🎉</div>'}
     </div>
   `;
 }
@@ -723,6 +724,14 @@ function addTodo(person) {
 }
 function toggleTodo(p,i) { const t=getTodos(); t[p][i].done=!t[p][i].done; saveTodos(t); renderTodos(); }
 function deleteTodo(p,i) { const t=getTodos(); t[p].splice(i,1); saveTodos(t); renderTodos(); }
+function addDashTodo(person) {
+  const inp = document.getElementById('dash-todo-'+person);
+  if (!inp || !inp.value.trim()) return;
+  const todos = getTodos();
+  if (!todos[person]) todos[person] = [];
+  todos[person].unshift({text:inp.value.trim(),done:false});
+  saveTodos(todos); renderDashboard(); renderTodos();
+}
 
 // ========================
 // CALENDAR
