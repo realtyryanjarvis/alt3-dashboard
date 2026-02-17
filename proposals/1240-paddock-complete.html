@@ -1128,44 +1128,46 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
   </div>
 
   <!-- ================================================================ -->
-  <!--  SECTION C: MOTORIZED SHADING                                    -->
+  <!--  SECTION C: MOTORIZED SHADING (INTERACTIVE OPTION)               -->
   <!-- ================================================================ -->
   <div class="part-header page-break">
     <div>
-      <div class="part-label">Section C</div>
+      <div class="part-label">Section C — Optional</div>
       <div class="part-title">Lutron Motorized Shading</div>
     </div>
     <div>
-      <div class="part-total-label">Section Total</div>
-      <div class="part-total">$39,000.00</div>
+      <div class="part-total-label">Budgetary Estimate</div>
+      <div class="part-total" id="c-total">$39,000.00</div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-bottom:0">
+    <div style="background:var(--surface);border:1px solid var(--copper-dark);border-radius:8px;padding:16px 20px;font-size:.82rem;color:var(--dim);">
+      <strong style="color:var(--copper-light)">Budgetary Estimate:</strong> This is a planning-level estimate based on an average of $1,500 per window. Final shade pricing will be quoted separately after professional window measurement, fabric selection, and design consultation.
+      <br><br><span style="color:var(--copper-light);">✦ Click below to include or exclude shading from your project scope.</span>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-desc" style="margin-top:8px;">
-      <strong style="color:var(--copper-light)">Lutron Automated Window Treatments</strong> — Lutron Palladiom and Sivoia QS motorized shades integrated directly with your HomeWorks control system for seamless daylight management, privacy control, and energy efficiency. Shades coordinate with Ketra tunable lighting to maintain perfect light balance throughout the day.
-    </div>
+    <div class="section-title">Whole-Home Lutron Motorized Shading</div>
 
-    <div class="section-title">Whole-Home Motorized Shading — 26 Windows</div>
-    <div class="section-desc">Automated roller or honeycomb shades with quiet motor technology, scene integration, and scheduled operation. Includes professional measurement, fabric selection, and installation.</div>
-
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-img"><svg viewBox="0 0 24 24" fill="none" stroke="#BEB1A2" stroke-width="1.5"><rect x="3" y="2" width="18" height="4" rx="1"/><line x1="5" y1="6" x2="5" y2="20"/><line x1="19" y1="6" x2="19" y2="20"/><line x1="5" y1="10" x2="19" y2="10"/><line x1="5" y1="14" x2="19" y2="14"/><line x1="5" y1="18" x2="19" y2="18"/><line x1="5" y1="20" x2="19" y2="20"/></svg></div>
-        <div class="product-info">
-          <div class="product-name">Lutron Palladiom / Sivoia QS Motorized Shade — Per Window</div>
-          <div class="product-meta" style="font-size:.72rem;color:var(--dim);">Lutron roller/honeycomb · Whisper-quiet motor · HomeWorks scene-integrated · Professional install</div>
+    <label class="option-toggle" data-section="c" data-value="39000.00">
+      <input type="checkbox" class="shade-toggle" id="toggle-shades" checked>
+      <div class="option-card selected" id="card-shades">
+        <div class="option-check">✓</div>
+        <div class="option-info">
+          <div class="option-name">Lutron Palladiom / Sivoia QS Motorized Shades</div>
+          <div class="option-desc">26 automated window treatments — whisper-quiet motors, HomeWorks scene integration, daylight harvesting, privacy scheduling. Includes professional measurement, fabric consultation, and installation.</div>
         </div>
-        <div class="product-qty" style="font-size:.78rem;color:var(--dim);">×26</div>
-        <div class="product-price" style="font-size:.82rem;color:var(--copper-light);">$1,500.00 ea</div>
-        <div class="product-total" style="font-size:.82rem;font-weight:600;color:#fff;">$39,000.00</div>
+        <div class="option-price">
+          <div class="option-amount">$39,000.00</div>
+          <div class="option-detail">26 windows × $1,500 avg</div>
+        </div>
       </div>
-    </div>
-
-    <div class="area-total-line"><span>Section C Total — Motorized Shading</span><span class="amount">$39,000.00</span></div>
+    </label>
 
     <p style="font-size:.72rem;color:var(--dim);margin-top:12px;padding:8px 12px;background:rgba(17,54,101,.08);border-radius:6px;">
-      <strong style="color:var(--copper-light)">Includes:</strong> Professional window measurement, Lutron fabric/material selection consultation, Palladiom or Sivoia QS shade motor and fabric, HomeWorks programming integration, and installation. Final pricing may adjust based on window dimensions and fabric selection.
+      <strong style="color:var(--copper-light)">Note:</strong> Final pricing will be determined after on-site window measurement and fabric/material selection. Actual costs may vary based on window dimensions, shade type (roller, honeycomb, drapery), and fabric choice. This estimate is provided for planning purposes.
     </p>
   </div>
 
@@ -1175,7 +1177,7 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
       <div class="gt-row"><span class="label">Section A1 — HomeWorks Control System</span><span class="amount">$40,186.30</span></div>
       <div class="gt-row" id="gt-a2"><span class="label">Section A2 — Ketra &amp; Rania Fixtures (optional)</span><span class="amount">$75,979.75</span></div>
       <div class="gt-row"><span class="label">Section B — Smart Home, A/V &amp; Security</span><span class="amount">$108,049.15</span></div>
-      <div class="gt-row"><span class="label">Section C — Lutron Motorized Shading (26 windows)</span><span class="amount">$39,000.00</span></div>
+      <div class="gt-row" id="gt-c"><span class="label">Section C — Lutron Motorized Shading (26 windows)</span><span class="amount">$39,000.00</span></div>
       <div class="gt-divider"></div>
       <div class="gt-final"><span class="label">Total Project Investment</span><span class="amount" id="gt-grand">$263,215.20</span></div>
     </div>
@@ -1258,11 +1260,11 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
 (function(){
   const BASE_A1 = 40186.30;
   const BASE_B  = 108049.15;
-  const BASE_C  = 39000.00;
 
   function fmt(n){ return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
 
   function recalc(){
+    // --- Section A2 fixtures ---
     let a2 = 0;
     document.querySelectorAll('.fixture-toggle').forEach(cb => {
       const wrap = cb.closest('.option-toggle');
@@ -1276,21 +1278,36 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
         card.classList.remove('selected');
       }
     });
-
-    // Update A2 header total
     document.getElementById('a2-total').textContent = fmt(a2);
-
-    // Update grand total rows
     const gtA2 = document.getElementById('gt-a2');
     if(gtA2){
       gtA2.querySelector('.amount').textContent = fmt(a2);
       gtA2.style.display = a2 === 0 ? 'none' : 'flex';
     }
 
-    const grand = BASE_A1 + a2 + BASE_B + BASE_C;
+    // --- Section C shades ---
+    let c = 0;
+    const shadeCb = document.getElementById('toggle-shades');
+    const shadeCard = document.getElementById('card-shades');
+    if(shadeCb && shadeCb.checked){
+      c = 39000;
+      shadeCard.classList.add('selected');
+    } else if(shadeCard){
+      shadeCard.classList.remove('selected');
+    }
+    const cTotal = document.getElementById('c-total');
+    if(cTotal) cTotal.textContent = fmt(c);
+    const gtC = document.getElementById('gt-c');
+    if(gtC){
+      gtC.querySelector('.amount').textContent = fmt(c);
+      gtC.style.display = c === 0 ? 'none' : 'flex';
+    }
+
+    // --- Grand total ---
+    const grand = BASE_A1 + a2 + BASE_B + c;
     document.getElementById('gt-grand').textContent = fmt(grand);
 
-    // Update payment amounts
+    // --- Payment schedule ---
     const dep = grand * 0.10;
     const mid = grand * 0.80;
     const fin = grand * 0.10;
@@ -1305,6 +1322,8 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
   document.querySelectorAll('.fixture-toggle').forEach(cb => {
     cb.addEventListener('change', recalc);
   });
+  const shadeCb = document.getElementById('toggle-shades');
+  if(shadeCb) shadeCb.addEventListener('change', recalc);
 })();
 </script>
 </body>
