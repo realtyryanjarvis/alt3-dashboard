@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alt3 Smart Homes — Operations Dashboard</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#111;--surface:#1a1a1a;--surface2:#222;--surface3:#2a2a2a;--border:#333;--copper:#B87333;--copper-light:#d4956a;--copper-dark:#8a5524;--text:#e8e8e8;--text-dim:#999;--text-muted:#666;--green:#4caf50;--red:#e74c3c;--blue:#5b9bd5;--yellow:#f0c040;--radius:8px;--shadow:0 2px 12px rgba(0,0,0,.4)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+a{color:var(--copper-light);text-decoration:none}
+a:hover{text-decoration:underline}
+button{cursor:pointer;font-family:inherit;border:none;border-radius:var(--radius);padding:8px 16px;font-size:.875rem;transition:all .15s}
+input,textarea,select{font-family:inherit;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:var(--radius);padding:8px 12px;font-size:.875rem;width:100%;outline:none;transition:border .15s}
+input:focus,textarea:focus,select:focus{border-color:var(--copper)}
+textarea{resize:vertical;min-height:60px}
+
+/* Header */
+.header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--copper),var(--copper-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#fff;letter-spacing:-1px}
+.brand h1{font-size:1.35rem;font-weight:700;color:#fff;letter-spacing:.5px}
+.brand h1 span{color:var(--copper)}
+.brand-sub{font-size:.75rem;color:var(--text-dim);margin-top:1px}
+
+/* Nav */
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav button{background:transparent;color:var(--text-dim);padding:8px 18px;font-weight:500;border-radius:6px;font-size:.85rem}
+nav button:hover{color:var(--text);background:var(--surface2)}
+nav button.active{background:var(--copper);color:#fff}
+
+/* Main */
+main{flex:1;padding:24px;max-width:1400px;width:100%;margin:0 auto}
+.section{display:none}
+.section.active{display:block}
+.section-title{font-size:1.1rem;font-weight:600;margin-bottom:16px;color:var(--copper-light);display:flex;align-items:center;gap:8px}
+
+/* Buttons */
+.btn-primary{background:var(--copper);color:#fff;font-weight:600}
+.btn-primary:hover{background:var(--copper-light)}
+.btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--surface3)}
+.btn-danger{background:transparent;color:var(--red);padding:4px 8px;font-size:.75rem}
+.btn-sm{padding:5px 10px;font-size:.78rem}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s}
+.modal-overlay.show{opacity:1;pointer-events:all}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;width:100%;max-width:500px;max-height:85vh;overflow-y:auto;box-shadow:var(--shadow)}
+.modal h3{margin-bottom:16px;color:var(--copper-light)}
+.modal .field{margin-bottom:12px}
+.modal .field label{display:block;font-size:.78rem;color:var(--text-dim);margin-bottom:4px;font-weight:500}
+.modal .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+
+/* ===== PIPELINE (Kanban) ===== */
+.kanban{display:flex;gap:16px;overflow-x:auto;padding-bottom:16px}
+.kanban-col{min-width:240px;flex:1;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border)}
+.kanban-col-header{padding:12px 14px;font-weight:600;font-size:.85rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.kanban-col-header .count{background:var(--surface3);color:var(--text-dim);font-size:.7rem;padding:2px 8px;border-radius:10px}
+.kanban-cards{padding:8px;min-height:60px}
+.kanban-card{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:12px;margin-bottom:8px;cursor:grab;transition:border .15s}
+.kanban-card:hover{border-color:var(--copper)}
+.kanban-card .client{font-weight:600;font-size:.9rem}
+.kanban-card .address{font-size:.75rem;color:var(--text-dim);margin-top:2px}
+.kanban-card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:.75rem;color:var(--text-dim)}
+.kanban-card .value{color:var(--copper-light);font-weight:600}
+.kanban-card .type-badge{background:var(--surface3);padding:2px 6px;border-radius:4px;font-size:.68rem;color:var(--text-dim);margin-top:4px;display:inline-block}
+.kanban-card .card-actions{display:flex;gap:4px;margin-top:8px}
+
+/* ===== TODO ===== */
+.todo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.todo-column{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.todo-column-header{padding:12px 16px;font-weight:600;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.todo-column-header .person{color:var(--copper-light)}
+.todo-add{display:flex;gap:8px;padding:12px}
+.todo-add input{flex:1}
+.todo-list{padding:8px 12px}
+.todo-item{display:flex;align-items:center;gap:8px;padding:8px;border-radius:6px;margin-bottom:4px;transition:background .1s}
+.todo-item:hover{background:var(--surface2)}
+.todo-item.done .todo-text{text-decoration:line-through;color:var(--text-muted)}
+.todo-check{width:18px;height:18px;border:2px solid var(--border);border-radius:4px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;background:transparent}
+.todo-check.checked{background:var(--copper);border-color:var(--copper)}
+.todo-check.checked::after{content:'✓';color:#fff;font-size:11px}
+.todo-text{flex:1;font-size:.875rem}
+.todo-delete{color:var(--text-muted);cursor:pointer;font-size:.75rem;opacity:0;transition:opacity .15s}
+.todo-item:hover .todo-delete{opacity:1}
+
+/* ===== CALENDAR ===== */
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.cal-header h3{font-size:1.1rem}
+.cal-nav{display:flex;gap:8px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.cal-day-name{background:var(--surface);padding:8px;text-align:center;font-size:.75rem;font-weight:600;color:var(--text-dim)}
+.cal-day{background:var(--surface);padding:8px;min-height:90px;cursor:pointer;transition:background .1s;position:relative}
+.cal-day:hover{background:var(--surface2)}
+.cal-day.other-month{opacity:.35}
+.cal-day.today{border:1px solid var(--copper)}
+.cal-day .day-num{font-size:.8rem;font-weight:600;margin-bottom:4px}
+.cal-event{background:var(--copper-dark);color:#fff;font-size:.65rem;padding:2px 5px;border-radius:3px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.cal-event:hover{background:var(--copper)}
+
+/* ===== CRM ===== */
+.crm-toolbar{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.crm-toolbar input{max-width:300px}
+.crm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.crm-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:border .15s}
+.crm-card:hover{border-color:var(--copper)}
+.crm-card .name{font-weight:700;font-size:1rem}
+.crm-card .detail{font-size:.8rem;color:var(--text-dim);margin-top:4px}
+.crm-card .detail span{color:var(--text)}
+.crm-card .status-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:600;margin-top:8px}
+.status-active{background:rgba(76,175,80,.15);color:var(--green)}
+.status-lead{background:rgba(91,155,213,.15);color:var(--blue)}
+.status-prospect{background:rgba(240,192,64,.15);color:var(--yellow)}
+.status-completed{background:rgba(184,115,51,.15);color:var(--copper-light)}
+.crm-card .notes{font-size:.78rem;color:var(--text-dim);margin-top:8px;border-top:1px solid var(--border);padding-top:8px}
+.crm-card .card-footer{display:flex;gap:6px;margin-top:12px}
+
+/* ===== PROPOSALS ===== */
+.proposals-table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.proposals-table th{text-align:left;padding:12px 16px;font-size:.78rem;color:var(--text-dim);font-weight:600;border-bottom:1px solid var(--border);background:var(--surface2)}
+.proposals-table td{padding:12px 16px;font-size:.875rem;border-bottom:1px solid var(--border)}
+.proposals-table tr:last-child td{border-bottom:none}
+.proposals-table tr:hover td{background:var(--surface2)}
+.prop-status{padding:3px 10px;border-radius:10px;font-size:.72rem;font-weight:600}
+.prop-draft{background:rgba(153,153,153,.15);color:#999}
+.prop-sent{background:rgba(91,155,213,.15);color:var(--blue)}
+.prop-viewed{background:rgba(240,192,64,.15);color:var(--yellow)}
+.prop-signed{background:rgba(76,175,80,.15);color:var(--green)}
+
+/* Responsive */
+@media(max-width:768px){
+  .header{padding:12px 16px}
+  main{padding:16px}
+  .kanban{flex-direction:column}
+  .kanban-col{min-width:100%}
+  .cal-day{min-height:60px;padding:4px}
+  .cal-event{font-size:.6rem}
+  nav button{padding:6px 12px;font-size:.8rem}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="brand">
+    <div class="brand-icon">A3</div>
+    <div>
+      <h1>ALT<span>3</span> SMART HOMES</h1>
+      <div class="brand-sub">Operations Dashboard</div>
+    </div>
+  </div>
+  <nav id="nav">
+    <button class="active" data-tab="pipeline">🏗 Pipeline</button>
+    <button data-tab="todos">✅ To-Do</button>
+    <button data-tab="calendar">📅 Calendar</button>
+    <button data-tab="crm">👥 CRM</button>
+    <button data-tab="proposals">📄 Proposals</button>
+  </nav>
+</div>
+
+<main>
+  <!-- PIPELINE -->
+  <div class="section active" id="sec-pipeline">
+    <div class="section-title">Deal Pipeline <button class="btn-primary btn-sm" onclick="openDealModal()">+ Add Deal</button></div>
+    <div class="kanban" id="kanban"></div>
+  </div>
+
+  <!-- TODOS -->
+  <div class="section" id="sec-todos">
+    <div class="section-title">Team To-Do Lists</div>
+    <div class="todo-grid" id="todo-grid"></div>
+  </div>
+
+  <!-- CALENDAR -->
+  <div class="section" id="sec-calendar">
+    <div class="cal-header">
+      <div class="cal-nav">
+        <button class="btn-secondary btn-sm" onclick="calNav(-1)">◀</button>
+        <button class="btn-secondary btn-sm" onclick="calNav(0)">Today</button>
+        <button class="btn-secondary btn-sm" onclick="calNav(1)">▶</button>
+      </div>
+      <h3 id="cal-title"></h3>
+      <button class="btn-primary btn-sm" onclick="openEventModal()">+ Add Event</button>
+    </div>
+    <div class="cal-grid" id="cal-grid"></div>
+  </div>
+
+  <!-- CRM -->
+  <div class="section" id="sec-crm">
+    <div class="section-title">Client Relationship Manager</div>
+    <div class="crm-toolbar">
+      <input type="text" id="crm-search" placeholder="Search clients..." oninput="renderCRM()">
+      <button class="btn-primary btn-sm" onclick="openClientModal()">+ Add Client</button>
+    </div>
+    <div class="crm-grid" id="crm-grid"></div>
+  </div>
+
+  <!-- PROPOSALS -->
+  <div class="section" id="sec-proposals">
+    <div class="section-title">Active Proposals <button class="btn-primary btn-sm" onclick="openProposalModal()">+ Add Proposal</button></div>
+    <div style="overflow-x:auto">
+      <table class="proposals-table" id="proposals-table">
+        <thead><tr><th>Client</th><th>Project</th><th>Amount</th><th>Status</th><th>Date Sent</th><th>Link</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<script>
+// === Storage helpers ===
+const LS = {
+  get(k, d) { try { return JSON.parse(localStorage.getItem('alt3_'+k)) || d } catch { return d } },
+  set(k, v) { localStorage.setItem('alt3_'+k, JSON.stringify(v)) }
+};
+
+// === Navigation ===
+document.querySelectorAll('nav button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('sec-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+// === Modal ===
+function openModal(html) { document.getElementById('modal-content').innerHTML = html; document.getElementById('modal-overlay').classList.add('show'); }
+function closeModal() { document.getElementById('modal-overlay').classList.remove('show'); }
+
+// ========================
+// PIPELINE
+// ========================
+const STAGES = ['Lead','Proposal Sent','Signed','In Progress','Complete'];
+function getDeals() { return LS.get('deals', [
+  {id:1,client:'Jeffery Davis',address:'1240 Paddock, Charlotte NC',type:'Smart Home',value:88049,date:'2026-02-10',stage:'Proposal Sent'},
+  {id:2,client:'Jeffery Davis',address:'1240 Paddock, Charlotte NC',type:'Lutron Lighting Control',value:116000,date:'2026-02-10',stage:'Proposal Sent'},
+  {id:3,client:'Keen Building Co',address:'18235 Peninsula Club Dr, Cornelius NC',type:'Smart Home + A/V',value:35393,date:'2026-01-02',stage:'In Progress'}
+]); }
+function saveDeals(d) { LS.set('deals', d); }
+
+function renderPipeline() {
+  const deals = getDeals();
+  const kb = document.getElementById('kanban');
+  kb.innerHTML = STAGES.map(stage => {
+    const cards = deals.filter(d => d.stage === stage);
+    return `<div class="kanban-col" ondragover="event.preventDefault()" ondrop="dropDeal(event,'${stage}')">
+      <div class="kanban-col-header">${stage} <span class="count">${cards.length}</span></div>
+      <div class="kanban-cards">${cards.map(c => `
+        <div class="kanban-card" draggable="true" ondragstart="event.dataTransfer.setData('text','${c.id}')">
+          <div class="client">${c.client}</div>
+          <div class="address">${c.address}</div>
+          <div class="type-badge">${c.type}</div>
+          <div class="meta"><span class="value">$${c.value.toLocaleString()}</span><span>${c.date}</span></div>
+          <div class="card-actions">
+            <button class="btn-secondary btn-sm" onclick="editDeal(${c.id})">Edit</button>
+            <button class="btn-danger btn-sm" onclick="deleteDeal(${c.id})">Delete</button>
+          </div>
+        </div>`).join('')}</div></div>`;
+  }).join('');
+}
+
+function dropDeal(e, stage) {
+  const id = +e.dataTransfer.getData('text');
+  const deals = getDeals();
+  const d = deals.find(x => x.id === id);
+  if (d) { d.stage = stage; saveDeals(deals); renderPipeline(); }
+}
+
+function openDealModal(deal) {
+  const d = deal || {id:0,client:'',address:'',type:'Lighting',value:'',date:new Date().toISOString().slice(0,10),stage:'Lead'};
+  const types = ['Lighting','Sound','Surveillance','Window Treatments','Landscape Lighting','Entertainment','Smart Home + Lighting','Full Smart Home'];
+  openModal(`<h3>${d.id?'Edit':'New'} Deal</h3>
+    <div class="field"><label>Client Name</label><input id="d-client" value="${d.client}"></div>
+    <div class="field"><label>Address</label><input id="d-address" value="${d.address}"></div>
+    <div class="field"><label>Project Type</label><select id="d-type">${types.map(t=>`<option${t===d.type?' selected':''}>${t}</option>`).join('')}</select></div>
+    <div class="field"><label>Value ($)</label><input type="number" id="d-value" value="${d.value}"></div>
+    <div class="field"><label>Date</label><input type="date" id="d-date" value="${d.date}"></div>
+    <div class="field"><label>Stage</label><select id="d-stage">${STAGES.map(s=>`<option${s===d.stage?' selected':''}>${s}</option>`).join('')}</select></div>
+    <div class="actions"><button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveDeal(${d.id})">Save</button></div>`);
+}
+
+function saveDeal(id) {
+  const deals = getDeals();
+  const obj = {client:document.getElementById('d-client').value,address:document.getElementById('d-address').value,type:document.getElementById('d-type').value,value:+document.getElementById('d-value').value,date:document.getElementById('d-date').value,stage:document.getElementById('d-stage').value};
+  if (id) { Object.assign(deals.find(x=>x.id===id), obj); } else { obj.id = Date.now(); deals.push(obj); }
+  saveDeals(deals); closeModal(); renderPipeline();
+}
+function editDeal(id) { openDealModal(getDeals().find(x=>x.id===id)); }
+function deleteDeal(id) { if(confirm('Delete this deal?')){saveDeals(getDeals().filter(x=>x.id!==id));renderPipeline();} }
+
+// ========================
+// TODOS
+// ========================
+const PEOPLE = ['Ryan','Ally','Jeff'];
+function getTodos() { return LS.get('todos', {Ryan:[],Ally:[],Jeff:[]}); }
+function saveTodos(t) { LS.set('todos',t); }
+
+function renderTodos() {
+  const todos = getTodos();
+  document.getElementById('todo-grid').innerHTML = PEOPLE.map(p => `
+    <div class="todo-column">
+      <div class="todo-column-header"><span class="person">${p}</span><span style="font-size:.75rem;color:var(--text-muted)">${(todos[p]||[]).filter(t=>!t.done).length} open</span></div>
+      <div class="todo-add"><input id="todo-input-${p}" placeholder="Add task..." onkeydown="if(event.key==='Enter')addTodo('${p}')"><button class="btn-primary btn-sm" onclick="addTodo('${p}')">+</button></div>
+      <div class="todo-list">${(todos[p]||[]).map((t,i) => `
+        <div class="todo-item${t.done?' done':''}">
+          <div class="todo-check${t.done?' checked':''}" onclick="toggleTodo('${p}',${i})"></div>
+          <span class="todo-text">${t.text}</span>
+          <span class="todo-delete" onclick="deleteTodo('${p}',${i})">✕</span>
+        </div>`).join('')}</div>
+    </div>`).join('');
+}
+
+function addTodo(person) {
+  const inp = document.getElementById('todo-input-'+person);
+  if (!inp.value.trim()) return;
+  const todos = getTodos();
+  if (!todos[person]) todos[person] = [];
+  todos[person].unshift({text:inp.value.trim(),done:false});
+  saveTodos(todos); inp.value=''; renderTodos();
+}
+function toggleTodo(p,i) { const t=getTodos(); t[p][i].done=!t[p][i].done; saveTodos(t); renderTodos(); }
+function deleteTodo(p,i) { const t=getTodos(); t[p].splice(i,1); saveTodos(t); renderTodos(); }
+
+// ========================
+// CALENDAR
+// ========================
+let calDate = new Date();
+function getEvents() { return LS.get('events', []); }
+function saveEvents(e) { LS.set('events', e); }
+
+function renderCalendar() {
+  const y = calDate.getFullYear(), m = calDate.getMonth();
+  document.getElementById('cal-title').textContent = calDate.toLocaleString('default',{month:'long',year:'numeric'});
+  const first = new Date(y,m,1), last = new Date(y,m+1,0);
+  const startDay = first.getDay();
+  const events = getEvents();
+  const today = new Date().toISOString().slice(0,10);
+  let html = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d=>`<div class="cal-day-name">${d}</div>`).join('');
+  const startDate = new Date(first); startDate.setDate(startDate.getDate()-startDay);
+  for (let i=0;i<42;i++) {
+    const d = new Date(startDate); d.setDate(d.getDate()+i);
+    const ds = d.toISOString().slice(0,10);
+    const isOther = d.getMonth()!==m;
+    const isToday = ds===today;
+    const dayEvents = events.filter(e=>e.date===ds);
+    html += `<div class="cal-day${isOther?' other-month':''}${isToday?' today':''}" onclick="openEventModal('${ds}')">
+      <div class="day-num">${d.getDate()}</div>
+      ${dayEvents.map(e=>`<div class="cal-event" onclick="event.stopPropagation();editEvent(${e.id})" title="${e.title}">${e.title}</div>`).join('')}
+    </div>`;
+  }
+  document.getElementById('cal-grid').innerHTML = html;
+}
+function calNav(dir) {
+  if (dir===0) calDate=new Date();
+  else calDate.setMonth(calDate.getMonth()+dir);
+  renderCalendar();
+}
+
+function openEventModal(date, evt) {
+  const e = evt || {id:0,title:'',date:date||new Date().toISOString().slice(0,10),time:'09:00',type:'Install',notes:''};
+  const types = ['Install','Consultation','Site Visit','Follow-up','Other'];
+  openModal(`<h3>${e.id?'Edit':'New'} Event</h3>
+    <div class="field"><label>Title</label><input id="e-title" value="${e.title}"></div>
+    <div class="field"><label>Date</label><input type="date" id="e-date" value="${e.date}"></div>
+    <div class="field"><label>Time</label><input type="time" id="e-time" value="${e.time}"></div>
+    <div class="field"><label>Type</label><select id="e-type">${types.map(t=>`<option${t===e.type?' selected':''}>${t}</option>`).join('')}</select></div>
+    <div class="field"><label>Notes</label><textarea id="e-notes">${e.notes}</textarea></div>
+    <div class="actions">${e.id?`<button class="btn-danger" onclick="deleteEvent(${e.id})">Delete</button>`:''}
+    <button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveEvent(${e.id})">Save</button></div>`);
+}
+function saveEvent(id) {
+  const events = getEvents();
+  const obj = {title:document.getElementById('e-title').value,date:document.getElementById('e-date').value,time:document.getElementById('e-time').value,type:document.getElementById('e-type').value,notes:document.getElementById('e-notes').value};
+  if(!obj.title) return alert('Title required');
+  if(id){Object.assign(events.find(x=>x.id===id),obj);} else {obj.id=Date.now();events.push(obj);}
+  saveEvents(events); closeModal(); renderCalendar();
+}
+function editEvent(id) { openEventModal(null, getEvents().find(x=>x.id===id)); }
+function deleteEvent(id) { if(confirm('Delete?')){saveEvents(getEvents().filter(x=>x.id!==id));closeModal();renderCalendar();} }
+
+// ========================
+// CRM
+// ========================
+function getClients() { return LS.get('clients', [
+  {id:1,name:'Jeffery Davis',email:'',phone:'',address:'1240 Paddock, Charlotte NC',notes:'Smart Home proposal ($88,049) + Lutron Lighting Control (~$116K). Builder: Keen Building Co.',status:'Active',followUp:'2026-02-20'},
+  {id:2,name:'Keen Building Co (Peninsula)',email:'',phone:'',address:'18235 Peninsula Club Dr, Cornelius NC',notes:'Active install. Builder: Keen Building. Bill (1Touch) doing A/V. Fixer of Things invoice #021626 received. Spark special systems payment made $35,393.',status:'Active',followUp:'2026-02-18'},
+  {id:3,name:'Alex Bailey',email:'',phone:'',address:'',notes:'Project complete. Paid $195,869.45 total. Bill/Allan proposals on file.',status:'Completed',followUp:''}
+]); }
+function saveClients(c) { LS.set('clients',c); }
+
+function renderCRM() {
+  const q = (document.getElementById('crm-search').value||'').toLowerCase();
+  const clients = getClients().filter(c => !q || c.name.toLowerCase().includes(q) || c.address.toLowerCase().includes(q) || (c.notes||'').toLowerCase().includes(q));
+  const statusClass = {Active:'status-active',Lead:'status-lead',Prospect:'status-prospect',Completed:'status-completed'};
+  document.getElementById('crm-grid').innerHTML = clients.map(c => `
+    <div class="crm-card">
+      <div class="name">${c.name}</div>
+      ${c.email?`<div class="detail">📧 <span>${c.email}</span></div>`:''}
+      ${c.phone?`<div class="detail">📱 <span>${c.phone}</span></div>`:''}
+      <div class="detail">📍 <span>${c.address}</span></div>
+      ${c.followUp?`<div class="detail">📅 Follow-up: <span>${c.followUp}</span></div>`:''}
+      <span class="status-badge ${statusClass[c.status]||'status-lead'}">${c.status}</span>
+      ${c.notes?`<div class="notes">${c.notes}</div>`:''}
+      <div class="card-footer">
+        <button class="btn-secondary btn-sm" onclick="editClient(${c.id})">Edit</button>
+        <button class="btn-danger btn-sm" onclick="deleteClient(${c.id})">Delete</button>
+      </div>
+    </div>`).join('') || '<p style="color:var(--text-muted)">No clients found.</p>';
+}
+
+function openClientModal(client) {
+  const c = client || {id:0,name:'',email:'',phone:'',address:'',notes:'',status:'Lead',followUp:''};
+  const statuses = ['Lead','Prospect','Active','Completed'];
+  openModal(`<h3>${c.id?'Edit':'New'} Client</h3>
+    <div class="field"><label>Name</label><input id="c-name" value="${c.name}"></div>
+    <div class="field"><label>Email</label><input id="c-email" value="${c.email}"></div>
+    <div class="field"><label>Phone</label><input id="c-phone" value="${c.phone}"></div>
+    <div class="field"><label>Address</label><input id="c-address" value="${c.address}"></div>
+    <div class="field"><label>Status</label><select id="c-status">${statuses.map(s=>`<option${s===c.status?' selected':''}>${s}</option>`).join('')}</select></div>
+    <div class="field"><label>Follow-up Date</label><input type="date" id="c-followup" value="${c.followUp}"></div>
+    <div class="field"><label>Project Notes</label><textarea id="c-notes">${c.notes}</textarea></div>
+    <div class="actions"><button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveClient(${c.id})">Save</button></div>`);
+}
+function saveClient(id) {
+  const clients = getClients();
+  const obj = {name:document.getElementById('c-name').value,email:document.getElementById('c-email').value,phone:document.getElementById('c-phone').value,address:document.getElementById('c-address').value,status:document.getElementById('c-status').value,followUp:document.getElementById('c-followup').value,notes:document.getElementById('c-notes').value};
+  if(!obj.name) return alert('Name required');
+  if(id){Object.assign(clients.find(x=>x.id===id),obj);} else {obj.id=Date.now();clients.push(obj);}
+  saveClients(clients); closeModal(); renderCRM();
+}
+function editClient(id) { openClientModal(getClients().find(x=>x.id===id)); }
+function deleteClient(id) { if(confirm('Delete?')){saveClients(getClients().filter(x=>x.id!==id));closeModal();renderCRM();} }
+
+// ========================
+// PROPOSALS
+// ========================
+function getProposals() { return LS.get('proposals', [
+  {id:1,client:'Jeffery Davis',project:'Smart Home',amount:88049,status:'Sent',dateSent:'2026-02-10',link:''},
+  {id:2,client:'Jeffery Davis',project:'Lutron Lighting Control',amount:116000,status:'Sent',dateSent:'2026-02-10',link:''}
+]); }
+function saveProposals(p) { LS.set('proposals',p); }
+
+function renderProposals() {
+  const props = getProposals();
+  const sc = {Draft:'prop-draft',Sent:'prop-sent',Viewed:'prop-viewed',Signed:'prop-signed'};
+  document.querySelector('#proposals-table tbody').innerHTML = props.map(p => `<tr>
+    <td>${p.client}</td><td>${p.project}</td><td>$${p.amount.toLocaleString()}</td>
+    <td><span class="prop-status ${sc[p.status]}">${p.status}</span></td>
+    <td>${p.dateSent}</td>
+    <td>${p.link?`<a href="${p.link}" target="_blank">View ↗</a>`:'-'}</td>
+    <td><button class="btn-secondary btn-sm" onclick="editProposal(${p.id})">Edit</button> <button class="btn-danger btn-sm" onclick="deleteProposal(${p.id})">✕</button></td>
+  </tr>`).join('');
+}
+
+function openProposalModal(prop) {
+  const p = prop || {id:0,client:'',project:'',amount:'',status:'Draft',dateSent:new Date().toISOString().slice(0,10),link:''};
+  const statuses = ['Draft','Sent','Viewed','Signed'];
+  openModal(`<h3>${p.id?'Edit':'New'} Proposal</h3>
+    <div class="field"><label>Client</label><input id="p-client" value="${p.client}"></div>
+    <div class="field"><label>Project</label><input id="p-project" value="${p.project}"></div>
+    <div class="field"><label>Amount ($)</label><input type="number" id="p-amount" value="${p.amount}"></div>
+    <div class="field"><label>Status</label><select id="p-status">${statuses.map(s=>`<option${s===p.status?' selected':''}>${s}</option>`).join('')}</select></div>
+    <div class="field"><label>Date Sent</label><input type="date" id="p-date" value="${p.dateSent}"></div>
+    <div class="field"><label>Portal Link</label><input id="p-link" value="${p.link}" placeholder="https://..."></div>
+    <div class="actions"><button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveProposal(${p.id})">Save</button></div>`);
+}
+function saveProposal(id) {
+  const proposals = getProposals();
+  const obj = {client:document.getElementById('p-client').value,project:document.getElementById('p-project').value,amount:+document.getElementById('p-amount').value,status:document.getElementById('p-status').value,dateSent:document.getElementById('p-date').value,link:document.getElementById('p-link').value};
+  if(id){Object.assign(proposals.find(x=>x.id===id),obj);} else {obj.id=Date.now();proposals.push(obj);}
+  saveProposals(proposals); closeModal(); renderProposals();
+}
+function editProposal(id) { openProposalModal(getProposals().find(x=>x.id===id)); }
+function deleteProposal(id) { if(confirm('Delete?')){saveProposals(getProposals().filter(x=>x.id!==id));renderProposals();} }
+
+// === INIT ===
+renderPipeline(); renderTodos(); renderCalendar(); renderCRM(); renderProposals();
+</script>
+</body>
+</html>
