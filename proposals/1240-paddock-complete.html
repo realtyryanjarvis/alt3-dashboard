@@ -77,6 +77,26 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
 .scope-card li { font-size: .8rem; color: var(--dim); padding: 2px 0; }
 .scope-card li::before { content: '▸'; color: var(--copper); margin-right: 8px; }
 
+/* Interactive Toggle Options */
+.option-toggle { display: block; cursor: pointer; margin-bottom: 10px; }
+.option-toggle input[type="checkbox"] { display: none; }
+.option-card { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--surface); border: 2px solid var(--border); border-radius: 10px; transition: all .3s ease; position: relative; overflow: hidden; }
+.option-card.selected { border-color: var(--copper); background: linear-gradient(135deg, var(--surface) 0%, #0d1525 100%); }
+.option-card:hover { border-color: rgba(17,54,101,.6); }
+.option-check { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: .85rem; color: transparent; transition: all .3s; flex-shrink: 0; }
+.option-card.selected .option-check { background: var(--copper); border-color: var(--copper); color: #fff; }
+.option-info { flex: 1; min-width: 0; }
+.option-name { font-size: .95rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
+.option-desc { font-size: .75rem; color: var(--dim); line-height: 1.4; }
+.option-price { text-align: right; flex-shrink: 0; }
+.option-amount { font-size: 1.1rem; font-weight: 700; color: #fff; }
+.option-detail { font-size: .7rem; color: var(--dim); }
+.option-card:not(.selected) .option-name,
+.option-card:not(.selected) .option-amount { color: var(--dim); text-decoration: line-through; opacity: .5; }
+.option-card:not(.selected) .option-desc,
+.option-card:not(.selected) .option-detail { opacity: .3; }
+@media print { .option-card:not(.selected) { display: none; } .option-check { display: none; } }
+
 /* Grand Total */
 .grand-total { background: linear-gradient(135deg, #0d1320 0%, #0d1525 100%); border: 2px solid var(--copper); border-radius: 12px; padding: 32px 40px; margin: 28px 40px; }
 .gt-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
@@ -260,16 +280,16 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
   </div>
 
   <!-- ================================================================ -->
-  <!--  SECTION A2: KETRA & RANIA FIXTURES                              -->
+  <!--  SECTION A2: KETRA & RANIA FIXTURES (INTERACTIVE OPTIONS)        -->
   <!-- ================================================================ -->
   <div class="part-header page-break">
     <div>
-      <div class="part-label">Section A2</div>
+      <div class="part-label">Section A2 — Optional</div>
       <div class="part-title">Ketra &amp; Rania Tunable Fixtures</div>
     </div>
     <div>
       <div class="part-total-label">Section Total</div>
-      <div class="part-total">$75,979.75</div>
+      <div class="part-total" id="a2-total">$75,979.75</div>
     </div>
   </div>
 
@@ -277,28 +297,63 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
   <div class="section" style="padding-bottom:0">
     <div style="background:var(--surface);border:1px solid var(--copper-dark);border-radius:8px;padding:16px 20px;font-size:.82rem;color:var(--dim);">
       <strong style="color:var(--copper-light)">Optional Enhancement:</strong> Ketra D2 tunable white fixtures deliver biologically-optimized light that shifts color temperature throughout the day — energizing in the morning, warm and relaxing in the evening. Rania D2 fixtures provide elegant dimming with designer aesthetics. Requires Section A1 control system.
+      <br><br><span style="color:var(--copper-light);">✦ Click each option below to include or exclude it from your total.</span>
     </div>
   </div>
 
-  <!-- Main Level Fixtures -->
+  <!-- Main Level Fixtures — Toggle -->
   <div class="section">
-    <div class="section-title">Main Level — Ketra &amp; Rania Fixtures</div>
-    <div class="section-desc">51 Ketra D2 tunable white downlights and 12 Rania D2 fixtures for kitchen, great room, dining, foyer, and entertaining areas. Provides circadian-optimized lighting that adapts to time of day.</div>
+    <div class="section-title">Main Level — Fixtures</div>
 
-    <div class="subtotal-line"><span>Ketra D2 Tunable White (51 fixtures)</span><span class="amount">$50,872.50</span></div>
-    <div class="subtotal-line"><span>Rania D2 Fixtures (12 fixtures)</span><span class="amount">$8,736.00</span></div>
-    <div class="fee-line"><span>Engineering, Programming &amp; Oversight</span><span>$5,960.85</span></div>
-    <div class="area-total-line"><span>Main Level Fixtures Total</span><span class="amount">$65,569.35</span></div>
+    <label class="option-toggle" data-value="50872.50" data-eng="5087.25">
+      <input type="checkbox" class="fixture-toggle" id="toggle-ketra-main" checked>
+      <div class="option-card selected" id="card-ketra-main">
+        <div class="option-check">✓</div>
+        <div class="option-info">
+          <div class="option-name">Ketra D2 Tunable White Fixtures</div>
+          <div class="option-desc">51 circadian-optimized downlights — shifts color temperature from energizing daylight to warm evening glow</div>
+        </div>
+        <div class="option-price">
+          <div class="option-amount">$50,872.50</div>
+          <div class="option-detail">51 × $997.50</div>
+        </div>
+      </div>
+    </label>
+
+    <label class="option-toggle" data-value="8736.00" data-eng="873.60">
+      <input type="checkbox" class="fixture-toggle" id="toggle-rania-main" checked>
+      <div class="option-card selected" id="card-rania-main">
+        <div class="option-check">✓</div>
+        <div class="option-info">
+          <div class="option-name">Rania D2 Fixtures</div>
+          <div class="option-desc">12 designer dimming fixtures for accent and architectural lighting</div>
+        </div>
+        <div class="option-price">
+          <div class="option-amount">$8,736.00</div>
+          <div class="option-detail">12 × $728.00</div>
+        </div>
+      </div>
+    </label>
   </div>
 
-  <!-- Upper Level Fixtures -->
+  <!-- Upper Level Fixtures — Toggle -->
   <div class="section">
-    <div class="section-title">Upper Level — Rania Fixtures</div>
-    <div class="section-desc">13 Rania D2 fixtures for bedrooms, bathrooms, and bonus areas.</div>
+    <div class="section-title">Upper Level — Fixtures</div>
 
-    <div class="subtotal-line"><span>Rania D2 Fixtures (13 fixtures)</span><span class="amount">$9,464.00</span></div>
-    <div class="fee-line"><span>Engineering, Programming &amp; Oversight</span><span>$946.40</span></div>
-    <div class="area-total-line"><span>Upper Level Fixtures Total</span><span class="amount">$10,410.40</span></div>
+    <label class="option-toggle" data-value="9464.00" data-eng="946.40">
+      <input type="checkbox" class="fixture-toggle" id="toggle-rania-upper" checked>
+      <div class="option-card selected" id="card-rania-upper">
+        <div class="option-check">✓</div>
+        <div class="option-info">
+          <div class="option-name">Rania D2 Fixtures</div>
+          <div class="option-desc">13 fixtures for bedrooms, bathrooms, hallways, and bonus areas</div>
+        </div>
+        <div class="option-price">
+          <div class="option-amount">$9,464.00</div>
+          <div class="option-detail">13 × $728.00</div>
+        </div>
+      </div>
+    </label>
   </div>
 
   <!-- ================================================================ -->
@@ -1118,11 +1173,11 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
   <div class="grand-total page-break">
     <div style="width:100%">
       <div class="gt-row"><span class="label">Section A1 — HomeWorks Control System</span><span class="amount">$40,186.30</span></div>
-      <div class="gt-row"><span class="label">Section A2 — Ketra &amp; Rania Fixtures (optional)</span><span class="amount">$75,979.75</span></div>
+      <div class="gt-row" id="gt-a2"><span class="label">Section A2 — Ketra &amp; Rania Fixtures (optional)</span><span class="amount">$75,979.75</span></div>
       <div class="gt-row"><span class="label">Section B — Smart Home, A/V &amp; Security</span><span class="amount">$108,049.15</span></div>
       <div class="gt-row"><span class="label">Section C — Lutron Motorized Shading (26 windows)</span><span class="amount">$39,000.00</span></div>
       <div class="gt-divider"></div>
-      <div class="gt-final"><span class="label">Total Project Investment</span><span class="amount">$263,215.20</span></div>
+      <div class="gt-final"><span class="label">Total Project Investment</span><span class="amount" id="gt-grand">$263,215.20</span></div>
     </div>
   </div>
 
@@ -1198,5 +1253,59 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
   </div>
 
 </div>
+
+<script>
+(function(){
+  const BASE_A1 = 40186.30;
+  const BASE_B  = 108049.15;
+  const BASE_C  = 39000.00;
+
+  function fmt(n){ return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+  function recalc(){
+    let a2 = 0;
+    document.querySelectorAll('.fixture-toggle').forEach(cb => {
+      const wrap = cb.closest('.option-toggle');
+      const card = wrap.querySelector('.option-card');
+      const mat = parseFloat(wrap.dataset.value);
+      const eng = parseFloat(wrap.dataset.eng);
+      if(cb.checked){
+        card.classList.add('selected');
+        a2 += mat + eng;
+      } else {
+        card.classList.remove('selected');
+      }
+    });
+
+    // Update A2 header total
+    document.getElementById('a2-total').textContent = fmt(a2);
+
+    // Update grand total rows
+    const gtA2 = document.getElementById('gt-a2');
+    if(gtA2){
+      gtA2.querySelector('.amount').textContent = fmt(a2);
+      gtA2.style.display = a2 === 0 ? 'none' : 'flex';
+    }
+
+    const grand = BASE_A1 + a2 + BASE_B + BASE_C;
+    document.getElementById('gt-grand').textContent = fmt(grand);
+
+    // Update payment amounts
+    const dep = grand * 0.10;
+    const mid = grand * 0.80;
+    const fin = grand * 0.10;
+    const pays = document.querySelectorAll('.payment-amount');
+    if(pays.length >= 3){
+      pays[0].textContent = fmt(dep);
+      pays[1].textContent = fmt(mid);
+      pays[2].textContent = fmt(fin);
+    }
+  }
+
+  document.querySelectorAll('.fixture-toggle').forEach(cb => {
+    cb.addEventListener('change', recalc);
+  });
+})();
+</script>
 </body>
 </html>
