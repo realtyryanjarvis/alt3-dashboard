@@ -1,91 +1,108 @@
-<!-- Peninsula Project — Alex Bailey Reconciliation -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alt3 Smart Homes — Peninsula Project Reconciliation</title>
+<title>Alt3 Smart Homes — Project Reconciliation — 18235 Peninsula Club Dr</title>
 <style>
 @import url('https://fonts.cdnfonts.com/css/neue-montreal');
 @page { size: letter; margin: 0.4in 0.5in; }
-@media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .page-break { page-break-before: always; } .no-print { display: none; } }
+@media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .no-print { display: none; } details { open; } details[open] summary { display: none; } .collapsible-content { display: block !important; } }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --copper: #113665; --copper-light: #BEB1A2; --copper-dark: #113665; --dark: #ffffff; --surface: #f7f5f3; --border: #e8e3de; --text: #2a2a2a; --dim: #777; }
+:root { --navy: #113665; --taupe: #BEB1A2; --cream: #E1D8CE; --surface: #f7f5f3; --border: #e8e3de; --text: #2a2a2a; --dim: #777; --green: #2e7d32; --red: #c62828; }
 body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var(--text); line-height: 1.45; font-size: 13px; }
-.proposal { max-width: 850px; margin: 0 auto; background: var(--dark); box-shadow: 0 4px 40px rgba(0,0,0,.08); }
+.proposal { max-width: 900px; margin: 0 auto; background: #fff; box-shadow: 0 4px 40px rgba(0,0,0,.08); }
 
 /* Cover */
 .cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px 40px; background: linear-gradient(160deg, #ffffff 0%, #f7f5f3 50%, #ffffff 100%); position: relative; }
-.cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--copper), transparent); }
-.cover-logo { font-size: 3.5rem; font-weight: 900; letter-spacing: 2px; color: var(--copper); margin-bottom: 8px; }
-.cover-logo span { color: var(--copper-light); }
+.cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--navy), transparent); }
+.cover-logo { font-size: 3.5rem; font-weight: 900; letter-spacing: 2px; color: var(--navy); margin-bottom: 8px; }
+.cover-logo span { color: var(--taupe); }
 .cover-tagline { font-size: 1rem; color: var(--dim); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 60px; }
-.cover-title { font-size: 2rem; font-weight: 300; color: var(--text); margin-bottom: 12px; }
-.cover-subtitle { font-size: 1.1rem; color: var(--copper-light); margin-bottom: 60px; }
+.cover-title { font-size: 1.8rem; font-weight: 300; color: var(--text); margin-bottom: 8px; }
+.cover-subtitle { font-size: 1.1rem; color: var(--taupe); margin-bottom: 60px; }
 .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; max-width: 500px; }
 .cover-meta dt { font-size: .7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dim); margin-bottom: 4px; }
 .cover-meta dd { font-size: .95rem; color: var(--text); margin-bottom: 16px; }
 
+/* TOC */
+.toc { padding: 28px 40px; border-bottom: 1px solid var(--border); }
+.toc h3 { font-size: 1rem; color: var(--navy); margin-bottom: 12px; }
+.toc a { display: flex; justify-content: space-between; padding: 8px 12px; text-decoration: none; color: var(--text); border-radius: 6px; font-size: .85rem; transition: background .2s; }
+.toc a:hover { background: var(--surface); }
+.toc a .toc-amount { color: var(--navy); font-weight: 600; font-variant-numeric: tabular-nums; }
+
 /* Sections */
 .section { padding: 28px 40px; }
 .section + .section { border-top: 1px solid var(--border); }
-.section-title { font-size: 1.15rem; font-weight: 600; color: var(--copper-light); margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
-.section-title::before { content: ''; width: 3px; height: 20px; background: var(--copper); border-radius: 2px; }
-.section-desc { color: var(--dim); font-size: .82rem; margin-bottom: 18px; max-width: 650px; }
 
 /* Part Header */
-.part-header { background: linear-gradient(135deg, var(--surface) 0%, #eee9e4 100%); border: 1px solid var(--border); border-radius: 10px; padding: 24px 36px; margin: 28px 40px 0; display: flex; justify-content: space-between; align-items: center; }
-.part-header .part-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--copper); margin-bottom: 4px; }
+.part-header { background: linear-gradient(135deg, var(--surface) 0%, #eee9e4 100%); border: 1px solid var(--border); border-radius: 10px; padding: 24px 36px; margin: 28px 40px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+.part-header:hover { border-color: var(--taupe); }
+.part-header .part-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--navy); margin-bottom: 4px; }
 .part-header .part-title { font-size: 1.3rem; font-weight: 700; color: var(--text); }
 .part-header .part-total-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); text-align: right; }
-.part-header .part-total { font-size: 1.5rem; font-weight: 700; color: var(--copper); text-align: right; }
+.part-header .part-total { font-size: 1.5rem; font-weight: 700; color: var(--navy); text-align: right; }
+.part-header .chevron { font-size: 1.2rem; color: var(--taupe); transition: transform .3s; margin-left: 12px; }
+details[open] .part-header .chevron { transform: rotate(180deg); }
 
-/* Fee/Subtotal rows */
+details summary { list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+
+/* Product table */
+.product-grid { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.product-card { display: grid; grid-template-columns: 1fr auto auto auto; align-items: center; gap: 12px; padding: 8px 12px; background: #fff; border: 1px solid var(--border); border-radius: 6px; }
+.product-card:hover { border-color: var(--taupe); }
+.product-info { min-width: 0; }
+.product-name { font-size: .82rem; font-weight: 600; color: var(--text); }
+.product-part { font-size: .7rem; color: var(--dim); }
+.product-qty, .product-unit, .product-ext { text-align: right; font-size: .82rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.product-qty { color: var(--dim); min-width: 40px; }
+.product-unit { color: var(--dim); min-width: 80px; }
+.product-ext { color: var(--navy); font-weight: 500; min-width: 90px; }
+.product-header { display: grid; grid-template-columns: 1fr auto auto auto; gap: 12px; padding: 4px 12px; font-size: .65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); font-weight: 600; }
+.product-header > :nth-child(2), .product-header > :nth-child(3), .product-header > :nth-child(4) { text-align: right; }
+
+/* Room header */
+.room-header { font-size: .9rem; font-weight: 600; color: var(--navy); margin: 18px 0 8px; padding: 8px 12px; border-left: 3px solid var(--navy); background: rgba(17,54,101,.04); border-radius: 0 6px 6px 0; display: flex; justify-content: space-between; align-items: baseline; }
+.room-header .room-total { font-size: .82rem; color: var(--dim); font-weight: 400; }
+
+/* Fee/subtotal */
 .fee-line { display: flex; justify-content: space-between; padding: 4px 12px; font-size: .8rem; color: var(--dim); }
 .subtotal-line { display: flex; justify-content: space-between; padding: 8px 12px; font-size: .85rem; font-weight: 600; border-top: 2px solid var(--border); margin-top: 6px; }
-.subtotal-line .amount { color: var(--copper-light); }
-.area-total-line { display: flex; justify-content: space-between; padding: 10px 12px; font-size: .95rem; font-weight: 700; border-top: 2px solid var(--copper); margin-top: 4px; }
-.area-total-line .amount { color: var(--copper); }
+.subtotal-line .amount { color: var(--taupe); }
+.area-total-line { display: flex; justify-content: space-between; padding: 10px 12px; font-size: .95rem; font-weight: 700; border-top: 2px solid var(--navy); margin-top: 4px; }
+.area-total-line .amount { color: var(--navy); }
 
-/* Scope */
-.scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 20px; }
-.scope-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
-.scope-card h4 { font-size: .68rem; text-transform: uppercase; letter-spacing: 1px; color: var(--copper); margin-bottom: 8px; font-weight: 700; }
-.scope-card ul { list-style: none; }
-.scope-card li { font-size: .8rem; color: var(--dim); padding: 2px 0; }
-.scope-card li::before { content: '▸'; color: var(--copper); margin-right: 8px; }
+/* Note box */
+.note-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 20px; font-size: .82rem; color: var(--dim); margin: 12px 0; }
+.note-box strong { color: var(--taupe); }
 
-/* Grand Total */
-.grand-total { background: linear-gradient(135deg, #f7f5f3 0%, #eee9e4 100%); border: 2px solid var(--copper); border-radius: 12px; padding: 32px 40px; margin: 28px 40px; }
+/* Covered banner */
+.covered-banner { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border: 2px solid var(--green); border-radius: 10px; padding: 20px; text-align: center; margin: 16px 0; }
+.covered-banner .big { font-size: 1.4rem; font-weight: 800; color: var(--green); }
+.covered-banner .sub { font-size: .85rem; color: #555; margin-top: 4px; }
+
+/* Grand total */
+.grand-total { background: linear-gradient(135deg, #f7f5f3 0%, #eee9e4 100%); border: 2px solid var(--navy); border-radius: 12px; padding: 32px 40px; margin: 28px 40px; }
 .gt-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
 .gt-row .label { font-size: .9rem; color: var(--dim); }
 .gt-row .amount { font-size: 1rem; color: var(--text); font-variant-numeric: tabular-nums; }
 .gt-divider { border-top: 1px solid var(--border); margin: 12px 0; }
 .gt-final { display: flex; justify-content: space-between; align-items: baseline; }
-.gt-final .label { font-size: 1.1rem; font-weight: 600; color: var(--copper); }
-.gt-final .amount { font-size: 2.2rem; font-weight: 700; color: var(--copper); }
+.gt-final .label { font-size: 1.1rem; font-weight: 600; color: var(--navy); }
+.gt-final .amount { font-size: 2.2rem; font-weight: 700; color: var(--navy); }
 
-/* Summary Table */
+/* Value added */
+.value-card { background: linear-gradient(135deg, #e3f2fd, #bbdefb); border: 2px solid #1565c0; border-radius: 10px; padding: 20px; margin: 16px 0; }
+.value-card .big { font-size: 1.6rem; font-weight: 800; color: #1565c0; text-align: center; }
+
+/* Summary table */
 .summary-table { width: 100%; border-collapse: collapse; }
-.summary-table td { padding: 6px 12px; font-size: .82rem; border-bottom: 1px solid var(--border); }
-.summary-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
-.summary-table .total-row td { border-top: 2px solid var(--copper); font-weight: 700; font-size: .95rem; padding-top: 10px; }
-.summary-table .total-row td:last-child { color: var(--copper); }
-
-/* Note boxes */
-.note-box { background: var(--surface); border: 1px solid var(--copper-dark); border-radius: 8px; padding: 16px 20px; font-size: .82rem; color: var(--dim); margin-bottom: 18px; }
-.note-box strong { color: var(--copper-light); }
-
-/* Value-add */
-.value-card { background: linear-gradient(135deg, rgba(17,54,101,.03) 0%, rgba(190,177,162,.08) 100%); border: 1px solid var(--copper-light); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
-.value-card .value-label { font-size: .7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--copper); margin-bottom: 10px; font-weight: 700; }
-.value-item { display: flex; justify-content: space-between; padding: 4px 0; font-size: .82rem; color: var(--dim); }
-.value-item .val-amount { color: var(--copper); font-weight: 600; font-variant-numeric: tabular-nums; }
-
-/* Additional work */
-.pending-card { background: #fff; border: 1px dashed var(--copper-light); border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
-.pending-card h4 { font-size: .75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--copper); margin-bottom: 10px; }
-.pending-card li { font-size: .82rem; color: var(--dim); padding: 3px 0; }
+.summary-table td { padding: 8px 12px; font-size: .85rem; border-bottom: 1px solid var(--border); }
+.summary-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+.summary-table .total-row td { border-top: 2px solid var(--navy); font-weight: 700; font-size: 1rem; padding-top: 12px; }
+.summary-table .total-row td:last-child { color: var(--navy); }
 
 /* Signature */
 .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
@@ -95,25 +112,27 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
 
 /* Footer */
 .footer { text-align: center; padding: 28px; border-top: 1px solid var(--border); }
-.footer-logo { font-size: 1.1rem; font-weight: 800; color: var(--copper); letter-spacing: 1px; }
+.footer-logo { font-size: 1.1rem; font-weight: 800; color: var(--navy); letter-spacing: 1px; }
 .footer p { font-size: .72rem; color: var(--dim); margin-top: 4px; }
 
-/* Change order sub-items */
-.co-item { background: rgba(17,54,101,.02); border-left: 3px solid var(--copper-light); border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 8px 0; }
-.co-item .co-title { font-size: .85rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-.co-item .co-desc { font-size: .78rem; color: var(--dim); }
-.co-item .co-amount { font-size: .85rem; font-weight: 600; color: var(--copper); margin-top: 4px; }
+.print-btn { position: fixed; bottom: 24px; right: 24px; background: var(--navy); color: #fff; border: none; padding: 14px 28px; border-radius: 8px; font-size: .9rem; font-weight: 600; cursor: pointer; z-index: 100; box-shadow: 0 4px 20px rgba(17,54,101,.4); }
+.print-btn:hover { background: var(--taupe); }
 
-.print-btn { position: fixed; bottom: 24px; right: 24px; background: var(--copper); color: #fff; border: none; padding: 14px 28px; border-radius: 8px; font-size: .9rem; font-weight: 600; cursor: pointer; z-index: 100; box-shadow: 0 4px 20px rgba(17,54,101,.4); }
-.print-btn:hover { background: var(--copper-light); }
+/* Pending items */
+.pending-item { padding: 6px 12px; font-size: .82rem; color: var(--dim); border-left: 3px solid var(--taupe); margin: 6px 0; background: rgba(190,177,162,.06); border-radius: 0 6px 6px 0; }
+.pending-item strong { color: var(--text); }
+
+/* Discount line */
+.discount-line { display: flex; justify-content: space-between; padding: 4px 12px; font-size: .8rem; color: var(--green); }
 
 @media (max-width: 600px) {
   .section { padding: 20px 16px; }
   .cover-meta { grid-template-columns: 1fr; gap: 0; }
-  .scope-grid { grid-template-columns: 1fr; }
   .sig-grid { grid-template-columns: 1fr; }
   .grand-total { margin: 20px 16px; padding: 24px 20px; }
   .part-header { margin: 20px 16px 0; flex-direction: column; gap: 8px; text-align: center; }
+  .product-card { grid-template-columns: 1fr auto; }
+  .product-qty, .product-unit { display: none; }
 }
 </style>
 </head>
@@ -123,356 +142,1020 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
 
 <div class="proposal">
 
-  <!-- ========== COVER ========== -->
+  <!-- COVER -->
   <div class="cover">
     <div class="cover-logo">ALT<span>3</span></div>
     <div class="cover-tagline">Smart Homes</div>
-    <div class="cover-title">Project Reconciliation &amp; Record</div>
-    <div class="cover-subtitle">18235 Peninsula Club Dr, Cornelius NC</div>
+    <div class="cover-title">Project Reconciliation</div>
+    <div class="cover-subtitle">18235 Peninsula Club Dr</div>
     <dl class="cover-meta">
       <div>
-        <dt>Prepared For</dt>
-        <dd>Alex Bailey</dd>
+        <dt>Client</dt>
+        <dd>Alex Bailey<br>Keen Building Company</dd>
         <dt>Project Address</dt>
-        <dd>18235 Peninsula Club Dr<br>Cornelius, NC</dd>
-        <dt>Builder</dt>
-        <dd>Keen Building Co</dd>
+        <dd>18235 Peninsula Club Dr</dd>
       </div>
       <div>
         <dt>Prepared By</dt>
-        <dd>Ryan Palmer<br>CEO, Alt3 Smart Homes</dd>
-        <dt>Date</dt>
+        <dd>Alt3 Smart Homes</dd>
+        <dt>Last Updated</dt>
         <dd>February 13, 2026</dd>
-        <dt>Proposal #</dt>
-        <dd>ALT3-PEN-2026</dd>
       </div>
     </dl>
   </div>
 
-  <!-- ========== OVERVIEW ========== -->
-  <div class="section">
-    <div class="section-title">Project Overview</div>
-    <div class="section-desc">
-      A complete record of all smart home work performed at 18235 Peninsula Club Dr — encompassing pre-wire infrastructure, Josh.AI &amp; Control4 automation, motorized shading, Lutron/Ketra lighting with three change orders, and LED linear lighting installation. This document serves as a reconciliation of all project costs, payments, and Alt3-absorbed value.
-    </div>
-    <div class="scope-grid">
-      <div class="scope-card">
-        <h4>Pre-Wire &amp; Infrastructure</h4>
-        <ul>
-          <li>Structured wiring &amp; cable runs</li>
-          <li>Low-voltage pre-wire throughout</li>
-          <li>Network infrastructure backbone</li>
-          <li>Updated pricing as of 2/13/2026</li>
-        </ul>
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <a href="#sec1"><span>Section 1 — Pre-Wire (Proposal #119)</span><span class="toc-amount">$6,359.50</span></a>
+    <a href="#sec2"><span>Section 2 — Josh.AI + Control4 (Proposal #108)</span><span class="toc-amount">$47,434.98</span></a>
+    <a href="#sec3"><span>Section 3 — Additional Josh.AI Items (Covered by Alt3)</span><span class="toc-amount">$0.00</span></a>
+    <a href="#sec4"><span>Section 4 — Shades (Lutron Quote #3887368.1)</span><span class="toc-amount">$19,958.48</span></a>
+    <a href="#sec5"><span>Section 5 — Lighting (Proposal #106 + Change Orders #1 & #2)</span><span class="toc-amount">$132,174.43</span></a>
+    <a href="#sec6"><span>Section 6 — Change Order #3 (Proposal #114)</span><span class="toc-amount">$14,318.50</span></a>
+    <a href="#value"><span>Alt3 Value Added</span><span class="toc-amount">~$33,806.39</span></a>
+    <a href="#summary"><span>Financial Summary</span><span class="toc-amount">$220,245.89</span></a>
+    <a href="#pending"><span>Additional Work — Pending</span><span class="toc-amount">TBD</span></a>
+    <a href="#accept"><span>Acceptance & Signature</span><span class="toc-amount"></span></a>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1: PRE-WIRE -->
+  <!-- ============================================================ -->
+  <details id="sec1" open>
+    <summary>
+      <div class="part-header">
+        <div>
+          <div class="part-label">Section 1 — Proposal #119</div>
+          <div class="part-title">Pre-Wire</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <div>
+            <div class="part-total-label">Section Total</div>
+            <div class="part-total">$6,359.50</div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
       </div>
-      <div class="scope-card">
-        <h4>Josh.AI &amp; Control4</h4>
-        <ul>
-          <li>Full Josh.AI voice control system</li>
-          <li>Control4 home automation</li>
-          <li>Josh microphones &amp; touchscreens</li>
-          <li>Origin speakers &amp; superior network</li>
-        </ul>
+    </summary>
+    <div class="section">
+      <div class="note-box">
+        <strong>Updated 2/13/2026</strong> — Sonance speakers removed per scope change. Savings of $5,426.62 from original Proposal #104 ($10,989.39 → $6,359.50). All tax removed — project fee only.
       </div>
-      <div class="scope-card">
-        <h4>Motorized Shading</h4>
-        <ul>
-          <li>Full motorized shade package</li>
-          <li>Professional measurement &amp; fabrication</li>
-          <li>Installation labor billed at $85/hr pass-through</li>
-        </ul>
+
+      <div class="product-header"><span>Room / Description</span><span>Qty</span><span>Unit</span><span>Total</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Great Room / Pool Room</div><div class="product-part">CAT6 ×2, trim ×2, audio rough, VersaBox</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$692.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Kitchen</div><div class="product-part">Audio rough-in</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$150.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Dining</div><div class="product-part">Audio rough-in</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$150.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Master Bedroom</div><div class="product-part">CAT6, trim, audio rough</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$271.50</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Master Bathroom</div><div class="product-part">Audio rough-in</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$150.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Study</div><div class="product-part">CAT6, trim</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$121.50</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Guest Suite</div><div class="product-part">CAT6, trim</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$121.50</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Covered Living</div><div class="product-part">CAT6 ×2, trim ×2, audio rough</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$393.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Recreation</div><div class="product-part">CAT6 ×2, trim ×2, conduit, 5.1.2 surround pre-wire</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$773.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Suite 1–4</div><div class="product-part">CAT6 ×4, trim ×4</div></div>
+          <div class="product-qty">4</div><div class="product-unit">$121.50</div><div class="product-ext">$486.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Gym</div><div class="product-part">CAT6 ×2, trim ×2</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$243.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Golf Room</div><div class="product-part">CAT6 ×2, trim ×2</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$243.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Security</div><div class="product-part">CAT6 ×2, surveillance trim ×2</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$214.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Surveillance</div><div class="product-part">CAT6 ×6, trim ×6</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$642.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Whole Home Wi-Fi</div><div class="product-part">CAT6 ×7, trim ×7</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$749.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Pool Audio</div><div class="product-part">Conduit, 14/4 direct burial speaker cable</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$380.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Dock</div><div class="product-part">Direct burial CAT6 ×2</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$250.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Equipment Closet</div><div class="product-part">RG6 coax ×2, conduit, CAT6 ×2</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$330.00</div>
+        </div>
       </div>
-      <div class="scope-card">
-        <h4>Lighting &amp; Change Orders</h4>
-        <ul>
-          <li>Lutron/Ketra lighting control system</li>
-          <li>Change Order #1: Pool room Ketra bulbs</li>
-          <li>Change Order #2: Golf room S30s, foyer D2s</li>
-          <li>Change Order #3: Dimmers, LED linear lighting</li>
-        </ul>
+      <div class="area-total-line"><span>Pre-Wire Total (18 rooms)</span><span class="amount">$6,359.50</span></div>
+    </div>
+  </details>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 2: JOSH.AI + CONTROL4 -->
+  <!-- ============================================================ -->
+  <details id="sec2">
+    <summary>
+      <div class="part-header">
+        <div>
+          <div class="part-label">Section 2 — Proposal #108</div>
+          <div class="part-title">Josh.AI + Control4</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <div>
+            <div class="part-total-label">Project Fee</div>
+            <div class="part-total">$47,434.98</div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+    </summary>
+    <div class="section">
+      <div class="note-box">
+        <strong>1TouchSolutions Invoice — Signed Sep 16, 2025 by Jeffrey Kline</strong><br>
+        Full retail $71,343.55 → Preferred Client Discount −$19,241.24 → $52,102.31 → <strong>Project Fee (no tax): $47,434.98</strong><br>
+        Alt3 covered Josh microphones, network upgrade, and Origin speaker upgrade.
+      </div>
+
+      <!-- Equipment Room -->
+      <div class="room-header"><span>Equipment Room</span><span class="room-total">$23,739.74</span></div>
+      <div class="product-header"><span>Product</span><span>Qty</span><span>Unit</span><span>Total</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Strong 32U Rack</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$2,749.99</div><div class="product-ext">$2,749.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">WattBox 8-Outlet IP Power Conditioner</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$968.99</div><div class="product-ext">$968.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">WattBox 12-Outlet Power Conditioner</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$951.99</div><div class="product-ext">$951.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Control4 Core 5</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$3,599.99</div><div class="product-ext">$3,599.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">AVPro Edge Audio Hub</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$1,959.00</div><div class="product-ext">$1,959.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Triad 8-Zone Amp (125W)</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$2,379.99</div><div class="product-ext">$2,379.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Wirepath Enclosure Door 40"</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$279.99</div><div class="product-ext">$279.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Araknis 520 Router</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$863.99</div><div class="product-ext">$863.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Araknis 24-Port PoE Switch</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$1,078.99</div><div class="product-ext">$1,078.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Araknis 820 WAP</div></div>
+          <div class="product-qty">×3</div><div class="product-unit">$777.99</div><div class="product-ext">$2,333.97</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Araknis 520 Outdoor AP</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$646.99</div><div class="product-ext">$646.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Strong Lacing Bar</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$40.99</div><div class="product-ext">$40.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Binary Audio Cables</div></div>
+          <div class="product-qty">×12</div><div class="product-unit">$44.99</div><div class="product-ext">$539.88</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Triad 8-Zone Amp (100W)</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$2,379.99</div><div class="product-ext">$2,379.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$2,965.00</div>
+        </div>
+      </div>
+
+      <!-- Security -->
+      <div class="room-header"><span>Security</span><span class="room-total">$6,047.98</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Luma 8CH NVR 2TB</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$1,278.99</div><div class="product-ext">$1,278.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Control4 Chime Doorbell</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$538.99</div><div class="product-ext">$538.99</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Luma 820 8MP Turret Camera</div></div>
+          <div class="product-qty">×5</div><div class="product-unit">$615.00</div><div class="product-ext">$3,075.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$1,155.00</div>
+        </div>
+      </div>
+
+      <!-- Golf Room -->
+      <div class="room-header"><span>Golf Room</span><span class="room-total">$1,705.49</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Origin D85 Speaker</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Binary HDMI Cable</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+      </div>
+      <div class="subtotal-line"><span>Golf Room Total</span><span class="amount">$1,705.49</span></div>
+
+      <!-- Gym -->
+      <div class="room-header"><span>Gym</span><span class="room-total">$5,696.98</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">AVPro HDBT Transmitter/Receiver</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Origin D85 Speaker</div></div>
+          <div class="product-qty">×4</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Binary HDMI Cable</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Control4 Halo Remote</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+      </div>
+      <div class="subtotal-line"><span>Gym Total</span><span class="amount">$5,696.98</span></div>
+
+      <!-- Master Bath -->
+      <div class="room-header"><span>Master Bath</span><span class="room-total">$886.00</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Origin D53 Speaker</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+      </div>
+      <div class="subtotal-line"><span>Master Bath Total</span><span class="amount">$886.00</span></div>
+
+      <!-- Master Bedroom -->
+      <div class="room-header"><span>Master Bedroom</span><span class="room-total">$3,761.47</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">AVPro HDBT Transmitter/Receiver</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Strong VersaBox</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Origin D85 Speaker</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Control4 Halo Touch</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Binary HDMI Cable</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+      </div>
+      <div class="subtotal-line"><span>Master Bedroom Total</span><span class="amount">$3,761.47</span></div>
+
+      <!-- Living Room -->
+      <div class="room-header"><span>Living Room</span><span class="room-total">$3,729.48</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">AVPro HDBT Transmitter/Receiver</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Strong VersaBox</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Origin D85 Speaker</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Control4 Halo Touch</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Binary HDMI Cable</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+      </div>
+      <div class="subtotal-line"><span>Living Room Total</span><span class="amount">$3,729.48</span></div>
+
+      <!-- Kitchen -->
+      <div class="room-header"><span>Kitchen</span><span class="room-total">$1,596.00</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Origin D85 Speaker</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+      </div>
+      <div class="subtotal-line"><span>Kitchen Total</span><span class="amount">$1,596.00</span></div>
+
+      <!-- Covered Patio -->
+      <div class="room-header"><span>Covered Patio</span><span class="room-total">$3,856.98</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">AVPro HDBT Transmitter/Receiver</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Control4 Halo Touch</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Origin D85EX Outdoor Speaker</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Binary HDMI Cable</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+      </div>
+      <div class="subtotal-line"><span>Covered Patio Total</span><span class="amount">$3,856.98</span></div>
+
+      <!-- Patio/Pool -->
+      <div class="room-header"><span>Patio / Pool</span><span class="room-total">$4,856.50</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Origin D85EX Outdoor Speaker</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Origin AS41 Landscape System</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+      </div>
+      <div class="subtotal-line"><span>Patio / Pool Total</span><span class="amount">$4,856.50</span></div>
+
+      <!-- Pool Room -->
+      <div class="room-header"><span>Pool Room</span><span class="room-total">$5,159.98</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">AVPro HDBT Transmitter/Receiver</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Origin D85 Speaker</div></div>
+          <div class="product-qty">×4</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Control4 Halo Touch</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Binary HDMI Cable</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">—</div>
+        </div>
+      </div>
+      <div class="subtotal-line"><span>Pool Room Total</span><span class="amount">$5,159.98</span></div>
+
+      <!-- Pricing breakdown -->
+      <div style="margin-top:24px; padding:16px; background:var(--surface); border-radius:8px;">
+        <div class="fee-line"><span>Full Retail (Parts + Labor + Tax)</span><span>$71,343.55</span></div>
+        <div class="discount-line"><span>Preferred Client Discount</span><span>−$19,241.24</span></div>
+        <div class="fee-line"><span>Discounted Total</span><span>$52,102.31</span></div>
+        <div class="area-total-line"><span>Project Fee (no tax)</span><span class="amount">$47,434.98</span></div>
       </div>
     </div>
-  </div>
+  </details>
 
-  <!-- ================================================================ -->
-  <!--  SECTION 1: PRE-WIRE                                             -->
-  <!-- ================================================================ -->
-  <div class="part-header">
-    <div>
-      <div class="part-label">Section 1</div>
-      <div class="part-title">Pre-Wire &amp; Infrastructure</div>
-    </div>
-    <div>
-      <div class="part-total-label">Section Total</div>
-      <div class="part-total">$6,359.50</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-desc">Structured pre-wire and infrastructure for the entire home. Updated pricing as of 2/13/2026.</div>
-
-    <div class="note-box">
-      <strong>Pricing Update:</strong> Originally $11,786.12 (incl. $796.73 tax). Sonance speakers and associated taxes removed for a credit of −$5,426.62. Tax removed from this line item. Net project fee: $6,359.50.
-    </div>
-
-    <div class="area-total-line"><span>Pre-Wire Total</span><span class="amount">$6,359.50</span></div>
-  </div>
-
-  <!-- ================================================================ -->
-  <!--  SECTION 2: JOSH.AI + CONTROL4                                   -->
-  <!-- ================================================================ -->
-  <div class="part-header page-break">
-    <div>
-      <div class="part-label">Section 2</div>
-      <div class="part-title">Josh.AI + Control4 Smart Home System</div>
-    </div>
-    <div>
-      <div class="part-total-label">Section Total</div>
-      <div class="part-total">$47,434.98</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-desc">Full Josh.AI smart home control system integrated with Control4 automation — including voice control, system processing, and whole-home integration.</div>
-
-    <div class="note-box">
-      <strong>Tax Note:</strong> Gross invoice $52,102.31 (includes $4,667.33 tax). Project fee to client: $47,434.98.<br><br>
-      <strong>Alt3 Absorbed:</strong> Josh microphones, increased Josh system price, upgrade to superior network compatible with both Control4 and Josh AI, upgrade to Origin speakers — totaling <strong>$19,241.24</strong> covered by Alt3.
-    </div>
-
-    <div class="area-total-line"><span>Josh.AI + Control4 Total</span><span class="amount">$47,434.98</span></div>
-  </div>
-
-  <!-- ================================================================ -->
-  <!--  SECTION 3: ADDITIONAL JOSH.AI ITEMS                             -->
-  <!-- ================================================================ -->
-  <div class="part-header">
-    <div>
-      <div class="part-label">Section 3</div>
-      <div class="part-title">Additional Josh.AI Items</div>
-    </div>
-    <div>
-      <div class="part-total-label">Client Cost</div>
-      <div class="part-total" style="color: var(--copper-light);">$0.00</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-desc">Touchscreens, MRX 740 8K receiver, subwoofer, and additional Josh.AI components — 100% covered by Alt3 Smart Homes.</div>
-
-    <div class="note-box">
-      <strong>Full Invoice Value:</strong> $11,749.95 — <strong>Covered by Alt3</strong><br>
-      Includes touchscreens, MRX 740 8K receiver, subwoofer, and related accessories. Provided at no additional cost to demonstrate Alt3's commitment to delivering a best-in-class system.
-    </div>
-
-    <div class="subtotal-line"><span>Invoice Value</span><span class="amount">$11,749.95</span></div>
-    <div class="fee-line"><span>Alt3 Coverage</span><span>−$11,749.95</span></div>
-    <div class="area-total-line"><span>Client Cost</span><span class="amount">$0.00</span></div>
-  </div>
-
-  <!-- ================================================================ -->
-  <!--  SECTION 4: SHADES                                               -->
-  <!-- ================================================================ -->
-  <div class="part-header page-break">
-    <div>
-      <div class="part-label">Section 4</div>
-      <div class="part-title">Motorized Shading</div>
-    </div>
-    <div>
-      <div class="part-total-label">Section Total</div>
-      <div class="part-total">$19,958.48</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-desc">Complete motorized shade package including fabric, hardware, and fabrication. No tax on this line item.</div>
-
-    <div class="note-box">
-      <strong>Installation Note:</strong> Installation labor still to be billed at pass-through cost of $85/hr.
-    </div>
-
-    <div class="area-total-line"><span>Shading Total</span><span class="amount">$19,958.48</span></div>
-  </div>
-
-  <!-- ================================================================ -->
-  <!--  SECTION 5: LIGHTING (incl. CO #1 & #2)                         -->
-  <!-- ================================================================ -->
-  <div class="part-header">
-    <div>
-      <div class="part-label">Section 5</div>
-      <div class="part-title">Lighting Control System</div>
-    </div>
-    <div>
-      <div class="part-total-label">Section Total</div>
-      <div class="part-total">$132,174.43</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-desc">Complete Lutron/Ketra lighting control system including processors, dimmers, switches, keypads, fixtures, and programming. No tax on this line item. Includes Change Orders #1 and #2.</div>
-
-    <div class="co-item">
-      <div class="co-title">Change Order #1</div>
-      <div class="co-desc">Additional Ketra bulbs for pool room; one bulb cancelled in gym.</div>
-      <div class="co-amount">$2,445.30</div>
-    </div>
-
-    <div class="co-item">
-      <div class="co-title">Change Order #2</div>
-      <div class="co-desc">14 additional S30s for golf room, 2 Ketra D2 wall wash fixtures for foyer, 2 Sunnata keypads.</div>
-      <div class="co-amount">$9,796.28</div>
-    </div>
-
-    <div class="note-box" style="margin-top: 14px;">
-      <strong>Alt3 Absorbed:</strong> Additional panel for added run locations in garage, plus 2 dimmer plug-in modules for master closet lighting ($514, added week of 02/09) — covered by Alt3 at no cost to client.
-    </div>
-
-    <div class="subtotal-line"><span>Base Lighting System</span><span class="amount">$119,932.85</span></div>
-    <div class="fee-line"><span>Change Order #1 (Ketra — Pool Room)</span><span>$2,445.30</span></div>
-    <div class="fee-line"><span>Change Order #2 (S30s, D2 Wall Wash, Keypads)</span><span>$9,796.28</span></div>
-    <div class="area-total-line"><span>Lighting Total (incl. CO #1 &amp; #2)</span><span class="amount">$132,174.43</span></div>
-  </div>
-
-  <!-- ================================================================ -->
-  <!--  SECTION 6: CHANGE ORDER #3                                      -->
-  <!-- ================================================================ -->
-  <div class="part-header page-break">
-    <div>
-      <div class="part-label">Section 6</div>
-      <div class="part-title">Change Order #3</div>
-    </div>
-    <div>
-      <div class="part-total-label">Section Total</div>
-      <div class="part-total">$14,318.50</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-desc">Dimmers for upper level, plug-in dimming modules for closets, additional processor needed due to total device count, and LED linear lighting installation in master bedroom and master bathroom.</div>
-
-    <div class="note-box">
-      <strong>Tax Note:</strong> Gross $15,141.60 (includes $823.10 tax). Project fee to client: $14,318.50.
-    </div>
-
-    <div style="margin-bottom: 14px;">
-      <div class="co-item">
-        <div class="co-title">Upper Level Dimmers &amp; Additional Processor</div>
-        <div class="co-desc">Dimmers for upper level, plug-in dimming modules for closets. Additional processor required due to total device count across the home.</div>
+  <!-- ============================================================ -->
+  <!-- SECTION 3: ADDITIONAL JOSH.AI ITEMS -->
+  <!-- ============================================================ -->
+  <details id="sec3">
+    <summary>
+      <div class="part-header">
+        <div>
+          <div class="part-label">Section 3 — 1TouchSolutions Add-Ons</div>
+          <div class="part-title">Additional Josh.AI Items</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <div>
+            <div class="part-total-label">Client Cost</div>
+            <div class="part-total" style="color:var(--green);">$0.00</div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
       </div>
-      <div class="co-item">
-        <div class="co-title">LED Linear Lighting Installation</div>
-        <div class="co-desc">Master bedroom side walls and master bathroom shower niche. Includes lighting, tracks, drivers, and installation.</div>
+    </summary>
+    <div class="section">
+      <div class="covered-banner">
+        <div class="big">✦ 100% COVERED BY ALT3 ✦</div>
+        <div class="sub">These items totaling $11,749.95 were absorbed by Alt3 Smart Homes — $0 cost to client</div>
+      </div>
+
+      <div class="product-header"><span>Item</span><span>Qty</span><span>Unit</span><span>Total</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Josh Touchscreen + Extra Programming</div><div class="product-part">20 hrs × $150/hr programming, $3,002.50 labor + tax</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$3,212.67</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Gym — Cinema Sub (Paradigm)</div><div class="product-part">$449.99 + $102.50 labor + tax</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$449.99</div><div class="product-ext">$591.16</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Living Room — Josh Touchscreen Ceramic White</div><div class="product-part">$1,896.90 + $152.50 labor + tax</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$1,896.90</div><div class="product-ext">$2,192.85</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Pool Room — Anthem MRX 740 8K + Josh Touchscreen</div><div class="product-part">MRX 740 $3,099.99, Josh Touchscreen $1,896.90, $380 labor + tax</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$5,753.27</div>
+        </div>
+      </div>
+      <div class="area-total-line"><span>Total (Covered by Alt3)</span><span class="amount" style="color:var(--green);">$11,749.95</span></div>
+    </div>
+  </details>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 4: SHADES -->
+  <!-- ============================================================ -->
+  <details id="sec4">
+    <summary>
+      <div class="part-header">
+        <div>
+          <div class="part-label">Section 4 — Lutron Quote #3887368.1</div>
+          <div class="part-title">Motorized Shades</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <div>
+            <div class="part-total-label">Section Total</div>
+            <div class="part-total">$19,958.48</div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+    </summary>
+    <div class="section">
+      <div class="note-box">
+        <strong>Approved Nov 10, 2025 by Alex Bailey</strong> — 17 Sivoia QS Triathlon Roller Shades, Basketweave 90 C 3% Oyster/Beige, battery-operated (3–5 yr life), with fascia.<br>
+        Installation labor billed separately at $85/hr pass-through (~17 shades × ~1 hr each).
+      </div>
+
+      <!-- Kitchen -->
+      <div class="room-header"><span>Kitchen (6 windows)</span></div>
+      <div class="product-header"><span>Window / Dimensions</span><span>Fabric</span><span></span><span>Price</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 3</div><div class="product-part">48 1/16" × 99"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,191.66</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 4</div><div class="product-part">47 9/16" × 99"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,189.74</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 5</div><div class="product-part">47 9/16" × 99"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,189.74</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 6</div><div class="product-part">48 1/8" × 99"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,191.90</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 7</div><div class="product-part">47 13/16" × 99"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,190.70</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 8</div><div class="product-part">47 7/8" × 99"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,190.94</div>
+        </div>
+      </div>
+
+      <!-- Master Bedroom -->
+      <div class="room-header"><span>Master Bedroom (5 windows)</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 1</div><div class="product-part">31 3/4" × 85"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,045.08</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 2 Right</div><div class="product-part">46 1/2" × 120"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,269.60</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 2 Middle</div><div class="product-part">47 3/8" × 120"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,272.95</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 2 Left</div><div class="product-part">45 3/4" × 120"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,266.72</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 3</div><div class="product-part">29" × 94"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,070.51</div>
+        </div>
+      </div>
+
+      <!-- Master Closet Water Facing -->
+      <div class="room-header"><span>Master Closet — Water Facing (1 window)</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 1</div><div class="product-part">35 3/8" × 39"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$983.04</div>
+        </div>
+      </div>
+
+      <!-- Master Closet Street Facing -->
+      <div class="room-header"><span>Master Closet — Street Facing (2 windows)</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 1 Left</div><div class="product-part">30 1/2" × 72"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$988.34</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 1 Right</div><div class="product-part">30 1/2" × 72"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$988.34</div>
+        </div>
+      </div>
+
+      <!-- Master Bath -->
+      <div class="room-header"><span>Master Bath (1 window)</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Window 1</div><div class="product-part">59 1/2" × 76"</div></div>
+          <div class="product-qty"></div><div class="product-unit" style="font-size:.72rem;">BW 90C 3%</div><div class="product-ext">$1,171.66</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <div class="fee-line"><span>List Price (17 shades)</span><span>$19,200.08</span></div>
+        <div class="fee-line"><span>Shipping</span><span>$758.40</span></div>
+        <div class="area-total-line"><span>Shades Total</span><span class="amount">$19,958.48</span></div>
       </div>
     </div>
+  </details>
 
-    <div class="note-box">
-      <strong>Installation Notes:</strong>
-      <ul style="margin-top: 8px; padding-left: 16px; list-style: disc;">
-        <li style="padding: 2px 0;">Cove lighting — approved/ordered but Adam installed</li>
-        <li style="padding: 2px 0;">Shower linear lighting — track installed by Alt3, tape ordered but Adam installed before Alt3 could</li>
-        <li style="padding: 2px 0;">Stair lights — tracks installed, Alt3 still has tape to install</li>
-      </ul>
+  <!-- ============================================================ -->
+  <!-- SECTION 5: LIGHTING -->
+  <!-- ============================================================ -->
+  <details id="sec5">
+    <summary>
+      <div class="part-header">
+        <div>
+          <div class="part-label">Section 5 — Proposal #106 + Change Orders #1 & #2</div>
+          <div class="part-title">Lighting</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <div>
+            <div class="part-total-label">Section Total</div>
+            <div class="part-total">$132,174.43</div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+    </summary>
+    <div class="section">
+      <div class="note-box">
+        <strong>Final Lutron Proposal #106 — Approved August 2025</strong><br>
+        Ketra tunable lighting, Lutron HomeWorks keypads, processors, and modules. Alt3 absorbed additional panel for garage runs, 2 dimmer plug-in modules for master closet ($514), rush D3 shipping ($1,661.20), and low voltage panel ($640).
+      </div>
+
+      <div class="room-header"><span>Base Lutron Components</span><span class="room-total">$121,670.50</span></div>
+      <div class="product-header"><span>Product</span><span>Qty</span><span>Unit</span><span>Total</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Ketra S30 Lamp (incl trim)</div></div>
+          <div class="product-qty">×153</div><div class="product-unit">$380.00</div><div class="product-ext">$58,140.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron Palladiom 4-Button Keypad (Single Gang)</div><div class="product-part">HQWT-U-P4W-WH</div></div>
+          <div class="product-qty">×35</div><div class="product-unit">$437.50</div><div class="product-ext">$15,312.50</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Ketra D3 Downlight (incl trim)</div></div>
+          <div class="product-qty">×12</div><div class="product-unit">$1,186.00</div><div class="product-ext">$14,232.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron LQSE-4A5-120-D LED DIN Module</div></div>
+          <div class="product-qty">×12</div><div class="product-unit">$1,149.00</div><div class="product-ext">$13,788.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron 4-Button Keypad (Double Gang)</div><div class="product-part">HQWT-B-P4W-WH-E</div></div>
+          <div class="product-qty">×16</div><div class="product-unit">$437.50</div><div class="product-ext">$7,000.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron PD8-59F-120 DIN Panel</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">$1,340.00</div><div class="product-ext">$2,680.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron HQP7-RF Gateway</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">$890.00</div><div class="product-ext">$1,780.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron HQP7-2 Processor</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$1,749.00</div><div class="product-ext">$1,749.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron LQSE-4S8-120-D Switch Module</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">$849.00</div><div class="product-ext">$1,698.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron Sunnata Keypad</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">$510.00</div><div class="product-ext">$1,020.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron HQR-REP-120 Hybrid Repeater</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">$460.00</div><div class="product-ext">$920.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Ketra A20 (Kitchen Pendants)</div></div>
+          <div class="product-qty">×3</div><div class="product-unit">$245.00</div><div class="product-ext">$735.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron Palladiom Faceplate</div><div class="product-part">LWT-U-PP-WH</div></div>
+          <div class="product-qty">×8</div><div class="product-unit">$73.50</div><div class="product-ext">$588.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron Power Supply</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$500.00</div><div class="product-ext">$500.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron PDW-QS-9 Wire Harness</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$435.00</div><div class="product-ext">$435.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron PDW-QS-8 Wire Harness</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$400.00</div><div class="product-ext">$400.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron Occupancy Sensor</div></div>
+          <div class="product-qty">×3</div><div class="product-unit">$105.00</div><div class="product-ext">$315.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron LMJ-16R-DV-B Relay</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$190.00</div><div class="product-ext">$190.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lutron QS-WLB Landing Board</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">$94.00</div><div class="product-ext">$188.00</div>
+        </div>
+      </div>
+
+      <!-- Change Order #1 -->
+      <div class="room-header"><span>Change Order #1</span><span class="room-total">$2,445.30</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Ketra S30 Lamp</div><div class="product-part">Additional row for pool room; one cancelled in gym</div></div>
+          <div class="product-qty">×6</div><div class="product-unit">$407.55</div><div class="product-ext">$2,445.30</div>
+        </div>
+      </div>
+
+      <!-- Change Order #2 -->
+      <div class="room-header"><span>Change Order #2</span><span class="room-total">$9,796.28</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Ketra S30 Lamp</div><div class="product-part">Golf Sim Room — tariff price increase, incl trim</div></div>
+          <div class="product-qty">×14</div><div class="product-unit">$456.00</div><div class="product-ext">$6,384.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Ketra D2 Downlight</div><div class="product-part">Living room wall wash for pictures</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">$1,050.00</div><div class="product-ext">$2,100.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Sunnata Keypad</div><div class="product-part">Golf Room</div></div>
+          <div class="product-qty">×2</div><div class="product-unit">$531.00</div><div class="product-ext">$1,062.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Shipping</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$250.28</div>
+        </div>
+      </div>
+
+      <!-- Financial Summary -->
+      <div style="margin-top:24px; padding:16px; background:var(--surface); border-radius:8px;">
+        <div class="fee-line"><span>Base Components</span><span>$121,670.50</span></div>
+        <div class="fee-line"><span>Change Order #1</span><span>$2,445.30</span></div>
+        <div class="fee-line"><span>Change Order #2</span><span>$9,796.28</span></div>
+        <div class="fee-line"><span>Total Parts</span><span>$133,912.08</span></div>
+        <div class="discount-line"><span>Additional Discount</span><span>−$1,737.65</span></div>
+        <div class="area-total-line"><span>Lighting Total (no tax)</span><span class="amount">$132,174.43</span></div>
+      </div>
+
+      <div class="note-box" style="margin-top:12px;">
+        <strong>Alt3 Absorbed:</strong> Additional panel for garage runs, 2 dimmer plug-in modules for master closet ($514), rush D3 shipping ($1,661.20), low voltage panel ($640)
+      </div>
     </div>
+  </details>
 
-    <div class="area-total-line"><span>Change Order #3 Total</span><span class="amount">$14,318.50</span></div>
-  </div>
+  <!-- ============================================================ -->
+  <!-- SECTION 6: CHANGE ORDER #3 -->
+  <!-- ============================================================ -->
+  <details id="sec6">
+    <summary>
+      <div class="part-header">
+        <div>
+          <div class="part-label">Section 6 — Proposal #114</div>
+          <div class="part-title">Change Order #3</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <div>
+            <div class="part-total-label">Section Total</div>
+            <div class="part-total">$14,318.50</div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+    </summary>
+    <div class="section">
+      <div class="note-box">
+        <strong>Approved Nov 14, 2025 by Alex Bailey</strong> — Additional lighting control, linear lighting, and stair lights. Project fee excludes tax.
+      </div>
 
-  <!-- ================================================================ -->
-  <!--  ALT3 VALUE ADDED                                                -->
-  <!-- ================================================================ -->
-  <div class="part-header page-break">
-    <div>
-      <div class="part-label">Value Added</div>
-      <div class="part-title">Alt3 Absorbed Costs</div>
+      <!-- Upstairs -->
+      <div class="room-header"><span>Upstairs</span><span class="room-total">$9,969.50</span></div>
+      <div class="product-header"><span>Product</span><span>Qty</span><span>Unit</span><span>Total</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">HQP7-RF Additional Processor</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$979.00</div><div class="product-ext">$979.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">HRST-PRO-N-RW Dimmer</div></div>
+          <div class="product-qty">×21</div><div class="product-unit">$293.00</div><div class="product-ext">$6,153.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">HRST-8ANS-RW Switch</div></div>
+          <div class="product-qty">×5</div><div class="product-unit">$307.00</div><div class="product-ext">$1,535.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Lighting Control Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$1,302.50</div>
+        </div>
+      </div>
+
+      <!-- Master Closets -->
+      <div class="room-header"><span>Master Closets</span><span class="room-total">$772.50</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">HQR-3PD-1 Plug-in Dimmer</div></div>
+          <div class="product-qty">×3</div><div class="product-unit">$257.50</div><div class="product-ext">$772.50</div>
+        </div>
+      </div>
+
+      <!-- Master Bedroom -->
+      <div class="room-header"><span>Master Bedroom</span><span class="room-total">$1,419.50</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Cove Linear Lighting</div><div class="product-part">36' track, driver, 3000K</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$1,117.00</div><div class="product-ext">$1,117.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$302.50</div>
+        </div>
+      </div>
+
+      <!-- Master Bathroom -->
+      <div class="room-header"><span>Master Bathroom</span><span class="room-total">$528.50</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Shower Linear Lighting</div><div class="product-part">6' track, driver, 3000K</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$376.00</div><div class="product-ext">$376.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$152.50</div>
+        </div>
+      </div>
+
+      <!-- Stairs -->
+      <div class="room-header"><span>Stairs</span><span class="room-total">$1,628.50</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">LED Linear Stair Tread Light</div><div class="product-part">77' track, driver, 3000K</div></div>
+          <div class="product-qty">×1</div><div class="product-unit">$826.00</div><div class="product-ext">$826.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Installation Labor</div></div>
+          <div class="product-qty">—</div><div class="product-unit">—</div><div class="product-ext">$802.50</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px; padding:16px; background:var(--surface); border-radius:8px;">
+        <div class="fee-line"><span>Parts (Taxable)</span><span>$11,758.50</span></div>
+        <div class="fee-line"><span>Labor (Tax Exempt)</span><span>$2,560.00</span></div>
+        <div class="area-total-line"><span>Change Order #3 Total (no tax)</span><span class="amount">$14,318.50</span></div>
+      </div>
+
+      <div class="note-box" style="margin-top:12px;">
+        <strong>Install Notes:</strong> Cove lighting approved/ordered on this invoice but Adam (electrician) installed. Shower linear track installed by Alt3 — tape ordered but Adam installed before Alt3 could. Stair light tracks installed — Alt3 still has tape to install.
+      </div>
     </div>
-    <div>
-      <div class="part-total-label">Total Value</div>
-      <div class="part-total" style="color: var(--copper-light);">~$31,505.19</div>
+  </details>
+
+  <!-- ============================================================ -->
+  <!-- ALT3 VALUE ADDED -->
+  <!-- ============================================================ -->
+  <details id="value">
+    <summary>
+      <div class="part-header" style="border-color:#1565c0;">
+        <div>
+          <div class="part-label" style="color:#1565c0;">Alt3 Value Added</div>
+          <div class="part-title">Costs Absorbed by Alt3</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <div>
+            <div class="part-total-label">Total Value</div>
+            <div class="part-total" style="color:#1565c0;">~$33,806.39</div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+    </summary>
+    <div class="section">
+      <div class="value-card">
+        <div class="big">$33,806.39+ in Value Added</div>
+      </div>
+
+      <div class="product-header"><span>Item</span><span></span><span></span><span>Amount</span></div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Josh.AI Preferred Client Discount</div><div class="product-part">Josh microphones, system pricing, network + speaker upgrades</div></div>
+          <div class="product-qty"></div><div class="product-unit"></div><div class="product-ext">$19,241.24</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Additional Josh.AI Items</div><div class="product-part">Touchscreen programming, Gym sub, Living Room touchscreen, Pool Room MRX 740 + touchscreen</div></div>
+          <div class="product-qty"></div><div class="product-unit"></div><div class="product-ext">$11,749.95</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Rush D3 Shipping</div><div class="product-part">Expedited Ketra D3 downlight delivery</div></div>
+          <div class="product-qty"></div><div class="product-unit"></div><div class="product-ext">$1,661.20</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Low Voltage Panel</div><div class="product-part">Additional panel for garage runs</div></div>
+          <div class="product-qty"></div><div class="product-unit"></div><div class="product-ext">$640.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-info"><div class="product-name">Master Closet Dimmer Modules</div><div class="product-part">2 plug-in dimmer modules</div></div>
+          <div class="product-qty"></div><div class="product-unit"></div><div class="product-ext">$514.00</div>
+        </div>
+      </div>
+      <div class="area-total-line"><span>Total Alt3 Value Added</span><span class="amount" style="color:#1565c0;">$33,806.39</span></div>
     </div>
-  </div>
+  </details>
 
-  <div class="section">
-    <div class="section-desc">The following costs were absorbed by Alt3 Smart Homes at no charge to the client — reflecting our commitment to delivering the best possible system and experience.</div>
-
-    <div class="value-card">
-      <div class="value-label">Absorbed by Alt3 Smart Homes</div>
-      <div class="value-item"><span>Josh microphones, system upgrades, superior network, Origin speakers (Section 2)</span><span class="val-amount">$19,241.24</span></div>
-      <div class="value-item"><span>Additional Josh.AI items — touchscreens, MRX 740, subwoofer (Section 3)</span><span class="val-amount">$11,749.95</span></div>
-      <div class="value-item"><span>Additional panel for garage run locations (Section 5)</span><span class="val-amount">Included</span></div>
-      <div class="value-item"><span>2 dimmer plug-in modules for master closet (Section 5)</span><span class="val-amount">$514.00</span></div>
-      <div class="value-item" style="border-top: 2px solid var(--copper); margin-top: 8px; padding-top: 8px; font-weight: 700; color: var(--text);"><span>Total Alt3 Value Added</span><span class="val-amount" style="font-size: .95rem;">~$31,505.19</span></div>
-    </div>
-  </div>
-
-  <!-- ================================================================ -->
-  <!--  FINANCIAL SUMMARY                                               -->
-  <!-- ================================================================ -->
-  <div class="grand-total">
-    <div style="font-size: .7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--copper); margin-bottom: 16px; font-weight: 700;">Financial Summary</div>
-
+  <!-- ============================================================ -->
+  <!-- FINANCIAL SUMMARY -->
+  <!-- ============================================================ -->
+  <div id="summary" class="grand-total">
+    <div style="font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--navy);margin-bottom:16px;font-weight:700;">Financial Summary</div>
     <table class="summary-table">
-      <tr><td>Section 1 — Pre-Wire</td><td>$6,359.50</td></tr>
-      <tr><td>Section 2 — Josh.AI + Control4</td><td>$47,434.98</td></tr>
-      <tr><td>Section 3 — Additional Josh.AI Items</td><td>$0.00</td></tr>
-      <tr><td>Section 4 — Shading</td><td>$19,958.48</td></tr>
-      <tr><td>Section 5 — Lighting (incl. CO #1 &amp; #2)</td><td>$132,174.43</td></tr>
-      <tr><td>Section 6 — Change Order #3</td><td>$14,318.50</td></tr>
-      <tr class="total-row"><td>Total Project Cost</td><td>$220,245.89</td></tr>
+      <tr><td>Section 1 — Pre-Wire (Proposal #119)</td><td>$6,359.50</td></tr>
+      <tr><td>Section 2 — Josh.AI + Control4 (Proposal #108)</td><td>$47,434.98</td></tr>
+      <tr><td>Section 3 — Additional Josh.AI (Covered by Alt3)</td><td>$0.00</td></tr>
+      <tr><td>Section 4 — Shades (Lutron #3887368.1)</td><td>$19,958.48</td></tr>
+      <tr><td>Section 5 — Lighting (Proposal #106 + CO #1 & #2)</td><td>$132,174.43</td></tr>
+      <tr><td>Section 6 — Change Order #3 (Proposal #114)</td><td>$14,318.50</td></tr>
+      <tr class="total-row"><td>Grand Total</td><td>$220,245.89</td></tr>
     </table>
-
     <div class="gt-divider"></div>
-
-    <div class="gt-row"><span class="label">Total Paid to Date</span><span class="amount">$195,869.45</span></div>
+    <div class="gt-row"><span class="label">Paid to Date</span><span class="amount" style="color:var(--green);">$195,869.45</span></div>
     <div class="gt-divider"></div>
     <div class="gt-final"><span class="label">Remaining Balance</span><span class="amount">$24,376.44</span></div>
   </div>
 
-  <!-- ================================================================ -->
-  <!--  ADDITIONAL WORK — UNBILLED                                      -->
-  <!-- ================================================================ -->
-  <div class="section page-break">
-    <div class="section-title">Additional Work — Unbilled</div>
-    <div class="section-desc">Items installed or to be quoted beyond the scope of this project reconciliation.</div>
+  <!-- ============================================================ -->
+  <!-- ADDITIONAL WORK — PENDING -->
+  <!-- ============================================================ -->
+  <details id="pending">
+    <summary>
+      <div class="part-header">
+        <div>
+          <div class="part-label">Additional Work</div>
+          <div class="part-title">Pending Items</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <div>
+            <div class="part-total-label">Status</div>
+            <div class="part-total" style="font-size:1rem;">TBD</div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+      </div>
+    </summary>
+    <div class="section">
+      <div style="font-size:.85rem;font-weight:600;color:var(--navy);margin-bottom:12px;">Installed but Not Yet Billed</div>
+      <div class="pending-item"><strong>Outdoor Speakers</strong> — Installed, proposal pending</div>
+      <div class="pending-item"><strong>POE Switch</strong> — Installed, not yet invoiced</div>
 
-    <div class="pending-card">
-      <h4>Extra Items Installed (as of 2/13/25) — No Additional Charge</h4>
-      <ul style="list-style: none; padding: 0;">
-        <li>▸ 2 Outdoor Speakers</li>
-        <li>▸ 1 24-port POE Switch (needed two instead of one)</li>
-        <li>▸ Moved lighting keypads a few times — covered by Alt3</li>
-        <li>▸ Fixed patio LED tape wires for final inspection (tracks only)</li>
-        <li>▸ Control4 Core1 Controller — covered by Alt3</li>
-        <li>▸ Other miscellaneous labor items absorbed by Alt3 onsite</li>
-      </ul>
+      <div style="font-size:.85rem;font-weight:600;color:var(--navy);margin:20px 0 12px;">Still To Do</div>
+      <div class="pending-item"><strong>Outdoor Speakers Proposal</strong> — Formal proposal to be sent</div>
+      <div class="pending-item"><strong>Great Room Receiver / Soundbar</strong> — Equipment selection pending</div>
+      <div class="pending-item"><strong>TV Mounts</strong> — Installation scheduling</div>
+      <div class="pending-item"><strong>Camera System</strong> — Additional cameras / NVR expansion</div>
+      <div class="pending-item"><strong>System Integrations</strong> — Final programming and commissioning</div>
     </div>
+  </details>
 
-    <div class="pending-card">
-      <h4>Pending — To Be Quoted</h4>
-      <ul style="list-style: none; padding: 0;">
-        <li>▸ Outdoor speakers proposal</li>
-        <li>▸ Great Room: Receiver, Sound Bar, Toe Kick Subwoofer</li>
-        <li>▸ TV Mounts: Great Room, Owners Bedroom, Rec Room, Exercise Room</li>
-        <li>▸ Additional security camera by garage</li>
-        <li>▸ Integrate: Microwave, Stove, Sliding Doors, Bathroom floor heaters, Steam Shower, Sauna, Overhead Doors</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ========== ACCEPTANCE ========== -->
-  <div class="section">
-    <div class="section-title">Acceptance &amp; Acknowledgment</div>
-    <div class="section-desc">By signing below, both parties acknowledge that this document accurately reflects the project scope, costs, payments, and remaining balance for the Peninsula Club Dr project.</div>
-
+  <!-- ============================================================ -->
+  <!-- ACCEPTANCE / SIGNATURE -->
+  <!-- ============================================================ -->
+  <div id="accept" class="section" style="padding:40px;">
+    <div style="font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--navy);margin-bottom:8px;font-weight:700;">Acceptance</div>
+    <p style="font-size:.82rem;color:var(--dim);margin-bottom:24px;">
+      By signing below, you acknowledge this reconciliation accurately reflects all work performed, equipment provided, and amounts due for the project at 18235 Peninsula Club Dr. The remaining balance of <strong style="color:var(--navy);">$24,376.44</strong> is due upon project completion.
+    </p>
     <div class="sig-grid">
       <div class="sig-block">
         <div class="label">Client Signature</div>
         <div class="line"></div>
-        <div class="label">Alex Bailey</div>
+        <div class="label">Alex Bailey / Keen Building Company</div>
       </div>
       <div class="sig-block">
         <div class="label">Date</div>
         <div class="line"></div>
       </div>
+    </div>
+    <div class="sig-grid" style="margin-top:20px;">
       <div class="sig-block">
         <div class="label">Alt3 Smart Homes</div>
         <div class="line"></div>
@@ -485,11 +1168,11 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
     </div>
   </div>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- FOOTER -->
   <div class="footer">
-    <div class="footer-logo">ALT<span style="color: var(--copper-light);">3</span> SMART HOMES</div>
-    <p>info@alt3.com &nbsp;·&nbsp; alt3smarthomes.com</p>
-    <p style="margin-top: 8px; font-style: italic;">Simple. Seamless. Smart — by design.</p>
+    <div class="footer-logo">ALT<span style="color:var(--taupe);">3</span> Smart Homes</div>
+    <p>info@alt3.com &nbsp;|&nbsp; alt3smarthomes.com</p>
+    <p style="margin-top:8px;letter-spacing:2px;text-transform:uppercase;font-size:.65rem;">Simple. Seamless. Smart — by design.</p>
   </div>
 
 </div>
