@@ -1180,16 +1180,17 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
   <!-- ========== GRAND TOTAL ========== -->
   <div class="grand-total page-break">
     <div style="width:100%">
-      <div class="gt-row"><span class="label">Section A1 — HomeWorks Control System (incl. 5% enhancements)</span><span class="amount">$42,195.62</span></div>
-      <div class="gt-row" id="gt-a2"><span class="label">Section A2 — Ketra &amp; Rania Fixtures (incl. 5% enhancements)</span><span class="amount">$79,778.74</span></div>
-      <div class="gt-row"><span class="label">Section B — Smart Home, A/V &amp; Security (incl. 5% enhancements)</span><span class="amount">$113,451.61</span></div>
+      <div class="gt-row"><span class="label">Section A1 — HomeWorks Control System</span><span class="amount">$40,186.30</span></div>
+      <div class="gt-row" id="gt-a2"><span class="label">Section A2 — Ketra &amp; Rania Fixtures</span><span class="amount">$75,979.75</span></div>
+      <div class="gt-row"><span class="label">Section B — Smart Home, A/V &amp; Security</span><span class="amount">$108,049.15</span></div>
+      <div class="gt-row" id="gt-enhance"><span class="label">Project Enhancements (5%)</span><span class="amount" id="gt-enhance-amt">$11,210.76</span></div>
       <div class="gt-row" id="gt-c"><span class="label">Section C — Lutron Motorized Shading (26 windows)</span><span class="amount">~$39,000</span></div>
       <div class="gt-divider"></div>
-      <div class="gt-final"><span class="label">Total Project Investment</span><span class="amount" id="gt-grand">$274,425.97</span></div>
+      <div class="gt-final"><span class="label">Total Project Investment</span><span class="amount" id="gt-grand">$274,425.96</span></div>
       <div class="gt-divider" style="margin-top:20px"></div>
       <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim);margin-top:12px;margin-bottom:8px;font-weight:600">Progress Billing</div>
       <div class="gt-row"><span class="label">10% — Deposit Upon Signing</span><span class="amount" id="gt-dep">$27,442.60</span></div>
-      <div class="gt-row"><span class="label">80% — Equipment Ordered</span><span class="amount" id="gt-mid">$219,540.78</span></div>
+      <div class="gt-row"><span class="label">80% — Equipment Ordered</span><span class="amount" id="gt-mid">$219,540.77</span></div>
       <div class="gt-row"><span class="label">10% — Substantial Completion</span><span class="amount" id="gt-fin">$27,442.60</span></div>
     </div>
   </div>
@@ -1269,14 +1270,14 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
 
 <script>
 (function(){
-  const BASE_A1 = 42195.62;
-  const BASE_B  = 113451.61;
-  const ENHANCE = 1.05; // 5% project enhancements
+  const BASE_A1 = 40186.30;
+  const BASE_B  = 108049.15;
+  const ENHANCE_RATE = 0.05;
 
   function fmt(n){ return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
 
   function recalc(){
-    // --- Section A2 fixtures (with 5% project enhancements) ---
+    // --- Section A2 fixtures ---
     let a2 = 0;
     document.querySelectorAll('.fixture-toggle').forEach(cb => {
       const wrap = cb.closest('.option-toggle');
@@ -1285,7 +1286,7 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
       const eng = parseFloat(wrap.dataset.eng);
       if(cb.checked){
         card.classList.add('selected');
-        a2 += (mat + eng) * ENHANCE;
+        a2 += mat + eng;
       } else {
         card.classList.remove('selected');
       }
@@ -1315,8 +1316,16 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
       gtC.style.display = c === 0 ? 'none' : 'flex';
     }
 
+    // --- Project Enhancements (5% on A1 + A2 + B) ---
+    const enhanceBase = BASE_A1 + a2 + BASE_B;
+    const enhance = enhanceBase * ENHANCE_RATE;
+    const gtEnhance = document.getElementById('gt-enhance-amt');
+    if(gtEnhance) gtEnhance.textContent = fmt(enhance);
+    const gtEnhanceRow = document.getElementById('gt-enhance');
+    if(gtEnhanceRow) gtEnhanceRow.style.display = 'flex';
+
     // --- Grand total ---
-    const grand = BASE_A1 + a2 + BASE_B + c;
+    const grand = enhanceBase + enhance + c;
     document.getElementById('gt-grand').textContent = fmt(grand);
 
     // --- Payment schedule ---
