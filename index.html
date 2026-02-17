@@ -630,7 +630,7 @@ function renderDashboard() {
 // ========================
 // PIPELINE
 // ========================
-const STAGES = ['Lead','🔥 Hot Lead','Proposal Sent','Signed','In Progress','Complete'];
+const STAGES = ['Lead','Proposal Sent','Signed','In Progress','Complete'];
 function getDeals() { return LS.get('deals', [
   {id:1,client:'Jeffery Davis',address:'1240 Paddock, Charlotte NC',type:'Smart Home + AV + Lighting',value:274426,date:'2026-02-10',stage:'Proposal Sent'},
   {id:3,client:'Keen Building Co (Bailey)',address:'18235 Peninsula Club Dr, Cornelius NC',type:'Smart Home + AV + Lighting + Shades',value:220246,date:'2025-05-02',stage:'In Progress'},
@@ -643,9 +643,8 @@ function renderPipeline() {
   const deals = getDeals();
   document.getElementById('kanban').innerHTML = STAGES.map(stage => {
     const cards = deals.filter(d => d.stage === stage);
-    const isHot = stage.includes('Hot');
-    return `<div class="kanban-col" style="${isHot?'border-color:#ef4444;background:rgba(239,68,68,.03)':''}" ondragover="event.preventDefault()" ondrop="dropDeal(event,'${stage}')">
-      <div class="kanban-col-header" style="${isHot?'color:#ef4444;border-bottom-color:#ef4444':''}">${stage} <span class="count" style="${isHot?'background:rgba(239,68,68,.15);color:#ef4444':''}">${cards.length}</span></div>
+    return `<div class="kanban-col" ondragover="event.preventDefault()" ondrop="dropDeal(event,'${stage}')">
+      <div class="kanban-col-header">${stage} <span class="count">${cards.length}</span></div>
       <div class="kanban-cards">${cards.map(c => `
         <div class="kanban-card" draggable="true" ondragstart="event.dataTransfer.setData('text','${c.id}')">
           <div class="client">${c.client}</div>
