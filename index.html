@@ -324,6 +324,7 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
     <button data-tab="crm">👥 CRM</button>
     <button data-tab="proposals">📄 Proposals</button>
     <button data-tab="scorecard">📊 Scorecard</button>
+    <button data-tab="rocks">🪨 Rocks</button>
     <button data-tab="l10">📋 Level 10</button>
   </nav>
 </div>
@@ -332,14 +333,10 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
   <!-- DASHBOARD HOME (everything on one page) -->
   <div class="section active" id="sec-dashboard">
 
-    <!-- ROCKS — top center, prominent -->
-    <div style="text-align:center;margin-bottom:8px">
-      <h2 style="font-size:1.4rem;color:var(--navy);font-weight:700;margin-bottom:4px">🪨 Quarterly Rocks — Q1 2026</h2>
-      <p style="font-size:.8rem;color:var(--text-muted)">Due March 31, 2026</p>
-    </div>
-    <div class="rocks-quarter" style="justify-content:center;display:flex;gap:8px;margin-bottom:16px">
-      <select id="rock-quarter" onchange="renderRocks();renderDashboard()"><option value="Q1-2026" selected>Q1 2026</option></select>
-      <button class="btn-primary btn-sm" onclick="openRockModal()">+ Add Rock</button>
+    <!-- COMPANY ROCKS — compact summary -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <h2 style="font-size:1.2rem;color:var(--navy);font-weight:700">🪨 Company Rocks — Q1 2026</h2>
+      <button class="btn-secondary btn-sm" onclick="document.querySelector('[data-tab=rocks]').click()">View All →</button>
     </div>
     <div id="dash-rocks"></div>
 
@@ -383,6 +380,19 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
 
     <!-- hidden containers for legacy render functions -->
     <div id="dash-grid" style="display:none"></div>
+  </div>
+
+  <!-- ROCKS (separate tab — individual breakdown) -->
+  <div class="section" id="sec-rocks">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <div class="section-title" style="margin:0">🪨 Quarterly Rocks</div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <select id="rock-quarter" onchange="renderRocks();renderDashboard()"><option value="Q1-2026" selected>Q1 2026</option></select>
+        <button class="btn-primary btn-sm" onclick="openRockModal()">+ Add Rock</button>
+      </div>
+    </div>
+    <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:20px">Due March 31, 2026 · Click status to cycle</p>
+    <div id="rocks-grid" class="rocks-grid"></div>
   </div>
 
   <!-- SCORECARD (separate tab) -->
@@ -507,6 +517,7 @@ document.querySelectorAll('nav button').forEach(btn => {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById('sec-'+btn.dataset.tab).classList.add('active');
+    if(btn.dataset.tab==='rocks') renderRocks();
   });
 });
 
@@ -552,30 +563,22 @@ function renderDashboard() {
   const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const todayStr = now.toISOString().slice(0,10);
 
-  // Render rocks into dash-rocks
+  // Render compact company rocks into dash-rocks
   const statusLabels = {on:'On Track',off:'Off Track',complete:'Complete'};
   const statusClass = {on:'rock-on',off:'rock-off',complete:'rock-done'};
   document.getElementById('dash-rocks').innerHTML = `
-    <div style="text-align:center;margin-bottom:16px">
-      <span style="font-size:1.1rem;font-weight:700;color:var(--navy)">${rocksComplete}</span>
-      <span style="color:var(--text-muted)"> / ${totalRocks} complete</span>
-      <span style="margin-left:16px;color:var(--green);font-weight:600">${rocks.filter(r=>r.status==='on').length} on track</span>
-      <span style="margin-left:16px;color:var(--red);font-weight:600">${rocks.filter(r=>r.status==='off').length} off track</span>
+    <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
+      <span style="font-size:1.1rem;font-weight:700;color:var(--navy)">${rocksComplete}/${totalRocks}</span>
+      <span style="color:var(--text-muted);font-size:.85rem">complete</span>
+      <span style="color:var(--green);font-weight:600;font-size:.85rem">● ${rocks.filter(r=>r.status==='on').length} on track</span>
+      <span style="color:var(--red);font-weight:600;font-size:.85rem">● ${rocks.filter(r=>r.status==='off').length} off track</span>
     </div>
-    <div class="rocks-grid">
-      ${PEOPLE.map(p => {
-        const pRocks = (rocksByOwner[p]||[]);
-        if(!pRocks.length) return '';
-        return `<div class="rock-column">
-          <div class="rock-column-header"><span>${p}</span><span style="font-size:.75rem;color:var(--text-muted)">${pRocks.filter(r=>r.status==='complete').length}/${pRocks.length}</span></div>
-          ${pRocks.map(r => `<div class="rock-item">
-            <div class="rock-desc">${r.desc}</div>
-            <div class="rock-meta">
-              <span class="rock-status ${statusClass[r.status]}" onclick="cycleRock(${r.id})">${statusLabels[r.status]}</span>
-            </div>
-          </div>`).join('')}
-        </div>`;
-      }).join('')}
+    <div style="display:grid;gap:6px">
+      ${rocks.map(r => `<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--surface);border-radius:6px;border:1px solid var(--border)">
+        <span class="rock-status ${statusClass[r.status]}" onclick="cycleRock(${r.id})" style="min-width:70px;text-align:center">${statusLabels[r.status]}</span>
+        <span style="flex:1;font-size:.875rem;font-weight:500">${r.desc}</span>
+        <span style="font-size:.72rem;color:var(--text-muted)">${r.owner}</span>
+      </div>`).join('')}
     </div>`;
 
   // Render this week's schedule — card style
