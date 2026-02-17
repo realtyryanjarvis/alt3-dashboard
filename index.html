@@ -408,10 +408,11 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
 
   <!-- PROPOSALS -->
   <div class="section" id="sec-proposals">
-    <div class="section-title">Active Proposals <button class="btn-primary btn-sm" onclick="openProposalModal()">+ Add Proposal</button></div>
-    <div style="overflow-x:auto">
+    <div class="section-title">Proposals <button class="btn-primary btn-sm" onclick="openProposalModal()">+ Add Proposal</button></div>
+    <div id="proposals-grouped"></div>
+    <div style="overflow-x:auto;margin-top:24px">
       <table class="proposals-table" id="proposals-table">
-        <thead><tr><th>Client</th><th>Project</th><th>Amount</th><th>Status</th><th>Date Sent</th><th>Link</th><th></th></tr></thead>
+        <thead><tr><th>Client</th><th>Project</th><th>Version</th><th>Amount</th><th>Status</th><th>Date</th><th>Link</th><th></th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -763,17 +764,57 @@ function deleteClient(id) { if(confirm('Delete?')){saveClients(getClients().filt
 // ========================
 // PROPOSALS
 // ========================
+const BASE_URL = 'https://realtyryanjarvis.github.io/alt3-dashboard/';
 function getProposals() { return LS.get('proposals', [
-  {id:1,client:'Jeffery Davis',project:'Smart Home',amount:88049,status:'Sent',dateSent:'2026-02-10',link:''},
-  {id:2,client:'Jeffery Davis',project:'Lutron Lighting Control',amount:116000,status:'Sent',dateSent:'2026-02-10',link:''}
+  {id:1,client:'Jeffery Davis',project:'1240 Paddock — Complete Proposal',version:'v1.0',amount:274426,status:'Sent',dateSent:'2026-02-17',link:BASE_URL+'proposals/1240-paddock-complete.html'},
+  {id:2,client:'Jeffery Davis',project:'1240 Paddock — Client Experience',version:'v1.0',amount:274426,status:'Sent',dateSent:'2026-02-17',link:BASE_URL+'proposals/1240-paddock/client-experience.html'},
+  {id:3,client:'Jeffery Davis',project:'1240 Paddock — Lighting Detail',version:'v1.0',amount:121974,status:'Sent',dateSent:'2026-02-17',link:BASE_URL+'proposals/1240-paddock-lighting.html'},
+  {id:4,client:'Jeffery Davis',project:'1240 Paddock — Client Presentation',version:'v1.0',amount:274426,status:'Draft',dateSent:'2026-02-17',link:BASE_URL+'proposals/1240-paddock/client-presentation.html'},
+  {id:5,client:'Alex Bailey',project:'Peninsula — Full Reconciliation',version:'v1.0',amount:220246,status:'Draft',dateSent:'2026-02-17',link:BASE_URL+'proposals/peninsula-bailey-complete.html'},
+  {id:6,client:'Alex Bailey',project:'Peninsula — Add-Ons',version:'v1.0',amount:16037,status:'Draft',dateSent:'2026-02-17',link:BASE_URL+'proposals/bailey-addons-complete.html'},
+  {id:7,client:'Keen Building Co',project:'626 Shelton — Spec Home',version:'v1.0',amount:27461,status:'Draft',dateSent:'2026-02-17',link:BASE_URL+'proposals/626-shelton-complete.html'}
 ]); }
 function saveProposals(p) { LS.set('proposals',p); }
 
 function renderProposals() {
   const props = getProposals();
   const sc = {Draft:'prop-draft',Sent:'prop-sent',Viewed:'prop-viewed',Signed:'prop-signed'};
+
+  // Grouped by client
+  const grouped = {};
+  props.forEach(p => {
+    if (!grouped[p.client]) grouped[p.client] = [];
+    grouped[p.client].push(p);
+  });
+
+  document.getElementById('proposals-grouped').innerHTML = Object.entries(grouped).map(([client, items]) => {
+    const totalVal = items.reduce((s,p) => s + (p.amount||0), 0);
+    return `<div class="dash-card" style="margin-bottom:16px">
+      <h3 style="display:flex;justify-content:space-between;align-items:center">
+        <span>👤 ${client}</span>
+        <span style="font-size:.8rem;font-weight:400;color:var(--text-muted)">${items.length} proposal${items.length>1?'s':''}</span>
+      </h3>
+      <div style="display:grid;gap:8px;margin-top:12px">
+        ${items.map(p => `<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface2);border-radius:6px;border:1px solid var(--border)">
+          <div style="flex:1">
+            <div style="font-weight:600;font-size:.88rem">${p.project}</div>
+            <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">
+              <span class="prop-status ${sc[p.status]}" style="margin-right:8px">${p.status}</span>
+              ${p.version||'v1.0'} · $${p.amount.toLocaleString()} · ${p.dateSent}
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;align-items:center">
+            ${p.link?`<a href="${p.link}" target="_blank" class="btn-primary btn-sm" style="text-decoration:none;display:inline-block">Open ↗</a>`:''}
+            <button class="btn-secondary btn-sm" onclick="editProposal(${p.id})">Edit</button>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
+
+  // Table view below
   document.querySelector('#proposals-table tbody').innerHTML = props.map(p => `<tr>
-    <td>${p.client}</td><td>${p.project}</td><td>$${p.amount.toLocaleString()}</td>
+    <td>${p.client}</td><td>${p.project}</td><td>${p.version||'v1.0'}</td><td>$${p.amount.toLocaleString()}</td>
     <td><span class="prop-status ${sc[p.status]}">${p.status}</span></td>
     <td>${p.dateSent}</td>
     <td>${p.link?`<a href="${p.link}" target="_blank">View ↗</a>`:'-'}</td>
@@ -782,20 +823,21 @@ function renderProposals() {
 }
 
 function openProposalModal(prop) {
-  const p = prop || {id:0,client:'',project:'',amount:'',status:'Draft',dateSent:new Date().toISOString().slice(0,10),link:''};
+  const p = prop || {id:0,client:'',project:'',version:'v1.0',amount:'',status:'Draft',dateSent:new Date().toISOString().slice(0,10),link:''};
   const statuses = ['Draft','Sent','Viewed','Signed'];
   openModal(`<h3>${p.id?'Edit':'New'} Proposal</h3>
     <div class="field"><label>Client</label><input id="p-client" value="${p.client}"></div>
     <div class="field"><label>Project</label><input id="p-project" value="${p.project}"></div>
+    <div class="field"><label>Version</label><input id="p-version" value="${p.version||'v1.0'}" placeholder="v1.0"></div>
     <div class="field"><label>Amount ($)</label><input type="number" id="p-amount" value="${p.amount}"></div>
     <div class="field"><label>Status</label><select id="p-status">${statuses.map(s=>`<option${s===p.status?' selected':''}>${s}</option>`).join('')}</select></div>
-    <div class="field"><label>Date Sent</label><input type="date" id="p-date" value="${p.dateSent}"></div>
-    <div class="field"><label>Portal Link</label><input id="p-link" value="${p.link}" placeholder="https://..."></div>
+    <div class="field"><label>Date</label><input type="date" id="p-date" value="${p.dateSent}"></div>
+    <div class="field"><label>Link</label><input id="p-link" value="${p.link}" placeholder="https://..."></div>
     <div class="actions"><button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveProposal(${p.id})">Save</button></div>`);
 }
 function saveProposal(id) {
   const proposals = getProposals();
-  const obj = {client:document.getElementById('p-client').value,project:document.getElementById('p-project').value,amount:+document.getElementById('p-amount').value,status:document.getElementById('p-status').value,dateSent:document.getElementById('p-date').value,link:document.getElementById('p-link').value};
+  const obj = {client:document.getElementById('p-client').value,project:document.getElementById('p-project').value,version:document.getElementById('p-version').value,amount:+document.getElementById('p-amount').value,status:document.getElementById('p-status').value,dateSent:document.getElementById('p-date').value,link:document.getElementById('p-link').value};
   if(id){Object.assign(proposals.find(x=>x.id===id),obj);} else {obj.id=Date.now();proposals.push(obj);}
   saveProposals(proposals); closeModal(); renderProposals();
 }
