@@ -553,6 +553,28 @@ function renderDashboard() {
 
   document.getElementById('dash-grid').innerHTML = `
     <div class="dash-card" style="grid-column:1/-1">
+      <h3>🪨 Quarterly Rocks — Q1 2026
+        <span style="font-size:.75rem;font-weight:400;color:var(--text-muted);margin-left:8px">${rocksComplete}/${totalRocks} complete</span>
+      </h3>
+      <div class="rocks-grid" style="margin-top:12px">
+        ${PEOPLE.map(p => {
+          const pRocks = (rocksByOwner[p]||[]);
+          if(!pRocks.length) return '';
+          const statusLabels = {on:'On Track',off:'Off Track',complete:'Complete'};
+          const statusClass = {on:'rock-on',off:'rock-off',complete:'rock-done'};
+          return `<div class="rock-column">
+            <div class="rock-column-header"><span>${p}</span><span style="font-size:.75rem;color:var(--text-muted)">${pRocks.filter(r=>r.status==='complete').length}/${pRocks.length}</span></div>
+            ${pRocks.map(r => `<div class="rock-item">
+              <div class="rock-desc">${r.desc}</div>
+              <div class="rock-meta">
+                <span class="rock-status ${statusClass[r.status]}" onclick="cycleRock(${r.id})">${statusLabels[r.status]}</span>
+              </div>
+            </div>`).join('')}
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+    <div class="dash-card" style="grid-column:1/-1">
       <h3>📅 This Week <span style="font-size:.75rem;font-weight:400;color:var(--text-muted)">${weekStart.toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${weekEnd.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span></h3>
       ${weekEvents.length ? `<div style="display:grid;gap:6px;margin-top:8px">
         ${weekEvents.map(ev => {
@@ -588,28 +610,6 @@ function renderDashboard() {
                 <div class="type-badge">${c.type}</div>
                 <div class="meta"><span class="value">$${c.value.toLocaleString()}</span><span>${c.date}</span></div>
               </div>`).join('')}</div></div>`;
-        }).join('')}
-      </div>
-    </div>
-    <div class="dash-card" style="grid-column:1/-1">
-      <h3>🪨 Rocks — Q1 2026
-        <span style="font-size:.75rem;font-weight:400;color:var(--text-muted);margin-left:8px">${rocksComplete}/${totalRocks} complete</span>
-      </h3>
-      <div class="rocks-grid" style="margin-top:12px">
-        ${PEOPLE.map(p => {
-          const pRocks = (rocksByOwner[p]||[]);
-          if(!pRocks.length) return '';
-          const statusLabels = {on:'On Track',off:'Off Track',complete:'Complete'};
-          const statusClass = {on:'rock-on',off:'rock-off',complete:'rock-done'};
-          return `<div class="rock-column">
-            <div class="rock-column-header"><span>${p}</span><span style="font-size:.75rem;color:var(--text-muted)">${pRocks.filter(r=>r.status==='complete').length}/${pRocks.length}</span></div>
-            ${pRocks.map(r => `<div class="rock-item">
-              <div class="rock-desc">${r.desc}</div>
-              <div class="rock-meta">
-                <span class="rock-status ${statusClass[r.status]}" onclick="cycleRock(${r.id})">${statusLabels[r.status]}</span>
-              </div>
-            </div>`).join('')}
-          </div>`;
         }).join('')}
       </div>
     </div>
