@@ -326,7 +326,8 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
     <button data-tab="scorecard">📊 Scorecard</button>
     <button data-tab="rocks">🪨 Rocks</button>
     <button data-tab="l10">📋 Level 10</button>
-    <button onclick="resetAllData()" style="margin-left:auto;color:var(--text-muted);font-size:.7rem">🔄 Reset</button>
+    <span id="last-updated" style="margin-left:auto;font-size:.65rem;color:var(--text-muted)"></span>
+    <button onclick="resetAllData()" style="color:var(--text-muted);font-size:.7rem">🔄 Reset</button>
   </nav>
 </div>
 
@@ -525,6 +526,23 @@ document.querySelectorAll('nav button').forEach(btn => {
 // === Modal ===
 function openModal(html) { document.getElementById('modal-content').innerHTML = html; document.getElementById('modal-overlay').classList.add('show'); }
 function closeModal() { document.getElementById('modal-overlay').classList.remove('show'); }
+
+function stampUpdate(){
+  const now=new Date();
+  const str=now.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' '+now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  localStorage.setItem('alt3-lastUpdated',now.toISOString());
+  document.getElementById('last-updated').textContent='Updated '+str;
+}
+function showLastUpdated(){
+  const ts=localStorage.getItem('alt3-lastUpdated');
+  if(ts){const d=new Date(ts);document.getElementById('last-updated').textContent='Updated '+d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});}
+  else{document.getElementById('last-updated').textContent='';}
+}
+showLastUpdated();
+// Patch save functions to auto-stamp
+const _origSaveDeals=saveDeals,_origSaveRocks=saveRocks,_origSaveTodos=function(p,t){LS.set('todos-'+p,t)};
+saveDeals=function(d){_origSaveDeals(d);stampUpdate()};
+saveRocks=function(r){_origSaveRocks(r);stampUpdate()};
 
 function resetAllData() {
   if(!confirm('Reset all dashboard data to defaults? This clears any changes you\'ve made.')) return;
