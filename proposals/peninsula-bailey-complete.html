@@ -170,6 +170,74 @@ footer .brand{font-size:.9rem;font-weight:700;letter-spacing:.08em;margin-bottom
 footer .brand span{color:var(--navy)}
 footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-transform:uppercase}
 
+/* Status Items */
+.status-item{padding:10px 14px;font-size:.82rem;color:var(--dim);margin:6px 0;border-radius:0 8px 8px 0;line-height:1.6}
+.status-item.si-green{border-left:3px solid var(--green);background:rgba(46,125,50,.04)}
+.status-item.si-amber{border-left:3px solid #d4920a;background:rgba(212,146,10,.04)}
+.si-note{display:block;font-size:.72rem;color:var(--lighter);font-style:italic;margin-top:2px}
+.si-action{display:inline-block;margin-top:6px;font-size:.72rem;font-weight:700;color:var(--green);background:rgba(46,125,50,.08);padding:3px 12px;border-radius:16px;text-decoration:none;transition:all .2s}
+.si-action:hover{background:var(--green);color:#fff}
+.si-action.amber{color:#d4920a;background:rgba(212,146,10,.08)}
+.si-action.amber:hover{background:#d4920a;color:#fff}
+@media(max-width:768px){.status-split{grid-template-columns:1fr!important}}
+
+/* Pending Change Order */
+.co-section{border:2px solid #d4920a;border-radius:20px;padding:40px 32px;background:linear-gradient(135deg,#fffcf5,#fef7e8);position:relative;overflow:hidden}
+.co-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#d4920a,#f0b429,#d4920a)}
+.co-badge{display:inline-block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#fff;background:#d4920a;padding:6px 16px;border-radius:20px;margin-bottom:16px}
+.co-total-box{text-align:center;padding:24px;background:rgba(212,146,10,.08);border:1px solid rgba(212,146,10,.25);border-radius:12px;margin:24px 0}
+.co-total-box .big{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:#b37a00}
+.co-total-box .sub{font-size:.82rem;color:var(--dim);margin-top:4px}
+.co-note{font-size:.82rem;color:var(--dim);line-height:1.7;margin:16px 0;padding:12px 16px;background:rgba(212,146,10,.06);border-left:3px solid #d4920a;border-radius:0 8px 8px 0}
+.co-link{display:inline-block;font-size:.75rem;font-weight:600;color:#d4920a;text-decoration:none;margin-top:8px;transition:color .2s}
+.co-link:hover{color:#b37a00}
+
+/* Approval Button */
+.approve-btn{display:inline-flex;align-items:center;gap:8px;background:#d4920a;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .25s var(--ease);box-shadow:0 4px 16px rgba(212,146,10,.35);margin-top:12px}
+.approve-btn:hover{background:#b37a00;transform:translateY(-2px);box-shadow:0 6px 24px rgba(212,146,10,.45)}
+.approve-btn.approved{background:var(--green);cursor:default;box-shadow:0 4px 16px rgba(46,125,50,.3)}
+.approve-btn.approved:hover{transform:none;box-shadow:0 4px 16px rgba(46,125,50,.3)}
+
+/* Approval Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);z-index:200;justify-content:center;align-items:center}
+.modal-overlay.active{display:flex}
+.modal-box{background:#fff;border-radius:16px;padding:32px;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.modal-box h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:16px}
+.modal-box label{display:block;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin:12px 0 4px}
+.modal-box input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.9rem;font-family:inherit}
+.modal-box input:focus{outline:none;border-color:var(--navy)}
+.modal-actions{display:flex;gap:12px;margin-top:20px}
+.modal-actions button{flex:1;padding:10px;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.modal-actions .confirm{background:var(--green);color:#fff}
+.modal-actions .confirm:hover{background:#1b5e20}
+.modal-actions .cancel{background:var(--surface);color:var(--dim);border:1px solid var(--border)}
+.modal-actions .cancel:hover{background:var(--border)}
+
+/* Pending row in fin table */
+.fin-table .pending-row td{color:#d4920a;font-style:italic;border-bottom:1px dashed rgba(212,146,10,.4)}
+.fin-table .grand-row td{border-top:3px solid var(--navy);font-size:1.1rem;font-weight:800}
+.fin-pending-note{font-size:.75rem;color:#d4920a;margin-top:6px;font-style:italic;padding:0 12px}
+
+/* Future Enhancements */
+.future-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px}
+.future-card{padding:24px;border-radius:14px;background:var(--bg);border:1px solid var(--border);box-shadow:0 2px 16px rgba(0,0,0,.03);transition:transform .3s var(--ease),box-shadow .3s}
+.future-card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.07)}
+.future-card .icon{font-size:1.6rem;margin-bottom:10px}
+.future-card h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.future-card p{font-size:.78rem;color:var(--dim);line-height:1.65}
+.future-card .note{font-size:.7rem;color:var(--lighter);font-style:italic;margin-top:6px}
+.future-cta{text-align:center;margin-top:32px;padding:24px;background:rgba(17,54,101,.04);border-radius:12px}
+.future-cta a{display:inline-block;background:var(--navy);color:#fff;padding:12px 28px;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .2s}
+.future-cta a:hover{background:var(--navy-light);transform:translateY(-2px)}
+.future-cta p{font-size:.8rem;color:var(--dim);margin-top:8px}
+
+/* Maintenance tiers */
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.tier{padding:8px 10px;border-radius:8px;text-align:center;font-size:.72rem;font-weight:600}
+.tier.bronze{background:rgba(205,127,50,.1);color:#8b5e3c}
+.tier.silver{background:rgba(150,150,150,.1);color:#666}
+.tier.gold{background:rgba(212,175,55,.15);color:#8b6914}
+
 /* Print */
 .print-btn{position:fixed;bottom:20px;right:20px;background:var(--navy);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;z-index:100;box-shadow:0 4px 20px rgba(17,54,101,.4);transition:background .2s}
 .print-btn:hover{background:var(--taupe)}
@@ -223,7 +291,7 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
     <p class="address">18235 Peninsula Club Dr, Cornelius NC</p>
     <dl class="hero-meta">
       <div><dt>Client</dt><dd>Alex Bailey<br>Keen Building Company</dd></div>
-      <div><dt>Last Updated</dt><dd>February 13, 2026</dd></div>
+      <div><dt>Last Updated</dt><dd>February 17, 2026</dd></div>
     </dl>
     <a href="#dashboard" class="hero-scroll" aria-label="Scroll down"></a>
   </div>
@@ -289,11 +357,7 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
         <a class="tl-link" href="https://drive.google.com/file/d/1bmtY9BEQsHSK3dob4xRG9BRJFJm7MdRu/view" target="_blank">View Josh.ai Proposal →</a>
         <a class="tl-link" href="https://drive.google.com/file/d/1D18ldyL0D1xsEISZKknAs4Wubsdne9sM/view" target="_blank">Email Thread →</a>
       </div>
-      <div class="tl-item fade-in">
-        <div class="tl-date">September 16, 2025</div>
-        <div class="tl-title">Josh.ai Proposal Signed</div>
-        <div class="tl-desc">Signed by Jeffrey Kline — 1TouchSolutions.</div>
-      </div>
+      <!-- Removed: subcontractor reference -->
       <div class="tl-item fade-in">
         <div class="tl-date">September 22, 2025</div>
         <div class="tl-title">Shade Quote Sent</div>
@@ -399,7 +463,7 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
           </div>
         </div>
         <div class="scope-body">
-          <div class="note-box"><strong>1TouchSolutions Invoice</strong> — Full retail $71,343.55 → Preferred Client Discount −$19,241.24 → $52,102.31 → <strong>Project Fee (no tax): $47,434.98</strong></div>
+          <div class="note-box"><strong>Alt3 Smart Homes</strong> — Full retail $71,343.55 → Preferred Client Discount −$19,241.24 → $52,102.31 → <strong>Project Fee (no tax): $47,434.98</strong></div>
           <div class="room-hdr"><span>Equipment Room</span><span class="room-amt">$23,739.74</span></div>
           <div class="col-header"><span>Product</span><span>Qty</span><span>Unit</span><span>Total</span></div>
           <div class="prod-row"><div><div class="prod-name">Strong 32U Rack</div></div><div class="prod-qty">×1</div><div class="prod-unit">$2,749.99</div><div class="prod-ext">$2,749.99</div></div>
@@ -704,37 +768,288 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
   </div>
 </section>
 
-<!-- Outstanding Items -->
-<section id="outstanding">
+<!-- Old Outstanding Items replaced by Project Status section above -->
+
+<!-- Project Status — Additional Items -->
+<section id="status-items">
   <div class="container">
-    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto">
-      <div class="section-label">Status</div>
-      <div class="section-title">Outstanding <strong>Items</strong></div>
+    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto;margin-bottom:40px">
+      <div class="section-label">Project Status</div>
+      <div class="section-title">Additional <strong>Items</strong></div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px" class="fade-in">
-      <div class="outstanding-section">
-        <h3><span class="badge badge-green">COMPLETE</span> Installed — No Additional Charge</h3>
-        <div class="oi-item"><strong>Outdoor Speakers</strong> — Installed, proposal pending</div>
-        <div class="oi-item"><strong>POE Switch</strong> — Installed, not yet invoiced</div>
-        <div class="oi-item"><strong>Keypad Moves</strong> — Relocated as needed</div>
-        <div class="oi-item"><strong>Patio LED Tape Wires</strong> — Pre-wired</div>
-        <div class="oi-item"><strong>Control4 Core1</strong> — Installed</div>
-        <div class="oi-item"><strong>Misc Labor</strong> — Various support tasks</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px" class="fade-in status-split">
+
+      <!-- Completed -->
+      <div style="border:2px solid var(--green);border-radius:16px;overflow:hidden;background:var(--bg);box-shadow:0 4px 20px rgba(46,125,50,.08)">
+        <div style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);padding:18px 24px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:1.4rem">✅</span>
+          <h3 style="font-size:.95rem;font-weight:700;color:var(--green);margin:0">Completed — No Additional Charge</h3>
+        </div>
+        <div style="padding:20px 24px">
+          <div class="status-item si-green">2 Outdoor Speakers — installed</div>
+          <div class="status-item si-green">1 Additional 24-Port POE Switch — needed two instead of one</div>
+          <div class="status-item si-green">Moved lighting keypads a few times <span class="si-note">Covered by Alt3</span></div>
+          <div class="status-item si-green">Fixed patio LED tape wires for final inspection <span class="si-note">Tracks only — <a href="#future" style="color:var(--green);font-weight:600">tape light options available</a></span></div>
+          <div class="status-item si-green">Control4 Core1 Controller <span class="si-note">Covered by Alt3</span></div>
+          <div class="status-item si-green">Other miscellaneous labor items absorbed by Alt3 onsite</div>
+        </div>
       </div>
-      <div class="outstanding-section">
-        <h3><span class="badge badge-amber">PENDING</span> To Be Quoted</h3>
-        <div class="oi-item"><strong>Outdoor Speaker Proposal</strong> — Formal proposal to be sent</div>
-        <div class="oi-item"><strong>Great Room</strong> — Receiver, soundbar, toe kick sub</div>
-        <div class="oi-item"><strong>TV Mounts</strong> — 4 rooms</div>
-        <div class="oi-item"><strong>Additional Camera</strong> — NVR expansion</div>
-        <div class="oi-item"><strong>Integrations</strong> — Microwave, stove, sliding doors, floor heaters, steam shower, sauna, overhead doors</div>
+
+      <!-- Still To Do -->
+      <div style="border:2px solid #d4920a;border-radius:16px;overflow:hidden;background:var(--bg);box-shadow:0 4px 20px rgba(212,146,10,.08)">
+        <div style="background:linear-gradient(135deg,#fff8e1,#ffecb3);padding:18px 24px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:1.4rem">🔧</span>
+          <h3 style="font-size:.95rem;font-weight:700;color:#b37a00;margin:0">Items Still To Do</h3>
+        </div>
+        <div style="padding:20px 24px">
+          <div class="status-item si-amber">
+            Outdoor speakers, Great Room (Receiver, Sound Bar, Toe Kick Subwoofer), TV mounts for Great Room, Owner's Bedroom, Rec Room &amp; Exercise Room, additional garage security camera
+            <a href="#change-order" class="si-action">See Pending Change Order ↓</a>
+          </div>
+          <div class="status-item si-amber">
+            Integrate: Microwave, Stove, Sliding Doors, Bathroom Floor Heaters, Steam Shower, Sauna, Overhead Doors
+            <a href="#future" class="si-action amber">See Future Enhancements ↓</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Pending Change Order -->
+<section id="change-order">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto;margin-bottom:40px">
+      <div class="section-label">Action Required</div>
+      <div class="section-title">Pending Change Order — <strong>Approval Required</strong></div>
+      <div class="section-desc" style="margin:0 auto">Bailey add-ons proposal dated February 7, 2026. Review the room-by-room breakdown below.</div>
+    </div>
+    <div class="fade-in" style="max-width:800px;margin:0 auto">
+      <div class="co-section">
+        <div class="co-badge">⚡ Pending Approval</div>
+        <h2 style="font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:4px">Bailey Add-Ons — February 7, 2026</h2>
+        <p style="font-size:.82rem;color:var(--dim);margin-bottom:8px">Outdoor speakers, garage camera, TV mounts &amp; media for Rec Room, Living Room, Master Bedroom, and Gym.</p>
+        <a class="co-link" href="#">View Original Proposal →</a>
+
+        <div class="co-total-box">
+          <div class="big">$15,273.31</div>
+          <div class="sub">Equipment &amp; Materials: $10,350.81 &nbsp;|&nbsp; Professional Installation: $4,922.50 &nbsp;|&nbsp; No Tax</div>
+        </div>
+
+        <!-- Room breakdowns -->
+        <div class="scope-cards" style="margin-top:16px">
+
+          <!-- Outdoor Speakers -->
+          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
+            <div class="scope-header" onclick="toggleCard(this)">
+              <div class="scope-header-left">
+                <div class="scope-num" style="background:#d4920a">1</div>
+                <div class="scope-info"><h3>Outdoor Speakers</h3><div class="scope-sub">Equipment Room Floor</div></div>
+              </div>
+              <div class="scope-header-right">
+                <div class="scope-total" style="color:#b37a00">$1,311.00</div>
+                <div class="scope-chevron">▼</div>
+              </div>
+            </div>
+            <div class="scope-body">
+              <div class="col-header"><span>Product</span><span>Qty</span><span>Unit</span><span>Total</span></div>
+              <div class="prod-row"><div><div class="prod-name">Origin Acoustics OS80W</div></div><div class="prod-qty">×1</div><div class="prod-unit">$1,011.00</div><div class="prod-ext">$1,011.00</div></div>
+              <div class="prod-row"><div><div class="prod-name">Installation Labor</div></div><div class="prod-qty">—</div><div class="prod-unit">—</div><div class="prod-ext">$300.00</div></div>
+              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$1,311.00</span></div>
+            </div>
+          </div>
+
+          <!-- Garage Camera -->
+          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
+            <div class="scope-header" onclick="toggleCard(this)">
+              <div class="scope-header-left">
+                <div class="scope-num" style="background:#d4920a">2</div>
+                <div class="scope-info"><h3>Garage Camera</h3><div class="scope-sub">Equipment Room Floor</div></div>
+              </div>
+              <div class="scope-header-right">
+                <div class="scope-total" style="color:#b37a00">$537.49</div>
+                <div class="scope-chevron">▼</div>
+              </div>
+            </div>
+            <div class="scope-body">
+              <div class="col-header"><span>Product</span><span>Qty</span><span>Unit</span><span>Total</span></div>
+              <div class="prod-row"><div><div class="prod-name">Luma 520 Series 5MP Turret IP Outdoor Camera</div></div><div class="prod-qty">×1</div><div class="prod-unit">$384.99</div><div class="prod-ext">$384.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Installation Labor</div></div><div class="prod-qty">—</div><div class="prod-unit">—</div><div class="prod-ext">$152.50</div></div>
+              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$537.49</span></div>
+            </div>
+          </div>
+
+          <!-- Rec Room -->
+          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
+            <div class="scope-header" onclick="toggleCard(this)">
+              <div class="scope-header-left">
+                <div class="scope-num" style="background:#d4920a">3</div>
+                <div class="scope-info"><h3>Rec Room</h3><div class="scope-sub">Main Floor</div></div>
+              </div>
+              <div class="scope-header-right">
+                <div class="scope-total" style="color:#b37a00">$1,576.97</div>
+                <div class="scope-chevron">▼</div>
+              </div>
+            </div>
+            <div class="scope-body">
+              <div class="col-header"><span>Product</span><span>Qty</span><span>Unit</span><span>Total</span></div>
+              <div class="prod-row"><div><div class="prod-name">Sanus VXT7 TV Mount</div></div><div class="prod-qty">×1</div><div class="prod-unit">$249.99</div><div class="prod-ext">$249.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Roku Ultra</div></div><div class="prod-qty">×1</div><div class="prod-unit">$99.99</div><div class="prod-ext">$99.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Binary B6 HDMI Cable</div></div><div class="prod-qty">×1</div><div class="prod-unit">$31.99</div><div class="prod-ext">$31.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Control4 Driver: TCL TV (Cindev)</div></div><div class="prod-qty">×1</div><div class="prod-unit">$150.00</div><div class="prod-ext">$150.00</div></div>
+              <div class="prod-row"><div><div class="prod-name">Installation Labor</div></div><div class="prod-qty">—</div><div class="prod-unit">—</div><div class="prod-ext">$1,045.00</div></div>
+              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$1,576.97</span></div>
+            </div>
+          </div>
+
+          <!-- Living Room -->
+          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
+            <div class="scope-header" onclick="toggleCard(this)">
+              <div class="scope-header-left">
+                <div class="scope-num" style="background:#d4920a">4</div>
+                <div class="scope-info"><h3>Living Room</h3><div class="scope-sub">Main Floor</div></div>
+              </div>
+              <div class="scope-header-right">
+                <div class="scope-total" style="color:#b37a00">$8,366.94</div>
+                <div class="scope-chevron">▼</div>
+              </div>
+            </div>
+            <div class="scope-body">
+              <div class="col-header"><span>Product</span><span>Qty</span><span>Unit</span><span>Total</span></div>
+              <div class="prod-row"><div><div class="prod-name">Roku Ultra</div></div><div class="prod-qty">×1</div><div class="prod-unit">$99.99</div><div class="prod-ext">$99.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Binary B6 HDMI Cable</div></div><div class="prod-qty">×1</div><div class="prod-unit">$31.99</div><div class="prod-ext">$31.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Triad MFS-BDL1</div></div><div class="prod-qty">×1</div><div class="prod-unit">$2,560.00</div><div class="prod-ext">$2,560.00</div></div>
+              <div class="prod-row"><div><div class="prod-name">Origin Acoustics SBR43-60 Soundbar</div></div><div class="prod-qty">×1</div><div class="prod-unit">$1,613.00</div><div class="prod-ext">$1,613.00</div></div>
+              <div class="prod-row"><div><div class="prod-name">Anthem MRX 540 8K Receiver</div></div><div class="prod-qty">×1</div><div class="prod-unit">$1,899.99</div><div class="prod-ext">$1,899.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Strong Razor XL Tilt Mount 49-90"</div></div><div class="prod-qty">×1</div><div class="prod-unit">$353.99</div><div class="prod-ext">$353.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Strong Universal Soundbar Bracket</div></div><div class="prod-qty">×1</div><div class="prod-unit">$117.99</div><div class="prod-ext">$117.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Installation Labor</div></div><div class="prod-qty">—</div><div class="prod-unit">—</div><div class="prod-ext">$1,690.00</div></div>
+              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$8,366.94</span></div>
+            </div>
+          </div>
+
+          <!-- Master Bedroom -->
+          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
+            <div class="scope-header" onclick="toggleCard(this)">
+              <div class="scope-header-left">
+                <div class="scope-num" style="background:#d4920a">5</div>
+                <div class="scope-info"><h3>Master Bedroom</h3><div class="scope-sub">Main Floor</div></div>
+              </div>
+              <div class="scope-header-right">
+                <div class="scope-total" style="color:#b37a00">$938.97</div>
+                <div class="scope-chevron">▼</div>
+              </div>
+            </div>
+            <div class="scope-body">
+              <div class="col-header"><span>Product</span><span>Qty</span><span>Unit</span><span>Total</span></div>
+              <div class="prod-row"><div><div class="prod-name">Strong Razor Large Tilt Mount 40-80"</div></div><div class="prod-qty">×1</div><div class="prod-unit">$311.99</div><div class="prod-ext">$311.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Roku Ultra</div></div><div class="prod-qty">×1</div><div class="prod-unit">$99.99</div><div class="prod-ext">$99.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Binary B6 HDMI Cable</div></div><div class="prod-qty">×1</div><div class="prod-unit">$31.99</div><div class="prod-ext">$31.99</div></div>
+              <div class="prod-row"><div><div class="prod-name">Installation Labor</div></div><div class="prod-qty">—</div><div class="prod-unit">—</div><div class="prod-ext">$495.00</div></div>
+              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$938.97</span></div>
+            </div>
+          </div>
+
+          <!-- Gym -->
+          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
+            <div class="scope-header" onclick="toggleCard(this)">
+              <div class="scope-header-left">
+                <div class="scope-num" style="background:#d4920a">6</div>
+                <div class="scope-info"><h3>Gym</h3><div class="scope-sub">2nd Floor</div></div>
+              </div>
+              <div class="scope-header-right">
+                <div class="scope-total" style="color:#b37a00">$2,541.94</div>
+                <div class="scope-chevron">▼</div>
+              </div>
+            </div>
+            <div class="scope-body">
+              <div class="col-header"><span>Product</span><span>Qty</span><span>Unit</span><span>Total</span></div>
+              <div class="prod-row"><div><div class="prod-name">Strong Carbon Series Dual Arm Mount 40-80"</div></div><div class="prod-qty">×2</div><div class="prod-unit">$518.99</div><div class="prod-ext">$1,037.98</div></div>
+              <div class="prod-row"><div><div class="prod-name">Roku Ultra</div></div><div class="prod-qty">×2</div><div class="prod-unit">$99.99</div><div class="prod-ext">$199.98</div></div>
+              <div class="prod-row"><div><div class="prod-name">Binary B6 HDMI Cable</div></div><div class="prod-qty">×2</div><div class="prod-unit">$31.99</div><div class="prod-ext">$63.98</div></div>
+              <div class="prod-row"><div><div class="prod-name">Installation Labor</div></div><div class="prod-qty">—</div><div class="prod-unit">—</div><div class="prod-ext">$1,240.00</div></div>
+              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$2,541.94</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Summary -->
+        <div style="margin-top:24px;padding:16px;background:rgba(212,146,10,.06);border-radius:10px;border:1px solid rgba(212,146,10,.2)">
+          <div class="fee-line"><span>Equipment &amp; Materials</span><span>$10,350.81</span></div>
+          <div class="fee-line"><span>Professional Installation</span><span>$4,922.50</span></div>
+          <div class="area-total" style="border-color:#d4920a"><span>Change Order Total (no tax)</span><span class="amt" style="color:#b37a00">$15,273.31</span></div>
+        </div>
+
+        <!-- Approval -->
+        <div style="text-align:center;margin-top:24px" id="approval-area">
+          <button class="approve-btn" id="approve-btn" onclick="showApprovalModal()">✍️ I Approve This Change Order</button>
+          <div id="approval-stamp" style="display:none;margin-top:12px;padding:14px 20px;background:rgba(46,125,50,.08);border:2px solid var(--green);border-radius:10px;font-size:.9rem;color:var(--green);font-weight:600"></div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
 
+<!-- Future Enhancements -->
+<section id="future" class="alt-bg">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto">
+      <div class="section-label">What's Next</div>
+      <div class="section-title">Future Enhancements — <strong>Available Options</strong></div>
+      <div class="section-desc" style="margin:0 auto">Additional upgrades available when you're ready. No commitment — just options to keep in mind.</div>
+    </div>
+    <div class="future-grid">
+      <div class="future-card fade-in">
+        <div class="icon">🔗</div>
+        <h3>Integration Services</h3>
+        <p>Microwave, stove, sliding doors, bathroom floor heaters, steam shower, sauna, and overhead garage doors — all controllable through your Josh.ai &amp; Control4 system.</p>
+        <div class="note">Pricing TBD based on equipment compatibility</div>
+      </div>
+      <div class="future-card fade-in">
+        <div class="icon">🔊</div>
+        <h3>Additional Audio Zones</h3>
+        <p>Expand your multi-room audio to office, lounge, and additional outdoor zones. Your amp infrastructure supports easy expansion.</p>
+      </div>
+      <div class="future-card fade-in">
+        <div class="icon">💡</div>
+        <h3>Patio LED Tape Lighting</h3>
+        <p>Tracks are already installed and pre-wired. Choose from warm white, tunable white, or RGB tape light options to bring the patio to life.</p>
+        <div class="note">Pre-wire complete — tape light selection available</div>
+      </div>
+      <div class="future-card fade-in">
+        <div class="icon">📹</div>
+        <h3>Additional Security Cameras</h3>
+        <p>Dock cameras, additional exterior coverage, and NVR expansion to complement your existing Luma surveillance system.</p>
+      </div>
+      <div class="future-card fade-in">
+        <div class="icon">📺</div>
+        <h3>TV Installation</h3>
+        <p>Samsung Frame TVs or similar for any room. We're happy to create a change order for TV procurement and professional mounting.</p>
+        <div class="note">Pre-wire in place for all planned TV locations</div>
+      </div>
+      <div class="future-card fade-in">
+        <div class="icon">🛡️</div>
+        <h3>Maintenance Contract</h3>
+        <p>Keep your system running perfectly with proactive monitoring, priority support, and regular health checks.</p>
+        <div class="tier-grid">
+          <div class="tier bronze">Bronze<br>$75/mo</div>
+          <div class="tier silver">Silver<br>$150/mo</div>
+          <div class="tier gold">Gold<br>$250/mo</div>
+        </div>
+      </div>
+    </div>
+    <div class="future-cta fade-in">
+      <a href="mailto:info@alt3.com?subject=Peninsula%20Club%20-%20Future%20Enhancements">Interested? Let's Talk →</a>
+      <p>Contact us at <strong>info@alt3.com</strong> to discuss any of these options.</p>
+    </div>
+  </div>
+</section>
+
 <!-- Financial Summary -->
-<section id="summary" class="alt-bg">
+<section id="summary" class="alt-bg" style="background:var(--cream)">
   <div class="container">
     <div class="fade-in" style="max-width:700px;margin:0 auto">
       <div class="fin-summary">
@@ -746,12 +1061,15 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
           <tr><td>Section 4 — Shades (Lutron #3887368.1)</td><td>$19,958.48</td></tr>
           <tr><td>Section 5 — Lighting (Proposal #106 + CO #1 & #2)</td><td>$132,174.43</td></tr>
           <tr><td>Section 6 — Change Order #3 (Proposal #114)</td><td>$14,318.50</td></tr>
-          <tr class="total-row"><td>Grand Total</td><td>$220,245.89</td></tr>
+          <tr class="total-row"><td>Current Total</td><td>$220,245.89</td></tr>
+          <tr class="pending-row"><td>⏳ Pending Change Order (Feb 7, 2026)</td><td>$15,273.31</td></tr>
+          <tr class="grand-row"><td>Including Pending CO</td><td>$235,519.20</td></tr>
         </table>
         <div class="fin-divider"></div>
         <div class="fin-row paid"><span>Paid to Date</span><span>$195,869.45</span></div>
         <div class="fin-divider"></div>
         <div class="fin-final"><span class="label">Remaining Balance</span><span class="amount">$24,376.44</span></div>
+        <div class="fin-pending-note">⏳ Pending change order of $15,273.31 not yet included in remaining balance — awaiting approval.</div>
       </div>
     </div>
   </div>
@@ -782,6 +1100,22 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
   <div class="tagline">Simple. Seamless. Smart — by design.</div>
 </footer>
 
+<!-- Approval Modal -->
+<div class="modal-overlay" id="approval-modal">
+  <div class="modal-box">
+    <h3>Approve Change Order</h3>
+    <p style="font-size:.82rem;color:var(--dim);margin-bottom:8px">By confirming, you approve the pending change order totaling <strong>$15,273.31</strong>.</p>
+    <label>Full Name</label>
+    <input type="text" id="approval-name" placeholder="e.g. Alex Bailey">
+    <label>Date</label>
+    <input type="date" id="approval-date">
+    <div class="modal-actions">
+      <button class="cancel" onclick="hideApprovalModal()">Cancel</button>
+      <button class="confirm" onclick="confirmApproval()">✅ Confirm Approval</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // Toggle scope cards
 function toggleCard(header){
@@ -798,6 +1132,38 @@ document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 // Nav scroll
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)},{passive:true});
+
+// Approval flow
+function showApprovalModal(){
+  if(localStorage.getItem('bailey-co-approved')) return;
+  document.getElementById('approval-date').valueAsDate=new Date();
+  document.getElementById('approval-modal').classList.add('active');
+}
+function hideApprovalModal(){document.getElementById('approval-modal').classList.remove('active')}
+function confirmApproval(){
+  const name=document.getElementById('approval-name').value.trim();
+  const date=document.getElementById('approval-date').value;
+  if(!name){alert('Please enter your name.');return}
+  if(!date){alert('Please enter the date.');return}
+  const data=JSON.stringify({name,date});
+  localStorage.setItem('bailey-co-approved',data);
+  hideApprovalModal();
+  renderApproval(name,date);
+}
+function renderApproval(name,date){
+  const btn=document.getElementById('approve-btn');
+  btn.classList.add('approved');
+  btn.textContent='✅ Approved by '+name+' on '+date;
+  btn.onclick=null;
+  const stamp=document.getElementById('approval-stamp');
+  stamp.style.display='block';
+  stamp.textContent='Change order approved by '+name+' on '+date+'. Thank you!';
+}
+// Restore approval on load
+(function(){
+  const saved=localStorage.getItem('bailey-co-approved');
+  if(saved){const{name,date}=JSON.parse(saved);renderApproval(name,date)}
+})();
 </script>
 </body>
 </html>
