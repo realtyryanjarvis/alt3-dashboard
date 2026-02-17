@@ -150,6 +150,23 @@ footer .contact a{color:var(--accent);text-decoration:none}
 .sec-card .sec-icon{font-size:2.2rem;margin-bottom:12px}
 .sec-card h4{font-size:.95rem;font-weight:600;margin-bottom:6px}
 .sec-card p{font-size:.8rem;color:var(--text-light)}
+/* Scope Detail Panels */
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scope-detail{background:var(--white);border:1px solid rgba(190,177,162,.3);border-radius:16px;padding:32px;box-shadow:0 4px 30px rgba(0,0,0,.06)}
+.scope-detail-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(190,177,162,.3)}
+.scope-detail-header h3{font-size:1.15rem;font-weight:600;color:var(--text)}
+.scope-detail-note{font-size:.82rem;color:var(--accent);background:rgba(17,54,101,.06);padding:12px 16px;border-radius:8px;margin-bottom:24px;border-left:3px solid var(--accent)}
+.scope-room{margin-bottom:16px}
+.scope-room-header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:rgba(190,177,162,.1);border-radius:10px;font-weight:500;font-size:.9rem}
+.scope-room-total{font-weight:700;color:var(--accent)}
+.scope-items{padding:8px 16px}
+.scope-item{display:flex;justify-content:space-between;padding:8px 0;font-size:.85rem;color:var(--text);border-bottom:1px solid rgba(190,177,162,.15)}
+.scope-item:last-child{border-bottom:none}
+.scope-item.sub{padding-left:16px;color:var(--text-light);font-size:.82rem}
+.scope-item.sub span:first-child::before{content:'·';color:var(--taupe);margin-right:8px}
+.scope-item span:last-child{font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap}
+.scope-total{display:flex;justify-content:space-between;padding:20px 16px;margin-top:16px;border-top:2px solid var(--accent);font-size:1.1rem;font-weight:700;color:var(--accent)}
+.package:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
 </style>
 </head>
 <body>
@@ -394,9 +411,10 @@ footer .contact a{color:var(--accent);text-decoration:none}
     <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto">
       <div class="section-label">Scope</div>
       <div class="section-title">What's <strong>Included</strong></div>
+      <p style="color:var(--text-light);margin-top:12px;font-size:.95rem">Click each section to explore the full breakdown.</p>
     </div>
     <div class="packages">
-      <div class="package fade-in">
+      <div class="package fade-in" onclick="toggleScope('scopeA')" style="cursor:pointer;transition:transform .2s ease,box-shadow .2s ease">
         <div class="pkg-label">Section A</div>
         <h3>Lighting Control</h3>
         <div class="pkg-price">$116,166.05</div>
@@ -404,27 +422,161 @@ footer .contact a{color:var(--accent);text-decoration:none}
         <ul>
           <li>Lutron HomeWorks QSX processors</li>
           <li>Ketra tunable white fixtures throughout</li>
-          <li>Palladiom keypads & dimmers</li>
-          <li>Motorized shading system</li>
+          <li>Palladiom & Sunnata designer keypads</li>
+          <li>Rania D2 shade integration fixtures</li>
           <li>Circadian rhythm programming</li>
           <li>Scene design & commissioning</li>
         </ul>
+        <div style="margin-top:16px;text-align:center;font-size:.8rem;color:var(--accent);font-weight:600;letter-spacing:1px">TAP TO EXPAND ↓</div>
       </div>
-      <div class="package fade-in">
+      <div class="package fade-in" onclick="toggleScope('scopeB')" style="cursor:pointer;transition:transform .2s ease,box-shadow .2s ease">
         <div class="pkg-label">Section B</div>
         <h3>Smart Home & A/V</h3>
         <div class="pkg-price">$108,049.15</div>
         <div class="pkg-note">Networking, audio, video, security, voice & control</div>
         <ul>
-          <li>Josh.ai voice control (Nano & Micro)</li>
+          <li>Josh.ai voice control (Nano, Edge & Core)</li>
           <li>MartinLogan whole-home audio</li>
           <li>Dedicated home theater system</li>
           <li>Enterprise-grade networking</li>
           <li>Security cameras & sensors</li>
-          <li>Climate & door lock integration</li>
+          <li>Climate & shade prewire integration</li>
         </ul>
+        <div style="margin-top:16px;text-align:center;font-size:.8rem;color:var(--accent);font-weight:600;letter-spacing:1px">TAP TO EXPAND ↓</div>
       </div>
     </div>
+
+    <!-- Section A Detail -->
+    <div id="scopeA" class="scope-detail" style="display:none;margin-top:40px;animation:fadeSlideIn .4s ease">
+      <div class="scope-detail-header">
+        <h3>Section A — Lutron HomeWorks Lighting Control</h3>
+        <button onclick="toggleScope('scopeA')" style="background:none;border:1px solid var(--taupe);color:var(--text-light);padding:6px 16px;border-radius:8px;font-size:.8rem;cursor:pointer">Close ✕</button>
+      </div>
+      <p class="scope-detail-note">Material, equipment, engineering & programming only. Installation labor is the responsibility of the project electrician.</p>
+
+      <div class="scope-room">
+        <div class="scope-room-header">
+          <span>Main Level</span>
+          <span class="scope-room-total">$91,498.55</span>
+        </div>
+        <div class="scope-items">
+          <div class="scope-item"><span>Lighting Material & Equipment</span><span>$83,180.50</span></div>
+          <div class="scope-item sub"><span>HomeWorks Dimmers (×25)</span><span>$7,325.00</span></div>
+          <div class="scope-item sub"><span>HomeWorks Switches (×5)</span><span>$1,535.00</span></div>
+          <div class="scope-item sub"><span>Ketra D2 Tunable White Fixtures (×51)</span><span>$50,872.50</span></div>
+          <div class="scope-item sub"><span>Rania D2 Fixtures (×12)</span><span>$8,736.00</span></div>
+          <div class="scope-item sub"><span>Sunnata Hybrid Keypads (×15)</span><span>$9,795.00</span></div>
+          <div class="scope-item sub"><span>Sunnata 4-Button Keypads (×3)</span><span>$1,593.00</span></div>
+          <div class="scope-item sub"><span>Low-Voltage Panel (×1)</span><span>$640.00</span></div>
+          <div class="scope-item sub"><span>Dual Radio Processor (×1)</span><span>$1,705.00</span></div>
+          <div class="scope-item sub"><span>CCX Processor (×1)</span><span>$979.00</span></div>
+          <div class="scope-item"><span>Engineering, Programming & Oversight</span><span>$8,318.05</span></div>
+        </div>
+      </div>
+
+      <div class="scope-room">
+        <div class="scope-room-header">
+          <span>Upper Level</span>
+          <span class="scope-room-total">$24,667.50</span>
+        </div>
+        <div class="scope-items">
+          <div class="scope-item"><span>Lighting Material & Equipment</span><span>$22,425.00</span></div>
+          <div class="scope-item sub"><span>HomeWorks Dimmers (×30)</span><span>$8,790.00</span></div>
+          <div class="scope-item sub"><span>HomeWorks Switches (×8)</span><span>$2,456.00</span></div>
+          <div class="scope-item sub"><span>Rania D2 Fixtures (×13)</span><span>$9,464.00</span></div>
+          <div class="scope-item sub"><span>Sunnata Hybrid Keypad (×1)</span><span>$653.00</span></div>
+          <div class="scope-item sub"><span>Sunnata 4-Button Keypads (×2)</span><span>$1,062.00</span></div>
+          <div class="scope-item"><span>Engineering, Programming & Oversight</span><span>$2,242.50</span></div>
+        </div>
+      </div>
+
+      <div class="scope-total">
+        <span>Section A Total</span>
+        <span>$116,166.05</span>
+      </div>
+    </div>
+
+    <!-- Section B Detail -->
+    <div id="scopeB" class="scope-detail" style="display:none;margin-top:40px;animation:fadeSlideIn .4s ease">
+      <div class="scope-detail-header">
+        <h3>Section B — Smart Home, Audio/Video & Security</h3>
+        <button onclick="toggleScope('scopeB')" style="background:none;border:1px solid var(--taupe);color:var(--text-light);padding:6px 16px;border-radius:8px;font-size:.8rem;cursor:pointer">Close ✕</button>
+      </div>
+
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Equipment Room — Network & Core</span><span class="scope-room-total">$29,819.73</span></div>
+        <div class="scope-items">
+          <div class="scope-item sub"><span>Strong 42U Floor Standing Rack</span><span>$1,036.99</span></div>
+          <div class="scope-item sub"><span>WattBox IP Power Conditioner (×2)</span><span>$2,057.98</span></div>
+          <div class="scope-item sub"><span>Araknis Dual-WAN Router</span><span>$907.99</span></div>
+          <div class="scope-item sub"><span>Araknis 48-Port PoE Switch</span><span>$1,699.99</span></div>
+          <div class="scope-item sub"><span>Araknis Wi-Fi 6 820 Access Points (×4)</span><span>$3,267.96</span></div>
+          <div class="scope-item sub"><span>Josh Core — AI Processor</span><span>$3,078.90</span></div>
+          <div class="scope-item sub"><span>AVPro Edge 4K Video Distribution Hub</span><span>$1,959.00</span></div>
+          <div class="scope-item sub"><span>MartinLogan MDA16 Amplifier</span><span>$3,749.99</span></div>
+          <div class="scope-item sub"><span>Anthem MDX 8 Audio Matrix</span><span>$2,499.98</span></div>
+          <div class="scope-item sub"><span>Sonos Port Streamers (×3)</span><span>$1,497.00</span></div>
+        </div>
+      </div>
+
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Security & Surveillance</span><span class="scope-room-total">$8,796.40</span></div>
+        <div class="scope-items">
+          <div class="scope-item sub"><span>IC Realtime NightWatch Pro AI Camera</span><span>$1,500.00</span></div>
+          <div class="scope-item sub"><span>Qolsys IQ4 Hub — 7" Security Panel</span><span>$781.84</span></div>
+          <div class="scope-item sub"><span>Door/Window Sensors (×5)</span><span>$410.90</span></div>
+          <div class="scope-item sub"><span>Glass Break Detectors (×6)</span><span>$1,079.16</span></div>
+          <div class="scope-item sub"><span>Motion Sensors (×3)</span><span>$293.16</span></div>
+          <div class="scope-item sub"><span>Video Doorbells (×2)</span><span>$1,196.00</span></div>
+          <div class="scope-item sub"><span>CO Detectors (×2)</span><span>$314.72</span></div>
+        </div>
+      </div>
+
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Climate & Shade Prep</span><span class="scope-room-total">$3,680.64</span></div>
+        <div class="scope-items">
+          <div class="scope-item sub"><span>Ecobee Smart Thermostats (×3)</span><span>$449.85</span></div>
+          <div class="scope-item sub"><span>Motorized Shade Prewire (×26 locations)</span><span>$2,600.00</span></div>
+        </div>
+      </div>
+
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Living Room</span><span class="scope-room-total">$5,602.33</span></div>
+      </div>
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Kitchen</span><span class="scope-room-total">$6,036.05</span></div>
+      </div>
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Office</span><span class="scope-room-total">$3,851.87</span></div>
+      </div>
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Owner's Suite (Bedroom, Bath, Closet)</span><span class="scope-room-total">$12,149.29</span></div>
+      </div>
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Lounge</span><span class="scope-room-total">$1,885.85</span></div>
+      </div>
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Covered Porch</span><span class="scope-room-total">$6,297.81</span></div>
+      </div>
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Bonus Room / Home Theater</span><span class="scope-room-total">$21,084.66</span></div>
+      </div>
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Guest Bedrooms & JR Suite</span><span class="scope-room-total">$788.04</span></div>
+      </div>
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Outdoor (Pergola & Firepit)</span><span class="scope-room-total">$3,161.80</span></div>
+      </div>
+      <div class="scope-room">
+        <div class="scope-room-header"><span>Gym / Flex Room</span><span class="scope-room-total">$4,631.86</span></div>
+      </div>
+
+      <div class="scope-total">
+        <span>Section B Total</span>
+        <span>$108,049.15</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -496,6 +648,18 @@ window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', windo
   }
   draw();
 })();
+
+function toggleScope(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (el.style.display === 'none') {
+    el.style.display = 'block';
+    el.style.animation = 'fadeSlideIn .4s ease';
+    setTimeout(() => el.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+  } else {
+    el.style.display = 'none';
+  }
+}
 </script>
 </body>
 </html>
