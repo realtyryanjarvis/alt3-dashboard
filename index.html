@@ -321,79 +321,80 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
   </div>
   <nav id="nav">
     <button class="active" data-tab="dashboard">🏠 Dashboard</button>
-    <button data-tab="pipeline">🏗 Pipeline</button>
-    <button data-tab="scorecard">📊 Scorecard</button>
-    <button data-tab="rocks">🪨 Rocks</button>
-    <button data-tab="todos">✅ To-Do</button>
-    <button data-tab="issues">⚡ Issues</button>
-    <button data-tab="l10">📋 Level 10</button>
-    <button data-tab="calendar">📅 Calendar</button>
     <button data-tab="crm">👥 CRM</button>
     <button data-tab="proposals">📄 Proposals</button>
+    <button data-tab="scorecard">📊 Scorecard</button>
+    <button data-tab="l10">📋 Level 10</button>
   </nav>
 </div>
 
 <main>
-  <!-- DASHBOARD HOME -->
+  <!-- DASHBOARD HOME (everything on one page) -->
   <div class="section active" id="sec-dashboard">
-    <div class="section-title">Dashboard Overview</div>
-    <div class="dash-grid" id="dash-grid"></div>
+
+    <!-- ROCKS — top center, prominent -->
+    <div style="text-align:center;margin-bottom:8px">
+      <h2 style="font-size:1.4rem;color:var(--navy);font-weight:700;margin-bottom:4px">🪨 Quarterly Rocks — Q1 2026</h2>
+      <p style="font-size:.8rem;color:var(--text-muted)">Due March 31, 2026</p>
+    </div>
+    <div class="rocks-quarter" style="justify-content:center;display:flex;gap:8px;margin-bottom:16px">
+      <select id="rock-quarter" onchange="renderRocks();renderDashboard()"><option value="Q1-2026" selected>Q1 2026</option></select>
+      <button class="btn-primary btn-sm" onclick="openRockModal()">+ Add Rock</button>
+    </div>
+    <div id="dash-rocks"></div>
+
+    <!-- DEAL PIPELINE — full kanban -->
+    <div style="margin-top:32px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+        <h2 style="font-size:1.2rem;color:var(--navy);font-weight:700">💰 Deal Pipeline</h2>
+        <button class="btn-primary btn-sm" onclick="openDealModal()">+ Add Deal</button>
+      </div>
+      <div class="kanban" id="kanban"></div>
+    </div>
+
+    <!-- THIS WEEK SCHEDULE -->
+    <div style="margin-top:32px" id="dash-schedule"></div>
+
+    <!-- TO-DOS -->
+    <div style="margin-top:32px">
+      <h2 style="font-size:1.2rem;color:var(--navy);font-weight:700;margin-bottom:12px">✅ To-Do Lists</h2>
+      <div class="todo-grid" id="todo-grid"></div>
+    </div>
+
+    <!-- ISSUES -->
+    <div style="margin-top:32px">
+      <h2 style="font-size:1.2rem;color:var(--navy);font-weight:700;margin-bottom:12px">⚡ Issues</h2>
+      <div class="issues-split" id="issues-split"></div>
+    </div>
+
+    <!-- CALENDAR -->
+    <div style="margin-top:32px">
+      <div class="cal-header">
+        <div class="cal-nav">
+          <button class="btn-secondary btn-sm" onclick="calNav(-1)">◀</button>
+          <button class="btn-secondary btn-sm" onclick="calNav(0)">Today</button>
+          <button class="btn-secondary btn-sm" onclick="calNav(1)">▶</button>
+        </div>
+        <h3 id="cal-title"></h3>
+        <button class="btn-primary btn-sm" onclick="openEventModal()">+ Add Event</button>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+    </div>
+
+    <!-- hidden containers for legacy render functions -->
+    <div id="dash-grid" style="display:none"></div>
   </div>
 
-  <!-- PIPELINE -->
-  <div class="section" id="sec-pipeline">
-    <div class="section-title">Deal Pipeline <button class="btn-primary btn-sm" onclick="openDealModal()">+ Add Deal</button></div>
-    <div class="kanban" id="kanban"></div>
-  </div>
-
-  <!-- SCORECARD -->
+  <!-- SCORECARD (separate tab) -->
   <div class="section" id="sec-scorecard">
     <div class="section-title">📊 Weekly Scorecard — Q1 2026</div>
     <div class="scorecard-wrap" id="scorecard-wrap"></div>
   </div>
 
-  <!-- ROCKS -->
-  <div class="section" id="sec-rocks">
-    <div class="section-title">🪨 Quarterly Rocks</div>
-    <div class="rocks-quarter">
-      <select id="rock-quarter" onchange="renderRocks()">
-        <option value="Q1-2026" selected>Q1 2026</option>
-      </select>
-      <button class="btn-primary btn-sm" onclick="openRockModal()">+ Add Rock</button>
-    </div>
-    <div class="rocks-grid" id="rocks-grid"></div>
-  </div>
-
-  <!-- TODOS -->
-  <div class="section" id="sec-todos">
-    <div class="section-title">Team To-Do Lists</div>
-    <div class="todo-grid" id="todo-grid"></div>
-  </div>
-
-  <!-- ISSUES -->
-  <div class="section" id="sec-issues">
-    <div class="section-title">⚡ Issues List</div>
-    <div class="issues-split" id="issues-split"></div>
-  </div>
-
-  <!-- LEVEL 10 -->
+  <!-- LEVEL 10 (separate tab) -->
   <div class="section" id="sec-l10">
     <div class="section-title">📋 Level 10 Meeting</div>
     <div class="l10-container" id="l10-container"></div>
-  </div>
-
-  <!-- CALENDAR -->
-  <div class="section" id="sec-calendar">
-    <div class="cal-header">
-      <div class="cal-nav">
-        <button class="btn-secondary btn-sm" onclick="calNav(-1)">◀</button>
-        <button class="btn-secondary btn-sm" onclick="calNav(0)">Today</button>
-        <button class="btn-secondary btn-sm" onclick="calNav(1)">▶</button>
-      </div>
-      <h3 id="cal-title"></h3>
-      <button class="btn-primary btn-sm" onclick="openEventModal()">+ Add Event</button>
-    </div>
-    <div class="cal-grid" id="cal-grid"></div>
   </div>
 
   <!-- CRM -->
@@ -551,84 +552,54 @@ function renderDashboard() {
   const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const todayStr = now.toISOString().slice(0,10);
 
-  document.getElementById('dash-grid').innerHTML = `
-    <div class="dash-card" style="grid-column:1/-1">
-      <h3>🪨 Quarterly Rocks — Q1 2026
-        <span style="font-size:.75rem;font-weight:400;color:var(--text-muted);margin-left:8px">${rocksComplete}/${totalRocks} complete</span>
-      </h3>
-      <div class="rocks-grid" style="margin-top:12px">
-        ${PEOPLE.map(p => {
-          const pRocks = (rocksByOwner[p]||[]);
-          if(!pRocks.length) return '';
-          const statusLabels = {on:'On Track',off:'Off Track',complete:'Complete'};
-          const statusClass = {on:'rock-on',off:'rock-off',complete:'rock-done'};
-          return `<div class="rock-column">
-            <div class="rock-column-header"><span>${p}</span><span style="font-size:.75rem;color:var(--text-muted)">${pRocks.filter(r=>r.status==='complete').length}/${pRocks.length}</span></div>
-            ${pRocks.map(r => `<div class="rock-item">
-              <div class="rock-desc">${r.desc}</div>
-              <div class="rock-meta">
-                <span class="rock-status ${statusClass[r.status]}" onclick="cycleRock(${r.id})">${statusLabels[r.status]}</span>
-              </div>
-            </div>`).join('')}
-          </div>`;
-        }).join('')}
-      </div>
+  // Render rocks into dash-rocks
+  const statusLabels = {on:'On Track',off:'Off Track',complete:'Complete'};
+  const statusClass = {on:'rock-on',off:'rock-off',complete:'rock-done'};
+  document.getElementById('dash-rocks').innerHTML = `
+    <div style="text-align:center;margin-bottom:16px">
+      <span style="font-size:1.1rem;font-weight:700;color:var(--navy)">${rocksComplete}</span>
+      <span style="color:var(--text-muted)"> / ${totalRocks} complete</span>
+      <span style="margin-left:16px;color:var(--green);font-weight:600">${rocks.filter(r=>r.status==='on').length} on track</span>
+      <span style="margin-left:16px;color:var(--red);font-weight:600">${rocks.filter(r=>r.status==='off').length} off track</span>
     </div>
-    <div class="dash-card" style="grid-column:1/-1">
-      <h3>📅 This Week <span style="font-size:.75rem;font-weight:400;color:var(--text-muted)">${weekStart.toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${weekEnd.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span></h3>
-      ${weekEvents.length ? `<div style="display:grid;gap:6px;margin-top:8px">
-        ${weekEvents.map(ev => {
-          const evDate = new Date(ev.date+'T00:00:00');
-          const isToday = ev.date === todayStr;
-          const isPast = ev.date < todayStr;
-          return `<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:${isToday?'rgba(17,54,101,.06)':'var(--surface2)'};border-radius:6px;border:1px solid ${isToday?'var(--navy)':'var(--border)'};${isPast?'opacity:.5':''}">
-            <div style="min-width:50px;text-align:center">
-              <div style="font-size:.68rem;text-transform:uppercase;color:${isToday?'var(--navy)':'var(--text-muted)'};font-weight:700">${dayNames[evDate.getDay()]}</div>
-              <div style="font-size:1.1rem;font-weight:700;color:${isToday?'var(--navy)':'var(--text)'}">${evDate.getDate()}</div>
+    <div class="rocks-grid">
+      ${PEOPLE.map(p => {
+        const pRocks = (rocksByOwner[p]||[]);
+        if(!pRocks.length) return '';
+        return `<div class="rock-column">
+          <div class="rock-column-header"><span>${p}</span><span style="font-size:.75rem;color:var(--text-muted)">${pRocks.filter(r=>r.status==='complete').length}/${pRocks.length}</span></div>
+          ${pRocks.map(r => `<div class="rock-item">
+            <div class="rock-desc">${r.desc}</div>
+            <div class="rock-meta">
+              <span class="rock-status ${statusClass[r.status]}" onclick="cycleRock(${r.id})">${statusLabels[r.status]}</span>
             </div>
-            <div style="flex:1">
-              <div style="font-weight:600;font-size:.88rem">${ev.title}</div>
-              ${ev.notes?`<div style="font-size:.75rem;color:var(--text-muted)">${ev.notes}</div>`:''}
-            </div>
-            <div style="font-size:.8rem;color:var(--navy);font-weight:600">${ev.time||''}</div>
-            <div style="font-size:.68rem;padding:3px 8px;background:var(--surface3);border-radius:4px;color:var(--text-muted)">${ev.type||''}</div>
-          </div>`;
-        }).join('')}
-      </div>` : '<div style="color:var(--text-muted);font-size:.85rem;margin-top:8px">No events this week — <a href="#" onclick="document.querySelector(\'[data-tab=calendar]\').click();return false">add one</a></div>'}
-    </div>
-    <div style="grid-column:1/-1">
-      <h3 class="section-title">💰 Deal Flow <span style="font-size:.75rem;font-weight:400;color:var(--text-muted)">$${pipeVal.toLocaleString()} pipeline</span></h3>
-      <div class="kanban" style="margin-bottom:24px">
-        ${STAGES.filter(s=>s!=='Complete').map(stage => {
-          const cards = deals.filter(d => d.stage === stage);
-          return `<div class="kanban-col">
-            <div class="kanban-col-header">${stage} <span class="count">${cards.length}</span></div>
-            <div class="kanban-cards">${cards.map(c => `
-              <div class="kanban-card">
-                <div class="client">${c.client}</div>
-                <div class="address">${c.address}</div>
-                <div class="type-badge">${c.type}</div>
-                <div class="meta"><span class="value">$${c.value.toLocaleString()}</span><span>${c.date}</span></div>
-              </div>`).join('')}</div></div>`;
-        }).join('')}
-      </div>
-    </div>
-    <div class="dash-card" style="grid-column:1/-1">
-      <h3>✅ To-Dos</h3>
-      <div class="todo-grid" style="margin-top:12px">
-        ${PEOPLE.map(p => `
-          <div class="todo-column">
-            <div class="todo-column-header"><span class="person">${p}</span><span style="font-size:.75rem;color:var(--text-muted)">${(todos[p]||[]).filter(t=>!t.done).length} open</span></div>
-            <div class="todo-add"><input id="dash-todo-${p}" placeholder="Add task..." onkeydown="if(event.key==='Enter')addDashTodo('${p}')"><button class="btn-primary btn-sm" onclick="addDashTodo('${p}')">+</button></div>
-            <div class="todo-list">${(todos[p]||[]).map((t,i) => `
-              <div class="todo-item${t.done?' done':''}">
-                <div class="todo-check${t.done?' checked':''}" onclick="toggleTodo('${p}',${i});renderDashboard()"></div>
-                <span class="todo-text">${t.text}</span>
-                <span class="todo-delete" onclick="deleteTodo('${p}',${i});renderDashboard()">✕</span>
-              </div>`).join('')}</div>
           </div>`).join('')}
-      </div>
-    </div>
+        </div>`;
+      }).join('')}
+    </div>`;
+
+  // Render this week's schedule
+  document.getElementById('dash-schedule').innerHTML = `
+    <h2 style="font-size:1.2rem;color:var(--navy);font-weight:700;margin-bottom:12px">📅 This Week <span style="font-size:.75rem;font-weight:400;color:var(--text-muted)">${weekStart.toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${weekEnd.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span></h2>
+    ${weekEvents.length ? `<div style="display:grid;gap:6px">
+      ${weekEvents.map(ev => {
+        const evDate = new Date(ev.date+'T00:00:00');
+        const isToday = ev.date === todayStr;
+        const isPast = ev.date < todayStr;
+        return `<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:${isToday?'rgba(17,54,101,.06)':'var(--surface2)'};border-radius:6px;border:1px solid ${isToday?'var(--navy)':'var(--border)'};${isPast?'opacity:.5':''}">
+          <div style="min-width:50px;text-align:center">
+            <div style="font-size:.68rem;text-transform:uppercase;color:${isToday?'var(--navy)':'var(--text-muted)'};font-weight:700">${dayNames[evDate.getDay()]}</div>
+            <div style="font-size:1.1rem;font-weight:700;color:${isToday?'var(--navy)':'var(--text)'}">${evDate.getDate()}</div>
+          </div>
+          <div style="flex:1">
+            <div style="font-weight:600;font-size:.88rem">${ev.title}</div>
+            ${ev.notes?`<div style="font-size:.75rem;color:var(--text-muted)">${ev.notes}</div>`:''}
+          </div>
+          <div style="font-size:.8rem;color:var(--navy);font-weight:600">${ev.time||''}</div>
+          <div style="font-size:.68rem;padding:3px 8px;background:var(--surface3);border-radius:4px;color:var(--text-muted)">${ev.type||''}</div>
+        </div>`;
+      }).join('')}
+    </div>` : '<div style="color:var(--text-muted);font-size:.85rem">No events this week</div>'}
   `;
 }
 
