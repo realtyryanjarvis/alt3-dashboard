@@ -1186,6 +1186,11 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
       <div class="gt-row" id="gt-c"><span class="label">Section C — Lutron Motorized Shading (26 windows)</span><span class="amount">~$39,000</span></div>
       <div class="gt-divider"></div>
       <div class="gt-final"><span class="label">Total Project Investment</span><span class="amount" id="gt-grand">$274,425.97</span></div>
+      <div class="gt-divider" style="margin-top:20px"></div>
+      <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim);margin-top:12px;margin-bottom:8px;font-weight:600">Progress Billing</div>
+      <div class="gt-row"><span class="label">10% — Deposit Upon Signing</span><span class="amount" id="gt-dep">$27,442.60</span></div>
+      <div class="gt-row"><span class="label">80% — Equipment Ordered</span><span class="amount" id="gt-mid">$219,540.78</span></div>
+      <div class="gt-row"><span class="label">10% — Substantial Completion</span><span class="amount" id="gt-fin">$27,442.60</span></div>
     </div>
   </div>
 
@@ -1324,6 +1329,13 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
       pays[1].textContent = fmt(mid);
       pays[2].textContent = fmt(fin);
     }
+    // Update grand total billing rows
+    const gtDep = document.getElementById('gt-dep');
+    const gtMid = document.getElementById('gt-mid');
+    const gtFin = document.getElementById('gt-fin');
+    if(gtDep) gtDep.textContent = fmt(dep);
+    if(gtMid) gtMid.textContent = fmt(mid);
+    if(gtFin) gtFin.textContent = fmt(fin);
   }
 
   document.querySelectorAll('.fixture-toggle').forEach(cb => {
