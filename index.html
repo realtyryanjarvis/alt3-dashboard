@@ -578,25 +578,21 @@ function renderDashboard() {
       }).join('')}
     </div>`;
 
-  // Render this week's schedule
+  // Render this week's schedule — card style
+  const typeColors = {meeting:'var(--navy)',install:'#22c55e',followup:'#eab308',call:'var(--navy)',site:'#8b5cf6',deadline:'#ef4444'};
   document.getElementById('dash-schedule').innerHTML = `
-    <h2 style="font-size:1.2rem;color:var(--navy);font-weight:700;margin-bottom:12px">📅 This Week <span style="font-size:.75rem;font-weight:400;color:var(--text-muted)">${weekStart.toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${weekEnd.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span></h2>
-    ${weekEvents.length ? `<div style="display:grid;gap:6px">
+    <h2 style="font-size:1.2rem;color:var(--navy);font-weight:700;margin-bottom:16px">📅 Upcoming <span style="font-size:.75rem;font-weight:400;color:var(--text-muted)">${weekStart.toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${weekEnd.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span></h2>
+    ${weekEvents.length ? `<div style="display:grid;gap:8px">
       ${weekEvents.map(ev => {
         const evDate = new Date(ev.date+'T00:00:00');
         const isToday = ev.date === todayStr;
         const isPast = ev.date < todayStr;
-        return `<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:${isToday?'rgba(17,54,101,.06)':'var(--surface2)'};border-radius:6px;border:1px solid ${isToday?'var(--navy)':'var(--border)'};${isPast?'opacity:.5':''}">
-          <div style="min-width:50px;text-align:center">
-            <div style="font-size:.68rem;text-transform:uppercase;color:${isToday?'var(--navy)':'var(--text-muted)'};font-weight:700">${dayNames[evDate.getDay()]}</div>
-            <div style="font-size:1.1rem;font-weight:700;color:${isToday?'var(--navy)':'var(--text)'}">${evDate.getDate()}</div>
-          </div>
-          <div style="flex:1">
-            <div style="font-weight:600;font-size:.88rem">${ev.title}</div>
-            ${ev.notes?`<div style="font-size:.75rem;color:var(--text-muted)">${ev.notes}</div>`:''}
-          </div>
-          <div style="font-size:.8rem;color:var(--navy);font-weight:600">${ev.time||''}</div>
-          <div style="font-size:.68rem;padding:3px 8px;background:var(--surface3);border-radius:4px;color:var(--text-muted)">${ev.type||''}</div>
+        const accent = typeColors[(ev.type||'').toLowerCase()] || 'var(--navy)';
+        const dayLabel = dayNames[evDate.getDay()] + ' ' + evDate.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+        return `<div style="background:var(--surface);border-radius:8px;padding:12px 14px;border-left:3px solid ${accent};${isPast?'opacity:.5':''}${isToday?' box-shadow:0 0 0 1px var(--navy);':''}">
+          <div style="font-size:12px;color:${accent};font-weight:600">${dayLabel}${ev.time?' · '+ev.time:''}</div>
+          <div style="font-weight:600;margin:4px 0 2px;font-size:.92rem">${ev.title}</div>
+          ${ev.notes?`<div style="font-size:12px;color:var(--text-muted)">${ev.notes}</div>`:''}
         </div>`;
       }).join('')}
     </div>` : '<div style="color:var(--text-muted);font-size:.85rem">No events this week</div>'}
