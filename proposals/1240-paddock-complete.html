@@ -10,21 +10,21 @@
 @page { size: letter; margin: 0.4in 0.5in; }
 @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .page-break { page-break-before: always; } .no-print { display: none; } }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --copper: #113665; --copper-light: #BEB1A2; --copper-dark: #113665; --dark: #111; --surface: #1a1a1a; --border: #2a2a2a; --text: #e0e0e0; --dim: #999; }
-body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var(--text); line-height: 1.45; font-size: 13px; }
-.proposal { max-width: 850px; margin: 0 auto; background: var(--dark); }
+:root { --copper: #113665; --copper-light: #BEB1A2; --copper-dark: #113665; --dark: #ffffff; --surface: #f7f5f3; --border: #e8e3de; --text: #2a2a2a; --dim: #777; }
+body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var(--text); line-height: 1.45; font-size: 13px; }
+.proposal { max-width: 850px; margin: 0 auto; background: var(--dark); box-shadow: 0 4px 40px rgba(0,0,0,.08); }
 
 /* Cover */
-.cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px 40px; background: linear-gradient(160deg, #0d0d0d 0%, #0d1320 50%, #0d0d0d 100%); position: relative; }
+.cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px 40px; background: linear-gradient(160deg, #ffffff 0%, #f7f5f3 50%, #ffffff 100%); position: relative; }
 .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--copper), transparent); }
-.cover-logo { font-size: 3.5rem; font-weight: 900; letter-spacing: 2px; color: #fff; margin-bottom: 8px; }
-.cover-logo span { color: var(--copper); }
+.cover-logo { font-size: 3.5rem; font-weight: 900; letter-spacing: 2px; color: var(--copper); margin-bottom: 8px; }
+.cover-logo span { color: var(--copper-light); }
 .cover-tagline { font-size: 1rem; color: var(--dim); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 60px; }
-.cover-title { font-size: 2rem; font-weight: 300; color: #fff; margin-bottom: 12px; }
+.cover-title { font-size: 2rem; font-weight: 300; color: var(--text); margin-bottom: 12px; }
 .cover-subtitle { font-size: 1.1rem; color: var(--copper-light); margin-bottom: 60px; }
 .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; max-width: 500px; }
 .cover-meta dt { font-size: .7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dim); margin-bottom: 4px; }
-.cover-meta dd { font-size: .95rem; color: #fff; margin-bottom: 16px; }
+.cover-meta dd { font-size: .95rem; color: var(--text); margin-bottom: 16px; }
 
 /* Sections */
 .section { padding: 28px 40px; }
@@ -34,25 +34,25 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
 .section-desc { color: var(--dim); font-size: .82rem; margin-bottom: 18px; max-width: 650px; }
 
 /* Part Header */
-.part-header { background: linear-gradient(135deg, var(--surface) 0%, #0d1525 100%); border: 1px solid var(--copper-dark); border-radius: 10px; padding: 24px 36px; margin: 28px 40px 0; display: flex; justify-content: space-between; align-items: center; }
+.part-header { background: linear-gradient(135deg, var(--surface) 0%, #eee9e4 100%); border: 1px solid var(--border); border-radius: 10px; padding: 24px 36px; margin: 28px 40px 0; display: flex; justify-content: space-between; align-items: center; }
 .part-header .part-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--copper); margin-bottom: 4px; }
-.part-header .part-title { font-size: 1.3rem; font-weight: 700; color: #fff; }
+.part-header .part-title { font-size: 1.3rem; font-weight: 700; color: var(--text); }
 .part-header .part-total-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); text-align: right; }
-.part-header .part-total { font-size: 1.5rem; font-weight: 700; color: #fff; text-align: right; }
+.part-header .part-total { font-size: 1.5rem; font-weight: 700; color: var(--copper); text-align: right; }
 
 /* Product Cards */
 .product-grid { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
-.product-card { display: grid; grid-template-columns: 56px 1fr auto auto auto; align-items: center; gap: 12px; padding: 8px 12px; background: rgba(255,255,255,.02); border: 1px solid var(--border); border-radius: 6px; transition: border-color .2s; }
-.product-card:hover { border-color: rgba(17,54,101,.3); }
-.product-img { width: 56px; height: 56px; border-radius: 6px; background: var(--surface); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
+.product-card { display: grid; grid-template-columns: 56px 1fr auto auto auto; align-items: center; gap: 12px; padding: 8px 12px; background: #fff; border: 1px solid var(--border); border-radius: 6px; transition: border-color .2s; }
+.product-card:hover { border-color: var(--copper-light); }
+.product-img { width: 56px; height: 56px; border-radius: 6px; background: #f7f5f3; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
 .product-img svg { width: 32px; height: 32px; }
 .product-info { min-width: 0; }
-.product-name { font-size: .82rem; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.product-name { font-size: .82rem; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .product-part { font-size: .7rem; color: var(--dim); font-family: 'SF Mono', Menlo, monospace; }
 .product-qty, .product-unit, .product-ext { text-align: right; font-size: .82rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .product-qty { color: var(--dim); min-width: 32px; }
 .product-unit { color: var(--dim); min-width: 70px; }
-.product-ext { color: var(--text); font-weight: 500; min-width: 80px; }
+.product-ext { color: var(--copper); font-weight: 500; min-width: 80px; }
 .product-header { display: grid; grid-template-columns: 56px 1fr auto auto auto; gap: 12px; padding: 4px 12px; font-size: .65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); font-weight: 600; }
 .product-header > :nth-child(3),
 .product-header > :nth-child(4),
@@ -63,15 +63,15 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
 .subtotal-line { display: flex; justify-content: space-between; padding: 8px 12px; font-size: .85rem; font-weight: 600; border-top: 2px solid var(--border); margin-top: 6px; }
 .subtotal-line .amount { color: var(--copper-light); }
 .area-total-line { display: flex; justify-content: space-between; padding: 10px 12px; font-size: .95rem; font-weight: 700; border-top: 2px solid var(--copper); margin-top: 4px; }
-.area-total-line .amount { color: #fff; }
+.area-total-line .amount { color: var(--copper); }
 
 /* Room header */
-.room-header { font-size: .9rem; font-weight: 600; color: var(--copper-light); margin: 22px 0 8px; padding: 8px 12px; border-left: 3px solid var(--copper); background: rgba(17,54,101,.06); border-radius: 0 6px 6px 0; display: flex; justify-content: space-between; align-items: baseline; }
+.room-header { font-size: .9rem; font-weight: 600; color: var(--copper); margin: 22px 0 8px; padding: 8px 12px; border-left: 3px solid var(--copper); background: rgba(17,54,101,.04); border-radius: 0 6px 6px 0; display: flex; justify-content: space-between; align-items: baseline; }
 .room-header .room-total { font-size: .82rem; color: var(--dim); font-weight: 400; }
 
 /* Scope */
-.scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
-.scope-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+.scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 20px; }
+.scope-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
 .scope-card h4 { font-size: .68rem; text-transform: uppercase; letter-spacing: 1px; color: var(--copper); margin-bottom: 8px; font-weight: 700; }
 .scope-card ul { list-style: none; }
 .scope-card li { font-size: .8rem; color: var(--dim); padding: 2px 0; }
@@ -80,16 +80,16 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
 /* Interactive Toggle Options */
 .option-toggle { display: block; cursor: pointer; margin-bottom: 10px; }
 .option-toggle input[type="checkbox"] { display: none; }
-.option-card { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--surface); border: 2px solid var(--border); border-radius: 10px; transition: all .3s ease; position: relative; overflow: hidden; }
-.option-card.selected { border-color: var(--copper); background: linear-gradient(135deg, var(--surface) 0%, #0d1525 100%); }
-.option-card:hover { border-color: rgba(17,54,101,.6); }
+.option-card { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: #fff; border: 2px solid var(--border); border-radius: 10px; transition: all .3s ease; position: relative; overflow: hidden; }
+.option-card.selected { border-color: var(--copper); background: linear-gradient(135deg, #fff 0%, #f0ece8 100%); }
+.option-card:hover { border-color: var(--copper-light); }
 .option-check { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: .85rem; color: transparent; transition: all .3s; flex-shrink: 0; }
 .option-card.selected .option-check { background: var(--copper); border-color: var(--copper); color: #fff; }
 .option-info { flex: 1; min-width: 0; }
-.option-name { font-size: .95rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
+.option-name { font-size: .95rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
 .option-desc { font-size: .75rem; color: var(--dim); line-height: 1.4; }
 .option-price { text-align: right; flex-shrink: 0; }
-.option-amount { font-size: 1.1rem; font-weight: 700; color: #fff; }
+.option-amount { font-size: 1.1rem; font-weight: 700; color: var(--copper); }
 .option-detail { font-size: .7rem; color: var(--dim); }
 .option-card:not(.selected) .option-name,
 .option-card:not(.selected) .option-amount { color: var(--dim); text-decoration: line-through; opacity: .5; }
@@ -98,26 +98,26 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
 @media print { .option-card:not(.selected) { display: none; } .option-check { display: none; } }
 
 /* Grand Total */
-.grand-total { background: linear-gradient(135deg, #0d1320 0%, #0d1525 100%); border: 2px solid var(--copper); border-radius: 12px; padding: 32px 40px; margin: 28px 40px; }
+.grand-total { background: linear-gradient(135deg, #f7f5f3 0%, #eee9e4 100%); border: 2px solid var(--copper); border-radius: 12px; padding: 32px 40px; margin: 28px 40px; }
 .gt-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
 .gt-row .label { font-size: .9rem; color: var(--dim); }
 .gt-row .amount { font-size: 1rem; color: var(--text); font-variant-numeric: tabular-nums; }
 .gt-divider { border-top: 1px solid var(--border); margin: 12px 0; }
 .gt-final { display: flex; justify-content: space-between; align-items: baseline; }
-.gt-final .label { font-size: 1.1rem; font-weight: 600; color: var(--copper-light); }
-.gt-final .amount { font-size: 2.2rem; font-weight: 700; color: #fff; }
+.gt-final .label { font-size: 1.1rem; font-weight: 600; color: var(--copper); }
+.gt-final .amount { font-size: 2.2rem; font-weight: 700; color: var(--copper); }
 
 /* Payment */
 .payment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
-.payment-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+.payment-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
 .payment-pct { font-size: 1.8rem; font-weight: 700; color: var(--copper); }
 .payment-label { font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); margin-top: 4px; }
-.payment-amount { font-size: .9rem; color: #fff; font-weight: 600; margin-top: 4px; }
+.payment-amount { font-size: .9rem; color: var(--text); font-weight: 600; margin-top: 4px; }
 
 /* Terms */
 .terms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .terms-grid p { font-size: .78rem; color: var(--dim); break-inside: avoid; }
-.terms-grid strong { color: var(--text); }
+.terms-grid strong { color: var(--copper); }
 
 /* Signature */
 .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
@@ -135,7 +135,7 @@ body { font-family: 'Neue Montreal', sans-serif; background: #0d0d0d; color: var
 .summary-table td { padding: 6px 12px; font-size: .82rem; border-bottom: 1px solid var(--border); }
 .summary-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 .summary-table .total-row td { border-top: 2px solid var(--copper); font-weight: 700; font-size: .95rem; padding-top: 10px; }
-.summary-table .total-row td:last-child { color: #fff; }
+.summary-table .total-row td:last-child { color: var(--copper); }
 
 .print-btn { position: fixed; bottom: 24px; right: 24px; background: var(--copper); color: #fff; border: none; padding: 14px 28px; border-radius: 8px; font-size: .9rem; font-weight: 600; cursor: pointer; z-index: 100; box-shadow: 0 4px 20px rgba(17,54,101,.4); }
 .print-btn:hover { background: var(--copper-light); }
