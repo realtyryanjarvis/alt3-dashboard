@@ -1,0 +1,498 @@
+<!-- Peninsula Project — Alex Bailey Reconciliation -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alt3 Smart Homes — Peninsula Project Reconciliation</title>
+<style>
+@import url('https://fonts.cdnfonts.com/css/neue-montreal');
+@page { size: letter; margin: 0.4in 0.5in; }
+@media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .page-break { page-break-before: always; } .no-print { display: none; } }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --copper: #113665; --copper-light: #BEB1A2; --copper-dark: #113665; --dark: #ffffff; --surface: #f7f5f3; --border: #e8e3de; --text: #2a2a2a; --dim: #777; }
+body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var(--text); line-height: 1.45; font-size: 13px; }
+.proposal { max-width: 850px; margin: 0 auto; background: var(--dark); box-shadow: 0 4px 40px rgba(0,0,0,.08); }
+
+/* Cover */
+.cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px 40px; background: linear-gradient(160deg, #ffffff 0%, #f7f5f3 50%, #ffffff 100%); position: relative; }
+.cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--copper), transparent); }
+.cover-logo { font-size: 3.5rem; font-weight: 900; letter-spacing: 2px; color: var(--copper); margin-bottom: 8px; }
+.cover-logo span { color: var(--copper-light); }
+.cover-tagline { font-size: 1rem; color: var(--dim); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 60px; }
+.cover-title { font-size: 2rem; font-weight: 300; color: var(--text); margin-bottom: 12px; }
+.cover-subtitle { font-size: 1.1rem; color: var(--copper-light); margin-bottom: 60px; }
+.cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; max-width: 500px; }
+.cover-meta dt { font-size: .7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dim); margin-bottom: 4px; }
+.cover-meta dd { font-size: .95rem; color: var(--text); margin-bottom: 16px; }
+
+/* Sections */
+.section { padding: 28px 40px; }
+.section + .section { border-top: 1px solid var(--border); }
+.section-title { font-size: 1.15rem; font-weight: 600; color: var(--copper-light); margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+.section-title::before { content: ''; width: 3px; height: 20px; background: var(--copper); border-radius: 2px; }
+.section-desc { color: var(--dim); font-size: .82rem; margin-bottom: 18px; max-width: 650px; }
+
+/* Part Header */
+.part-header { background: linear-gradient(135deg, var(--surface) 0%, #eee9e4 100%); border: 1px solid var(--border); border-radius: 10px; padding: 24px 36px; margin: 28px 40px 0; display: flex; justify-content: space-between; align-items: center; }
+.part-header .part-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--copper); margin-bottom: 4px; }
+.part-header .part-title { font-size: 1.3rem; font-weight: 700; color: var(--text); }
+.part-header .part-total-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); text-align: right; }
+.part-header .part-total { font-size: 1.5rem; font-weight: 700; color: var(--copper); text-align: right; }
+
+/* Fee/Subtotal rows */
+.fee-line { display: flex; justify-content: space-between; padding: 4px 12px; font-size: .8rem; color: var(--dim); }
+.subtotal-line { display: flex; justify-content: space-between; padding: 8px 12px; font-size: .85rem; font-weight: 600; border-top: 2px solid var(--border); margin-top: 6px; }
+.subtotal-line .amount { color: var(--copper-light); }
+.area-total-line { display: flex; justify-content: space-between; padding: 10px 12px; font-size: .95rem; font-weight: 700; border-top: 2px solid var(--copper); margin-top: 4px; }
+.area-total-line .amount { color: var(--copper); }
+
+/* Scope */
+.scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 20px; }
+.scope-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+.scope-card h4 { font-size: .68rem; text-transform: uppercase; letter-spacing: 1px; color: var(--copper); margin-bottom: 8px; font-weight: 700; }
+.scope-card ul { list-style: none; }
+.scope-card li { font-size: .8rem; color: var(--dim); padding: 2px 0; }
+.scope-card li::before { content: '▸'; color: var(--copper); margin-right: 8px; }
+
+/* Grand Total */
+.grand-total { background: linear-gradient(135deg, #f7f5f3 0%, #eee9e4 100%); border: 2px solid var(--copper); border-radius: 12px; padding: 32px 40px; margin: 28px 40px; }
+.gt-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.gt-row .label { font-size: .9rem; color: var(--dim); }
+.gt-row .amount { font-size: 1rem; color: var(--text); font-variant-numeric: tabular-nums; }
+.gt-divider { border-top: 1px solid var(--border); margin: 12px 0; }
+.gt-final { display: flex; justify-content: space-between; align-items: baseline; }
+.gt-final .label { font-size: 1.1rem; font-weight: 600; color: var(--copper); }
+.gt-final .amount { font-size: 2.2rem; font-weight: 700; color: var(--copper); }
+
+/* Summary Table */
+.summary-table { width: 100%; border-collapse: collapse; }
+.summary-table td { padding: 6px 12px; font-size: .82rem; border-bottom: 1px solid var(--border); }
+.summary-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.summary-table .total-row td { border-top: 2px solid var(--copper); font-weight: 700; font-size: .95rem; padding-top: 10px; }
+.summary-table .total-row td:last-child { color: var(--copper); }
+
+/* Note boxes */
+.note-box { background: var(--surface); border: 1px solid var(--copper-dark); border-radius: 8px; padding: 16px 20px; font-size: .82rem; color: var(--dim); margin-bottom: 18px; }
+.note-box strong { color: var(--copper-light); }
+
+/* Value-add */
+.value-card { background: linear-gradient(135deg, rgba(17,54,101,.03) 0%, rgba(190,177,162,.08) 100%); border: 1px solid var(--copper-light); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+.value-card .value-label { font-size: .7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--copper); margin-bottom: 10px; font-weight: 700; }
+.value-item { display: flex; justify-content: space-between; padding: 4px 0; font-size: .82rem; color: var(--dim); }
+.value-item .val-amount { color: var(--copper); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Additional work */
+.pending-card { background: #fff; border: 1px dashed var(--copper-light); border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+.pending-card h4 { font-size: .75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--copper); margin-bottom: 10px; }
+.pending-card li { font-size: .82rem; color: var(--dim); padding: 3px 0; }
+
+/* Signature */
+.sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
+.sig-block { border-top: 1px solid var(--border); padding-top: 10px; }
+.sig-block .label { font-size: .68rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); margin-bottom: 4px; }
+.sig-block .line { border-bottom: 1px solid var(--dim); height: 36px; margin-bottom: 6px; }
+
+/* Footer */
+.footer { text-align: center; padding: 28px; border-top: 1px solid var(--border); }
+.footer-logo { font-size: 1.1rem; font-weight: 800; color: var(--copper); letter-spacing: 1px; }
+.footer p { font-size: .72rem; color: var(--dim); margin-top: 4px; }
+
+/* Change order sub-items */
+.co-item { background: rgba(17,54,101,.02); border-left: 3px solid var(--copper-light); border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 8px 0; }
+.co-item .co-title { font-size: .85rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.co-item .co-desc { font-size: .78rem; color: var(--dim); }
+.co-item .co-amount { font-size: .85rem; font-weight: 600; color: var(--copper); margin-top: 4px; }
+
+.print-btn { position: fixed; bottom: 24px; right: 24px; background: var(--copper); color: #fff; border: none; padding: 14px 28px; border-radius: 8px; font-size: .9rem; font-weight: 600; cursor: pointer; z-index: 100; box-shadow: 0 4px 20px rgba(17,54,101,.4); }
+.print-btn:hover { background: var(--copper-light); }
+
+@media (max-width: 600px) {
+  .section { padding: 20px 16px; }
+  .cover-meta { grid-template-columns: 1fr; gap: 0; }
+  .scope-grid { grid-template-columns: 1fr; }
+  .sig-grid { grid-template-columns: 1fr; }
+  .grand-total { margin: 20px 16px; padding: 24px 20px; }
+  .part-header { margin: 20px 16px 0; flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">📄 Save as PDF</button>
+
+<div class="proposal">
+
+  <!-- ========== COVER ========== -->
+  <div class="cover">
+    <div class="cover-logo">ALT<span>3</span></div>
+    <div class="cover-tagline">Smart Homes</div>
+    <div class="cover-title">Project Reconciliation &amp; Record</div>
+    <div class="cover-subtitle">18235 Peninsula Club Dr, Cornelius NC</div>
+    <dl class="cover-meta">
+      <div>
+        <dt>Prepared For</dt>
+        <dd>Alex Bailey</dd>
+        <dt>Project Address</dt>
+        <dd>18235 Peninsula Club Dr<br>Cornelius, NC</dd>
+        <dt>Builder</dt>
+        <dd>Keen Building Co</dd>
+      </div>
+      <div>
+        <dt>Prepared By</dt>
+        <dd>Ryan Palmer<br>CEO, Alt3 Smart Homes</dd>
+        <dt>Date</dt>
+        <dd>February 13, 2026</dd>
+        <dt>Proposal #</dt>
+        <dd>ALT3-PEN-2026</dd>
+      </div>
+    </dl>
+  </div>
+
+  <!-- ========== OVERVIEW ========== -->
+  <div class="section">
+    <div class="section-title">Project Overview</div>
+    <div class="section-desc">
+      A complete record of all smart home work performed at 18235 Peninsula Club Dr — encompassing pre-wire infrastructure, Josh.AI &amp; Control4 automation, motorized shading, Lutron/Ketra lighting with three change orders, and LED linear lighting installation. This document serves as a reconciliation of all project costs, payments, and Alt3-absorbed value.
+    </div>
+    <div class="scope-grid">
+      <div class="scope-card">
+        <h4>Pre-Wire &amp; Infrastructure</h4>
+        <ul>
+          <li>Structured wiring &amp; cable runs</li>
+          <li>Low-voltage pre-wire throughout</li>
+          <li>Network infrastructure backbone</li>
+          <li>Updated pricing as of 2/13/2026</li>
+        </ul>
+      </div>
+      <div class="scope-card">
+        <h4>Josh.AI &amp; Control4</h4>
+        <ul>
+          <li>Full Josh.AI voice control system</li>
+          <li>Control4 home automation</li>
+          <li>Josh microphones &amp; touchscreens</li>
+          <li>Origin speakers &amp; superior network</li>
+        </ul>
+      </div>
+      <div class="scope-card">
+        <h4>Motorized Shading</h4>
+        <ul>
+          <li>Full motorized shade package</li>
+          <li>Professional measurement &amp; fabrication</li>
+          <li>Installation labor billed at $85/hr pass-through</li>
+        </ul>
+      </div>
+      <div class="scope-card">
+        <h4>Lighting &amp; Change Orders</h4>
+        <ul>
+          <li>Lutron/Ketra lighting control system</li>
+          <li>Change Order #1: Pool room Ketra bulbs</li>
+          <li>Change Order #2: Golf room S30s, foyer D2s</li>
+          <li>Change Order #3: Dimmers, LED linear lighting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  SECTION 1: PRE-WIRE                                             -->
+  <!-- ================================================================ -->
+  <div class="part-header">
+    <div>
+      <div class="part-label">Section 1</div>
+      <div class="part-title">Pre-Wire &amp; Infrastructure</div>
+    </div>
+    <div>
+      <div class="part-total-label">Section Total</div>
+      <div class="part-total">$6,359.50</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-desc">Structured pre-wire and infrastructure for the entire home. Updated pricing as of 2/13/2026.</div>
+
+    <div class="note-box">
+      <strong>Pricing Update:</strong> Originally $11,786.12 (incl. $796.73 tax). Sonance speakers and associated taxes removed for a credit of −$5,426.62. Tax removed from this line item. Net project fee: $6,359.50.
+    </div>
+
+    <div class="area-total-line"><span>Pre-Wire Total</span><span class="amount">$6,359.50</span></div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  SECTION 2: JOSH.AI + CONTROL4                                   -->
+  <!-- ================================================================ -->
+  <div class="part-header page-break">
+    <div>
+      <div class="part-label">Section 2</div>
+      <div class="part-title">Josh.AI + Control4 Smart Home System</div>
+    </div>
+    <div>
+      <div class="part-total-label">Section Total</div>
+      <div class="part-total">$47,434.98</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-desc">Full Josh.AI smart home control system integrated with Control4 automation — including voice control, system processing, and whole-home integration.</div>
+
+    <div class="note-box">
+      <strong>Tax Note:</strong> Gross invoice $52,102.31 (includes $4,667.33 tax). Project fee to client: $47,434.98.<br><br>
+      <strong>Alt3 Absorbed:</strong> Josh microphones, increased Josh system price, upgrade to superior network compatible with both Control4 and Josh AI, upgrade to Origin speakers — totaling <strong>$19,241.24</strong> covered by Alt3.
+    </div>
+
+    <div class="area-total-line"><span>Josh.AI + Control4 Total</span><span class="amount">$47,434.98</span></div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  SECTION 3: ADDITIONAL JOSH.AI ITEMS                             -->
+  <!-- ================================================================ -->
+  <div class="part-header">
+    <div>
+      <div class="part-label">Section 3</div>
+      <div class="part-title">Additional Josh.AI Items</div>
+    </div>
+    <div>
+      <div class="part-total-label">Client Cost</div>
+      <div class="part-total" style="color: var(--copper-light);">$0.00</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-desc">Touchscreens, MRX 740 8K receiver, subwoofer, and additional Josh.AI components — 100% covered by Alt3 Smart Homes.</div>
+
+    <div class="note-box">
+      <strong>Full Invoice Value:</strong> $11,749.95 — <strong>Covered by Alt3</strong><br>
+      Includes touchscreens, MRX 740 8K receiver, subwoofer, and related accessories. Provided at no additional cost to demonstrate Alt3's commitment to delivering a best-in-class system.
+    </div>
+
+    <div class="subtotal-line"><span>Invoice Value</span><span class="amount">$11,749.95</span></div>
+    <div class="fee-line"><span>Alt3 Coverage</span><span>−$11,749.95</span></div>
+    <div class="area-total-line"><span>Client Cost</span><span class="amount">$0.00</span></div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  SECTION 4: SHADES                                               -->
+  <!-- ================================================================ -->
+  <div class="part-header page-break">
+    <div>
+      <div class="part-label">Section 4</div>
+      <div class="part-title">Motorized Shading</div>
+    </div>
+    <div>
+      <div class="part-total-label">Section Total</div>
+      <div class="part-total">$19,958.48</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-desc">Complete motorized shade package including fabric, hardware, and fabrication. No tax on this line item.</div>
+
+    <div class="note-box">
+      <strong>Installation Note:</strong> Installation labor still to be billed at pass-through cost of $85/hr.
+    </div>
+
+    <div class="area-total-line"><span>Shading Total</span><span class="amount">$19,958.48</span></div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  SECTION 5: LIGHTING (incl. CO #1 & #2)                         -->
+  <!-- ================================================================ -->
+  <div class="part-header">
+    <div>
+      <div class="part-label">Section 5</div>
+      <div class="part-title">Lighting Control System</div>
+    </div>
+    <div>
+      <div class="part-total-label">Section Total</div>
+      <div class="part-total">$132,174.43</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-desc">Complete Lutron/Ketra lighting control system including processors, dimmers, switches, keypads, fixtures, and programming. No tax on this line item. Includes Change Orders #1 and #2.</div>
+
+    <div class="co-item">
+      <div class="co-title">Change Order #1</div>
+      <div class="co-desc">Additional Ketra bulbs for pool room; one bulb cancelled in gym.</div>
+      <div class="co-amount">$2,445.30</div>
+    </div>
+
+    <div class="co-item">
+      <div class="co-title">Change Order #2</div>
+      <div class="co-desc">14 additional S30s for golf room, 2 Ketra D2 wall wash fixtures for foyer, 2 Sunnata keypads.</div>
+      <div class="co-amount">$9,796.28</div>
+    </div>
+
+    <div class="note-box" style="margin-top: 14px;">
+      <strong>Alt3 Absorbed:</strong> Additional panel for added run locations in garage, plus 2 dimmer plug-in modules for master closet lighting ($514, added week of 02/09) — covered by Alt3 at no cost to client.
+    </div>
+
+    <div class="subtotal-line"><span>Base Lighting System</span><span class="amount">$119,932.85</span></div>
+    <div class="fee-line"><span>Change Order #1 (Ketra — Pool Room)</span><span>$2,445.30</span></div>
+    <div class="fee-line"><span>Change Order #2 (S30s, D2 Wall Wash, Keypads)</span><span>$9,796.28</span></div>
+    <div class="area-total-line"><span>Lighting Total (incl. CO #1 &amp; #2)</span><span class="amount">$132,174.43</span></div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  SECTION 6: CHANGE ORDER #3                                      -->
+  <!-- ================================================================ -->
+  <div class="part-header page-break">
+    <div>
+      <div class="part-label">Section 6</div>
+      <div class="part-title">Change Order #3</div>
+    </div>
+    <div>
+      <div class="part-total-label">Section Total</div>
+      <div class="part-total">$14,318.50</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-desc">Dimmers for upper level, plug-in dimming modules for closets, additional processor needed due to total device count, and LED linear lighting installation in master bedroom and master bathroom.</div>
+
+    <div class="note-box">
+      <strong>Tax Note:</strong> Gross $15,141.60 (includes $823.10 tax). Project fee to client: $14,318.50.
+    </div>
+
+    <div style="margin-bottom: 14px;">
+      <div class="co-item">
+        <div class="co-title">Upper Level Dimmers &amp; Additional Processor</div>
+        <div class="co-desc">Dimmers for upper level, plug-in dimming modules for closets. Additional processor required due to total device count across the home.</div>
+      </div>
+      <div class="co-item">
+        <div class="co-title">LED Linear Lighting Installation</div>
+        <div class="co-desc">Master bedroom side walls and master bathroom shower niche. Includes lighting, tracks, drivers, and installation.</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Installation Notes:</strong>
+      <ul style="margin-top: 8px; padding-left: 16px; list-style: disc;">
+        <li style="padding: 2px 0;">Cove lighting — approved/ordered but Adam installed</li>
+        <li style="padding: 2px 0;">Shower linear lighting — track installed by Alt3, tape ordered but Adam installed before Alt3 could</li>
+        <li style="padding: 2px 0;">Stair lights — tracks installed, Alt3 still has tape to install</li>
+      </ul>
+    </div>
+
+    <div class="area-total-line"><span>Change Order #3 Total</span><span class="amount">$14,318.50</span></div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  ALT3 VALUE ADDED                                                -->
+  <!-- ================================================================ -->
+  <div class="part-header page-break">
+    <div>
+      <div class="part-label">Value Added</div>
+      <div class="part-title">Alt3 Absorbed Costs</div>
+    </div>
+    <div>
+      <div class="part-total-label">Total Value</div>
+      <div class="part-total" style="color: var(--copper-light);">~$31,505.19</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-desc">The following costs were absorbed by Alt3 Smart Homes at no charge to the client — reflecting our commitment to delivering the best possible system and experience.</div>
+
+    <div class="value-card">
+      <div class="value-label">Absorbed by Alt3 Smart Homes</div>
+      <div class="value-item"><span>Josh microphones, system upgrades, superior network, Origin speakers (Section 2)</span><span class="val-amount">$19,241.24</span></div>
+      <div class="value-item"><span>Additional Josh.AI items — touchscreens, MRX 740, subwoofer (Section 3)</span><span class="val-amount">$11,749.95</span></div>
+      <div class="value-item"><span>Additional panel for garage run locations (Section 5)</span><span class="val-amount">Included</span></div>
+      <div class="value-item"><span>2 dimmer plug-in modules for master closet (Section 5)</span><span class="val-amount">$514.00</span></div>
+      <div class="value-item" style="border-top: 2px solid var(--copper); margin-top: 8px; padding-top: 8px; font-weight: 700; color: var(--text);"><span>Total Alt3 Value Added</span><span class="val-amount" style="font-size: .95rem;">~$31,505.19</span></div>
+    </div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  FINANCIAL SUMMARY                                               -->
+  <!-- ================================================================ -->
+  <div class="grand-total">
+    <div style="font-size: .7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--copper); margin-bottom: 16px; font-weight: 700;">Financial Summary</div>
+
+    <table class="summary-table">
+      <tr><td>Section 1 — Pre-Wire</td><td>$6,359.50</td></tr>
+      <tr><td>Section 2 — Josh.AI + Control4</td><td>$47,434.98</td></tr>
+      <tr><td>Section 3 — Additional Josh.AI Items</td><td>$0.00</td></tr>
+      <tr><td>Section 4 — Shading</td><td>$19,958.48</td></tr>
+      <tr><td>Section 5 — Lighting (incl. CO #1 &amp; #2)</td><td>$132,174.43</td></tr>
+      <tr><td>Section 6 — Change Order #3</td><td>$14,318.50</td></tr>
+      <tr class="total-row"><td>Total Project Cost</td><td>$220,245.89</td></tr>
+    </table>
+
+    <div class="gt-divider"></div>
+
+    <div class="gt-row"><span class="label">Total Paid to Date</span><span class="amount">$195,869.45</span></div>
+    <div class="gt-divider"></div>
+    <div class="gt-final"><span class="label">Remaining Balance</span><span class="amount">$24,376.44</span></div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  ADDITIONAL WORK — UNBILLED                                      -->
+  <!-- ================================================================ -->
+  <div class="section page-break">
+    <div class="section-title">Additional Work — Unbilled</div>
+    <div class="section-desc">Items installed or to be quoted beyond the scope of this project reconciliation.</div>
+
+    <div class="pending-card">
+      <h4>Extra Items Installed (as of 2/13/25) — No Additional Charge</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li>▸ 2 Outdoor Speakers</li>
+        <li>▸ 1 24-port POE Switch (needed two instead of one)</li>
+        <li>▸ Moved lighting keypads a few times — covered by Alt3</li>
+        <li>▸ Fixed patio LED tape wires for final inspection (tracks only)</li>
+        <li>▸ Control4 Core1 Controller — covered by Alt3</li>
+        <li>▸ Other miscellaneous labor items absorbed by Alt3 onsite</li>
+      </ul>
+    </div>
+
+    <div class="pending-card">
+      <h4>Pending — To Be Quoted</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li>▸ Outdoor speakers proposal</li>
+        <li>▸ Great Room: Receiver, Sound Bar, Toe Kick Subwoofer</li>
+        <li>▸ TV Mounts: Great Room, Owners Bedroom, Rec Room, Exercise Room</li>
+        <li>▸ Additional security camera by garage</li>
+        <li>▸ Integrate: Microwave, Stove, Sliding Doors, Bathroom floor heaters, Steam Shower, Sauna, Overhead Doors</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ========== ACCEPTANCE ========== -->
+  <div class="section">
+    <div class="section-title">Acceptance &amp; Acknowledgment</div>
+    <div class="section-desc">By signing below, both parties acknowledge that this document accurately reflects the project scope, costs, payments, and remaining balance for the Peninsula Club Dr project.</div>
+
+    <div class="sig-grid">
+      <div class="sig-block">
+        <div class="label">Client Signature</div>
+        <div class="line"></div>
+        <div class="label">Alex Bailey</div>
+      </div>
+      <div class="sig-block">
+        <div class="label">Date</div>
+        <div class="line"></div>
+      </div>
+      <div class="sig-block">
+        <div class="label">Alt3 Smart Homes</div>
+        <div class="line"></div>
+        <div class="label">Ryan Palmer, CEO</div>
+      </div>
+      <div class="sig-block">
+        <div class="label">Date</div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <div class="footer">
+    <div class="footer-logo">ALT<span style="color: var(--copper-light);">3</span> SMART HOMES</div>
+    <p>info@alt3.com &nbsp;·&nbsp; alt3smarthomes.com</p>
+    <p style="margin-top: 8px; font-style: italic;">Simple. Seamless. Smart — by design.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
