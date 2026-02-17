@@ -614,9 +614,8 @@ function renderDashboard() {
 // ========================
 const STAGES = ['Lead','Proposal Sent','Signed','In Progress','Complete'];
 function getDeals() { return LS.get('deals', [
-  {id:1,client:'Jeffery Davis',address:'1240 Paddock, Charlotte NC',type:'Smart Home',value:88049,date:'2026-02-10',stage:'Proposal Sent'},
-  {id:2,client:'Jeffery Davis',address:'1240 Paddock, Charlotte NC',type:'Lutron Lighting Control',value:116000,date:'2026-02-10',stage:'Proposal Sent'},
-  {id:3,client:'Keen Building Co',address:'18235 Peninsula Club Dr, Cornelius NC',type:'Smart Home + A/V',value:35393,date:'2026-01-02',stage:'In Progress'}
+  {id:1,client:'Jeffery Davis',address:'1240 Paddock, Charlotte NC',type:'Smart Home + AV + Lighting',value:274426,date:'2026-02-10',stage:'Proposal Sent'},
+  {id:3,client:'Keen Building Co (Bailey)',address:'18235 Peninsula Club Dr, Cornelius NC',type:'Smart Home + AV + Lighting + Shades',value:220246,date:'2025-05-02',stage:'In Progress'}
 ]); }
 function saveDeals(d) { LS.set('deals', d); }
 
