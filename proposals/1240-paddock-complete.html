@@ -248,7 +248,7 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
     </div>
     <div>
       <div class="part-total-label">Section Total</div>
-      <div class="part-total">$40,186.30</div>
+      <div class="part-total">$42,195.62</div>
     </div>
   </div>
 
@@ -279,6 +279,11 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
     <div class="area-total-line"><span>Upper Level Control Total</span><span class="amount">$14,257.10</span></div>
   </div>
 
+  <div class="section" style="padding-top:0">
+    <div class="fee-line" style="margin-top:8px;padding:10px 12px;background:rgba(17,54,101,.04);border-radius:6px;"><span>Project Enhancements (5%)</span><span>$2,009.32</span></div>
+    <div class="area-total-line"><span>Section A1 Total (incl. enhancements)</span><span class="amount">$42,195.62</span></div>
+  </div>
+
   <!-- ================================================================ -->
   <!--  SECTION A2: KETRA & RANIA FIXTURES (INTERACTIVE OPTIONS)        -->
   <!-- ================================================================ -->
@@ -289,7 +294,7 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
     </div>
     <div>
       <div class="part-total-label">Section Total</div>
-      <div class="part-total" id="a2-total">$75,979.75</div>
+      <div class="part-total" id="a2-total">$79,778.74</div>
     </div>
   </div>
 
@@ -366,7 +371,7 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
     </div>
     <div>
       <div class="part-total-label">Section Total</div>
-      <div class="part-total">$108,049.15</div>
+      <div class="part-total">$113,451.61</div>
     </div>
   </div>
 
@@ -1122,7 +1127,8 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
         <tr><td>Pergola</td><td>$1,580.90</td></tr>
         <tr><td>Firepit</td><td>$1,580.90</td></tr>
         <tr><td>Gym / Flex Room</td><td>$4,631.86</td></tr>
-        <tr class="total-row"><td><strong>Section B Total</strong></td><td><strong>$108,049.15</strong></td></tr>
+        <tr><td>Project Enhancements (5%)</td><td>$5,402.46</td></tr>
+        <tr class="total-row"><td><strong>Section B Total</strong></td><td><strong>$113,451.61</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -1174,12 +1180,12 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
   <!-- ========== GRAND TOTAL ========== -->
   <div class="grand-total page-break">
     <div style="width:100%">
-      <div class="gt-row"><span class="label">Section A1 — HomeWorks Control System</span><span class="amount">$40,186.30</span></div>
-      <div class="gt-row" id="gt-a2"><span class="label">Section A2 — Ketra &amp; Rania Fixtures (optional)</span><span class="amount">$75,979.75</span></div>
-      <div class="gt-row"><span class="label">Section B — Smart Home, A/V &amp; Security</span><span class="amount">$108,049.15</span></div>
+      <div class="gt-row"><span class="label">Section A1 — HomeWorks Control System (incl. 5% enhancements)</span><span class="amount">$42,195.62</span></div>
+      <div class="gt-row" id="gt-a2"><span class="label">Section A2 — Ketra &amp; Rania Fixtures (incl. 5% enhancements)</span><span class="amount">$79,778.74</span></div>
+      <div class="gt-row"><span class="label">Section B — Smart Home, A/V &amp; Security (incl. 5% enhancements)</span><span class="amount">$113,451.61</span></div>
       <div class="gt-row" id="gt-c"><span class="label">Section C — Lutron Motorized Shading (26 windows)</span><span class="amount">$39,000.00</span></div>
       <div class="gt-divider"></div>
-      <div class="gt-final"><span class="label">Total Project Investment</span><span class="amount" id="gt-grand">$263,215.20</span></div>
+      <div class="gt-final"><span class="label">Total Project Investment</span><span class="amount" id="gt-grand">$274,425.97</span></div>
     </div>
   </div>
 
@@ -1190,17 +1196,17 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
       <div class="payment-card">
         <div class="payment-pct">10%</div>
         <div class="payment-label">Deposit — Upon Signing</div>
-        <div class="payment-amount">$26,321.52</div>
+        <div class="payment-amount">$27,442.60</div>
       </div>
       <div class="payment-card">
         <div class="payment-pct">80%</div>
         <div class="payment-label">Equipment Ordered &amp; Received</div>
-        <div class="payment-amount">$210,572.16</div>
+        <div class="payment-amount">$219,540.78</div>
       </div>
       <div class="payment-card">
         <div class="payment-pct">10%</div>
         <div class="payment-label">Substantial Completion</div>
-        <div class="payment-amount">$26,321.52</div>
+        <div class="payment-amount">$27,442.60</div>
       </div>
     </div>
   </div>
@@ -1258,13 +1264,14 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
 
 <script>
 (function(){
-  const BASE_A1 = 40186.30;
-  const BASE_B  = 108049.15;
+  const BASE_A1 = 42195.62;
+  const BASE_B  = 113451.61;
+  const ENHANCE = 1.05; // 5% project enhancements
 
   function fmt(n){ return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
 
   function recalc(){
-    // --- Section A2 fixtures ---
+    // --- Section A2 fixtures (with 5% project enhancements) ---
     let a2 = 0;
     document.querySelectorAll('.fixture-toggle').forEach(cb => {
       const wrap = cb.closest('.option-toggle');
@@ -1273,7 +1280,7 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
       const eng = parseFloat(wrap.dataset.eng);
       if(cb.checked){
         card.classList.add('selected');
-        a2 += mat + eng;
+        a2 += (mat + eng) * ENHANCE;
       } else {
         card.classList.remove('selected');
       }
