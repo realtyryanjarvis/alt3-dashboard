@@ -1,10 +1,10 @@
-<!-- 626 Shelton — Keen Base Package (Parsons) -->
+<!-- 626 Shelton — Keen Base Package (Parsons) + Lutron HomeWorks -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alt3 Smart Homes — 626 Shelton Spec Home Proposal</title>
+<title>Alt3 Smart Homes — 626 Shelton Complete Proposal</title>
 <style>
 @import url('https://fonts.cdnfonts.com/css/neue-montreal');
 @page { size: letter; margin: 0.4in 0.5in; }
@@ -77,6 +77,26 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
 .scope-card li { font-size: .8rem; color: var(--dim); padding: 2px 0; }
 .scope-card li::before { content: '▸'; color: var(--copper); margin-right: 8px; }
 
+/* Interactive Toggle Options */
+.option-toggle { display: block; cursor: pointer; margin-bottom: 10px; }
+.option-toggle input[type="checkbox"] { display: none; }
+.option-card { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: #fff; border: 2px solid var(--border); border-radius: 10px; transition: all .3s ease; position: relative; overflow: hidden; }
+.option-card.selected { border-color: var(--copper); background: linear-gradient(135deg, #fff 0%, #f0ece8 100%); }
+.option-card:hover { border-color: var(--copper-light); }
+.option-check { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: .85rem; color: transparent; transition: all .3s; flex-shrink: 0; }
+.option-card.selected .option-check { background: var(--copper); border-color: var(--copper); color: #fff; }
+.option-info { flex: 1; min-width: 0; }
+.option-name { font-size: .95rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.option-desc { font-size: .75rem; color: var(--dim); line-height: 1.4; }
+.option-price { text-align: right; flex-shrink: 0; }
+.option-amount { font-size: 1.1rem; font-weight: 700; color: var(--copper); }
+.option-detail { font-size: .7rem; color: var(--dim); }
+.option-card:not(.selected) .option-name,
+.option-card:not(.selected) .option-amount { color: var(--dim); text-decoration: line-through; opacity: .5; }
+.option-card:not(.selected) .option-desc,
+.option-card:not(.selected) .option-detail { opacity: .3; }
+@media print { .option-card:not(.selected) { display: none; } .option-check { display: none; } }
+
 /* Grand Total */
 .grand-total { background: linear-gradient(135deg, #f7f5f3 0%, #eee9e4 100%); border: 2px solid var(--copper); border-radius: 12px; padding: 32px 40px; margin: 28px 40px; }
 .gt-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
@@ -142,7 +162,7 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
   <div class="cover">
     <div class="cover-logo">ALT<span>3</span></div>
     <div class="cover-tagline">Smart Homes</div>
-    <div class="cover-title">Smart Home Proposal</div>
+    <div class="cover-title">Complete Smart Home Proposal</div>
     <div class="cover-subtitle">626 Shelton Avenue — Keen Base Package (Parsons)</div>
     <dl class="cover-meta">
       <div>
@@ -166,65 +186,292 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
   <div class="section">
     <div class="section-title">Project Overview</div>
     <div class="section-desc">
-      A complete low-voltage prewire and smart home foundation for the Parsons spec home at 626 Shelton Avenue — including enterprise networking, Josh.ai voice control, Lutron RA3 lighting control, security, and distributed audio infrastructure.
+      A comprehensive smart home system for the Parsons spec home at 626 Shelton Avenue — encompassing Lutron HomeWorks lighting control, enterprise networking, Josh.ai voice control, security, and distributed audio infrastructure. Optional Ketra and Rania tunable fixtures available as premium upgrades.
     </div>
     <div class="scope-grid">
       <div class="scope-card">
-        <h4>Low Voltage Prewire</h4>
+        <h4>Section A1 — Lutron HomeWorks Control</h4>
         <ul>
-          <li>Cat6 data runs throughout</li>
-          <li>Dual ethernet wall plates per room</li>
-          <li>5.1 surround prewire (Great Room &amp; Bonus)</li>
-          <li>House audio prewire (6 zones)</li>
-          <li>TV/multimedia w/ fiber backhaul</li>
+          <li>HomeWorks S30 trim &amp; smart bulbs</li>
+          <li>HRST-PRO dimmers &amp; HRST-8ANS switches</li>
+          <li>Sunnata hybrid &amp; 4-button keypads (engraved)</li>
+          <li>Occupancy sensors throughout</li>
+          <li>System engineering &amp; programming</li>
+          <li>Material + engineering — electrician installs</li>
         </ul>
       </div>
       <div class="scope-card">
-        <h4>Networking &amp; Infrastructure</h4>
+        <h4>Section A2/A3 — Ketra &amp; Rania (Optional)</h4>
         <ul>
-          <li>Strong 42U equipment rack</li>
-          <li>Araknis dual-WAN router</li>
-          <li>Araknis 24-port PoE managed switch</li>
-          <li>Araknis WiFi 6 820 access point</li>
-          <li>WattBox IP power conditioning</li>
+          <li>Ketra D3 full-spectrum tunable (large form)</li>
+          <li>Ketra D2 full-spectrum tunable (standard)</li>
+          <li>Rania D2 decorative dimming fixtures</li>
+          <li>Circadian-optimized light throughout the day</li>
+          <li>Priced per fixture — quantities during design</li>
+          <li>Requires A1 control system</li>
         </ul>
       </div>
       <div class="scope-card">
-        <h4>Josh.ai Voice Control</h4>
+        <h4>Section B — Smart Home (Turnkey Installed)</h4>
         <ul>
-          <li>Josh One AI voice processor</li>
-          <li>Josh Touchscreen — Ceramic White</li>
-          <li>Natural language voice commands</li>
-          <li>Integrates lighting, audio, security</li>
-          <li>Private — no data sold to advertisers</li>
+          <li>Enterprise networking &amp; 42U rack</li>
+          <li>Josh.ai voice control &amp; touchscreen</li>
+          <li>Lutron RA3 lighting control</li>
+          <li>DoorBird video door station</li>
+          <li>Distributed audio (6 zones)</li>
+          <li>Complete low-voltage prewire</li>
         </ul>
       </div>
       <div class="scope-card">
-        <h4>Lutron Lighting &amp; Security</h4>
+        <h4>Investment Summary</h4>
         <ul>
-          <li>Lutron RA3 processor starter kit</li>
-          <li>Sunnata keypads &amp; dimmers</li>
-          <li>Scene-based whole-home control</li>
-          <li>DoorBird IP video door station</li>
-          <li>Security device prewire (7 locations)</li>
+          <li>Section A1: $19,631.25 (Lutron control)</li>
+          <li>Section A2: Optional Ketra fixtures</li>
+          <li>Section A3: Optional Rania fixtures</li>
+          <li>Section B: $27,460.58 (smart home installed)</li>
+          <li>Grand total updates live with selections</li>
+          <li>10/80/10 progress billing</li>
         </ul>
       </div>
     </div>
   </div>
 
   <!-- ================================================================ -->
-  <!--  INFRASTRUCTURE                                                   -->
+  <!--  SECTION A1: LUTRON HOMEWORKS CONTROL SYSTEM                     -->
   <!-- ================================================================ -->
   <div class="part-header page-break">
     <div>
-      <div class="part-label">Infrastructure</div>
-      <div class="part-title">Equipment Room, Security &amp; Lighting Control</div>
+      <div class="part-label">Section A1</div>
+      <div class="part-title">Lutron HomeWorks Control System</div>
     </div>
     <div>
       <div class="part-total-label">Section Total</div>
-      <div class="part-total">$13,858.94</div>
+      <div class="part-total">$19,631.25</div>
     </div>
   </div>
+
+  <!-- Control Note -->
+  <div class="section" style="padding-bottom:0">
+    <div style="background:var(--surface);border:1px solid var(--copper-dark);border-radius:8px;padding:16px 20px;font-size:.82rem;color:var(--dim);">
+      <strong style="color:var(--copper-light)">Note:</strong> Section A1 covers the HomeWorks control infrastructure — processors, dimmers, switches, keypads, occupancy sensors, and smart bulbs. Installation labor is not included — electrical rough-in, wiring, and trim-out are the responsibility of the project electrician. This section covers material and engineering/programming only.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">HomeWorks Control Equipment</div>
+    <div class="section-desc">Lutron HomeWorks lighting control hardware — dimmers, switches, keypads, occupancy sensors, and smart bulbs for whole-home scene-based control.</div>
+
+    <div class="product-header">
+      <span></span><span>Product</span><span>Qty</span><span>Unit</span><span>Total</span>
+    </div>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="20" r="10" stroke="#113665" stroke-width="2"/><path d="M18 30h12v4a2 2 0 01-2 2H20a2 2 0 01-2-2v-4z" stroke="#113665" stroke-width="2"/><path d="M24 10v-4M14 14l-3-3M34 14l3-3" stroke="#113665" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">S30 Trim and Smart Bulb</div>
+          <div class="product-part">HomeWorks compatible</div>
+        </div>
+        <div class="product-qty">×20</div>
+        <div class="product-unit">$456.00</div>
+        <div class="product-ext">$9,120.00</div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="14" stroke="#113665" stroke-width="2"/><path d="M20 20c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="#113665" stroke-width="1.5" stroke-linecap="round"/><path d="M16 18c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#113665" stroke-width="1.5" stroke-linecap="round"/><circle cx="24" cy="26" r="2" fill="#113665"/><line x1="24" y1="28" x2="24" y2="34" stroke="#113665" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">LRF2-OCR2B-P-WH Occupancy Sensor</div>
+          <div class="product-part">Wireless occupancy/vacancy</div>
+        </div>
+        <div class="product-qty">×15</div>
+        <div class="product-unit">$118.65</div>
+        <div class="product-ext">$1,779.75</div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="16" y="8" width="16" height="32" rx="3" stroke="#113665" stroke-width="2"/><line x1="24" y1="14" x2="24" y2="34" stroke="#113665" stroke-width="1.5" stroke-linecap="round" opacity=".4"/><circle cx="24" cy="20" r="3" stroke="#113665" stroke-width="1.5"/><circle cx="24" cy="20" r="1" fill="#113665"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">HRST-PRO-N-RW Dimmer</div>
+          <div class="product-part">HomeWorks pro dimmer</div>
+        </div>
+        <div class="product-qty">×10</div>
+        <div class="product-unit">$293.00</div>
+        <div class="product-ext">$2,930.00</div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="16" y="8" width="16" height="32" rx="3" stroke="#113665" stroke-width="2"/><rect x="20" y="18" width="8" height="4" rx="1" fill="#113665" opacity=".3"/><rect x="20" y="26" width="8" height="4" rx="1" fill="#113665" opacity=".3"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">HRST-8ANS-RW Switch</div>
+          <div class="product-part">HomeWorks 8A switch</div>
+        </div>
+        <div class="product-qty">×3</div>
+        <div class="product-unit">$307.00</div>
+        <div class="product-ext">$921.00</div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="6" width="20" height="36" rx="3" stroke="#113665" stroke-width="2"/><rect x="18" y="12" width="12" height="4" rx="1" fill="#113665" opacity=".2"/><rect x="18" y="20" width="12" height="4" rx="1" fill="#113665" opacity=".2"/><rect x="18" y="28" width="12" height="4" rx="1" fill="#113665" opacity=".2"/><circle cx="24" cy="38" r="2" fill="#113665" opacity=".3"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Sunnata Hybrid Keypad (engraved)</div>
+          <div class="product-part">Scene keypad, custom engraving</div>
+        </div>
+        <div class="product-qty">×1</div>
+        <div class="product-unit">$653.00</div>
+        <div class="product-ext">$653.00</div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="6" width="20" height="36" rx="3" stroke="#113665" stroke-width="2"/><rect x="18" y="12" width="12" height="4" rx="1" fill="#113665" opacity=".2"/><rect x="18" y="18" width="12" height="4" rx="1" fill="#113665" opacity=".2"/><rect x="18" y="24" width="12" height="4" rx="1" fill="#113665" opacity=".2"/><rect x="18" y="30" width="12" height="4" rx="1" fill="#113665" opacity=".2"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Sunnata 4-Button Keypad (engraved)</div>
+          <div class="product-part">4-button scene keypad</div>
+        </div>
+        <div class="product-qty">×3</div>
+        <div class="product-unit">$531.00</div>
+        <div class="product-ext">$1,593.00</div>
+      </div>
+
+    </div>
+
+    <div class="subtotal-line"><span>Material Subtotal (Selling Price)</span><span class="amount">$16,996.75</span></div>
+    <div class="fee-line"><span>Engineering, Oversight &amp; Programming (10%)</span><span>$1,699.68</span></div>
+    <div class="area-total-line"><span>Section A1 Subtotal</span><span class="amount">$18,696.43</span></div>
+    <div class="fee-line" style="margin-top:8px;padding:10px 12px;background:rgba(17,54,101,.04);border-radius:6px;"><span>Project Enhancements (5%)</span><span>$934.82</span></div>
+    <div class="area-total-line"><span>Section A1 Total (incl. enhancements)</span><span class="amount">$19,631.25</span></div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  SECTION A2: KETRA FIXTURES (OPTIONAL)                           -->
+  <!-- ================================================================ -->
+  <div class="part-header page-break">
+    <div>
+      <div class="part-label">Section A2 — Optional</div>
+      <div class="part-title">Ketra Tunable Fixtures</div>
+    </div>
+    <div>
+      <div class="part-total-label">Per-Unit Pricing</div>
+      <div class="part-total" id="a2-total">$0.00</div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-bottom:0">
+    <div style="background:var(--surface);border:1px solid var(--copper-dark);border-radius:8px;padding:16px 20px;font-size:.82rem;color:var(--dim);">
+      <strong style="color:var(--copper-light)">Optional Enhancement:</strong> Ketra fixtures deliver full-spectrum tunable white and color light that shifts color temperature throughout the day — energizing in the morning, warm and relaxing in the evening. Requires Section A1 control system.
+      <br><br><span style="color:var(--copper-light);">✦ Click each option below to include or exclude it from your project scope. Priced per fixture — quantities determined during design phase.</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Ketra Fixture Options</div>
+
+    <label class="option-toggle" data-value="1200.00" data-eng="0">
+      <input type="checkbox" class="fixture-toggle" id="toggle-ketra-d3">
+      <div class="option-card" id="card-ketra-d3">
+        <div class="option-check">✓</div>
+        <div class="option-info">
+          <div class="option-name">Ketra D3 Fixture</div>
+          <div class="option-desc">Full-spectrum tunable white + color, large form factor. Priced per fixture — quantities determined during design phase.</div>
+        </div>
+        <div class="option-price">
+          <div class="option-amount">$1,200.00</div>
+          <div class="option-detail">per fixture</div>
+        </div>
+      </div>
+    </label>
+
+    <label class="option-toggle" data-value="997.50" data-eng="0">
+      <input type="checkbox" class="fixture-toggle" id="toggle-ketra-d2">
+      <div class="option-card" id="card-ketra-d2">
+        <div class="option-check">✓</div>
+        <div class="option-info">
+          <div class="option-name">Ketra D2 Fixture</div>
+          <div class="option-desc">Full-spectrum tunable white + color, standard form factor. Priced per fixture — quantities determined during design phase.</div>
+        </div>
+        <div class="option-price">
+          <div class="option-amount">$997.50</div>
+          <div class="option-detail">per fixture</div>
+        </div>
+      </div>
+    </label>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  SECTION A3: RANIA FIXTURES (OPTIONAL)                           -->
+  <!-- ================================================================ -->
+  <div class="part-header">
+    <div>
+      <div class="part-label">Section A3 — Optional</div>
+      <div class="part-title">Rania Decorative Fixtures</div>
+    </div>
+    <div>
+      <div class="part-total-label">Per-Unit Pricing</div>
+      <div class="part-total" id="a3-total">$0.00</div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-bottom:0">
+    <div style="background:var(--surface);border:1px solid var(--copper-dark);border-radius:8px;padding:16px 20px;font-size:.82rem;color:var(--dim);">
+      <strong style="color:var(--copper-light)">Optional Enhancement:</strong> Rania D2 fixtures provide elegant decorative dimming with premium aesthetics. Requires Section A1 control system.
+      <br><br><span style="color:var(--copper-light);">✦ Click below to include or exclude. Priced per fixture — quantities determined during design phase.</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Rania Fixture Options</div>
+
+    <label class="option-toggle" data-value="728.00" data-eng="0">
+      <input type="checkbox" class="fixture-toggle" id="toggle-rania-d2">
+      <div class="option-card" id="card-rania-d2">
+        <div class="option-check">✓</div>
+        <div class="option-info">
+          <div class="option-name">Rania D2 Fixture</div>
+          <div class="option-desc">Decorative dimming fixture with premium aesthetic. Priced per fixture — quantities determined during design phase.</div>
+        </div>
+        <div class="option-price">
+          <div class="option-amount">$728.00</div>
+          <div class="option-detail">per fixture</div>
+        </div>
+      </div>
+    </label>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  SECTION B: SMART HOME (EXISTING 14 ROOMS)                      -->
+  <!-- ================================================================ -->
+  <div class="part-header page-break">
+    <div>
+      <div class="part-label">Section B</div>
+      <div class="part-title">Smart Home — Turnkey Installed</div>
+    </div>
+    <div>
+      <div class="part-total-label">Section Total</div>
+      <div class="part-total">$27,460.58</div>
+    </div>
+  </div>
+
+  <!-- Section B Note -->
+  <div class="section" style="padding-bottom:0">
+    <div style="background:var(--surface);border:1px solid var(--copper-dark);border-radius:8px;padding:16px 20px;font-size:.82rem;color:var(--dim);">
+      <strong style="color:var(--copper-light)">Includes:</strong> All equipment, materials, labor, tax, and professional installation by Alt3 Smart Homes. Section B is a fully installed, turnkey system covering 14 rooms across infrastructure, main floor, and 2nd floor.
+    </div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!--  INFRASTRUCTURE                                                   -->
+  <!-- ================================================================ -->
 
   <!-- Equipment Room -->
   <div class="section">
@@ -478,18 +725,9 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
   <!-- ================================================================ -->
   <!--  MAIN FLOOR                                                       -->
   <!-- ================================================================ -->
-  <div class="part-header page-break">
-    <div>
-      <div class="part-label">Main Floor</div>
-      <div class="part-title">Audio, Video &amp; Data</div>
-    </div>
-    <div>
-      <div class="part-total-label">Section Total</div>
-      <div class="part-total">$6,085.38</div>
-    </div>
-  </div>
 
-  <div class="section">
+  <div class="section page-break">
+    <div class="section-title">Main Floor — Audio, Video &amp; Data</div>
 
     <!-- Great Room -->
     <div class="room-header"><span>Great Room</span><span class="room-total">$919.54</span></div>
@@ -581,18 +819,9 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
   <!-- ================================================================ -->
   <!--  2ND FLOOR                                                        -->
   <!-- ================================================================ -->
-  <div class="part-header page-break">
-    <div>
-      <div class="part-label">2nd Floor</div>
-      <div class="part-title">Audio, Video &amp; Data</div>
-    </div>
-    <div>
-      <div class="part-total-label">Section Total</div>
-      <div class="part-total">$2,372.58</div>
-    </div>
-  </div>
 
-  <div class="section">
+  <div class="section page-break">
+    <div class="section-title">2nd Floor — Audio, Video &amp; Data</div>
 
     <!-- Master Bedroom -->
     <div class="room-header"><span>Master Bedroom</span><span class="room-total">$463.84</span></div>
@@ -678,9 +907,9 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
 
   </div>
 
-  <!-- ========== ROOM SUMMARY ========== -->
-  <div class="section page-break">
-    <div class="section-title">Room Summary</div>
+  <!-- ========== SECTION B SUMMARY ========== -->
+  <div class="section">
+    <div class="section-title">Section B — Room Summary</div>
     <table class="summary-table">
       <tbody>
         <tr style="font-weight:600;color:var(--copper)"><td colspan="2" style="font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;padding-top:12px">Infrastructure</td></tr>
@@ -700,27 +929,25 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
         <tr><td>Bedroom 3</td><td>$262.68</td></tr>
         <tr><td>Bedroom 4</td><td>$262.68</td></tr>
         <tr><td>Bonus Room</td><td>$919.54</td></tr>
-        <tr class="total-row"><td><strong>Room Totals</strong></td><td><strong>$22,316.90</strong></td></tr>
+        <tr class="total-row"><td><strong>Section B Total (14 rooms)</strong></td><td><strong>$27,460.58</strong></td></tr>
       </tbody>
     </table>
   </div>
 
   <!-- ========== GRAND TOTAL ========== -->
-  <div class="grand-total">
+  <div class="grand-total page-break">
     <div style="width:100%">
-      <div class="gt-row"><span class="label">Sub-Total (Equipment &amp; Materials)</span><span class="amount">$14,466.92</span></div>
-      <div class="gt-row"><span class="label">Installation Labor</span><span class="amount">$9,975.00</span></div>
-      <div class="gt-row"><span class="label">Tax (7%)</span><span class="amount">$1,711.01</span></div>
+      <div class="gt-row"><span class="label">Section A1 — Lutron HomeWorks Control</span><span class="amount">$19,631.25</span></div>
+      <div class="gt-row" id="gt-a2" style="display:none"><span class="label">Section A2 — Ketra Fixtures (per-unit selected)</span><span class="amount">$0.00</span></div>
+      <div class="gt-row" id="gt-a3" style="display:none"><span class="label">Section A3 — Rania Fixtures (per-unit selected)</span><span class="amount">$0.00</span></div>
+      <div class="gt-row"><span class="label">Section B — Smart Home (Turnkey Installed)</span><span class="amount">$27,460.58</span></div>
       <div class="gt-divider"></div>
-      <div class="gt-row"><span class="label">Base Total</span><span class="amount" style="font-weight:600">$26,152.93</span></div>
-      <div class="gt-row" style="font-style:italic"><span class="label">Project Enhancements (5%)</span><span class="amount">$1,307.65</span></div>
-      <div class="gt-divider"></div>
-      <div class="gt-final"><span class="label">Total Project Investment</span><span class="amount">$27,460.58</span></div>
+      <div class="gt-final"><span class="label">Total Project Investment</span><span class="amount" id="gt-grand">$47,091.83</span></div>
       <div class="gt-divider" style="margin-top:20px"></div>
       <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim);margin-top:12px;margin-bottom:8px;font-weight:600">Progress Billing</div>
-      <div class="gt-row"><span class="label">10% — Deposit Upon Signing</span><span class="amount">$2,746.06</span></div>
-      <div class="gt-row"><span class="label">80% — When Equipment Ordering Begins</span><span class="amount">$21,968.46</span></div>
-      <div class="gt-row"><span class="label">10% — Substantial Completion</span><span class="amount">$2,746.06</span></div>
+      <div class="gt-row"><span class="label">10% — Deposit Upon Signing</span><span class="amount" id="gt-dep">$4,709.18</span></div>
+      <div class="gt-row"><span class="label">80% — When Equipment Ordering Begins</span><span class="amount" id="gt-mid">$37,673.46</span></div>
+      <div class="gt-row"><span class="label">10% — Substantial Completion</span><span class="amount" id="gt-fin">$4,709.18</span></div>
     </div>
   </div>
 
@@ -769,11 +996,78 @@ body { font-family: 'Neue Montreal', sans-serif; background: #f0ece8; color: var
   <!-- FOOTER -->
   <div class="footer">
     <div class="footer-logo">ALT3 SMART HOMES</div>
-    <p>Ryan.Palmer@alt3.com &nbsp;|&nbsp; alt3smarthomes.com</p>
+    <p>info@alt3.com &nbsp;|&nbsp; alt3smarthomes.com</p>
     <p style="margin-top:4px;">Simple. Seamless. Smart — by design.</p>
   </div>
 
 </div>
 
+<script>
+(function(){
+  const BASE_A1 = 19631.25;
+  const BASE_B  = 27460.58;
+
+  function fmt(n){ return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+  function recalc(){
+    // Since A2/A3 are per-unit with no quantities yet, toggling just shows them as "included in scope"
+    // but doesn't add dollar amounts to grand total (quantities TBD)
+    let a2Shown = false;
+    let a3Shown = false;
+
+    document.querySelectorAll('.fixture-toggle').forEach(cb => {
+      const wrap = cb.closest('.option-toggle');
+      const card = wrap.querySelector('.option-card');
+      if(cb.checked){
+        card.classList.add('selected');
+        // Check which section
+        if(cb.id.includes('ketra')) a2Shown = true;
+        if(cb.id.includes('rania')) a3Shown = true;
+      } else {
+        card.classList.remove('selected');
+      }
+    });
+
+    // Show/hide A2 and A3 rows in grand total (informational only — no dollar impact since qty TBD)
+    const gtA2 = document.getElementById('gt-a2');
+    const gtA3 = document.getElementById('gt-a3');
+    if(gtA2){
+      if(a2Shown){
+        gtA2.style.display = 'flex';
+        gtA2.querySelector('.amount').textContent = 'Qty TBD';
+      } else {
+        gtA2.style.display = 'none';
+      }
+    }
+    if(gtA3){
+      if(a3Shown){
+        gtA3.style.display = 'flex';
+        gtA3.querySelector('.amount').textContent = 'Qty TBD';
+      } else {
+        gtA3.style.display = 'none';
+      }
+    }
+
+    // Grand total is A1 + B (A2/A3 quantities TBD so not included in total yet)
+    const grand = BASE_A1 + BASE_B;
+    document.getElementById('gt-grand').textContent = fmt(grand);
+
+    // Payment schedule
+    const dep = grand * 0.10;
+    const mid = grand * 0.80;
+    const fin = grand * 0.10;
+    document.getElementById('gt-dep').textContent = fmt(dep);
+    document.getElementById('gt-mid').textContent = fmt(mid);
+    document.getElementById('gt-fin').textContent = fmt(fin);
+  }
+
+  document.querySelectorAll('.fixture-toggle').forEach(cb => {
+    cb.addEventListener('change', recalc);
+  });
+
+  // Initial calc
+  recalc();
+})();
+</script>
 </body>
 </html>
