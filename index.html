@@ -526,28 +526,72 @@ function renderDashboard() {
   const totalRocks = rocks.length;
   const openTodos = Object.values(todos).flat().filter(t => !t.done).length;
 
+  // Active deals detail
+  const activeDealsArr = deals.filter(d => d.stage !== 'Complete');
+  const stageIcon = {'Lead':'🔵','Proposal Sent':'📨','Signed':'✅','In Progress':'🔨'};
+
+  // Rocks detail
+  const rocksByOwner = {};
+  rocks.forEach(r => { if(!rocksByOwner[r.owner]) rocksByOwner[r.owner]=[]; rocksByOwner[r.owner].push(r); });
+
+  // Todos detail
+  const allOpenTodos = [];
+  PEOPLE.forEach(p => (todos[p]||[]).filter(t=>!t.done).forEach(t => allOpenTodos.push({person:p,text:t.text})));
+
   document.getElementById('dash-grid').innerHTML = `
-    <div class="dash-card">
-      <h3>💰 Pipeline Summary</h3>
-      <div class="dash-stat">
-        <div class="stat"><div class="num">$${pipeVal.toLocaleString()}</div><div class="label">Total Value</div></div>
+    <div class="dash-card" style="grid-column:1/-1">
+      <h3>💰 Deal Flow</h3>
+      <div class="dash-stat" style="margin-bottom:16px">
+        <div class="stat"><div class="num">$${pipeVal.toLocaleString()}</div><div class="label">Pipeline Value</div></div>
         <div class="stat"><div class="num">${activeDeals}</div><div class="label">Active Deals</div></div>
+        <div class="stat"><div class="num">${deals.filter(d=>d.stage==='Lead').length}</div><div class="label">Leads</div></div>
+        <div class="stat"><div class="num">${deals.filter(d=>d.stage==='Proposal Sent').length}</div><div class="label">Proposals Out</div></div>
+        <div class="stat"><div class="num">${deals.filter(d=>d.stage==='In Progress').length}</div><div class="label">In Progress</div></div>
+      </div>
+      <div style="display:grid;gap:8px">
+        ${activeDealsArr.map(d => `<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface2);border-radius:6px;border:1px solid var(--border)">
+          <div>
+            <div style="font-weight:600;font-size:.88rem">${d.client}</div>
+            <div style="font-size:.75rem;color:var(--text-muted)">${d.address} · ${d.type}</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:700;color:var(--navy)">$${d.value.toLocaleString()}</div>
+            <div style="font-size:.72rem;color:var(--text-muted)">${stageIcon[d.stage]||''} ${d.stage}</div>
+          </div>
+        </div>`).join('')}
       </div>
     </div>
     <div class="dash-card">
-      <h3>🪨 Rocks Progress</h3>
-      <div class="dash-stat">
+      <h3>🪨 Rocks — Q1 2026</h3>
+      <div class="dash-stat" style="margin-bottom:12px">
         <div class="stat"><div class="num">${rocksComplete}/${totalRocks}</div><div class="label">Complete</div></div>
         <div class="stat"><div class="num">${rocks.filter(r=>r.status==='on').length}</div><div class="label">On Track</div></div>
         <div class="stat"><div class="num">${rocks.filter(r=>r.status==='off').length}</div><div class="label">Off Track</div></div>
       </div>
+      ${PEOPLE.map(p => {
+        const pRocks = rocksByOwner[p]||[];
+        if(!pRocks.length) return '';
+        return `<div style="margin-bottom:10px">
+          <div style="font-weight:600;font-size:.8rem;color:var(--navy);margin-bottom:4px">${p}</div>
+          ${pRocks.map(r => {
+            const color = r.status==='complete'?'var(--green)':r.status==='on'?'var(--navy)':'var(--red)';
+            const icon = r.status==='complete'?'✅':r.status==='on'?'🟢':'🔴';
+            return `<div style="font-size:.8rem;padding:3px 0;color:var(--text-dim)">${icon} ${r.desc}</div>`;
+          }).join('')}
+        </div>`;
+      }).join('')}
     </div>
     <div class="dash-card">
-      <h3>✅ To-Do Snapshot</h3>
-      <div class="dash-stat">
-        <div class="stat"><div class="num">${openTodos}</div><div class="label">Open Tasks</div></div>
-        ${['Ryan','Ally','Jeff'].map(p => `<div class="stat"><div class="num">${(todos[p]||[]).filter(t=>!t.done).length}</div><div class="label">${p}</div></div>`).join('')}
-      </div>
+      <h3>✅ Open To-Dos <span style="font-size:.75rem;font-weight:400;color:var(--text-muted)">${openTodos} total</span></h3>
+      ${PEOPLE.map(p => {
+        const pTodos = (todos[p]||[]).filter(t=>!t.done);
+        if(!pTodos.length) return '';
+        return `<div style="margin-bottom:10px">
+          <div style="font-weight:600;font-size:.8rem;color:var(--navy);margin-bottom:4px">${p} <span style="color:var(--text-muted);font-weight:400">(${pTodos.length})</span></div>
+          ${pTodos.slice(0,5).map(t => `<div style="font-size:.8rem;padding:3px 0;color:var(--text-dim)">○ ${t.text}</div>`).join('')}
+          ${pTodos.length>5?`<div style="font-size:.72rem;color:var(--text-muted);padding:2px 0">+${pTodos.length-5} more</div>`:''}
+        </div>`;
+      }).join('') || '<div style="color:var(--text-muted);font-size:.85rem">All clear! 🎉</div>'}
     </div>
     <div class="dash-card">
       <h3>⚡ Top Issues</h3>
