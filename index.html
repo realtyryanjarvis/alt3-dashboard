@@ -385,7 +385,7 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
 
   <!-- SCORECARD (separate tab) -->
   <div class="section" id="sec-scorecard">
-    <div class="section-title">📊 Weekly Scorecard — Q1 2026</div>
+    <div class="section-title">📊 Scorecard — 2026</div>
     <div class="scorecard-wrap" id="scorecard-wrap"></div>
   </div>
 
@@ -993,49 +993,102 @@ function saveRock() {
 // ========================
 // SCORECARD
 // ========================
-const SC_KPIS = [
-  {cat:'Sales',kpis:[{key:'revenue',name:'Revenue ($)',goal:5000},{key:'expenses',name:'Expenses ($)',goal:2000}]},
-  {cat:'Marketing',kpis:[{key:'leads',name:'Leads',goal:5},{key:'proposals',name:'Proposals',goal:2}]}
+const QUARTERS = [
+  {key:'Q1-2026',label:'Q1 2026',months:['Jan','Feb','Mar'],start:'2026-01-01',end:'2026-03-31',active:true},
+  {key:'Q2-2026',label:'Q2 2026',months:['Apr','May','Jun'],start:'2026-04-01',end:'2026-06-30'},
+  {key:'Q3-2026',label:'Q3 2026',months:['Jul','Aug','Sep'],start:'2026-07-01',end:'2026-09-30'},
+  {key:'Q4-2026',label:'Q4 2026',months:['Oct','Nov','Dec'],start:'2026-10-01',end:'2026-12-31'}
 ];
-function getScorecard() { return LS.get('scorecard', {}); }
-function saveScorecard(s) { LS.set('scorecard', s); }
+const SC_KPIS = [
+  {cat:'Revenue',kpis:[
+    {key:'revenue_booked',name:'Revenue Booked',format:'$',goal:150000},
+    {key:'revenue_collected',name:'Revenue Collected',format:'$',goal:150000},
+    {key:'expenses',name:'Expenses',format:'$',goal:0,lowerBetter:true}
+  ]},
+  {cat:'Sales',kpis:[
+    {key:'proposals_sent',name:'Proposals Sent',format:'#',goal:5},
+    {key:'proposals_signed',name:'Proposals Signed',format:'#',goal:3},
+    {key:'close_rate',name:'Close Rate',format:'%',goal:60},
+    {key:'avg_deal_size',name:'Avg Deal Size',format:'$',goal:50000}
+  ]},
+  {cat:'Pipeline',kpis:[
+    {key:'leads_new',name:'New Leads',format:'#',goal:8},
+    {key:'active_projects',name:'Active Projects',format:'#',goal:3},
+    {key:'builder_meetings',name:'Builder Meetings',format:'#',goal:4}
+  ]},
+  {cat:'Marketing',kpis:[
+    {key:'social_posts',name:'Social Posts',format:'#',goal:12},
+    {key:'website_visits',name:'Website Visits',format:'#',goal:200},
+    {key:'email_subscribers',name:'Email Subscribers',format:'#',goal:50}
+  ]}
+];
 
-function getWeekDates() {
-  const weeks = [];
-  const start = new Date(2026, 0, 5); // Week of Jan 5, 2026
-  for (let i = 0; i < 13; i++) {
-    const d = new Date(start);
-    d.setDate(d.getDate() + i * 7);
-    weeks.push(d.toISOString().slice(5,10));
-  }
-  return weeks;
-}
+function getScorecard() { return LS.get('scorecard', {}); }
+function saveScorecard(s) { LS.set('scorecard', s); stampUpdate(); }
 
 function renderScorecard() {
   const sc = getScorecard();
-  const weeks = getWeekDates();
-  let html = `<table class="scorecard"><thead><tr><th style="text-align:left;min-width:140px">KPI</th><th>Goal</th>`;
-  weeks.forEach(w => { html += `<th>W${w}</th>`; });
-  html += `<th>Total</th></tr></thead><tbody>`;
+  // Running totals across quarters
+  const runningTotals = {};
 
-  SC_KPIS.forEach(cat => {
-    html += `<tr><td class="cat-header" colspan="${weeks.length+3}">${cat.cat}</td></tr>`;
-    cat.kpis.forEach(kpi => {
-      let total = 0;
-      html += `<tr><td class="kpi-label">${kpi.name}</td><td style="text-align:center;color:var(--text-dim)">${kpi.goal.toLocaleString()}</td>`;
-      weeks.forEach(w => {
-        const key = `${kpi.key}_${w}`;
-        const val = sc[key] !== undefined ? sc[key] : '';
-        const numVal = parseFloat(val);
-        const cls = val !== '' ? (numVal >= kpi.goal ? 'green' : 'red') : '';
-        if (!isNaN(numVal)) total += numVal;
-        html += `<td class="${cls}" contenteditable="true" data-key="${key}" onblur="updateScorecard(this)">${val}</td>`;
+  let html = `<div style="display:grid;grid-template-columns:1fr;gap:24px">`;
+
+  QUARTERS.forEach((q,qi) => {
+    const isCurrent = q.active;
+    html += `<div style="background:var(--surface);border:${isCurrent?'2px solid var(--navy)':'1px solid var(--border)'};border-radius:var(--radius);overflow:hidden;${isCurrent?'box-shadow:0 4px 20px rgba(17,54,101,.1)':''}">
+      <div style="padding:14px 20px;background:${isCurrent?'var(--navy)':'var(--surface2)'};display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <span style="font-weight:700;font-size:1rem;color:${isCurrent?'#fff':'var(--navy)'}">${q.label}</span>
+          <span style="font-size:.75rem;color:${isCurrent?'rgba(255,255,255,.7)':'var(--text-muted)'};margin-left:8px">${q.months.join(' · ')}</span>
+        </div>
+        ${isCurrent?'<span style="font-size:.65rem;background:rgba(255,255,255,.2);color:#fff;padding:3px 10px;border-radius:10px;font-weight:600">CURRENT</span>':''}
+      </div>
+      <div style="padding:0;overflow-x:auto">
+        <table class="scorecard" style="margin:0;border:none;border-radius:0">
+          <thead><tr>
+            <th style="text-align:left;min-width:150px">KPI</th>
+            <th>Goal</th>
+            ${q.months.map(m=>`<th>${m}</th>`).join('')}
+            <th style="background:var(--surface3)">Q Total</th>
+            <th style="background:var(--surface3)">YTD</th>
+          </tr></thead><tbody>`;
+
+    SC_KPIS.forEach(cat => {
+      html += `<tr><td class="cat-header" colspan="${q.months.length+4}">${cat.cat}</td></tr>`;
+      cat.kpis.forEach(kpi => {
+        let qTotal = 0;
+        if(!runningTotals[kpi.key]) runningTotals[kpi.key] = 0;
+
+        html += `<tr><td class="kpi-label">${kpi.name}</td>
+          <td style="text-align:center;color:var(--text-dim);font-size:.72rem">${kpi.format==='$'?'$':''}${kpi.goal.toLocaleString()}${kpi.format==='%'?'%':''}</td>`;
+
+        q.months.forEach(m => {
+          const key = `${kpi.key}_${q.key}_${m}`;
+          const val = sc[key] !== undefined ? sc[key] : '';
+          const numVal = parseFloat(val);
+          const isNum = val !== '' && !isNaN(numVal);
+          if(isNum) qTotal += numVal;
+          const goalPer = kpi.goal / (kpi.format==='%' ? 1 : q.months.length);
+          const cls = isNum ? (kpi.lowerBetter ? (numVal <= goalPer ? 'green' : 'red') : (numVal >= goalPer ? 'green' : 'red')) : '';
+          html += `<td class="${cls}" contenteditable="true" data-key="${key}" onblur="updateScorecard(this)">${val}</td>`;
+        });
+
+        if(qi <= QUARTERS.findIndex(x=>x.active)) runningTotals[kpi.key] += qTotal;
+        const ytd = runningTotals[kpi.key];
+        const goalHit = kpi.lowerBetter ? qTotal <= kpi.goal : qTotal >= kpi.goal;
+        const ytdGoal = kpi.goal * (qi+1);
+        const ytdHit = kpi.lowerBetter ? ytd <= ytdGoal : ytd >= ytdGoal;
+
+        html += `<td class="total-row" style="font-weight:700;color:${qTotal>0?(goalHit?'var(--green)':'var(--red)'):'var(--text-muted)'}">${qTotal?((kpi.format==='$'?'$':'')+qTotal.toLocaleString()+(kpi.format==='%'?'%':'')):''}</td>`;
+        html += `<td class="total-row" style="font-weight:700;color:${ytd>0?(ytdHit?'var(--green)':'var(--red)'):'var(--text-muted)'}">${ytd?((kpi.format==='$'?'$':'')+ytd.toLocaleString()+(kpi.format==='%'?'%':'')):''}</td>`;
+        html += `</tr>`;
       });
-      html += `<td style="font-weight:700;color:var(--navy-light)">${total || ''}</td></tr>`;
     });
+
+    html += `</tbody></table></div></div>`;
   });
 
-  html += `</tbody></table>`;
+  html += `</div>`;
   document.getElementById('scorecard-wrap').innerHTML = html;
 }
 
