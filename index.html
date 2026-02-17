@@ -538,7 +538,42 @@ function renderDashboard() {
   const allOpenTodos = [];
   PEOPLE.forEach(p => (todos[p]||[]).filter(t=>!t.done).forEach(t => allOpenTodos.push({person:p,text:t.text})));
 
+  // This week's schedule
+  const now = new Date();
+  const dayOfWeek = now.getDay();
+  const weekStart = new Date(now); weekStart.setDate(now.getDate() - dayOfWeek);
+  const weekEnd = new Date(weekStart); weekEnd.setDate(weekStart.getDate() + 6);
+  const allEvents = getEvents();
+  const weekEvents = allEvents.filter(e => {
+    const d = new Date(e.date + 'T00:00:00');
+    return d >= weekStart && d <= weekEnd;
+  }).sort((a,b) => (a.date+a.time).localeCompare(b.date+b.time));
+  const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const todayStr = now.toISOString().slice(0,10);
+
   document.getElementById('dash-grid').innerHTML = `
+    <div class="dash-card" style="grid-column:1/-1">
+      <h3>📅 This Week <span style="font-size:.75rem;font-weight:400;color:var(--text-muted)">${weekStart.toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${weekEnd.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span></h3>
+      ${weekEvents.length ? `<div style="display:grid;gap:6px;margin-top:8px">
+        ${weekEvents.map(ev => {
+          const evDate = new Date(ev.date+'T00:00:00');
+          const isToday = ev.date === todayStr;
+          const isPast = ev.date < todayStr;
+          return `<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:${isToday?'rgba(17,54,101,.06)':'var(--surface2)'};border-radius:6px;border:1px solid ${isToday?'var(--navy)':'var(--border)'};${isPast?'opacity:.5':''}">
+            <div style="min-width:50px;text-align:center">
+              <div style="font-size:.68rem;text-transform:uppercase;color:${isToday?'var(--navy)':'var(--text-muted)'};font-weight:700">${dayNames[evDate.getDay()]}</div>
+              <div style="font-size:1.1rem;font-weight:700;color:${isToday?'var(--navy)':'var(--text)'}">${evDate.getDate()}</div>
+            </div>
+            <div style="flex:1">
+              <div style="font-weight:600;font-size:.88rem">${ev.title}</div>
+              ${ev.notes?`<div style="font-size:.75rem;color:var(--text-muted)">${ev.notes}</div>`:''}
+            </div>
+            <div style="font-size:.8rem;color:var(--navy);font-weight:600">${ev.time||''}</div>
+            <div style="font-size:.68rem;padding:3px 8px;background:var(--surface3);border-radius:4px;color:var(--text-muted)">${ev.type||''}</div>
+          </div>`;
+        }).join('')}
+      </div>` : '<div style="color:var(--text-muted);font-size:.85rem;margin-top:8px">No events this week — <a href="#" onclick="document.querySelector(\'[data-tab=calendar]\').click();return false">add one</a></div>'}
+    </div>
     <div class="dash-card" style="grid-column:1/-1">
       <h3>💰 Deal Flow</h3>
       <div class="dash-stat" style="margin-bottom:16px">
@@ -592,12 +627,6 @@ function renderDashboard() {
           ${pTodos.length>5?`<div style="font-size:.72rem;color:var(--text-muted);padding:2px 0">+${pTodos.length-5} more</div>`:''}
         </div>`;
       }).join('') || '<div style="color:var(--text-muted);font-size:.85rem">All clear! 🎉</div>'}
-    </div>
-    <div class="dash-card">
-      <h3>⚡ Top Issues</h3>
-      <div style="font-size:.85rem">
-        ${getWeeklyIssues().filter(i=>!i.solved).slice(0,5).map((iss,i) => `<div style="padding:4px 0;color:var(--text-dim)">${i+1}. ${iss.text}</div>`).join('') || '<div style="color:var(--text-muted)">No open issues</div>'}
-      </div>
     </div>
   `;
 }
