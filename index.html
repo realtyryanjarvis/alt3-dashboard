@@ -25,12 +25,32 @@ textarea{resize:vertical;min-height:60px}
 
 /* Nav */
 nav{display:flex;gap:4px;flex-wrap:wrap}
-nav button{background:transparent;color:var(--text-dim);padding:8px 18px;font-weight:500;border-radius:6px;font-size:.85rem}
+nav button{background:transparent;color:var(--text-dim);padding:8px 14px;font-weight:500;border-radius:6px;font-size:.8rem}
 nav button:hover{color:var(--text);background:var(--surface2)}
 nav button.active{background:var(--copper);color:#fff}
 
+/* VTO Banner */
+.vto-banner{background:linear-gradient(135deg,var(--surface) 0%,#1e1510 100%);border-bottom:1px solid var(--copper-dark);overflow:hidden;transition:max-height .3s ease}
+.vto-banner.collapsed .vto-body{display:none}
+.vto-toggle{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;cursor:pointer;user-select:none}
+.vto-toggle:hover{background:rgba(184,115,51,.08)}
+.vto-toggle h2{font-size:.95rem;color:var(--copper-light);font-weight:600;display:flex;align-items:center;gap:8px}
+.vto-toggle .purpose{font-size:.8rem;color:var(--text-dim);font-style:italic;margin-left:12px}
+.vto-toggle .arrow{color:var(--copper);font-size:.8rem;transition:transform .2s}
+.vto-banner.collapsed .arrow{transform:rotate(-90deg)}
+.vto-body{padding:0 24px 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.vto-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px}
+.vto-card h4{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--copper);margin-bottom:6px;font-weight:700}
+.vto-card p,.vto-card ul{font-size:.82rem;color:var(--text-dim);line-height:1.5}
+.vto-card ul{list-style:none;padding:0}
+.vto-card ul li::before{content:'•';color:var(--copper);margin-right:6px}
+.vto-card .big-num{font-size:1.3rem;font-weight:700;color:var(--copper-light)}
+.vto-process{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:.82rem;color:var(--text-dim)}
+.vto-process span{background:var(--surface3);padding:4px 10px;border-radius:4px;color:var(--copper-light);font-weight:500}
+.vto-process .arrow-step{color:var(--text-muted);font-size:.7rem}
+
 /* Main */
-main{flex:1;padding:24px;max-width:1400px;width:100%;margin:0 auto}
+main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
 .section{display:none}
 .section.active{display:block}
 .section-title{font-size:1.1rem;font-weight:600;margin-bottom:16px;color:var(--copper-light);display:flex;align-items:center;gap:8px}
@@ -42,6 +62,8 @@ main{flex:1;padding:24px;max-width:1400px;width:100%;margin:0 auto}
 .btn-secondary:hover{background:var(--surface3)}
 .btn-danger{background:transparent;color:var(--red);padding:4px 8px;font-size:.75rem}
 .btn-sm{padding:5px 10px;font-size:.78rem}
+.btn-success{background:var(--green);color:#fff;font-weight:600}
+.btn-success:hover{opacity:.9}
 
 /* Modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s}
@@ -51,6 +73,15 @@ main{flex:1;padding:24px;max-width:1400px;width:100%;margin:0 auto}
 .modal .field{margin-bottom:12px}
 .modal .field label{display:block;font-size:.78rem;color:var(--text-dim);margin-bottom:4px;font-weight:500}
 .modal .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+
+/* ===== DASHBOARD HOME ===== */
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+.dash-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.dash-card h3{color:var(--copper-light);font-size:.95rem;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.dash-stat{display:flex;gap:16px;margin-bottom:12px}
+.dash-stat .stat{text-align:center;flex:1}
+.dash-stat .stat .num{font-size:1.5rem;font-weight:700;color:var(--copper-light)}
+.dash-stat .stat .label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
 
 /* ===== PIPELINE (Kanban) ===== */
 .kanban{display:flex;gap:16px;overflow-x:auto;padding-bottom:16px}
@@ -128,6 +159,85 @@ main{flex:1;padding:24px;max-width:1400px;width:100%;margin:0 auto}
 .prop-viewed{background:rgba(240,192,64,.15);color:var(--yellow)}
 .prop-signed{background:rgba(76,175,80,.15);color:var(--green)}
 
+/* ===== ROCKS ===== */
+.rocks-quarter{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.rocks-quarter select{width:auto;max-width:200px}
+.rocks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+.rock-column{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.rock-column-header{padding:12px 16px;font-weight:700;border-bottom:1px solid var(--border);color:var(--copper-light);display:flex;justify-content:space-between;align-items:center}
+.rock-item{padding:12px 16px;border-bottom:1px solid var(--border);transition:background .1s}
+.rock-item:last-child{border-bottom:none}
+.rock-item:hover{background:var(--surface2)}
+.rock-desc{font-size:.875rem;font-weight:500;margin-bottom:6px}
+.rock-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rock-status{padding:3px 10px;border-radius:10px;font-size:.7rem;font-weight:600;cursor:pointer;user-select:none}
+.rock-on{background:rgba(76,175,80,.15);color:var(--green)}
+.rock-off{background:rgba(231,76,60,.15);color:var(--red)}
+.rock-done{background:rgba(184,115,51,.2);color:var(--copper-light)}
+.rock-due{font-size:.72rem;color:var(--text-muted)}
+.commitment-quote{margin-top:12px;padding:10px 14px;background:var(--surface2);border-left:3px solid var(--copper);font-size:.8rem;color:var(--text-dim);font-style:italic;border-radius:0 var(--radius) var(--radius) 0}
+
+/* ===== SCORECARD ===== */
+.scorecard-wrap{overflow-x:auto;margin-top:8px}
+.scorecard{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;font-size:.78rem}
+.scorecard th,.scorecard td{padding:8px 10px;border:1px solid var(--border);text-align:center;white-space:nowrap}
+.scorecard th{background:var(--surface2);color:var(--text-dim);font-weight:600;position:sticky;top:0}
+.scorecard .kpi-label{text-align:left;font-weight:600;color:var(--copper-light);min-width:120px;position:sticky;left:0;background:var(--surface);z-index:1}
+.scorecard .goal-label{text-align:left;color:var(--text-dim);min-width:60px;position:sticky;left:0;background:var(--surface)}
+.scorecard .cat-header{background:var(--surface3);color:var(--copper);font-weight:700;text-align:left;font-size:.8rem}
+.scorecard td.green{background:rgba(76,175,80,.12);color:var(--green)}
+.scorecard td.red{background:rgba(231,76,60,.12);color:var(--red)}
+.scorecard td[contenteditable]{cursor:text}
+.scorecard td[contenteditable]:focus{outline:2px solid var(--copper);background:var(--surface2)}
+.scorecard .total-row td{font-weight:700;border-top:2px solid var(--copper)}
+
+/* ===== ISSUES ===== */
+.issues-split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:900px){.issues-split{grid-template-columns:1fr}}
+.issues-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.issues-panel-header{padding:12px 16px;font-weight:700;border-bottom:1px solid var(--border);color:var(--copper-light);display:flex;justify-content:space-between;align-items:center}
+.issue-add{display:flex;gap:8px;padding:12px}
+.issue-add input{flex:1}
+.issue-list{padding:8px 12px}
+.issue-item{display:flex;align-items:center;gap:8px;padding:8px;border-radius:6px;margin-bottom:4px;transition:background .1s}
+.issue-item:hover{background:var(--surface2)}
+.issue-item.solved .issue-text{text-decoration:line-through;color:var(--text-muted)}
+.issue-num{min-width:22px;height:22px;background:var(--surface3);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--copper);flex-shrink:0}
+.issue-text{flex:1;font-size:.85rem}
+.issue-actions{display:flex;gap:4px;opacity:0;transition:opacity .15s}
+.issue-item:hover .issue-actions{opacity:1}
+
+/* ===== LEVEL 10 ===== */
+.l10-container{max-width:800px}
+.l10-meeting-btn{margin-bottom:20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.l10-timer-display{font-size:1.5rem;font-weight:700;color:var(--copper-light);font-variant-numeric:tabular-nums}
+.l10-timer-section{font-size:.85rem;color:var(--text-dim)}
+.l10-agenda{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.l10-item{border-bottom:1px solid var(--border)}
+.l10-item:last-child{border-bottom:none}
+.l10-item-header{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;transition:background .1s}
+.l10-item-header:hover{background:var(--surface2)}
+.l10-item-header .name{font-weight:600;font-size:.9rem;display:flex;align-items:center;gap:8px}
+.l10-item-header .duration{font-size:.75rem;color:var(--text-muted);background:var(--surface3);padding:3px 8px;border-radius:4px}
+.l10-item-header .active-indicator{width:8px;height:8px;border-radius:50%;background:var(--copper);display:none}
+.l10-item.active .active-indicator{display:block;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.l10-item-body{padding:0 16px 14px;display:none}
+.l10-item.open .l10-item-body{display:block}
+.l10-item-body textarea{width:100%;min-height:80px;margin-top:8px}
+.l10-item-body .desc{font-size:.8rem;color:var(--text-dim);margin-bottom:4px}
+.l10-rating{margin-top:20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.l10-rating h4{color:var(--copper-light);margin-bottom:12px}
+.rating-stars{display:flex;gap:6px;margin-bottom:12px}
+.rating-star{width:36px;height:36px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:700;cursor:pointer;transition:all .15s;font-size:.85rem}
+.rating-star:hover,.rating-star.selected{background:var(--copper);border-color:var(--copper);color:#fff}
+.l10-history{margin-top:20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.l10-history-header{padding:12px 16px;font-weight:700;color:var(--copper-light);border-bottom:1px solid var(--border)}
+.l10-history-item{padding:10px 16px;border-bottom:1px solid var(--border);font-size:.85rem;display:flex;justify-content:space-between;align-items:center}
+.l10-history-item:last-child{border-bottom:none}
+.l10-history-item .date{color:var(--text-dim)}
+.l10-history-item .rating-badge{background:var(--copper-dark);color:#fff;padding:2px 8px;border-radius:10px;font-size:.72rem;font-weight:600}
+
 /* Responsive */
 @media(max-width:768px){
   .header{padding:12px 16px}
@@ -136,11 +246,73 @@ main{flex:1;padding:24px;max-width:1400px;width:100%;margin:0 auto}
   .kanban-col{min-width:100%}
   .cal-day{min-height:60px;padding:4px}
   .cal-event{font-size:.6rem}
-  nav button{padding:6px 12px;font-size:.8rem}
+  nav button{padding:6px 10px;font-size:.75rem}
+  .vto-body{grid-template-columns:1fr}
+  .rocks-grid{grid-template-columns:1fr}
+  .dash-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
+
+<!-- VTO BANNER -->
+<div class="vto-banner collapsed" id="vto-banner">
+  <div class="vto-toggle" onclick="document.getElementById('vto-banner').classList.toggle('collapsed')">
+    <h2>🏠 Vision / Traction Organizer <span class="purpose">"Creating meaningful relationships through meaningful work"</span></h2>
+    <span class="arrow">▼</span>
+  </div>
+  <div class="vto-body">
+    <div class="vto-card">
+      <h4>Niche</h4>
+      <p>Bringing smart home technology to homes over $1,500,000</p>
+    </div>
+    <div class="vto-card">
+      <h4>10-Year Target</h4>
+      <p class="big-num">$30M</p>
+      <p>with 10% net margin</p>
+    </div>
+    <div class="vto-card">
+      <h4>3-Year Picture (Jan 1, 2028)</h4>
+      <p>Revenue: <strong>$10M</strong> · Profit: <strong>$1M</strong> · <strong>8</strong> Employees</p>
+    </div>
+    <div class="vto-card">
+      <h4>1-Year Plan</h4>
+      <p class="big-num">$250K</p>
+      <p>Revenue Target</p>
+    </div>
+    <div class="vto-card">
+      <h4>Core Values</h4>
+      <ul>
+        <li>Commitment to Excellence</li>
+        <li>Customer is Royalty</li>
+        <li>Consideration to the Individual & Alt3</li>
+        <li>Common Ethics</li>
+      </ul>
+    </div>
+    <div class="vto-card">
+      <h4>3 Uniques</h4>
+      <ul>
+        <li>Property investment enhancement</li>
+        <li>Designed for the affluent homebuyer</li>
+        <li>Smart home tech that fits your life—naturally</li>
+      </ul>
+    </div>
+    <div class="vto-card">
+      <h4>Proven Process</h4>
+      <div class="vto-process">
+        <span>Understand</span><span class="arrow-step">→</span>
+        <span>Design</span><span class="arrow-step">→</span>
+        <span>Install</span><span class="arrow-step">→</span>
+        <span>Program</span><span class="arrow-step">→</span>
+        <span>Enjoy</span>
+      </div>
+    </div>
+    <div class="vto-card">
+      <h4>Guarantee</h4>
+      <p style="font-style:italic">"If it's not simple, seamless, and intuitive—we'll make it right."</p>
+    </div>
+  </div>
+</div>
 
 <div class="header">
   <div class="brand">
@@ -151,8 +323,13 @@ main{flex:1;padding:24px;max-width:1400px;width:100%;margin:0 auto}
     </div>
   </div>
   <nav id="nav">
-    <button class="active" data-tab="pipeline">🏗 Pipeline</button>
+    <button class="active" data-tab="dashboard">🏠 Dashboard</button>
+    <button data-tab="pipeline">🏗 Pipeline</button>
+    <button data-tab="scorecard">📊 Scorecard</button>
+    <button data-tab="rocks">🪨 Rocks</button>
     <button data-tab="todos">✅ To-Do</button>
+    <button data-tab="issues">⚡ Issues</button>
+    <button data-tab="l10">📋 Level 10</button>
     <button data-tab="calendar">📅 Calendar</button>
     <button data-tab="crm">👥 CRM</button>
     <button data-tab="proposals">📄 Proposals</button>
@@ -160,16 +337,52 @@ main{flex:1;padding:24px;max-width:1400px;width:100%;margin:0 auto}
 </div>
 
 <main>
+  <!-- DASHBOARD HOME -->
+  <div class="section active" id="sec-dashboard">
+    <div class="section-title">Dashboard Overview</div>
+    <div class="dash-grid" id="dash-grid"></div>
+  </div>
+
   <!-- PIPELINE -->
-  <div class="section active" id="sec-pipeline">
+  <div class="section" id="sec-pipeline">
     <div class="section-title">Deal Pipeline <button class="btn-primary btn-sm" onclick="openDealModal()">+ Add Deal</button></div>
     <div class="kanban" id="kanban"></div>
+  </div>
+
+  <!-- SCORECARD -->
+  <div class="section" id="sec-scorecard">
+    <div class="section-title">📊 Weekly Scorecard — Q1 2026</div>
+    <div class="scorecard-wrap" id="scorecard-wrap"></div>
+  </div>
+
+  <!-- ROCKS -->
+  <div class="section" id="sec-rocks">
+    <div class="section-title">🪨 Quarterly Rocks</div>
+    <div class="rocks-quarter">
+      <select id="rock-quarter" onchange="renderRocks()">
+        <option value="Q1-2026" selected>Q1 2026</option>
+      </select>
+      <button class="btn-primary btn-sm" onclick="openRockModal()">+ Add Rock</button>
+    </div>
+    <div class="rocks-grid" id="rocks-grid"></div>
   </div>
 
   <!-- TODOS -->
   <div class="section" id="sec-todos">
     <div class="section-title">Team To-Do Lists</div>
     <div class="todo-grid" id="todo-grid"></div>
+  </div>
+
+  <!-- ISSUES -->
+  <div class="section" id="sec-issues">
+    <div class="section-title">⚡ Issues List</div>
+    <div class="issues-split" id="issues-split"></div>
+  </div>
+
+  <!-- LEVEL 10 -->
+  <div class="section" id="sec-l10">
+    <div class="section-title">📋 Level 10 Meeting</div>
+    <div class="l10-container" id="l10-container"></div>
   </div>
 
   <!-- CALENDAR -->
@@ -235,6 +448,51 @@ function openModal(html) { document.getElementById('modal-content').innerHTML = 
 function closeModal() { document.getElementById('modal-overlay').classList.remove('show'); }
 
 // ========================
+// DASHBOARD HOME
+// ========================
+function renderDashboard() {
+  const deals = getDeals();
+  const rocks = getRocks();
+  const todos = getTodos();
+  const pipeVal = deals.reduce((s,d) => s + (d.value||0), 0);
+  const activeDeals = deals.filter(d => d.stage !== 'Complete').length;
+  const rocksComplete = rocks.filter(r => r.status === 'complete').length;
+  const totalRocks = rocks.length;
+  const openTodos = Object.values(todos).flat().filter(t => !t.done).length;
+
+  document.getElementById('dash-grid').innerHTML = `
+    <div class="dash-card">
+      <h3>💰 Pipeline Summary</h3>
+      <div class="dash-stat">
+        <div class="stat"><div class="num">$${pipeVal.toLocaleString()}</div><div class="label">Total Value</div></div>
+        <div class="stat"><div class="num">${activeDeals}</div><div class="label">Active Deals</div></div>
+      </div>
+    </div>
+    <div class="dash-card">
+      <h3>🪨 Rocks Progress</h3>
+      <div class="dash-stat">
+        <div class="stat"><div class="num">${rocksComplete}/${totalRocks}</div><div class="label">Complete</div></div>
+        <div class="stat"><div class="num">${rocks.filter(r=>r.status==='on').length}</div><div class="label">On Track</div></div>
+        <div class="stat"><div class="num">${rocks.filter(r=>r.status==='off').length}</div><div class="label">Off Track</div></div>
+      </div>
+    </div>
+    <div class="dash-card">
+      <h3>✅ To-Do Snapshot</h3>
+      <div class="dash-stat">
+        <div class="stat"><div class="num">${openTodos}</div><div class="label">Open Tasks</div></div>
+        ${['Ryan','Ally','Jeff'].map(p => `<div class="stat"><div class="num">${(todos[p]||[]).filter(t=>!t.done).length}</div><div class="label">${p}</div></div>`).join('')}
+      </div>
+    </div>
+    <div class="dash-card">
+      <h3>⚡ Top Issues</h3>
+      <div style="font-size:.85rem">
+        ${getWeeklyIssues().filter(i=>!i.solved).slice(0,5).map((iss,i) => `<div style="padding:4px 0;color:var(--text-dim)">${i+1}. ${iss.text}</div>`).join('') || '<div style="color:var(--text-muted)">No open issues</div>'}
+      </div>
+    </div>
+  `;
+}
+
+// ========================
 // PIPELINE
 // ========================
 const STAGES = ['Lead','Proposal Sent','Signed','In Progress','Complete'];
@@ -247,8 +505,7 @@ function saveDeals(d) { LS.set('deals', d); }
 
 function renderPipeline() {
   const deals = getDeals();
-  const kb = document.getElementById('kanban');
-  kb.innerHTML = STAGES.map(stage => {
+  document.getElementById('kanban').innerHTML = STAGES.map(stage => {
     const cards = deals.filter(d => d.stage === stage);
     return `<div class="kanban-col" ondragover="event.preventDefault()" ondrop="dropDeal(event,'${stage}')">
       <div class="kanban-col-header">${stage} <span class="count">${cards.length}</span></div>
@@ -275,7 +532,7 @@ function dropDeal(e, stage) {
 
 function openDealModal(deal) {
   const d = deal || {id:0,client:'',address:'',type:'Lighting',value:'',date:new Date().toISOString().slice(0,10),stage:'Lead'};
-  const types = ['Lighting','Sound','Surveillance','Window Treatments','Landscape Lighting','Entertainment','Smart Home + Lighting','Full Smart Home'];
+  const types = ['Lighting','Sound','Surveillance','Window Treatments','Landscape Lighting','Entertainment','Smart Home + Lighting','Full Smart Home','Smart Home','Lutron Lighting Control','Smart Home + A/V'];
   openModal(`<h3>${d.id?'Edit':'New'} Deal</h3>
     <div class="field"><label>Client Name</label><input id="d-client" value="${d.client}"></div>
     <div class="field"><label>Address</label><input id="d-address" value="${d.address}"></div>
@@ -338,7 +595,7 @@ function saveEvents(e) { LS.set('events', e); }
 function renderCalendar() {
   const y = calDate.getFullYear(), m = calDate.getMonth();
   document.getElementById('cal-title').textContent = calDate.toLocaleString('default',{month:'long',year:'numeric'});
-  const first = new Date(y,m,1), last = new Date(y,m+1,0);
+  const first = new Date(y,m,1);
   const startDay = first.getDay();
   const events = getEvents();
   const today = new Date().toISOString().slice(0,10);
@@ -365,7 +622,7 @@ function calNav(dir) {
 
 function openEventModal(date, evt) {
   const e = evt || {id:0,title:'',date:date||new Date().toISOString().slice(0,10),time:'09:00',type:'Install',notes:''};
-  const types = ['Install','Consultation','Site Visit','Follow-up','Other'];
+  const types = ['Install','Consultation','Site Visit','Follow-up','Level 10 Meeting','Other'];
   openModal(`<h3>${e.id?'Edit':'New'} Event</h3>
     <div class="field"><label>Title</label><input id="e-title" value="${e.title}"></div>
     <div class="field"><label>Date</label><input type="date" id="e-date" value="${e.date}"></div>
@@ -480,8 +737,378 @@ function saveProposal(id) {
 function editProposal(id) { openProposalModal(getProposals().find(x=>x.id===id)); }
 function deleteProposal(id) { if(confirm('Delete?')){saveProposals(getProposals().filter(x=>x.id!==id));renderProposals();} }
 
+// ========================
+// ROCKS
+// ========================
+const DEFAULT_ROCKS = [
+  {id:1,owner:'Ryan',desc:'Close $150K in revenue',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:2,owner:'Ryan',desc:'Complete Homeworks Training',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:3,owner:'Ryan',desc:'Take 1 Builder to Showroom',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:4,owner:'Ryan',desc:'Sales Opportunities / Leads',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:5,owner:'Ally',desc:'Q1 Lead Generation Plan & Assets',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:6,owner:'Ally',desc:'Launch V2 Website with case study',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:7,owner:'Ally',desc:'Sales Deck updates',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:8,owner:'Jeff',desc:'Develop Homeworks Design Process',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:9,owner:'Jeff',desc:'Define 2026 product line',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:10,owner:'Jeff',desc:'Get Alt3 financially independent',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:11,owner:'Jeff',desc:'Get Lutron Homeworks certification',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:12,owner:'Jeff',desc:'Define relationship with Bill',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:13,owner:'Jeff',desc:'Strategic electrician partnership',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:14,owner:'Jeff',desc:'Window treatment strategy',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+  {id:15,owner:'Jeff',desc:'Tech company messaging',status:'on',due:'2026-03-31',quarter:'Q1-2026'},
+];
+const COMMITMENTS = {
+  Ryan: '"I commit to stop bulldozing meetings until the 2-minute drill."',
+  Ally: '"I commit to taking extreme ownership and reducing bugs."'
+};
+
+function getRocks() { return LS.get('rocks', DEFAULT_ROCKS); }
+function saveRocks(r) { LS.set('rocks', r); }
+
+function renderRocks() {
+  const rocks = getRocks();
+  const q = document.getElementById('rock-quarter').value;
+  const filtered = rocks.filter(r => r.quarter === q);
+  const statusLabels = {on:'On Track',off:'Off Track',complete:'Complete'};
+  const statusClass = {on:'rock-on',off:'rock-off',complete:'rock-done'};
+  const nextStatus = {on:'off',off:'complete',complete:'on'};
+
+  document.getElementById('rocks-grid').innerHTML = PEOPLE.map(p => {
+    const pRocks = filtered.filter(r => r.owner === p);
+    return `<div class="rock-column">
+      <div class="rock-column-header"><span>${p}</span><span style="font-size:.75rem;color:var(--text-muted)">${pRocks.filter(r=>r.status==='complete').length}/${pRocks.length}</span></div>
+      ${pRocks.map(r => `<div class="rock-item">
+        <div class="rock-desc">${r.desc}</div>
+        <div class="rock-meta">
+          <span class="rock-status ${statusClass[r.status]}" onclick="cycleRock(${r.id})">${statusLabels[r.status]}</span>
+          <span class="rock-due">Due: ${r.due}</span>
+          <button class="btn-danger btn-sm" onclick="deleteRock(${r.id})">✕</button>
+        </div>
+      </div>`).join('')}
+      ${COMMITMENTS[p] ? `<div class="commitment-quote">${p}: ${COMMITMENTS[p]}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+function cycleRock(id) {
+  const rocks = getRocks();
+  const r = rocks.find(x => x.id === id);
+  const next = {on:'off',off:'complete',complete:'on'};
+  if (r) { r.status = next[r.status]; saveRocks(rocks); renderRocks(); renderDashboard(); }
+}
+
+function deleteRock(id) { if(confirm('Delete rock?')){saveRocks(getRocks().filter(x=>x.id!==id));renderRocks();} }
+
+function openRockModal() {
+  const q = document.getElementById('rock-quarter').value;
+  openModal(`<h3>New Rock</h3>
+    <div class="field"><label>Description</label><input id="r-desc"></div>
+    <div class="field"><label>Owner</label><select id="r-owner">${PEOPLE.map(p=>`<option>${p}</option>`).join('')}</select></div>
+    <div class="field"><label>Due Date</label><input type="date" id="r-due" value="2026-03-31"></div>
+    <div class="actions"><button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveRock()">Save</button></div>`);
+}
+function saveRock() {
+  const rocks = getRocks();
+  rocks.push({id:Date.now(),owner:document.getElementById('r-owner').value,desc:document.getElementById('r-desc').value,status:'on',due:document.getElementById('r-due').value,quarter:document.getElementById('rock-quarter').value});
+  saveRocks(rocks); closeModal(); renderRocks();
+}
+
+// ========================
+// SCORECARD
+// ========================
+const SC_KPIS = [
+  {cat:'Sales',kpis:[{key:'revenue',name:'Revenue ($)',goal:5000},{key:'expenses',name:'Expenses ($)',goal:2000}]},
+  {cat:'Marketing',kpis:[{key:'leads',name:'Leads',goal:5},{key:'proposals',name:'Proposals',goal:2}]}
+];
+function getScorecard() { return LS.get('scorecard', {}); }
+function saveScorecard(s) { LS.set('scorecard', s); }
+
+function getWeekDates() {
+  const weeks = [];
+  const start = new Date(2026, 0, 5); // Week of Jan 5, 2026
+  for (let i = 0; i < 13; i++) {
+    const d = new Date(start);
+    d.setDate(d.getDate() + i * 7);
+    weeks.push(d.toISOString().slice(5,10));
+  }
+  return weeks;
+}
+
+function renderScorecard() {
+  const sc = getScorecard();
+  const weeks = getWeekDates();
+  let html = `<table class="scorecard"><thead><tr><th style="text-align:left;min-width:140px">KPI</th><th>Goal</th>`;
+  weeks.forEach(w => { html += `<th>W${w}</th>`; });
+  html += `<th>Total</th></tr></thead><tbody>`;
+
+  SC_KPIS.forEach(cat => {
+    html += `<tr><td class="cat-header" colspan="${weeks.length+3}">${cat.cat}</td></tr>`;
+    cat.kpis.forEach(kpi => {
+      let total = 0;
+      html += `<tr><td class="kpi-label">${kpi.name}</td><td style="text-align:center;color:var(--text-dim)">${kpi.goal.toLocaleString()}</td>`;
+      weeks.forEach(w => {
+        const key = `${kpi.key}_${w}`;
+        const val = sc[key] !== undefined ? sc[key] : '';
+        const numVal = parseFloat(val);
+        const cls = val !== '' ? (numVal >= kpi.goal ? 'green' : 'red') : '';
+        if (!isNaN(numVal)) total += numVal;
+        html += `<td class="${cls}" contenteditable="true" data-key="${key}" onblur="updateScorecard(this)">${val}</td>`;
+      });
+      html += `<td style="font-weight:700;color:var(--copper-light)">${total || ''}</td></tr>`;
+    });
+  });
+
+  html += `</tbody></table>`;
+  document.getElementById('scorecard-wrap').innerHTML = html;
+}
+
+function updateScorecard(el) {
+  const sc = getScorecard();
+  const val = el.textContent.trim();
+  sc[el.dataset.key] = val === '' ? '' : parseFloat(val) || val;
+  saveScorecard(sc);
+  renderScorecard();
+}
+
+// ========================
+// ISSUES
+// ========================
+const DEFAULT_QUARTERLY_ISSUES = [
+  {id:1,text:"Ryan's real estate business is growing",solved:false},
+  {id:2,text:"Completing To-Do's and upholding meeting cadences",solved:false},
+  {id:3,text:"Determining if Bill is the correct partner",solved:false},
+  {id:4,text:"Creating proposal format/process",solved:false},
+  {id:5,text:"CEDIA 2025 Product Highlights",solved:false},
+  {id:6,text:"Onboarding strategic partners",solved:false},
+  {id:7,text:"Sales materials alignment",solved:false},
+  {id:8,text:"Social media content",solved:false},
+  {id:9,text:"Realtor network optimization",solved:false},
+  {id:10,text:"Google business/customer engagement",solved:false},
+];
+
+function getWeeklyIssues() { return LS.get('weeklyIssues', []); }
+function saveWeeklyIssues(i) { LS.set('weeklyIssues', i); }
+function getQuarterlyIssues() { return LS.get('quarterlyIssues', DEFAULT_QUARTERLY_ISSUES); }
+function saveQuarterlyIssues(i) { LS.set('quarterlyIssues', i); }
+
+function renderIssues() {
+  const weekly = getWeeklyIssues();
+  const quarterly = getQuarterlyIssues();
+
+  document.getElementById('issues-split').innerHTML = `
+    <div class="issues-panel">
+      <div class="issues-panel-header"><span>🔥 Weekly Issues (IDS)</span><span style="font-size:.75rem;color:var(--text-muted)">${weekly.filter(i=>!i.solved).length} open</span></div>
+      <div class="issue-add"><input id="weekly-issue-input" placeholder="Add issue..." onkeydown="if(event.key==='Enter')addIssue('weekly')"><button class="btn-primary btn-sm" onclick="addIssue('weekly')">+</button></div>
+      <div class="issue-list">${weekly.map((iss,i) => `
+        <div class="issue-item${iss.solved?' solved':''}">
+          <div class="issue-num">${i+1}</div>
+          <span class="issue-text">${iss.text}</span>
+          <div class="issue-actions">
+            <button class="btn-sm ${iss.solved?'btn-secondary':'btn-success'}" onclick="toggleIssue('weekly',${iss.id})">${iss.solved?'Reopen':'Solve'}</button>
+            <button class="btn-danger btn-sm" onclick="deleteIssue('weekly',${iss.id})">✕</button>
+            ${i>0?`<button class="btn-secondary btn-sm" onclick="moveIssue('weekly',${i},-1)">↑</button>`:''}
+            ${i<weekly.length-1?`<button class="btn-secondary btn-sm" onclick="moveIssue('weekly',${i},1)">↓</button>`:''}
+          </div>
+        </div>`).join('')}</div>
+    </div>
+    <div class="issues-panel">
+      <div class="issues-panel-header"><span>📋 Quarterly Issues</span><span style="font-size:.75rem;color:var(--text-muted)">${quarterly.filter(i=>!i.solved).length} open</span></div>
+      <div class="issue-add"><input id="quarterly-issue-input" placeholder="Add issue..." onkeydown="if(event.key==='Enter')addIssue('quarterly')"><button class="btn-primary btn-sm" onclick="addIssue('quarterly')">+</button></div>
+      <div class="issue-list">${quarterly.map((iss,i) => `
+        <div class="issue-item${iss.solved?' solved':''}">
+          <div class="issue-num">${i+1}</div>
+          <span class="issue-text">${iss.text}</span>
+          <div class="issue-actions">
+            <button class="btn-sm ${iss.solved?'btn-secondary':'btn-success'}" onclick="toggleIssue('quarterly',${iss.id})">${iss.solved?'Reopen':'Solve'}</button>
+            <button class="btn-danger btn-sm" onclick="deleteIssue('quarterly',${iss.id})">✕</button>
+          </div>
+        </div>`).join('')}</div>
+    </div>`;
+}
+
+function addIssue(type) {
+  const inp = document.getElementById(type+'-issue-input');
+  if (!inp.value.trim()) return;
+  const getter = type==='weekly' ? getWeeklyIssues : getQuarterlyIssues;
+  const saver = type==='weekly' ? saveWeeklyIssues : saveQuarterlyIssues;
+  const issues = getter();
+  issues.push({id:Date.now(),text:inp.value.trim(),solved:false});
+  saver(issues); inp.value=''; renderIssues();
+}
+
+function toggleIssue(type, id) {
+  const getter = type==='weekly' ? getWeeklyIssues : getQuarterlyIssues;
+  const saver = type==='weekly' ? saveWeeklyIssues : saveQuarterlyIssues;
+  const issues = getter();
+  const iss = issues.find(x=>x.id===id);
+  if(iss) iss.solved = !iss.solved;
+  saver(issues); renderIssues(); renderDashboard();
+}
+
+function deleteIssue(type, id) {
+  const getter = type==='weekly' ? getWeeklyIssues : getQuarterlyIssues;
+  const saver = type==='weekly' ? saveWeeklyIssues : saveQuarterlyIssues;
+  saver(getter().filter(x=>x.id!==id)); renderIssues();
+}
+
+function moveIssue(type, idx, dir) {
+  const getter = type==='weekly' ? getWeeklyIssues : getQuarterlyIssues;
+  const saver = type==='weekly' ? saveWeeklyIssues : saveQuarterlyIssues;
+  const issues = getter();
+  const newIdx = idx + dir;
+  if (newIdx < 0 || newIdx >= issues.length) return;
+  [issues[idx], issues[newIdx]] = [issues[newIdx], issues[idx]];
+  saver(issues); renderIssues();
+}
+
+// ========================
+// LEVEL 10 MEETING
+// ========================
+const L10_AGENDA = [
+  {name:'Segue',duration:5,desc:'Share a personal & professional best from the week.'},
+  {name:'Scorecard Review',duration:5,desc:'Review weekly KPIs — are we hitting our numbers?'},
+  {name:'Rock Review',duration:5,desc:'Quick on/off track check for each quarterly rock.'},
+  {name:'Customer/Employee Headlines',duration:5,desc:'Any good or bad news about customers or team?'},
+  {name:'To-Do List Review',duration:5,desc:'Review last week\'s to-dos. Done or not done?'},
+  {name:'IDS — Issue Solving',duration:60,desc:'Identify, Discuss, Solve. Tackle the issues list.'},
+  {name:'Conclude',duration:5,desc:'Recap to-dos, cascading message, rate meeting 1-10.'},
+];
+
+let l10Timer = null;
+let l10StartTime = null;
+let l10ElapsedSec = 0;
+let l10ActiveSection = -1;
+let l10SectionStart = 0;
+
+function getL10Notes() { return LS.get('l10Notes', {}); }
+function saveL10Notes(n) { LS.set('l10Notes', n); }
+function getL10History() { return LS.get('l10History', []); }
+function saveL10History(h) { LS.set('l10History', h); }
+function getL10Rating() { return LS.get('l10Rating', 0); }
+function saveL10Rating(r) { LS.set('l10Rating', r); }
+
+function renderL10() {
+  const notes = getL10Notes();
+  const history = getL10History();
+  const rating = getL10Rating();
+  const running = !!l10Timer;
+
+  let sectionElapsed = '';
+  if (running && l10ActiveSection >= 0) {
+    const secSpent = Math.floor((Date.now() - l10SectionStart) / 1000);
+    const m = Math.floor(secSpent/60), s = secSpent%60;
+    sectionElapsed = `${m}:${String(s).padStart(2,'0')}`;
+  }
+
+  const totalMin = Math.floor(l10ElapsedSec / 60);
+  const totalSec = l10ElapsedSec % 60;
+
+  document.getElementById('l10-container').innerHTML = `
+    <div class="l10-meeting-btn">
+      <button class="${running?'btn-danger':'btn-primary'}" onclick="${running?'stopL10()':'startL10()'}">
+        ${running ? '⏹ End Meeting' : '▶ Start Meeting'}
+      </button>
+      <span class="l10-timer-display">${String(totalMin).padStart(2,'0')}:${String(totalSec).padStart(2,'0')}</span>
+      ${running && l10ActiveSection >= 0 ? `<span class="l10-timer-section">${L10_AGENDA[l10ActiveSection].name}: ${sectionElapsed} / ${L10_AGENDA[l10ActiveSection].duration}:00</span>` : ''}
+    </div>
+    <div class="l10-agenda">
+      ${L10_AGENDA.map((item, i) => `
+        <div class="l10-item${notes['open_'+i]?' open':''}${l10ActiveSection===i?' active':''}">
+          <div class="l10-item-header" onclick="toggleL10Item(${i})">
+            <span class="name">
+              <span class="active-indicator"></span>
+              ${item.name}
+            </span>
+            <span class="duration">${item.duration} min</span>
+          </div>
+          <div class="l10-item-body">
+            <div class="desc">${item.desc}</div>
+            ${running?`<button class="btn-sm ${l10ActiveSection===i?'btn-secondary':'btn-primary'}" onclick="setL10Section(${i})" style="margin-top:6px">${l10ActiveSection===i?'Active ✓':'Set Active'}</button>`:''}
+            <textarea placeholder="Meeting notes..." onblur="saveL10Note(${i},this.value)">${notes['note_'+i]||''}</textarea>
+          </div>
+        </div>`).join('')}
+    </div>
+    <div class="l10-rating">
+      <h4>Rate This Meeting (1-10)</h4>
+      <div class="rating-stars">
+        ${[1,2,3,4,5,6,7,8,9,10].map(n => `<div class="rating-star${rating===n?' selected':''}" onclick="rateL10(${n})">${n}</div>`).join('')}
+      </div>
+      ${running?`<button class="btn-primary" onclick="concludeL10()">Save & Conclude Meeting</button>`:''}
+    </div>
+    <div class="l10-history">
+      <div class="l10-history-header">Meeting History</div>
+      ${history.length === 0 ? '<div style="padding:16px;color:var(--text-muted);font-size:.85rem">No meetings recorded yet.</div>' :
+        history.slice().reverse().map(h => `
+        <div class="l10-history-item">
+          <span class="date">${h.date} — ${h.duration} min</span>
+          <span class="rating-badge">${h.rating}/10</span>
+        </div>`).join('')}
+    </div>`;
+}
+
+function toggleL10Item(i) {
+  const notes = getL10Notes();
+  notes['open_'+i] = !notes['open_'+i];
+  saveL10Notes(notes);
+  renderL10();
+}
+
+function saveL10Note(i, val) {
+  const notes = getL10Notes();
+  notes['note_'+i] = val;
+  saveL10Notes(notes);
+}
+
+function setL10Section(i) {
+  l10ActiveSection = i;
+  l10SectionStart = Date.now();
+  renderL10();
+}
+
+function rateL10(n) { saveL10Rating(n); renderL10(); }
+
+function startL10() {
+  l10StartTime = Date.now();
+  l10ElapsedSec = 0;
+  l10ActiveSection = 0;
+  l10SectionStart = Date.now();
+  l10Timer = setInterval(() => {
+    l10ElapsedSec = Math.floor((Date.now() - l10StartTime) / 1000);
+    renderL10();
+  }, 1000);
+  // Clear previous notes
+  const notes = {};
+  L10_AGENDA.forEach((_, i) => { notes['open_'+i] = (i === 0); });
+  saveL10Notes(notes);
+  saveL10Rating(0);
+  renderL10();
+}
+
+function stopL10() {
+  if (l10Timer) { clearInterval(l10Timer); l10Timer = null; }
+  l10ActiveSection = -1;
+  renderL10();
+}
+
+function concludeL10() {
+  const rating = getL10Rating();
+  const duration = Math.floor(l10ElapsedSec / 60);
+  const history = getL10History();
+  history.push({
+    date: new Date().toISOString().slice(0,10),
+    duration: duration,
+    rating: rating || '-'
+  });
+  saveL10History(history);
+  stopL10();
+  // Reset notes
+  saveL10Notes({});
+  saveL10Rating(0);
+  renderL10();
+}
+
 // === INIT ===
-renderPipeline(); renderTodos(); renderCalendar(); renderCRM(); renderProposals();
+renderDashboard(); renderPipeline(); renderTodos(); renderCalendar(); renderCRM(); renderProposals(); renderRocks(); renderScorecard(); renderIssues(); renderL10();
 </script>
 </body>
 </html>
