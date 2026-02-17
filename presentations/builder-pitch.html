@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alt3 Smart Homes - Builder Partnership Pitch</title>
+    <link href="https://fonts.cdnfonts.com/css/neue-montreal" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #113665;
+            --warm-taupe: #BEB1A2;
+            --white: #FFFFFF;
+            --cream-bg: #F8F6F3;
+            --light-cream: #E1D8CE;
+            --text-primary: #1a1a1a;
+            --text-secondary: #5a5550;
+        }
+
+        body {
+            font-family: 'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 80px 40px;
+            scroll-snap-align: start;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-section {
+            background-image: linear-gradient(rgba(17, 54, 101, 0.7), rgba(17, 54, 101, 0.7)), url('./luxury-exterior.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 80px;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--light-cream);
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 300;
+            line-height: 1.3;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 60px;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 400;
+            line-height: 1.4;
+            color: var(--text-secondary);
+            margin-bottom: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            margin: 80px 0;
+        }
+
+        .problem-item {
+            text-align: center;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .problem-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .problem-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .benefits-list {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .benefit-check {
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+
+        .benefit-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .benefit-content p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            margin: 80px 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .partnership-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .tier-card {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tier-card.premium {
+            background: var(--navy);
+            color: white;
+        }
+
+        .tier-card.premium .tier-title,
+        .tier-card.premium .tier-subtitle {
+            color: white;
+        }
+
+        .tier-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .tier-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .tier-features {
+            text-align: left;
+            list-style: none;
+        }
+
+        .tier-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .tier-features li::before {
+            content: '✓';
+            color: var(--navy);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .tier-card.premium .tier-features li::before {
+            color: var(--light-cream);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: left;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .project-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--warm-taupe);
+            margin-bottom: 10px;
+        }
+
+        .project-builder {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .cta-section {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .cta-subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 300;
+            margin-bottom: 60px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .contact-value {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .cream-bg {
+            background: var(--cream-bg);
+        }
+
+        .quote {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--navy);
+            line-height: 1.4;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .big-number {
+            font-size: clamp(4rem, 8vw, 8rem);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 20px;
+            }
+
+            .problems-grid,
+            .services-grid,
+            .partnership-tiers,
+            .video-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+        }
+
+        .section {
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="section hero-section">
+        <div class="container">
+            <div class="logo">
+                Alt3 Smart Homes
+                <div class="tagline">Simple. Seamless. Smart — by design.</div>
+            </div>
+            <h1 class="hero-title">Your Buyers Expect Smart.</h1>
+            <p class="hero-subtitle">Partner with Charlotte's premier smart home integrator.</p>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Market Opportunity</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">77M+</div>
+                    <div class="stat-label">U.S. smart home households</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">58%</div>
+                    <div class="stat-label">of consumers want smart lighting</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">72%</div>
+                    <div class="stat-label">of luxury buyers expect smart features</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5%</div>
+                    <div class="stat-label">faster sales + higher prices</div>
+                </div>
+            </div>
+            <p class="quote">Your buyers are already shopping for this. The question is whether you're offering it.</p>
+        </div>
+    </section>
+
+    <!-- Builder's Problem -->
+    <section class="section cream-bg">
+        <div class="container">
+            <h2 class="section-title">The Builder's Problem</h2>
+            <div class="problems-grid">
+                <div class="problem-item">
+                    <div class="problem-icon">🔧</div>
+                    <h3 class="problem-title">Fragmented Vendors</h3>
+                    <p class="problem-desc">Lighting company, AV company, shade company, security company. 4 vendors, 4 schedules, zero coordination.</p>
+                </div>
+                <div class="problem-item">
+                    <div class="problem-icon">⚠️</div>
+                    <h3 class="problem-title">Warranty Headaches</h3>
+                    <p class="problem-desc">When something breaks, who does the buyer call? You. Your team becomes tech support for systems you didn't install.</p>
+                </div>
+                <div class="problem-item">
+                    <div class="problem-icon">💸</div>
+                    <h3 class="problem-title">Missed Margin</h3>
+                    <p class="problem-desc">Builders leaving $50K-$200K+ in upgrade revenue on the table per home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alt3 Solution -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Alt3 Solution</h2>
+            <p class="section-subtitle">One partner. One system. Zero complexity.</p>
+            <p class="quote">We handle EVERYTHING: Design → Pre-wire → Install → Program → Support</p>
+            <p class="section-subtitle">You focus on building. We handle the technology.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3 class="service-title">Lighting Control</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎵</div>
+                    <h3 class="service-title">Whole-Home Audio</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪟</div>
+                    <h3 class="service-title">Motorized Shading</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3 class="service-title">Security & Surveillance</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Builders Choose Alt3 -->
+    <section class="section cream-bg">
+        <div class="container">
+            <h2 class="section-title">Why Builders Choose Alt3</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-check">✓</div>
+                    <div class="benefit-content">
+                        <h3>Turnkey Integration</h3>
+                        <p>We coordinate with your electrician, your schedule, your timeline</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-check">✓</div>
+                    <div class="benefit-content">
+                        <h3>Single Point of Contact</h3>
+                        <p>One company, one warranty, one phone call</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-check">✓</div>
+                    <div class="benefit-content">
+                        <h3>Pre-wire During Construction</h3>
+                        <p>No retrofit, no drywall damage, no cost overruns</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-check">✓</div>
+                    <div class="benefit-content">
+                        <h3>Buyer-Ready Experience</h3>
+                        <p>We program everything before closing. Buyer walks in, it just works.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-check">✓</div>
+                    <div class="benefit-content">
+                        <h3>Post-Sale Support</h3>
+                        <p>We handle all tech support calls, not you</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Numbers -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">$50K-$200K</div>
+                    <div class="stat-label">per home in smart upgrades</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+5%</div>
+                    <div class="stat-label">resale value increase</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2-3</div>
+                    <div class="stat-label">days install time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15-20</div>
+                    <div class="stat-label">year system lifespan</div>
+                </div>
+            </div>
+            <div style="margin-top: 60px;">
+                <div class="big-number">$0</div>
+                <p class="stat-label" style="font-size: 1.5rem; margin-top: 20px;">builder cost for pre-wire coordination</p>
+            </div>
+            <p class="quote" style="margin-top: 60px;">Every dollar your buyer spends on smart home = margin you're not leaving on the table.</p>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section cream-bg">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Consult</h3>
+                    <p class="step-desc">We review plans and recommend a system package</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Design</h3>
+                    <p class="step-desc">Custom system design matched to floor plan</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Pre-Wire</h3>
+                    <p class="step-desc">We coordinate with your electrician during rough-in</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Install</h3>
+                    <p class="step-desc">Professional installation after drywall, before closing</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Program</h3>
+                    <p class="step-desc">Every scene, automation, voice command dialed in</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3 class="step-title">Support</h3>
+                    <p class="step-desc">Ongoing support for your buyers. We're their first call, not you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buyer Experience -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">What Your Buyers Experience</h2>
+            <div class="video-container">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/NR8X7wtjHZI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/Gy2oGbAN2GA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <p class="quote">Your buyers don't just get a smart home. They get a home that knows them.</p>
+        </div>
+    </section>
+
+    <!-- Partnership Program -->
+    <section class="section cream-bg">
+        <div class="container">
+            <h2 class="section-title">Builder Partnership Program</h2>
+            <div class="partnership-tiers">
+                <div class="tier-card">
+                    <h3 class="tier-title">Alt3 Preferred Builder</h3>
+                    <p class="tier-subtitle">Free to join</p>
+                    <ul class="tier-features">
+                        <li>Preferred pricing on all projects</li>
+                        <li>Co-branded marketing materials</li>
+                        <li>Priority scheduling</li>
+                        <li>Alt3 badge for website/listings</li>
+                    </ul>
+                </div>
+                <div class="tier-card premium">
+                    <h3 class="tier-title">Alt3 Certified Builder</h3>
+                    <p class="tier-subtitle">Volume commitment required</p>
+                    <ul class="tier-features">
+                        <li>Everything from Preferred PLUS</li>
+                        <li>Dedicated project manager</li>
+                        <li>Pre-wire included at no upcharge</li>
+                        <li>Featured on alt3smarthomes.com</li>
+                        <li>Joint social media content</li>
+                        <li>Exclusive territory protection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Projects -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Current Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">1240 Paddock Circle</h3>
+                    <div class="project-value">$274K</div>
+                    <p class="project-builder">Keen Building Co</p>
+                    <p class="project-desc">Full integration - lighting control, whole-home audio, motorized shading, security system</p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">18235 Peninsula Club Dr</h3>
+                    <div class="project-value">$220K</div>
+                    <p class="project-builder">Keen Building Co</p>
+                    <p class="project-desc">Lighting + AV + shading package with Josh.ai voice control</p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">626 Shelton Ave</h3>
+                    <div class="project-value">Spec Home</div>
+                    <p class="project-builder">Smart Package</p>
+                    <p class="project-desc">Move-in ready smart home system for immediate buyer appeal</p>
+                </div>
+            </div>
+            <p class="quote">We're already building with Charlotte's best. Join them.</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2 class="cta-title">Let's Build Smarter.</h2>
+            <p class="cta-subtitle">Schedule a consultation. Tour a completed project. See the difference.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">info@alt3.com</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Website</div>
+                    <div class="contact-value">alt3smarthomes.com</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Social</div>
+                    <div class="contact-value">@alt3smarthomes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add initial visible class to hero section
+        document.querySelector('.hero-section').classList.add('visible');
+
+        // Smooth scrolling for better experience
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+</body>
+</html>
