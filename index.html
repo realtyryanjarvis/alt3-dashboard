@@ -605,8 +605,8 @@ function renderDashboard() {
         return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 10px">
           <div style="font-size:.7rem;font-weight:700;color:var(--navy);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px">${p}</div>
           <div style="display:flex;flex-direction:column;gap:3px">
-            ${pRocks.map(r => `<div style="display:flex;align-items:center;gap:5px;cursor:pointer" onclick="cycleRock(${r.id})">
-              <span class="rock-status ${statusClass[r.status]}" style="padding:1px 5px;border-radius:4px;font-size:.55rem;min-width:auto">${statusLabels[r.status]}</span>
+            ${pRocks.map(r => `<div style="display:flex;align-items:center;gap:5px">
+              <span class="rock-status ${statusClass[r.status]}" onclick="event.stopPropagation();cycleRock(${r.id})" style="padding:2px 6px;border-radius:4px;font-size:.55rem;min-width:auto;cursor:pointer;transition:all .15s;user-select:none" title="Click to change status">${statusLabels[r.status]}</span>
               <span style="font-size:.68rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.desc}</span>
             </div>`).join('')}
           </div>
