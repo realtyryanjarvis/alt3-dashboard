@@ -28,6 +28,17 @@ nav button{background:transparent;color:var(--text-dim);padding:8px 14px;font-we
 nav button:hover{color:var(--text);background:var(--surface2)}
 nav button.active{background:var(--navy);color:#fff;border-radius:6px}
 
+/* Mobile Nav */
+.mobile-nav-toggle{display:none;background:var(--navy);color:#fff;padding:8px 12px;border-radius:6px;font-size:.9rem}
+.nav-menu{display:flex;gap:4px;flex-wrap:wrap}
+@media(max-width:768px){
+  .mobile-nav-toggle{display:block}
+  .nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);flex-direction:column;gap:0;padding:8px;z-index:50}
+  .nav-menu.open{display:flex}
+  .nav-menu button{text-align:left;padding:12px 16px;border-radius:0;border-bottom:1px solid var(--border)}
+  .nav-menu button:last-child{border-bottom:none}
+}
+
 /* VTO Banner */
 .vto-banner{background:linear-gradient(135deg,#f5f2ee 0%,#eae5df 100%);border-bottom:1px solid var(--border);overflow:hidden;transition:max-height .3s ease}
 .vto-banner.collapsed .vto-body{display:none}
@@ -82,6 +93,10 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
 .dash-stat .stat .num{font-size:1.5rem;font-weight:700;color:var(--navy-light)}
 .dash-stat .stat .label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
 
+/* Financial Card */
+.financial-bar{background:var(--surface2);border-radius:6px;height:8px;margin:8px 0;overflow:hidden;position:relative}
+.financial-bar-fill{background:var(--green);height:100%;transition:width .3s ease}
+
 /* ===== PIPELINE (Kanban) ===== */
 .kanban{display:flex;gap:16px;overflow-x:auto;padding-bottom:16px}
 .kanban-col{min-width:240px;flex:1;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border)}
@@ -95,7 +110,7 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
 .kanban-card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:.75rem;color:var(--text-dim)}
 .kanban-card .value{color:var(--navy-light);font-weight:600}
 .kanban-card .type-badge{background:var(--surface3);padding:2px 6px;border-radius:4px;font-size:.68rem;color:var(--text-dim);margin-top:4px;display:inline-block}
-.kanban-card .card-actions{display:flex;gap:4px;margin-top:8px}
+.kanban-card .card-actions{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap}
 
 /* ===== TODO ===== */
 .todo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
@@ -145,7 +160,25 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
 .status-prospect{background:rgba(240,192,64,.15);color:var(--yellow)}
 .status-completed{background:rgba(17,54,101,.15);color:var(--navy-light)}
 .crm-card .notes{font-size:.78rem;color:var(--text-dim);margin-top:8px;border-top:1px solid var(--border);padding-top:8px}
-.crm-card .card-footer{display:flex;gap:6px;margin-top:12px}
+.crm-card .card-footer{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+
+/* Client Quick Actions */
+.client-actions{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+.client-actions a{background:var(--navy);color:#fff;padding:4px 8px;border-radius:4px;font-size:.7rem;text-decoration:none;font-weight:600}
+.client-actions a:hover{background:var(--navy-dark);text-decoration:none}
+
+/* ===== CLIENTS DIRECTORY ===== */
+.clients-toolbar{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.clients-toolbar input{max-width:300px}
+.clients-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.client-directory-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:border .15s}
+.client-directory-card:hover{border-color:var(--navy)}
+.client-directory-card .name{font-weight:700;font-size:1rem;margin-bottom:8px}
+.client-directory-card .contact-info{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.client-directory-card .contact-info .contact-item{display:flex;align-items:center;gap:8px;font-size:.85rem}
+.client-directory-card .project-info{background:var(--surface2);padding:8px 10px;border-radius:6px;margin-bottom:12px}
+.client-directory-card .project-info .project{font-size:.85rem;font-weight:600}
+.client-directory-card .project-info .status{font-size:.75rem;color:var(--text-muted)}
 
 /* ===== PROPOSALS ===== */
 .proposals-table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
@@ -238,9 +271,33 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
 .l10-history-item .date{color:var(--text-dim)}
 .l10-history-item .rating-badge{background:var(--navy);color:#fff;padding:2px 8px;border-radius:10px;font-size:.72rem;font-weight:600}
 
+/* ===== FLOATING ACTION BUTTON (FAB) ===== */
+.fab-container{position:fixed;bottom:24px;right:24px;z-index:90}
+.fab-main{width:56px;height:56px;border-radius:50%;background:var(--navy);color:#fff;border:none;box-shadow:0 4px 20px rgba(17,54,101,.3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:all .3s ease}
+.fab-main:hover{background:var(--navy-dark);transform:scale(1.1)}
+.fab-menu{position:absolute;bottom:72px;right:0;display:flex;flex-direction:column;gap:12px;opacity:0;pointer-events:none;transition:all .3s ease;transform:translateY(20px)}
+.fab-menu.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.fab-item{background:var(--navy);color:#fff;border:none;padding:12px 16px;border-radius:24px;cursor:pointer;box-shadow:0 2px 12px rgba(17,54,101,.2);font-size:.85rem;font-weight:600;white-space:nowrap;transition:all .2s ease}
+.fab-item:hover{background:var(--navy-dark);transform:translateX(-4px)}
+
+/* Notes Modal */
+.notes-log{max-height:300px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;padding:12px;margin-bottom:12px;background:var(--surface2)}
+.note-item{padding:8px 0;border-bottom:1px solid var(--border)}
+.note-item:last-child{border-bottom:none}
+.note-timestamp{font-size:.7rem;color:var(--text-muted);margin-bottom:2px}
+.note-text{font-size:.85rem;line-height:1.4}
+.documents-section{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.documents-section h4{color:var(--navy-light);margin-bottom:12px;font-size:.9rem}
+.document-list{display:flex;flex-direction:column;gap:8px}
+.document-item{display:flex;justify-content:between;align-items:center;padding:8px 12px;background:var(--surface2);border-radius:6px}
+.document-item a{flex:1;text-decoration:none;font-weight:600}
+.document-item a:hover{text-decoration:underline}
+.document-add{display:flex;gap:8px;margin-top:8px}
+.document-add input{flex:1}
+
 /* Responsive */
 @media(max-width:768px){
-  .header{padding:12px 16px}
+  .header{padding:12px 16px;position:relative}
   main{padding:16px}
   .kanban{flex-direction:column}
   .kanban-col{min-width:100%}
@@ -250,6 +307,29 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
   .vto-body{grid-template-columns:1fr}
   .rocks-grid{grid-template-columns:1fr}
   .dash-grid{grid-template-columns:1fr}
+  .clients-grid{grid-template-columns:1fr}
+  .crm-grid{grid-template-columns:1fr}
+  
+  /* Touch targets */
+  button{min-height:44px}
+  .kanban-card .card-actions button{min-height:32px;padding:4px 8px}
+  .btn-sm{min-height:32px}
+  
+  /* FAB positioning */
+  .fab-container{bottom:16px;right:16px}
+  .fab-main{width:48px;height:48px;font-size:1.3rem}
+  
+  /* Stack cards */
+  .todo-grid{grid-template-columns:1fr}
+  .issues-split{grid-template-columns:1fr}
+}
+
+@media(max-width:480px){
+  main{padding:12px}
+  .header{padding:8px 12px}
+  .modal{padding:16px;margin:8px}
+  .vto-toggle{padding:8px 12px}
+  .vto-body{padding:0 12px 12px}
 }
 </style>
 </head>
@@ -319,21 +399,31 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
     <img src="assets/logo.png" alt="Alt3 Smart Homes" class="brand-logo">
     <div class="brand-sub">Operations Dashboard</div>
   </div>
+  <button class="mobile-nav-toggle" onclick="toggleMobileNav()">☰ Menu</button>
   <nav id="nav">
-    <button class="active" data-tab="dashboard">🏠 Dashboard</button>
-    <button data-tab="crm">👥 CRM</button>
-    <button data-tab="proposals">📄 Proposals</button>
-    <button data-tab="scorecard">📊 Scorecard</button>
-    <button data-tab="rocks">🪨 Rocks</button>
-    <button data-tab="l10">📋 Level 10</button>
-    <span id="last-updated" style="margin-left:auto;font-size:.65rem;color:var(--text-muted)"></span>
-    <button onclick="resetAllData()" style="color:var(--text-muted);font-size:.7rem">🔄 Reset</button>
+    <div class="nav-menu" id="nav-menu">
+      <button class="active" data-tab="dashboard">🏠 Dashboard</button>
+      <button data-tab="clients">👥 Clients</button>
+      <button data-tab="crm">📊 CRM</button>
+      <button data-tab="proposals">📄 Proposals</button>
+      <button data-tab="scorecard">📈 Scorecard</button>
+      <button data-tab="rocks">🪨 Rocks</button>
+      <button data-tab="l10">📋 Level 10</button>
+      <span id="last-updated" style="margin-left:auto;font-size:.65rem;color:var(--text-muted)"></span>
+      <button onclick="resetAllData()" style="color:var(--text-muted);font-size:.7rem">🔄 Reset</button>
+    </div>
   </nav>
 </div>
 
 <main>
   <!-- DASHBOARD HOME (everything on one page) -->
   <div class="section active" id="sec-dashboard">
+    
+    <!-- FINANCIAL SNAPSHOT -->
+    <div style="margin-bottom:24px">
+      <h2 style="font-size:1.2rem;color:var(--navy);font-weight:700;margin-bottom:12px">💰 Financial Snapshot</h2>
+      <div class="dash-card" id="financial-snapshot"></div>
+    </div>
 
     <!-- COMPANY ROCKS — mini glance -->
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
@@ -368,6 +458,16 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
 
     <!-- hidden containers for legacy render functions -->
     <div id="dash-grid" style="display:none"></div>
+  </div>
+
+  <!-- CLIENTS DIRECTORY TAB -->
+  <div class="section" id="sec-clients">
+    <div class="section-title">👥 Client Directory</div>
+    <div class="clients-toolbar">
+      <input type="text" id="clients-search" placeholder="Search clients..." oninput="renderClientsDirectory()">
+      <button class="btn-primary btn-sm" onclick="openClientDirectoryModal()">+ Add Client</button>
+    </div>
+    <div class="clients-grid" id="clients-directory-grid"></div>
   </div>
 
   <!-- ROCKS (separate tab — individual breakdown) -->
@@ -418,6 +518,17 @@ main{flex:1;padding:24px;max-width:1440px;width:100%;margin:0 auto}
   </div>
 </main>
 
+<!-- FLOATING ACTION BUTTON -->
+<div class="fab-container">
+  <div class="fab-menu" id="fab-menu">
+    <button class="fab-item" onclick="openDealModal();closeFAB()">+ New Deal</button>
+    <button class="fab-item" onclick="openTodoModal();closeFAB()">+ New To-Do</button>
+    <button class="fab-item" onclick="openClientDirectoryModal();closeFAB()">+ New Client</button>
+    <button class="fab-item" onclick="openIssueModal();closeFAB()">+ New Issue</button>
+  </div>
+  <button class="fab-main" id="fab-main" onclick="toggleFAB()">+</button>
+</div>
+
 <!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
   <div class="modal" id="modal-content"></div>
@@ -464,6 +575,7 @@ const LS = {
     if (fbReady && db) {
       db.ref('dashboard/' + k).set(v).catch(e => console.warn('Firebase write failed:', e));
     }
+    stampUpdate(); // Auto-update timestamp on ANY data change
   },
   listen(k, renderFn) {
     if (!fbReady || !db) return;
@@ -504,14 +616,46 @@ document.querySelectorAll('nav button').forEach(btn => {
     document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('sec-'+btn.dataset.tab).classList.add('active');
+    
+    const tabId = 'sec-'+btn.dataset.tab;
+    document.getElementById(tabId).classList.add('active');
+    
+    // Render specific tabs
     if(btn.dataset.tab==='rocks') renderRocks();
+    if(btn.dataset.tab==='clients') renderClientsDirectory();
+    
+    // Close mobile nav
+    closeMobileNav();
   });
 });
 
+// === Mobile Navigation ===
+function toggleMobileNav() {
+  document.getElementById('nav-menu').classList.toggle('open');
+}
+
+function closeMobileNav() {
+  document.getElementById('nav-menu').classList.remove('open');
+}
+
+// === Floating Action Button ===
+function toggleFAB() {
+  const menu = document.getElementById('fab-menu');
+  const main = document.getElementById('fab-main');
+  menu.classList.toggle('open');
+  main.style.transform = menu.classList.contains('open') ? 'rotate(45deg)' : 'rotate(0deg)';
+}
+
+function closeFAB() {
+  const menu = document.getElementById('fab-menu');
+  const main = document.getElementById('fab-main');
+  menu.classList.remove('open');
+  main.style.transform = 'rotate(0deg)';
+}
+
 // === Modal ===
 function openModal(html) { document.getElementById('modal-content').innerHTML = html; document.getElementById('modal-overlay').classList.add('show'); }
-function closeModal() { document.getElementById('modal-overlay').classList.remove('show'); }
+function closeModal() { document.getElementById('modal-overlay').classList.remove('show'); closeFAB(); }
 
 function stampUpdate(){
   const now=new Date();
@@ -525,10 +669,6 @@ function showLastUpdated(){
   else{document.getElementById('last-updated').textContent='';}
 }
 showLastUpdated();
-// Patch save functions to auto-stamp
-const _origSaveDeals=saveDeals,_origSaveRocks=saveRocks,_origSaveTodos=function(p,t){LS.set('todos-'+p,t)};
-saveDeals=function(d){_origSaveDeals(d);stampUpdate()};
-saveRocks=function(r){_origSaveRocks(r);stampUpdate()};
 
 function resetAllData() {
   if(!confirm('Reset all dashboard data to defaults? This clears any changes you\'ve made.')) return;
@@ -550,6 +690,45 @@ function renderDashboard() {
   const deals = getDeals();
   const rocks = getRocks();
   const todos = getTodos();
+  const financials = getFinancials();
+  
+  // Calculate financial metrics
+  const totalPipeline = deals.reduce((s,d) => s + (d.value||0), 0);
+  const collectedAmount = financials.collected || 0;
+  const outstandingAmount = totalPipeline - collectedAmount;
+  const collectedPct = totalPipeline > 0 ? Math.round((collectedAmount / totalPipeline) * 100) : 0;
+  
+  // Render Financial Snapshot
+  document.getElementById('financial-snapshot').innerHTML = `
+    <h3>💰 Financial Overview</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;margin:16px 0">
+      <div style="text-align:center">
+        <div style="font-size:1.5rem;font-weight:700;color:var(--navy-light)">$${totalPipeline.toLocaleString()}</div>
+        <div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px">Total Pipeline</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:1.5rem;font-weight:700;color:var(--green)">$${collectedAmount.toLocaleString()}</div>
+        <div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px">Collected</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:1.5rem;font-weight:700;color:var(--red)">$${outstandingAmount.toLocaleString()}</div>
+        <div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px">Outstanding</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:1.5rem;font-weight:700;color:var(--navy-light)">${collectedPct}%</div>
+        <div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px">Collected</div>
+      </div>
+    </div>
+    <div class="financial-bar">
+      <div class="financial-bar-fill" style="width:${collectedPct}%"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-muted);margin-top:4px">
+      <span>$0</span>
+      <span>$${totalPipeline.toLocaleString()}</span>
+    </div>
+    <button class="btn-secondary btn-sm" onclick="openFinancialsModal()" style="margin-top:12px">Update Financials</button>
+  `;
+  
   const pipeVal = deals.reduce((s,d) => s + (d.value||0), 0);
   const activeDeals = deals.filter(d => d.stage !== 'Complete').length;
   const rocksComplete = rocks.filter(r => r.status === 'complete').length;
@@ -628,6 +807,31 @@ function renderDashboard() {
 }
 
 // ========================
+// FINANCIALS
+// ========================
+function getFinancials() { return LS.get('financials', {collected: 0, notes: ''}); }
+function saveFinancials(f) { LS.set('financials', f); }
+
+function openFinancialsModal() {
+  const f = getFinancials();
+  openModal(`<h3>💰 Update Financial Data</h3>
+    <div class="field"><label>Collected Amount ($)</label><input type="number" id="f-collected" value="${f.collected || 0}"></div>
+    <div class="field"><label>Notes</label><textarea id="f-notes" placeholder="Financial notes, payment details...">${f.notes || ''}</textarea></div>
+    <div class="actions">
+      <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn-primary" onclick="saveFinancialsData()">Save</button>
+    </div>`);
+}
+
+function saveFinancialsData() {
+  const collected = parseFloat(document.getElementById('f-collected').value) || 0;
+  const notes = document.getElementById('f-notes').value;
+  saveFinancials({collected, notes});
+  closeModal();
+  renderDashboard();
+}
+
+// ========================
 // PIPELINE
 // ========================
 const STAGES = ['Lead','Proposal Sent','Signed','In Progress','Complete'];
@@ -652,6 +856,7 @@ function renderPipeline() {
           <div class="type-badge">${c.type}</div>
           <div class="meta"><span class="value">$${c.value.toLocaleString()}</span><span>${c.date}</span></div>
           <div class="card-actions">
+            <button class="btn-secondary btn-sm" onclick="openDealNotesModal(${c.id})">Notes</button>
             <button class="btn-secondary btn-sm" onclick="editDeal(${c.id})">Edit</button>
             <button class="btn-danger btn-sm" onclick="deleteDeal(${c.id})">Delete</button>
           </div>
@@ -687,6 +892,227 @@ function saveDeal(id) {
 }
 function editDeal(id) { openDealModal(getDeals().find(x=>x.id===id)); }
 function deleteDeal(id) { if(confirm('Delete this deal?')){saveDeals(getDeals().filter(x=>x.id!==id));renderPipeline();} }
+
+// ========================
+// DEAL NOTES & DOCUMENTS
+// ========================
+function getDealNotes() { return LS.get('dealNotes', {}); }
+function saveDealNotes(notes) { LS.set('dealNotes', notes); }
+
+function getDealDocs() { return LS.get('dealDocs', {}); }
+function saveDealDocs(docs) { LS.set('dealDocs', docs); }
+
+function openDealNotesModal(dealId) {
+  const deal = getDeals().find(d => d.id === dealId);
+  const allNotes = getDealNotes();
+  const dealNotes = allNotes[dealId] || [];
+  const allDocs = getDealDocs();
+  const dealDocs = allDocs[dealId] || [];
+  
+  openModal(`<h3>📝 ${deal.client} - Notes & Documents</h3>
+    <div style="max-height:500px;overflow-y:auto">
+      <div style="margin-bottom:16px">
+        <h4 style="color:var(--navy-light);margin-bottom:8px">Activity Log</h4>
+        <div class="field">
+          <input id="note-input" placeholder="Add a note..." style="margin-bottom:8px">
+          <button class="btn-primary btn-sm" onclick="addDealNote(${dealId})">Add Note</button>
+        </div>
+        <div class="notes-log">
+          ${dealNotes.length === 0 ? '<p style="color:var(--text-muted);font-size:.85rem">No notes yet.</p>' :
+            dealNotes.slice().reverse().map(note => `
+              <div class="note-item">
+                <div class="note-timestamp">${new Date(note.timestamp).toLocaleDateString()} ${new Date(note.timestamp).toLocaleTimeString()}</div>
+                <div class="note-text">${note.text}</div>
+              </div>
+            `).join('')}
+        </div>
+      </div>
+      
+      <div class="documents-section">
+        <h4>📎 Documents</h4>
+        <div class="document-list">
+          ${dealDocs.map((doc, i) => `
+            <div class="document-item">
+              <a href="${doc.url}" target="_blank">${doc.label}</a>
+              <button class="btn-danger" onclick="removeDealDoc(${dealId}, ${i})" style="padding:2px 6px;font-size:.7rem">✕</button>
+            </div>
+          `).join('')}
+        </div>
+        <div class="document-add">
+          <input id="doc-label" placeholder="Document label">
+          <input id="doc-url" placeholder="Document URL">
+          <button class="btn-secondary btn-sm" onclick="addDealDoc(${dealId})">Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn-secondary" onclick="closeModal()">Close</button>
+    </div>`);
+}
+
+function addDealNote(dealId) {
+  const input = document.getElementById('note-input');
+  const text = input.value.trim();
+  if (!text) return;
+  
+  const allNotes = getDealNotes();
+  if (!allNotes[dealId]) allNotes[dealId] = [];
+  
+  allNotes[dealId].push({
+    timestamp: Date.now(),
+    text: text
+  });
+  
+  saveDealNotes(allNotes);
+  input.value = '';
+  openDealNotesModal(dealId); // Refresh modal
+}
+
+function addDealDoc(dealId) {
+  const label = document.getElementById('doc-label').value.trim();
+  const url = document.getElementById('doc-url').value.trim();
+  
+  if (!label || !url) {
+    alert('Please provide both label and URL');
+    return;
+  }
+  
+  const allDocs = getDealDocs();
+  if (!allDocs[dealId]) allDocs[dealId] = [];
+  
+  allDocs[dealId].push({ label, url });
+  saveDealDocs(allDocs);
+  openDealNotesModal(dealId); // Refresh modal
+}
+
+function removeDealDoc(dealId, docIndex) {
+  const allDocs = getDealDocs();
+  allDocs[dealId].splice(docIndex, 1);
+  saveDealDocs(allDocs);
+  openDealNotesModal(dealId); // Refresh modal
+}
+
+// ========================
+// CLIENT DIRECTORY
+// ========================
+function getClientsDirectory() { 
+  return LS.get('clients_directory', [
+    {id:1,name:'Jeffery Davis',phone:'',email:'',project:'1240 Paddock',status:'Active'},
+    {id:2,name:'Alex Bailey',phone:'704-960-0403',email:'alex@keenbuildingco.com',project:'Peninsula',status:'Complete'},
+    {id:3,name:'Keen Building Co',phone:'',email:'',project:'626 Shelton',status:'Active'}
+  ]); 
+}
+
+function saveClientsDirectory(clients) { LS.set('clients_directory', clients); }
+
+function renderClientsDirectory() {
+  const q = (document.getElementById('clients-search').value||'').toLowerCase();
+  const clients = getClientsDirectory().filter(c => !q || c.name.toLowerCase().includes(q) || c.project.toLowerCase().includes(q) || c.status.toLowerCase().includes(q));
+  
+  const statusClass = {Active:'status-active',Complete:'status-completed',Lead:'status-lead',Prospect:'status-prospect'};
+  
+  document.getElementById('clients-directory-grid').innerHTML = clients.map(c => `
+    <div class="client-directory-card">
+      <div class="name">${c.name}</div>
+      <div class="contact-info">
+        ${c.phone ? `<div class="contact-item">📱 ${c.phone}</div>` : ''}
+        ${c.email ? `<div class="contact-item">📧 ${c.email}</div>` : ''}
+      </div>
+      <div class="project-info">
+        <div class="project">${c.project}</div>
+        <div class="status">${c.status}</div>
+      </div>
+      <div class="client-actions">
+        ${c.phone ? `<a href="tel:${c.phone}">📞 Call</a>` : ''}
+        ${c.phone ? `<a href="sms:${c.phone}">💬 Text</a>` : ''}
+        ${c.email ? `<a href="mailto:${c.email}">📧 Email</a>` : ''}
+      </div>
+      <div class="card-footer" style="margin-top:12px">
+        <button class="btn-secondary btn-sm" onclick="editClientDirectory(${c.id})">Edit</button>
+        <button class="btn-danger btn-sm" onclick="deleteClientDirectory(${c.id})">Delete</button>
+      </div>
+    </div>
+  `).join('') || '<p style="color:var(--text-muted)">No clients found.</p>';
+}
+
+function openClientDirectoryModal(client) {
+  const c = client || {id:0,name:'',phone:'',email:'',project:'',status:'Lead'};
+  const statuses = ['Lead','Prospect','Active','Complete'];
+  openModal(`<h3>${c.id?'Edit':'New'} Client</h3>
+    <div class="field"><label>Name</label><input id="cd-name" value="${c.name}"></div>
+    <div class="field"><label>Phone</label><input id="cd-phone" value="${c.phone}"></div>
+    <div class="field"><label>Email</label><input id="cd-email" value="${c.email}"></div>
+    <div class="field"><label>Project</label><input id="cd-project" value="${c.project}"></div>
+    <div class="field"><label>Status</label><select id="cd-status">${statuses.map(s=>`<option${s===c.status?' selected':''}>${s}</option>`).join('')}</select></div>
+    <div class="actions"><button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveClientDirectory(${c.id})">Save</button></div>`);
+}
+
+function saveClientDirectory(id) {
+  const clients = getClientsDirectory();
+  const obj = {
+    name: document.getElementById('cd-name').value,
+    phone: document.getElementById('cd-phone').value,
+    email: document.getElementById('cd-email').value,
+    project: document.getElementById('cd-project').value,
+    status: document.getElementById('cd-status').value
+  };
+  if(!obj.name) return alert('Name required');
+  if(id){Object.assign(clients.find(x=>x.id===id),obj);} else {obj.id=Date.now();clients.push(obj);}
+  saveClientsDirectory(clients); closeModal(); renderClientsDirectory();
+}
+
+function editClientDirectory(id) { openClientDirectoryModal(getClientsDirectory().find(x=>x.id===id)); }
+
+function deleteClientDirectory(id) { 
+  if(confirm('Delete this client?')){
+    saveClientsDirectory(getClientsDirectory().filter(x=>x.id!==id));
+    renderClientsDirectory();
+  }
+}
+
+// ========================
+// QUICK ADD MODALS (for FAB)
+// ========================
+function openTodoModal() {
+  openModal(`<h3>✅ New To-Do</h3>
+    <div class="field"><label>Assign To</label><select id="todo-person">${PEOPLE.map(p=>`<option>${p}</option>`).join('')}</select></div>
+    <div class="field"><label>Task Description</label><input id="todo-text" placeholder="What needs to be done?"></div>
+    <div class="actions"><button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveTodoFromModal()">Add Task</button></div>`);
+}
+
+function saveTodoFromModal() {
+  const person = document.getElementById('todo-person').value;
+  const text = document.getElementById('todo-text').value.trim();
+  if (!text) return alert('Task description required');
+  
+  const todos = getTodos();
+  if (!todos[person]) todos[person] = [];
+  todos[person].unshift({text, done: false});
+  saveTodos(todos);
+  closeModal();
+  renderTodos();
+}
+
+function openIssueModal() {
+  openModal(`<h3>⚡ New Issue</h3>
+    <div class="field"><label>Type</label><select id="issue-type"><option>weekly</option><option>quarterly</option></select></div>
+    <div class="field"><label>Issue Description</label><input id="issue-text" placeholder="Describe the issue..."></div>
+    <div class="actions"><button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveIssueFromModal()">Add Issue</button></div>`);
+}
+
+function saveIssueFromModal() {
+  const type = document.getElementById('issue-type').value;
+  const text = document.getElementById('issue-text').value.trim();
+  if (!text) return alert('Issue description required');
+  
+  const getter = type === 'weekly' ? getWeeklyIssues : getQuarterlyIssues;
+  const saver = type === 'weekly' ? saveWeeklyIssues : saveQuarterlyIssues;
+  const issues = getter();
+  issues.push({id: Date.now(), text, solved: false});
+  saver(issues);
+  closeModal();
+  renderIssues();
+}
 
 // ========================
 // TODOS
@@ -756,7 +1182,7 @@ function renderCalendar() {
       ${dayEvents.map(e=>`<div class="cal-event" onclick="event.stopPropagation();editEvent(${e.id})" title="${e.title}">${e.title}</div>`).join('')}
     </div>`;
   }
-  document.getElementById('cal-grid').innerHTML = html;
+  if(document.getElementById('cal-grid')) document.getElementById('cal-grid').innerHTML = html;
 }
 function calNav(dir) {
   if (dir===0) calDate=new Date();
@@ -895,7 +1321,7 @@ function renderProposals() {
     <td>${p.client}</td><td>${p.project}</td><td>${p.version||'v1.0'}</td><td>$${p.amount.toLocaleString()}</td>
     <td><span class="prop-status ${sc[p.status]}">${p.status}</span></td>
     <td>${p.dateSent}</td>
-    <td>${p.link?`<a href="${p.link}" target="_blank">View ↗</a>`:'-'}</td>
+    <td>${p.link?`<a href="${p.link}" target="_blank">Open ↗</a>`:'-'}</td>
     <td><button class="btn-secondary btn-sm" onclick="editProposal(${p.id})">Edit</button> <button class="btn-danger btn-sm" onclick="deleteProposal(${p.id})">✕</button></td>
   </tr>`).join('');
 }
@@ -1032,7 +1458,7 @@ const SC_KPIS = [
 ];
 
 function getScorecard() { return LS.get('scorecard', {}); }
-function saveScorecard(s) { LS.set('scorecard', s); stampUpdate(); }
+function saveScorecard(s) { LS.set('scorecard', s); }
 
 function renderScorecard() {
   const sc = getScorecard();
@@ -1346,7 +1772,7 @@ function concludeL10() {
 }
 
 // === INIT ===
-renderDashboard(); renderPipeline(); renderTodos(); renderCalendar(); renderCRM(); renderProposals(); renderRocks(); renderScorecard(); renderIssues(); renderL10();
+renderDashboard(); renderPipeline(); renderTodos(); renderCalendar(); renderCRM(); renderProposals(); renderRocks(); renderScorecard(); renderIssues(); renderL10(); renderClientsDirectory();
 
 // === Firebase real-time listeners (sync changes across devices) ===
 LS.listen('deals', () => { renderPipeline(); renderDashboard(); });
@@ -1361,7 +1787,11 @@ LS.listen('quarterlyIssues', renderIssues);
 LS.listen('l10Notes', renderL10);
 LS.listen('l10History', renderL10);
 LS.listen('l10Rating', renderL10);
+LS.listen('clients_directory', renderClientsDirectory);
+LS.listen('dealNotes', () => {});
+LS.listen('dealDocs', () => {});
+LS.listen('financials', renderDashboard);
 </script>
 </body>
 </html>
-<!-- deployed Tue Feb 17 12:06:59 EST 2026 -->
+<!-- deployed Tue Feb 17 17:35 EST 2026 -->
