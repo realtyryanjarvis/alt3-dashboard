@@ -1173,16 +1173,37 @@ function confirmApproval(){
   sendApprovalNotification(name,date,time);
 }
 function sendApprovalNotification(name,date,time){
-  // Primary: Google Apps Script webhook
-  const WEBHOOK_URL=window.BAILEY_WEBHOOK_URL||'';
-  const payload={name:name,date:date,time:time,amount:'15,273.31',project:'Peninsula Club — 18235 Peninsula Club Dr'};
-  if(WEBHOOK_URL){
-    fetch(WEBHOOK_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
-  }
-  // Fallback: mailto
-  const subject=encodeURIComponent('✅ Bailey Change Order Approved — $15,273.31');
-  const body=encodeURIComponent('Change Order Approved\n\nProject: Peninsula Club — 18235 Peninsula Club Dr\nClient: '+name+'\nAmount: $15,273.31\nDate: '+date+'\nTime: '+time+'\n\nApproved via Peninsula Project Portal');
-  window.open('mailto:ryan.palmer@alt3.com?subject='+subject+'&body='+body,'_blank');
+  const FIREBASE_URL='https://realtyryan-dashboard-default-rtdb.firebaseio.com';
+  const payload={
+    name:name,
+    date:date,
+    time:time,
+    amount:'$15,273.31',
+    project:'Peninsula Club — 18235 Peninsula Club Dr',
+    approvedAt:new Date().toISOString(),
+    status:'approved'
+  };
+  // 1. Write to Firebase (permanent record)
+  fetch(FIREBASE_URL+'/alt3/approvals/peninsula-co.json',{
+    method:'PUT',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(()=>console.log('Firebase: approval saved'))
+    .catch(e=>console.warn('Firebase write failed',e));
+  // 2. Send email notification to Ryan via Gmail API (through Jarvis)
+  fetch(FIREBASE_URL+'/alt3/pending_notifications.json',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      type:'change_order_approved',
+      to:'ryan.palmer@alt3.com',
+      subject:'✅ Bailey Change Order Approved — $15,273.31',
+      body:'Alex Bailey approved the Peninsula Club change order.\n\nProject: 18235 Peninsula Club Dr, Cornelius NC\nApproved by: '+name+'\nAmount: $15,273.31\nDate: '+date+' at '+time+'\n\nView full project: https://realtyryanjarvis.github.io/alt3-dashboard/proposals/peninsula-bailey-complete.html',
+      createdAt:new Date().toISOString(),
+      status:'pending'
+    })
+  }).then(()=>console.log('Notification queued'))
+    .catch(e=>console.warn('Notification queue failed',e));
 }
 function renderApproval(name,date){
   const btn=document.getElementById('approve-btn');
