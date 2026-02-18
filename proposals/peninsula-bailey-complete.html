@@ -1044,8 +1044,9 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
         </div>
 
         <!-- Approval -->
-        <div style="text-align:center;margin-top:24px" id="approval-area">
-          <button class="approve-btn" id="approve-btn" onclick="showApprovalModal()">✍️ I Approve This Change Order</button>
+        <div style="text-align:center;margin-top:32px;padding:32px;background:rgba(212,146,10,.06);border:2px solid rgba(212,146,10,.25);border-radius:12px" id="approval-area">
+          <p style="font-size:.9rem;color:var(--dim);margin-bottom:16px">By clicking below, you approve this change order for <strong style="color:var(--navy)">$15,273.31</strong></p>
+          <button class="approve-btn" id="approve-btn" onclick="showApprovalModal()" style="font-size:1.1rem;padding:18px 48px;">✍️ Approve Change Order</button>
           <div id="approval-stamp" style="display:none;margin-top:12px;padding:14px 20px;background:rgba(46,125,50,.08);border:2px solid var(--green);border-radius:10px;font-size:.9rem;color:var(--green);font-weight:600"></div>
         </div>
 
