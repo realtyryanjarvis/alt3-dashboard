@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{PAGE_TITLE}}</title>
+<link rel="preconnect" href="https://fonts.cdnfonts.com">
+<style>
+@import url('https://fonts.cdnfonts.com/css/neue-montreal');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --accent:#113665;--accent-light:#1a4a8a;--accent-dark:#0c264a;
+  --taupe:#BEB1A2;--cream:#E1D8CE;
+  --bg:#FFFFFF;--white:#FFFFFF;--cream-bg:#E1D8CE;--text:#1a1a1a;--text-light:#555;--text-lighter:#888;
+  --section-gap:120px;--ease:cubic-bezier(.25,.46,.45,.94);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Neue Montreal',-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+
+/* Utility */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-left{opacity:0;transform:translateX(-40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.fade-in-left.visible{opacity:1;transform:translateX(0)}
+.fade-in-right{opacity:0;transform:translateX(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.fade-in-right.visible{opacity:1;transform:translateX(0)}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all .4s var(--ease)}
+nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 20px rgba(0,0,0,.06);padding:12px 0}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:.08em;color:var(--text)}
+.nav-logo span{color:var(--accent)}
+.nav-badge{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);border:1px solid var(--taupe);padding:4px 12px;border-radius:20px}
+
+/* Hero */
+.hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#000}
+.hero-video{position:absolute;inset:0;z-index:0}
+.hero-video iframe{width:100%;height:100%;pointer-events:none}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(225,216,206,.88) 0%,rgba(255,255,255,.78) 50%,rgba(225,216,206,.92) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:800px;padding:0 24px}
+.hero-prepared{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);border:1px solid var(--taupe);padding:8px 20px;border-radius:30px;margin-bottom:32px}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
+.hero h1 strong{font-weight:700}
+.hero p{font-size:1.15rem;color:var(--text-light);max-width:500px;margin:0 auto 40px}
+.hero-scroll{display:inline-block;width:24px;height:40px;border:2px solid var(--accent);border-radius:12px;position:relative;cursor:pointer}
+.hero-scroll::after{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:3px;height:8px;background:var(--accent);border-radius:2px;animation:scrollDot 2s infinite}
+@keyframes scrollDot{0%,100%{opacity:1;transform:translateX(-50%) translateY(0)}50%{opacity:.3;transform:translateX(-50%) translateY(10px)}}
+
+/* Canvas hero bg */
+#heroCanvas{position:absolute;inset:0;z-index:0}
+
+/* Section spacing */
+section{padding:var(--section-gap) 0}
+section:nth-child(even){background:var(--cream-bg)}
+
+/* Section headers */
+.section-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:600}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.15;margin-bottom:20px;letter-spacing:-.01em}
+.section-title strong{font-weight:700}
+.section-subtitle{font-size:1.05rem;color:var(--text-light);max-width:600px;line-height:1.7}
+
+/* Problem section */
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;margin-top:60px}
+.problem-card{padding:32px;border-radius:16px;background:var(--cream-bg);border:1px solid var(--taupe)}
+.problem-card .icon{font-size:2rem;margin-bottom:16px}
+.problem-card h3{font-size:1rem;font-weight:600;margin-bottom:8px}
+.problem-card p{font-size:.9rem;color:var(--text-light)}
+
+/* Voice commands */
+.voice-commands{margin-top:60px;display:flex;flex-direction:column;gap:24px}
+.voice-cmd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding:28px 32px;border-radius:16px;background:var(--white);border:1px solid rgba(190,177,162,.3);box-shadow:0 2px 20px rgba(0,0,0,.03);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.voice-cmd:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.06)}
+.voice-cmd .cmd{font-size:1.3rem;font-weight:300;font-style:italic;color:var(--text);text-align:right}
+.voice-cmd .cmd::before{content:'"'}
+.voice-cmd .cmd::after{content:'"'}
+.voice-cmd .arrow{color:var(--accent);font-size:1.2rem}
+.voice-cmd .result{font-size:.85rem;color:var(--text-light);line-height:1.6}
+@media(max-width:640px){
+  .container{padding:0 16px}
+  section{padding:60px 0}
+  .section-title{font-size:1.6rem}
+  .voice-cmd{grid-template-columns:1fr;text-align:center;gap:12px;padding:20px}
+  .voice-cmd .cmd{text-align:center;font-size:1.1rem}
+  .voice-cmd .arrow{display:none}
+  .packages{grid-template-columns:1fr;gap:16px}
+  .package{padding:24px 20px}
+  .pkg-price{font-size:1.6rem}
+  .stats-row{grid-template-columns:1fr 1fr;gap:12px}
+  .stat-card{padding:20px 12px}
+  .stat-card .number{font-size:1.5rem}
+  .stat-card .label{font-size:.7rem}
+  .process-steps{flex-direction:column;gap:24px}
+  .process-step{min-width:auto}
+  .step-arrow{transform:rotate(90deg)}
+  .scope-detail{padding:20px 16px}
+  .scope-detail-header{flex-direction:column;gap:12px;text-align:center}
+  .scope-detail-header h3{font-size:1rem}
+  .scope-room-header{padding:12px;font-size:.82rem;flex-wrap:wrap;gap:4px}
+  .scope-item{font-size:.8rem;padding:6px 0}
+  .scope-item.sub{padding-left:8px;font-size:.78rem}
+  .scope-total{font-size:.95rem;padding:16px 12px}
+  .video-embed{margin:32px auto 0;border-radius:12px}
+  .cta-section h2{font-size:1.5rem}
+  .cta-btn{padding:14px 32px;font-size:.9rem}
+  nav{gap:4px}
+  nav a{padding:6px 10px;font-size:.7rem}
+  .hero h1{font-size:2rem}
+  .hero .subtitle{font-size:1rem}
+}
+
+/* Video embed */
+.video-embed{position:relative;width:100%;max-width:900px;margin:48px auto 0;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.08);aspect-ratio:16/9;background:#000}
+.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.video-embed.small{max-width:700px}
+
+/* Split section */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.split.reverse{direction:rtl}
+.split.reverse>*{direction:ltr}
+@media(max-width:900px){.split,.split.reverse{grid-template-columns:1fr;gap:40px}}
+
+/* Stats row */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;margin-top:48px}
+.stat-card{text-align:center;padding:32px 20px;border-radius:16px;background:var(--white);border:1px solid rgba(190,177,162,.3);box-shadow:0 2px 20px rgba(0,0,0,.03)}
+.stat-card .number{font-size:2rem;font-weight:700;color:var(--accent);margin-bottom:4px}
+.stat-card .label{font-size:.8rem;color:var(--text-light);letter-spacing:.05em}
+
+/* Investment */
+.invest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:48px}
+.invest-card{text-align:center;padding:40px 24px;border-radius:20px;background:var(--white);border:1px solid rgba(190,177,162,.4);box-shadow:0 4px 30px rgba(0,0,0,.04);transition:transform .3s var(--ease)}
+.invest-card:hover{transform:translateY(-4px)}
+.invest-card .val{font-size:2.2rem;font-weight:700;color:var(--accent)}
+.invest-card .desc{font-size:.85rem;color:var(--text-light);margin-top:8px}
+
+/* Timeline */
+.timeline{display:flex;gap:0;margin-top:60px;overflow-x:auto;padding-bottom:12px}
+.timeline-step{flex:1;min-width:160px;text-align:center;position:relative;padding:0 16px}
+.timeline-step::before{content:'';position:absolute;top:20px;left:0;right:0;height:2px;background:var(--taupe)}
+.timeline-step:first-child::before{left:50%}
+.timeline-step:last-child::before{right:50%}
+.timeline-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;position:relative;z-index:1;margin-bottom:16px}
+.timeline-step h4{font-size:.9rem;font-weight:600;margin-bottom:4px}
+.timeline-step p{font-size:.75rem;color:var(--text-light)}
+
+/* Package cards */
+.packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;margin-top:48px}
+.package{padding:48px 36px;border-radius:20px;background:var(--white);border:1px solid rgba(190,177,162,.4);box-shadow:0 4px 30px rgba(0,0,0,.04);transition:transform .3s var(--ease)}
+.package:hover{transform:translateY(-4px)}
+.package .pkg-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.package h3{font-size:1.4rem;font-weight:600;margin:12px 0 8px}
+.package .pkg-price{font-size:2rem;font-weight:700;color:var(--accent)}
+.package .pkg-note{font-size:.8rem;color:var(--text-lighter);margin-top:4px;margin-bottom:20px}
+.package ul{list-style:none;padding:0}
+.package li{font-size:.85rem;color:var(--text-light);padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)}
+.package li::before{content:'✓ ';color:var(--accent);font-weight:700}
+
+/* CTA */
+.cta-section{text-align:center;padding:var(--section-gap) 24px;background:linear-gradient(180deg,var(--cream-bg) 0%,var(--bg) 100%)}
+.cta-section h2{font-size:clamp(2rem,4vw,3rem);font-weight:300;margin-bottom:12px}
+.cta-section h2 strong{font-weight:700}
+.cta-btn{display:inline-block;margin-top:32px;padding:16px 48px;background:var(--accent);color:#fff;text-decoration:none;border-radius:50px;font-size:.9rem;font-weight:600;letter-spacing:.05em;transition:all .3s var(--ease);box-shadow:0 4px 20px rgba(17,54,101,.25)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(17,54,101,.35)}
+
+/* Footer */
+footer{text-align:center;padding:60px 24px;background:var(--cream-bg);border-top:1px solid var(--taupe)}
+footer .brand{font-size:.9rem;font-weight:700;letter-spacing:.08em;margin-bottom:8px}
+footer .brand span{color:var(--accent)}
+footer .tagline{font-size:.8rem;color:var(--text-lighter);margin-bottom:16px;font-style:italic}
+footer .contact{font-size:.75rem;color:var(--text-lighter);line-height:2}
+footer .contact a{color:var(--accent);text-decoration:none}
+
+/* Security grid */
+.security-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:48px}
+.sec-card{padding:28px;border-radius:16px;background:var(--white);border:1px solid rgba(190,177,162,.3);text-align:center}
+.sec-card .sec-icon{font-size:2.2rem;margin-bottom:12px}
+.sec-card h4{font-size:.95rem;font-weight:600;margin-bottom:6px}
+.sec-card p{font-size:.8rem;color:var(--text-light)}
+
+/* Scope Detail Panels */
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scope-detail{background:var(--white);border:1px solid rgba(190,177,162,.3);border-radius:16px;padding:32px;box-shadow:0 4px 30px rgba(0,0,0,.06)}
+.scope-detail-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(190,177,162,.3)}
+.scope-detail-header h3{font-size:1.15rem;font-weight:600;color:var(--text)}
+.scope-detail-note{font-size:.82rem;color:var(--accent);background:rgba(17,54,101,.06);padding:12px 16px;border-radius:8px;margin-bottom:24px;border-left:3px solid var(--accent)}
+.scope-room{margin-bottom:16px}
+.scope-room-header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:rgba(190,177,162,.1);border-radius:10px;font-weight:500;font-size:.9rem}
+.scope-room-total{font-weight:700;color:var(--accent)}
+.scope-items{padding:8px 16px}
+.scope-item{display:flex;justify-content:space-between;padding:8px 0;font-size:.85rem;color:var(--text);border-bottom:1px solid rgba(190,177,162,.15)}
+.scope-item:last-child{border-bottom:none}
+.scope-item.sub{padding-left:16px;color:var(--text-light);font-size:.82rem}
+.scope-item.sub span:first-child::before{content:'·';color:var(--taupe);margin-right:8px}
+.scope-item span:last-child{font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap}
+.scope-total{display:flex;justify-content:space-between;padding:20px 16px;margin-top:16px;border-top:2px solid var(--accent);font-size:1.1rem;font-weight:700;color:var(--accent)}
+.package:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
+
+/* PDF button — hidden when no PDF link */
+.pdf-btn-wrap{display:none}
+.pdf-btn-wrap.has-link{display:block}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-logo">ALT<span>3</span></div>
+    <div class="nav-badge">Prepared for {{CLIENT_NAME}}</div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="hero-content fade-in">
+    <div class="hero-prepared">{{ADDRESS}} &bull; {{CITY}}</div>
+    <h1>Your Home,<br><strong>Reimagined</strong></h1>
+    <p>AI-powered living designed for how you actually want to live — simple, seamless, and quietly intelligent.</p>
+    <a href="#problem" class="hero-scroll" aria-label="Scroll down"></a>
+  </div>
+</section>
+
+<!-- Problem -->
+<section id="problem">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label">The Challenge</div>
+      <div class="section-title">Your home has dozens of systems.<br><strong>None of them talk to each other.</strong></div>
+      <div class="section-subtitle">Lighting, audio, climate, security, shades — each on its own app, its own remote, its own logic. You make 150+ micro-decisions a day just to keep your home running.</div>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card fade-in">
+        <div class="icon">🔀</div>
+        <h3>Fragmented Systems</h3>
+        <p>12 apps, 6 remotes, 4 thermostats. Nothing works together — you're the integration layer.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="icon">⏱️</div>
+        <h3>Lost Time</h3>
+        <p>Adjusting lights, checking cameras, managing temperature — tasks that should happen on their own.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="icon">📉</div>
+        <h3>Unrealized Value</h3>
+        <p>A luxury home without smart infrastructure is already outdated. Buyers expect it. Appraisers notice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Josh.ai -->
+<section id="intelligence" style="background:var(--cream-bg)">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label">Voice Intelligence</div>
+      <div class="section-title">Meet Your Home's <strong>Intelligence</strong></div>
+      <div class="section-subtitle">Josh.ai understands natural language — no keywords, no routines to memorize. Just speak naturally, and your home responds.</div>
+    </div>
+    <div class="voice-commands">
+      <div class="voice-cmd fade-in">
+        <div class="cmd">Good morning</div>
+        <div class="arrow">→</div>
+        <div class="result">Lights warm to 3000K · Shades open gently · Coffee starts brewing · Morning news plays softly in the kitchen</div>
+      </div>
+      <div class="voice-cmd fade-in">
+        <div class="cmd">Movie time</div>
+        <div class="arrow">→</div>
+        <div class="result">Lights dim to 5% · Shades close · Projector powers on · Surround sound activates · HVAC goes quiet mode</div>
+      </div>
+      <div class="voice-cmd fade-in">
+        <div class="cmd">I'm heading out</div>
+        <div class="arrow">→</div>
+        <div class="result">All lights off · Security armed · Temperature adjusts to away mode · Garage door confirms closed</div>
+      </div>
+    </div>
+    <div class="video-embed fade-in">
+      <iframe src="https://www.youtube.com/embed/OEnkdHUWcM8?rel=0&modestbranding=1&enablejsapi=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Ketra / Lutron Lighting -->
+<section id="lighting">
+  <div class="container">
+    <div class="split">
+      <div class="fade-in-left">
+        <div class="section-label">Ketra by Lutron</div>
+        <div class="section-title">Light That <strong>Thinks</strong></div>
+        <div class="section-subtitle">Tunable white technology that follows your circadian rhythm. Energizing daylight tones in the morning, warm candlelight at dinner — all automatic, all invisible.</div>
+        <div class="stats-row" style="margin-top:36px">
+          <div class="stat-card">
+            <div class="number">58%</div>
+            <div class="label">of luxury homeowners want smart lighting</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">5%</div>
+            <div class="label">home value increase from smart systems</div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in-right">
+        <div class="video-embed small">
+          <iframe src="https://www.youtube.com/embed/vv7hEw28m-4?rel=0&modestbranding=1&enablejsapi=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MartinLogan Audio -->
+<section id="audio" style="background:var(--cream-bg)">
+  <div class="container">
+    <div class="split reverse">
+      <div class="fade-in-right">
+        <div class="section-label">MartinLogan</div>
+        <div class="section-title">Sound That <strong>Surrounds</strong></div>
+        <div class="section-subtitle">Whole-home audio with invisible architectural speakers. Theater-quality sound in your media room, background music that follows you from kitchen to patio — all from a single voice command.</div>
+        <div class="stats-row" style="margin-top:36px">
+          <div class="stat-card">
+            <div class="number">{{AUDIO_ZONES}}+</div>
+            <div class="label">zones of independent audio</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">0</div>
+            <div class="label">visible speakers</div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in-left">
+        <div class="video-embed small">
+          <iframe src="https://www.youtube.com/embed/ZnkpGBFyQAA?rel=0&modestbranding=1&enablejsapi=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Security -->
+<section id="security">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto">
+      <div class="section-label">Protection</div>
+      <div class="section-title">Security That <strong>Watches</strong></div>
+      <div class="section-subtitle" style="margin:0 auto">AI-powered cameras, smart sensors, and video doorbells — integrated into Josh.ai so your home protects itself intelligently.</div>
+    </div>
+    <div class="security-grid">
+      <div class="sec-card fade-in">
+        <div class="sec-icon">📹</div>
+        <h4>AI Cameras</h4>
+        <p>Person, vehicle & package detection with instant alerts</p>
+      </div>
+      <div class="sec-card fade-in">
+        <div class="sec-icon">🔔</div>
+        <h4>Video Doorbell</h4>
+        <p>See and speak to visitors from any screen or speaker</p>
+      </div>
+      <div class="sec-card fade-in">
+        <div class="sec-icon">🚪</div>
+        <h4>Smart Sensors</h4>
+        <p>Door, window, and motion sensors tied to automation</p>
+      </div>
+      <div class="sec-card fade-in">
+        <div class="sec-icon">🛡️</div>
+        <h4>Arm by Voice</h4>
+        <p>"Goodnight" arms the system, locks doors, sets cameras to alert</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Investment -->
+<section id="investment" style="background:var(--cream-bg)">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto">
+      <div class="section-label">Your Investment</div>
+      <div class="section-title">Built to <strong>Appreciate</strong></div>
+      <div class="section-subtitle" style="margin:0 auto">Luxury buyers expect integrated technology. Homes without it sit longer on market, sell for less, and require costly retrofits. This is the infrastructure that future-proofs your investment.</div>
+    </div>
+    <div class="invest-grid">
+      <div class="invest-card fade-in">
+        <div class="val">15–20 yrs</div>
+        <div class="desc">System lifespan — built to outlast trends</div>
+      </div>
+      <div class="invest-card fade-in">
+        <div class="val">2 days</div>
+        <div class="desc">How fast tech-forward luxury homes move</div>
+      </div>
+      <div class="invest-card fade-in">
+        <div class="val">$0</div>
+        <div class="desc">Cost to retrofit after walls close — it's now or never</div>
+      </div>
+      <div class="invest-card fade-in">
+        <div class="val">Table stakes</div>
+        <div class="desc">For $3M+ homes — buyers expect Lutron &amp; whole-home control</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section id="process">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto;margin-bottom:20px">
+      <div class="section-label">The Process</div>
+      <div class="section-title">How It <strong>Works</strong></div>
+    </div>
+    <div class="timeline fade-in">
+      <div class="timeline-step">
+        <div class="timeline-dot">1</div>
+        <h4>Consultation</h4>
+        <p>Understand your lifestyle, priorities, and vision</p>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">2</div>
+        <h4>Design</h4>
+        <p>Custom system architecture for {{ADDRESS}}</p>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">3</div>
+        <h4>Install</h4>
+        <p>{{PROCESS_STEP_3_NOTE}}</p>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">4</div>
+        <h4>Program</h4>
+        <p>Scenes, automations, and voice tuned to you</p>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">5</div>
+        <h4>Support</h4>
+        <p>Ongoing optimization and lifetime care</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What's Included -->
+<section id="included" style="background:var(--cream-bg)">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto">
+      <div class="section-label">Scope</div>
+      <div class="section-title">What's <strong>Included</strong></div>
+      <p style="color:var(--text-light);margin-top:12px;font-size:.95rem">Click each section to explore the full breakdown.</p>
+    </div>
+    <div class="packages">
+      <div class="package fade-in" onclick="toggleScope('scopeA')" style="cursor:pointer;transition:transform .2s ease,box-shadow .2s ease">
+        <div class="pkg-label">Section A</div>
+        <h3>{{SECTION_A_NAME}}</h3>
+        <div class="pkg-price">{{SECTION_A_PRICE}}</div>
+        <div class="pkg-note">{{SECTION_A_NOTE}}</div>
+        <ul>
+          {{SECTION_A_ITEMS}}
+        </ul>
+        <div style="margin-top:16px;text-align:center;font-size:.8rem;color:var(--accent);font-weight:600;letter-spacing:1px">TAP TO EXPAND ↓</div>
+      </div>
+      <div class="package fade-in" onclick="toggleScope('scopeB')" style="cursor:pointer;transition:transform .2s ease,box-shadow .2s ease">
+        <div class="pkg-label">Section B</div>
+        <h3>{{SECTION_B_NAME}}</h3>
+        <div class="pkg-price">{{SECTION_B_PRICE}}</div>
+        <div class="pkg-note">{{SECTION_B_NOTE}}</div>
+        <ul>
+          {{SECTION_B_ITEMS}}
+        </ul>
+        <div style="margin-top:16px;text-align:center;font-size:.8rem;color:var(--accent);font-weight:600;letter-spacing:1px">TAP TO EXPAND ↓</div>
+      </div>
+      <div class="package fade-in" onclick="toggleScope('scopeC')" style="cursor:pointer;transition:transform .2s ease,box-shadow .2s ease">
+        <div class="pkg-label">Section C</div>
+        <h3>{{SECTION_C_NAME}}</h3>
+        <div class="pkg-price">{{SECTION_C_PRICE}}</div>
+        <div class="pkg-note">{{SECTION_C_NOTE}}</div>
+        <ul>
+          {{SECTION_C_ITEMS}}
+        </ul>
+        <div style="margin-top:16px;text-align:center;font-size:.8rem;color:var(--accent);font-weight:600;letter-spacing:1px">TAP TO EXPAND ↓</div>
+      </div>
+    </div>
+
+    <!-- Section A Detail -->
+    <div id="scopeA" class="scope-detail" style="display:none;margin-top:40px;animation:fadeSlideIn .4s ease">
+      <div class="scope-detail-header">
+        <h3>Section A — {{SECTION_A_NAME}}</h3>
+        <button onclick="toggleScope('scopeA')" style="background:none;border:1px solid var(--taupe);color:var(--text-light);padding:6px 16px;border-radius:8px;font-size:.8rem;cursor:pointer">Close ✕</button>
+      </div>
+      {{SECTION_A_DETAIL_HTML}}
+      <div class="scope-total">
+        <span>Section A Total</span>
+        <span>{{SECTION_A_PRICE}}</span>
+      </div>
+    </div>
+
+    <!-- Section B Detail -->
+    <div id="scopeB" class="scope-detail" style="display:none;margin-top:40px;animation:fadeSlideIn .4s ease">
+      <div class="scope-detail-header">
+        <h3>Section B — {{SECTION_B_NAME}}</h3>
+        <button onclick="toggleScope('scopeB')" style="background:none;border:1px solid var(--taupe);color:var(--text-light);padding:6px 16px;border-radius:8px;font-size:.8rem;cursor:pointer">Close ✕</button>
+      </div>
+      {{SECTION_B_DETAIL_HTML}}
+      <div class="scope-total">
+        <span>Section B Total</span>
+        <span>{{SECTION_B_PRICE}}</span>
+      </div>
+    </div>
+
+    <!-- Section C Detail -->
+    <div id="scopeC" class="scope-detail" style="display:none;margin-top:40px;animation:fadeSlideIn .4s ease">
+      <div class="scope-detail-header">
+        <h3>Section C — {{SECTION_C_NAME}}</h3>
+        <button onclick="toggleScope('scopeC')" style="background:none;border:1px solid var(--taupe);color:var(--text-light);padding:6px 16px;border-radius:8px;font-size:.8rem;cursor:pointer">Close ✕</button>
+      </div>
+      {{SECTION_C_DETAIL_HTML}}
+      <div class="scope-total">
+        <span>Section C Total</span>
+        <span>{{SECTION_C_PRICE}}</span>
+      </div>
+    </div>
+
+    <!-- Complete Proposal PDF Button (hidden if no PDF_LINK) -->
+    <div class="fade-in pdf-btn-wrap {{PDF_LINK_CLASS}}" style="text-align:center;margin-top:48px">
+      <a href="{{PDF_LINK}}" target="_blank" style="display:inline-block;padding:16px 40px;background:var(--accent);color:#fff;border-radius:12px;font-weight:600;font-size:1rem;text-decoration:none;letter-spacing:.5px;box-shadow:0 4px 20px rgba(17,54,101,.3);transition:all .3s ease;cursor:pointer">
+        📄 View Complete Proposal
+      </a>
+      <p style="color:var(--text-lighter);font-size:.8rem;margin-top:12px">Open the full detailed proposal — use your browser's Print → Save as PDF to download</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="next">
+  <div class="fade-in">
+    <div class="section-label">Next Steps</div>
+    <h2>Let's bring <strong>{{ADDRESS}}</strong> to life.</h2>
+    <p style="color:var(--text-light);max-width:500px;margin:16px auto 0;font-size:1rem">Reduce 150 daily decisions to 50. Future-proof your home for the next 20 years. Live the way you were meant to.</p>
+    <a href="mailto:info@alt3.com?subject={{CTA_SUBJECT}}" class="cta-btn">Schedule a Conversation</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="brand">ALT<span>3</span> SMART HOMES</div>
+  <div class="tagline">Simple. Seamless. Smart — by design.</div>
+  <div class="contact">
+    552 Marsh Rd, Charlotte, NC 28209<br>
+    <a href="https://alt3smarthomes.com">alt3smarthomes.com</a> &bull; <a href="mailto:info@alt3.com">info@alt3.com</a> &bull; <a href="https://instagram.com/alt3smarthomes">@alt3smarthomes</a>
+  </div>
+</footer>
+
+<script>
+// Intersection Observer for fade-in
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in,.fade-in-left,.fade-in-right').forEach(el => obs.observe(el));
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+// Hero canvas — subtle dot grid
+(function() {
+  const c = document.getElementById('heroCanvas');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  let w, h, dots = [];
+  function resize() {
+    w = c.width = c.offsetWidth;
+    h = c.height = c.offsetHeight;
+    dots = [];
+    const spacing = 40;
+    for (let x = 0; x < w; x += spacing)
+      for (let y = 0; y < h; y += spacing)
+        dots.push({ x, y, ox: x, oy: y });
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  let mx = w / 2, my = h / 2;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = 'rgba(17,54,101,0.15)';
+    for (const d of dots) {
+      const dx = mx - d.ox, dy = my - d.oy;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const pull = Math.min(8, 800 / (dist + 1));
+      d.x += (d.ox + dx * pull / dist * .3 - d.x) * .08;
+      d.y += (d.oy + dy * pull / dist * .3 - d.y) * .08;
+      const r = Math.max(1, 2.5 - dist / 400);
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// Auto-play/pause YouTube videos on scroll
+(function(){
+  const vids = document.querySelectorAll('.video-embed iframe');
+  if(!vids.length) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const iframe = e.target;
+      try {
+        if(e.isIntersecting && e.intersectionRatio >= 0.5){
+          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        } else {
+          iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        }
+      } catch(err){}
+    });
+  }, { threshold: [0, 0.5] });
+  vids.forEach(v => obs.observe(v));
+})();
+
+function toggleScope(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (el.style.display === 'none') {
+    el.style.display = 'block';
+    el.style.animation = 'fadeSlideIn .4s ease';
+    setTimeout(() => el.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+  } else {
+    el.style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>
