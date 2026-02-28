@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pre-Walkthrough Consultation — Lutron · Ketra · Josh.ai | Alt3 Smart Homes</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0d;
+  --surface:#151515;
+  --surface2:#1c1c1c;
+  --surface3:#222;
+  --border:#2a2a2a;
+  --border-light:#333;
+  --copper:#B87333;
+  --copper-light:#d4956a;
+  --copper-glow:rgba(184,115,51,.15);
+  --text:#f0ece6;
+  --text-dim:#999;
+  --text-muted:#555;
+  --white:#fff;
+  --radius:12px;
+  --serif:'Georgia',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+
+/* ── TYPOGRAPHY ── */
+.label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--copper)}
+.headline{font-family:var(--serif);font-size:clamp(2.4rem,5vw,4rem);font-weight:300;line-height:1.1;color:var(--text)}
+.headline strong{font-weight:700}
+.subhead{font-size:clamp(.95rem,1.5vw,1.1rem);color:var(--text-dim);line-height:1.7;max-width:640px}
+
+/* ── LAYOUT ── */
+section{padding:80px 0;border-bottom:1px solid var(--border)}
+section:last-of-type{border-bottom:none}
+.container{max-width:1100px;margin:0 auto;padding:0 40px;width:100%}
+.section-header{margin-bottom:48px}
+.section-header .label{margin-bottom:12px;display:block}
+.section-header .headline{margin-bottom:16px}
+
+/* ── HERO ── */
+.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;background:var(--bg);position:relative;overflow:hidden;padding:80px 0;border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(184,115,51,.07) 0%,transparent 70%)}
+.hero-content{text-align:center;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--copper-glow);border:1px solid rgba(184,115,51,.25);border-radius:30px;padding:6px 16px;margin-bottom:28px}
+.hero-eyebrow span{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);font-weight:600}
+.hero .headline{margin-bottom:20px}
+.hero .subhead{margin:0 auto 40px}
+.hero-divider{width:40px;height:1px;background:var(--border-light);margin:0 auto 32px}
+.hero-brands{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+.hero-brand-pill{background:var(--surface2);border:1px solid var(--border-light);border-radius:8px;padding:10px 20px;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);font-weight:600}
+.hero-brand-pill.active{border-color:rgba(184,115,51,.4);color:var(--copper-light);background:var(--copper-glow)}
+
+/* ── CARDS ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:border-color .3s}
+.card:hover{border-color:var(--border-light)}
+.card.featured{border-color:rgba(184,115,51,.3);background:linear-gradient(135deg,var(--surface) 0%,rgba(184,115,51,.04) 100%)}
+.card-icon{font-size:1.8rem;margin-bottom:14px}
+.card-title{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--text);margin-bottom:8px}
+.card-sub{font-size:.82rem;color:var(--text-dim);line-height:1.65}
+
+/* ── GRID ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.grid-auto{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+
+/* ── BRAND SECTIONS ── */
+.brand-hero{border-radius:16px;padding:40px;margin-bottom:32px;position:relative;overflow:hidden}
+.brand-hero.lutron{background:linear-gradient(135deg,#0f1a0f 0%,#162416 50%,#0f1a0f 100%);border:1px solid rgba(80,160,80,.2)}
+.brand-hero.ketra{background:linear-gradient(135deg,#12100a 0%,#1e1a0e 50%,#12100a 100%);border:1px solid rgba(220,170,60,.2)}
+.brand-hero.josh{background:linear-gradient(135deg,#0a0f1a 0%,#0e152a 50%,#0a0f1a 100%);border:1px solid rgba(80,120,220,.2)}
+.brand-badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+.lutron .brand-badge{background:rgba(80,160,80,.15);color:#6dbf6d;border:1px solid rgba(80,160,80,.3)}
+.ketra .brand-badge{background:rgba(220,170,60,.12);color:#dca83c;border:1px solid rgba(220,170,60,.25)}
+.josh .brand-badge{background:rgba(80,120,220,.12);color:#7090e0;border:1px solid rgba(80,120,220,.25)}
+.brand-hero-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;margin-bottom:12px}
+.brand-hero-sub{font-size:.95rem;color:var(--text-dim);line-height:1.7;max-width:600px}
+
+/* ── FEATURE LIST ── */
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.feature-list li{display:flex;gap:12px;align-items:flex-start;font-size:.88rem;color:var(--text-dim);line-height:1.6}
+.feature-list li::before{content:'→';color:var(--copper);font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* ── STAT TILES ── */
+.stat-tile{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center}
+.stat-tile .num{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--copper-light);margin-bottom:4px}
+.stat-tile .lbl{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+
+/* ── SCENE CARDS ── */
+.scene-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;align-items:flex-start;gap:14px}
+.scene-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.scene-title{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:4px}
+.scene-desc{font-size:.78rem;color:var(--text-dim);line-height:1.5}
+
+/* ── COMPARISON TABLE ── */
+.compare-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.compare-table th{text-align:left;padding:12px 16px;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--border);font-weight:600}
+.compare-table td{padding:14px 16px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{color:var(--text);font-weight:500}
+.compare-table .check{color:#6dbf6d;font-size:.9rem}
+.compare-table .dot{color:var(--text-muted)}
+
+/* ── INTEGRATION FLOW ── */
+.flow{display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;margin:32px 0}
+.flow-node{background:var(--surface2);border:1px solid var(--border-light);border-radius:10px;padding:16px 20px;text-align:center;min-width:120px}
+.flow-node .fn{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px}
+.flow-node .fv{font-size:.88rem;font-weight:600;color:var(--text)}
+.flow-arrow{font-size:1.2rem;color:var(--copper);padding:0 12px;flex-shrink:0}
+.flow-node.highlight{border-color:rgba(184,115,51,.4);background:var(--copper-glow)}
+.flow-node.highlight .fv{color:var(--copper-light)}
+
+/* ── QUOTE BLOCK ── */
+.quote-block{border-left:3px solid var(--copper);padding:20px 24px;background:var(--surface2);border-radius:0 10px 10px 0;margin:24px 0}
+.quote-block p{font-family:var(--serif);font-size:1.1rem;color:var(--text-dim);line-height:1.7;font-style:italic}
+.quote-block cite{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--copper);margin-top:10px;font-style:normal}
+
+/* ── CTA ── */
+.cta-section{background:linear-gradient(135deg,var(--surface) 0%,rgba(184,115,51,.06) 100%);border:1px solid rgba(184,115,51,.2);border-radius:16px;padding:48px;text-align:center}
+.cta-btn{display:inline-block;background:var(--copper);color:#fff;padding:14px 36px;border-radius:8px;font-weight:700;font-size:.9rem;letter-spacing:.05em;text-decoration:none;margin-top:24px;transition:background .2s}
+.cta-btn:hover{background:var(--copper-light)}
+
+/* ── NAV ── */
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo{width:32px;height:32px;background:linear-gradient(135deg,var(--copper),#8a5524);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#fff}
+.nav-name{font-size:.8rem;font-weight:700;color:var(--text);letter-spacing:.05em}
+.nav-links{display:flex;gap:4px}
+.nav-links a{font-size:.72rem;color:var(--text-dim);padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:.05em;text-transform:uppercase;font-weight:500;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--text);background:var(--surface2)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  html,body{overflow-x:hidden}
+  .top-nav{padding:12px 16px}
+  .nav-links{display:none}
+  section{padding:48px 0}
+  .container{padding:0 16px}
+  .grid-2,.grid-3,.grid-auto{grid-template-columns:1fr!important;gap:14px}
+  .brand-hero{padding:24px}
+  .brand-hero-title{font-size:1.6rem}
+  .hero{padding:100px 16px 60px}
+  .hero-brands{gap:10px}
+  .hero-brand-pill{font-size:.65rem;padding:8px 14px}
+  .cta-section{padding:28px 20px}
+  .flow{gap:0}
+  .flow-arrow{padding:0 6px;font-size:.9rem}
+  .flow-node{min-width:80px;padding:12px}
+  .flow-node .fv{font-size:.78rem}
+  .compare-table th,.compare-table td{padding:10px 10px;font-size:.78rem}
+  .section-header{margin-bottom:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <a class="nav-brand" href="https://realtyryanjarvis.github.io/alt3-dashboard/">
+    <div class="nav-logo">A3</div>
+    <span class="nav-name">Alt3 Smart Homes</span>
+  </a>
+  <div class="nav-links">
+    <a href="#lutron">Lutron</a>
+    <a href="#ketra">Ketra</a>
+    <a href="#josh">Josh.ai</a>
+    <a href="#together">Together</a>
+    <a href="#next">Next Steps</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════ 1. HERO ═══════════════════ -->
+<section class="hero" id="hero">
+  <div class="container hero-content">
+    <div class="hero-eyebrow"><span>Pre-Walkthrough Consultation</span></div>
+    <div class="label" style="margin-bottom:14px">Alt3 Smart Homes</div>
+    <h1 class="headline">Your Home,<br><strong>Elevated.</strong></h1>
+    <p class="subhead">Before we walk the space, here's everything you need to know about the systems we're proposing — and why they work better together than anything else on the market.</p>
+    <div class="hero-divider"></div>
+    <div class="hero-brands">
+      <div class="hero-brand-pill active">Lutron RadioRA 3</div>
+      <div class="hero-brand-pill" style="color:var(--text-muted);font-size:.7rem">+</div>
+      <div class="hero-brand-pill active">Ketra Lighting</div>
+      <div class="hero-brand-pill" style="color:var(--text-muted);font-size:.7rem">+</div>
+      <div class="hero-brand-pill active">Josh.ai Voice</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 2. WHY THIS STACK ═══════════════════ -->
+<section id="overview">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">The System</span>
+      <h2 class="headline">Three Best-in-Class<br><strong>Systems. One Home.</strong></h2>
+      <p class="subhead">We don't sell products — we design ecosystems. Lutron, Ketra, and Josh.ai each lead their category. Together, they create a home that responds to how you actually live.</p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:40px">
+      <div class="card featured">
+        <div class="card-icon">💡</div>
+        <div class="card-title">Lutron RadioRA 3</div>
+        <div class="card-sub">The gold standard in residential lighting control. Used in more high-end homes than any other system — trusted by architects, designers, and integrators worldwide.</div>
+        <div style="margin-top:16px;font-size:.72rem;color:var(--copper);font-weight:600;letter-spacing:.1em;text-transform:uppercase">Lighting · Shading · Climate</div>
+      </div>
+      <div class="card featured">
+        <div class="card-icon">🌅</div>
+        <div class="card-title">Ketra Natural Light</div>
+        <div class="card-sub">The only residential lighting system that replicates the full arc of natural daylight — automatically shifting color temperature and intensity from sunrise to sunset.</div>
+        <div style="margin-top:16px;font-size:.72rem;color:#dca83c;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Tunable White · Full Color · Circadian</div>
+      </div>
+      <div class="card featured">
+        <div class="card-icon">🎙️</div>
+        <div class="card-title">Josh.ai</div>
+        <div class="card-sub">Built exclusively for smart homes — not Alexa, not Google. Josh understands context, remembers preferences, and controls every system through natural conversation.</div>
+        <div style="margin-top:16px;font-size:.72rem;color:#7090e0;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Voice · AI · Privacy-First</div>
+      </div>
+    </div>
+
+    <!-- Integration flow -->
+    <div style="text-align:center;margin-bottom:16px"><span class="label">How It All Connects</span></div>
+    <div class="flow">
+      <div class="flow-node highlight">
+        <div class="fn">Voice</div>
+        <div class="fv">Josh.ai</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node highlight">
+        <div class="fn">Control</div>
+        <div class="fv">Lutron RadioRA 3</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node highlight">
+        <div class="fn">Light</div>
+        <div class="fv">Ketra Fixtures</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node" style="border-color:var(--border-light)">
+        <div class="fn">Also</div>
+        <div class="fv">Shades · Climate · AV</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:.8rem;color:var(--text-muted);max-width:500px;margin:0 auto">Josh speaks to Lutron. Lutron speaks to Ketra. You speak to Josh — and the whole home responds.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ 3. LUTRON ═══════════════════ -->
+<section id="lutron" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">System 01 · Lighting & Shading Control</span>
+      <h2 class="headline">Lutron<br><strong>RadioRA 3</strong></h2>
+      <p class="subhead">The most reliable, most spec'd residential lighting control system in the world. If your home has Lutron, it has the best.</p>
+    </div>
+
+    <div class="brand-hero lutron">
+      <div class="brand-badge">Lutron RadioRA 3</div>
+      <h3 class="brand-hero-title" style="color:#d0f0d0">Control Every Light.<br>From Anywhere. Every Time.</h3>
+      <p class="brand-hero-sub">RadioRA 3 is Lutron's flagship whole-home wireless system — no additional wiring, fully backward-compatible, and engineered to work flawlessly for decades. It's the system installers trust when there's no margin for error.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:28px">
+      <div>
+        <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;font-weight:600">What Lutron Controls in Your Home</p>
+        <ul class="feature-list">
+          <li>Every light in every room — dimmers, switches, and receptacles on one unified system</li>
+          <li>Motorized shades and drapery (Lutron Sivoia QS or Palladiom) — blackout, solar, and sheer layers</li>
+          <li>HVAC integration via thermostat — temperature follows occupancy and time-of-day programming</li>
+          <li>Outdoor lighting — landscape, driveway, security, and accent, all scene-controlled</li>
+          <li>Whole-home scenes: one tap or one command sets the entire house</li>
+          <li>Geofencing: lights on when you arrive, off when you leave — automatically</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;font-weight:600">Why Lutron Beats Everything Else</p>
+        <ul class="feature-list">
+          <li><strong style="color:var(--text)">Clear Connect RF</strong> — Lutron's proprietary RF protocol is 10× more reliable than Z-Wave or Zigbee</li>
+          <li><strong style="color:var(--text)">No hub required</strong> — the RA3 main repeater IS the hub; nothing to add or update</li>
+          <li><strong style="color:var(--text)">Fastest response time</strong> — sub-100ms from tap to light. No perceptible delay, ever</li>
+          <li><strong style="color:var(--text)">Backward compatible</strong> — works with Caseta, RA2, and HW devices already in the home</li>
+          <li><strong style="color:var(--text)">Native Ketra integration</strong> — Ketra is a Lutron company; they communicate at protocol level</li>
+          <li><strong style="color:var(--text)">Works without internet</strong> — local control always. No cloud dependency</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scenes -->
+    <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;font-weight:600">Example Whole-Home Scenes</p>
+    <div class="grid-auto">
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(255,200,80,.1)">🌅</div>
+        <div><div class="scene-title">Morning</div><div class="scene-desc">Gradual sunrise in bedroom, kitchen at full, shades open slowly, thermostat to 70°</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(80,120,255,.1)">🎬</div>
+        <div><div class="scene-title">Movie</div><div class="scene-desc">Living room dims to 15%, shades close, kitchen dim to 20%, staircase at 30% safety</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(180,80,80,.1)">🍽️</div>
+        <div><div class="scene-title">Dinner</div><div class="scene-desc">Dining at 60% warm white, kitchen 40%, outdoor patio at 50%, soft background lighting</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(80,180,80,.1)">🌙</div>
+        <div><div class="scene-title">Goodnight</div><div class="scene-desc">All lights off except safety path lighting at 5%, shades closed, doors locked, thermostat to 68°</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(255,140,20,.1)">🏃</div>
+        <div><div class="scene-title">Away</div><div class="scene-desc">All off, shades to privacy position, thermostat to eco mode — triggered by geofence or tap</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(200,200,200,.08)">🎉</div>
+        <div><div class="scene-title">Entertain</div><div class="scene-desc">Full house at custom levels, music on, outdoor lights on, kitchen bright — one command</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 4. KETRA ═══════════════════ -->
+<section id="ketra">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">System 02 · Tunable Natural Light</span>
+      <h2 class="headline">Ketra<br><strong>Natural Light</strong></h2>
+      <p class="subhead">Light is the most powerful design element in a home — and most homes get it completely wrong. Ketra fixes that.</p>
+    </div>
+
+    <div class="brand-hero ketra">
+      <div class="brand-badge">Ketra by Lutron</div>
+      <h3 class="brand-hero-title" style="color:#f5e09a">Light That Moves<br>With the Day.</h3>
+      <p class="brand-hero-sub">Ketra is the only residential lighting system that replicates the full color and intensity arc of natural daylight — from the warm amber of morning, through the crisp bright white of midday, to the soft amber glow of evening. It's not just beautiful. It changes how you feel, sleep, and live in the space.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:32px">
+      <div>
+        <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:#dca83c;margin-bottom:16px;font-weight:600">What Makes Ketra Different</p>
+        <ul class="feature-list">
+          <li><strong style="color:var(--text)">Full-spectrum tunable white</strong> — 1400K to 10000K color temperature range in a single fixture</li>
+          <li><strong style="color:var(--text)">DayLight Management</strong> — automatically shifts color temp and intensity to match the sun's position throughout the day</li>
+          <li><strong style="color:var(--text)">Full color capability</strong> — any color on the spectrum, not just white. Perfect for accent, art, and entertainment spaces</li>
+          <li><strong style="color:var(--text)">Vibrant color saturation</strong> — 90+ CRI ensures colors in your home look exactly right under Ketra light</li>
+          <li><strong style="color:var(--text)">Lutron-native</strong> — Ketra is a Lutron brand; zero compatibility issues, single app, single control system</li>
+          <li><strong style="color:var(--text)">No visible flicker</strong> — engineered to exceed medical-grade standards for flicker-free operation</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:#dca83c;margin-bottom:16px;font-weight:600">The Science of DayLight Management</p>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <div style="width:14px;height:14px;border-radius:50%;background:#ff9944;flex-shrink:0"></div>
+              <span style="font-size:.78rem;font-weight:600;color:var(--text)">Morning — 6:00–10:00am</span>
+            </div>
+            <p style="font-size:.78rem;color:var(--text-dim);line-height:1.6">Warm amber (~2200K) · Low intensity · Gentle on eyes · Supports natural cortisol wake cycle</p>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <div style="width:14px;height:14px;border-radius:50%;background:#fff8e8;flex-shrink:0;border:1px solid #555"></div>
+              <span style="font-size:.78rem;font-weight:600;color:var(--text)">Midday — 10:00am–3:00pm</span>
+            </div>
+            <p style="font-size:.78rem;color:var(--text-dim);line-height:1.6">Crisp daylight white (~5500K) · Full brightness · Maximum focus and productivity</p>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <div style="width:14px;height:14px;border-radius:50%;background:#ffcc66;flex-shrink:0"></div>
+              <span style="font-size:.78rem;font-weight:600;color:var(--text)">Evening — 5:00–10:00pm</span>
+            </div>
+            <p style="font-size:.78rem;color:var(--text-dim);line-height:1.6">Warm candlelight (~2700K) · Dims naturally · Triggers melatonin, supports sleep quality</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p>"After six months with Ketra, my clients tell me it's the upgrade they didn't know they needed — and the one they can't imagine living without."</p>
+      <cite>Alt3 Smart Homes — installed in Charlotte, Mooresville &amp; Lake Norman</cite>
+    </div>
+
+    <!-- Where Ketra goes -->
+    <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:#dca83c;margin-bottom:16px;font-weight:600">Recommended Ketra Spaces</p>
+    <div class="grid-auto">
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(220,170,60,.1)">🛏️</div>
+        <div><div class="scene-title">Primary Suite</div><div class="scene-desc">Wake gently with sunrise simulation. Wind down with automatic warm dimming. Best sleep of your life.</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(220,170,60,.1)">🍳</div>
+        <div><div class="scene-title">Kitchen</div><div class="scene-desc">Crisp task light for cooking. Warm, inviting ambient for dining. One scene change transforms the whole space.</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(220,170,60,.1)">🛁</div>
+        <div><div class="scene-title">Master Bath</div><div class="scene-desc">True-color light for grooming and makeup — colors look exactly as they will outdoors.</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(220,170,60,.1)">🖼️</div>
+        <div><div class="scene-title">Art & Gallery Walls</div><div class="scene-desc">CRI 95+ rendering makes colors in art pop exactly as intended. Full color tuning for each piece.</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(220,170,60,.1)">🎬</div>
+        <div><div class="scene-title">Home Theater</div><div class="scene-desc">Bias lighting that matches your screen's color temp. Automatic fade when playback begins.</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(220,170,60,.1)">🍷</div>
+        <div><div class="scene-title">Living & Entertaining</div><div class="scene-desc">Set any mood instantly. Cocktail party, movie night, holiday — Ketra makes every moment feel intentional.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 5. JOSH.AI ═══════════════════ -->
+<section id="josh" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">System 03 · AI Voice Control</span>
+      <h2 class="headline">Josh.ai —<br><strong>Your Home Listens.</strong></h2>
+      <p class="subhead">Not another smart speaker. Josh was built from the ground up for smart homes — and only smart homes. It understands how you live, not just what you say.</p>
+    </div>
+
+    <div class="brand-hero josh">
+      <div class="brand-badge">Josh.ai</div>
+      <h3 class="brand-hero-title" style="color:#a0b8f0">The Voice of<br>Your Entire Home.</h3>
+      <p class="brand-hero-sub">Josh integrates with every system in your home — Lutron, Ketra, AV, security, HVAC — and controls all of it through completely natural conversation. No commands to memorize. No app to open. Just talk.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:32px">
+      <div>
+        <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:#7090e0;margin-bottom:16px;font-weight:600">Why Josh Over Alexa or Google</p>
+        <table class="compare-table">
+          <thead><tr><th>Feature</th><th>Josh.ai</th><th>Alexa/Google</th></tr></thead>
+          <tbody>
+            <tr><td>Built for smart homes</td><td><span class="check">✓ Purpose-built</span></td><td><span class="dot">General consumer</span></td></tr>
+            <tr><td>Lutron / Ketra native</td><td><span class="check">✓ Deep integration</span></td><td><span class="dot">Basic on/off only</span></td></tr>
+            <tr><td>Scene understanding</td><td><span class="check">✓ "Movie time"</span></td><td><span class="dot">Device-by-device</span></td></tr>
+            <tr><td>Privacy</td><td><span class="check">✓ Local processing</span></td><td><span class="dot">Cloud recorded</span></td></tr>
+            <tr><td>Context memory</td><td><span class="check">✓ Learns your patterns</span></td><td><span class="dot">Session only</span></td></tr>
+            <tr><td>Custom wake word</td><td><span class="check">✓ "Josh"</span></td><td><span class="dot">Fixed brand words</span></td></tr>
+            <tr><td>Installer control</td><td><span class="check">✓ Full config</span></td><td><span class="dot">Limited</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:#7090e0;margin-bottom:16px;font-weight:600">Things You'll Actually Say to Josh</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+            <div style="font-size:.72rem;color:#7090e0;margin-bottom:4px;font-weight:600">Voice Command</div>
+            <div style="font-size:.88rem;color:var(--text);font-style:italic">"Josh, movie time."</div>
+            <div style="font-size:.75rem;color:var(--text-dim);margin-top:6px">→ Dims lights, closes shades, dims kitchen, drops thermostat 2°, turns on TV</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+            <div style="font-size:.72rem;color:#7090e0;margin-bottom:4px;font-weight:600">Voice Command</div>
+            <div style="font-size:.88rem;color:var(--text);font-style:italic">"Josh, we're having people over."</div>
+            <div style="font-size:.75rem;color:var(--text-dim);margin-top:6px">→ Full house Entertain scene, music on, outdoor lights on, thermostat to 72°</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+            <div style="font-size:.72rem;color:#7090e0;margin-bottom:4px;font-weight:600">Voice Command</div>
+            <div style="font-size:.88rem;color:var(--text);font-style:italic">"Josh, I can't sleep — turn everything off."</div>
+            <div style="font-size:.75rem;color:var(--text-dim);margin-top:6px">→ All lights off, all shades closed, TV off, thermostat to sleep mode — without leaving bed</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+            <div style="font-size:.72rem;color:#7090e0;margin-bottom:4px;font-weight:600">Voice Command</div>
+            <div style="font-size:.88rem;color:var(--text);font-style:italic">"Josh, make it warmer in here."</div>
+            <div style="font-size:.75rem;color:var(--text-dim);margin-top:6px">→ Adjusts thermostat up 2°, shifts Ketra color temp to warmer tones — simultaneous</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Josh hardware -->
+    <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:#7090e0;margin-bottom:16px;font-weight:600">Josh Hardware — Where It Goes</p>
+    <div class="grid-auto">
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(80,120,220,.1)">🔊</div>
+        <div><div class="scene-title">Josh Micro</div><div class="scene-desc">Ceiling-mounted, flush install. Invisible in the room — you just hear it respond. Primary rooms, kitchen, master suite.</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(80,120,220,.1)">📱</div>
+        <div><div class="scene-title">Josh App</div><div class="scene-desc">Full home control on your phone. Same interface, same commands — anywhere in the world.</div></div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-icon" style="background:rgba(80,120,220,.1)">🖥️</div>
+        <div><div class="scene-title">Josh Touchscreen</div><div class="scene-desc">Wall-mounted panel for visual control. Perfect for mudroom, kitchen, or primary bedroom entry.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 6. TOGETHER ═══════════════════ -->
+<section id="together">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">The Full Picture</span>
+      <h2 class="headline">Everything<br><strong>Working as One.</strong></h2>
+      <p class="subhead">The real value isn't any single system — it's what happens when they're all integrated. Here's a day in the life of your home.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:780px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:start" class="day-row">
+        <div style="text-align:center;padding:12px 0;border-right:1px solid var(--border)">
+          <div style="font-size:1.1rem">🌅</div>
+          <div style="font-size:.68rem;color:var(--copper);font-weight:600;margin-top:4px">6:30 AM</div>
+        </div>
+        <div style="padding:12px 0">
+          <div style="font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:4px">Wake Up</div>
+          <div style="font-size:.8rem;color:var(--text-dim);line-height:1.6">Ketra gradually increases from 0% at 2200K to 40% at 3000K over 20 minutes. Lutron opens shades halfway. Josh says "Good morning" and reads your calendar. All without you touching anything.</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:start" class="day-row">
+        <div style="text-align:center;padding:12px 0;border-right:1px solid var(--border)">
+          <div style="font-size:1.1rem">☕</div>
+          <div style="font-size:.68rem;color:var(--copper);font-weight:600;margin-top:4px">7:15 AM</div>
+        </div>
+        <div style="padding:12px 0">
+          <div style="font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:4px">Morning Routine</div>
+          <div style="font-size:.8rem;color:var(--text-dim);line-height:1.6">Kitchen at full bright daylight for breakfast. "Josh, I'm running late" — bathroom lights jump to maximum, curtains open fully, thermostat nudges up 1°.</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:start" class="day-row">
+        <div style="text-align:center;padding:12px 0;border-right:1px solid var(--border)">
+          <div style="font-size:1.1rem">🚗</div>
+          <div style="font-size:.68rem;color:var(--copper);font-weight:600;margin-top:4px">8:30 AM</div>
+        </div>
+        <div style="padding:12px 0">
+          <div style="font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:4px">Leaving Home</div>
+          <div style="font-size:.8rem;color:var(--text-dim);line-height:1.6">Geofence detects departure. Lutron kills all lights. Shades go to privacy. Thermostat enters eco. "Josh, did I leave the lights on?" — Josh confirms everything is off.</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:start" class="day-row">
+        <div style="text-align:center;padding:12px 0;border-right:1px solid var(--border)">
+          <div style="font-size:1.1rem">🏠</div>
+          <div style="font-size:.68rem;color:var(--copper);font-weight:600;margin-top:4px">6:00 PM</div>
+        </div>
+        <div style="padding:12px 0">
+          <div style="font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:4px">Arriving Home</div>
+          <div style="font-size:.8rem;color:var(--text-dim);line-height:1.6">Geofence detects approach. Foyer and kitchen lights on. Thermostat warms to 71°. Shades to preferred evening position. Ketra has already shifted to warm 3000K. Home is ready when you walk in.</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:start" class="day-row">
+        <div style="text-align:center;padding:12px 0;border-right:1px solid var(--border)">
+          <div style="font-size:1.1rem">🍽️</div>
+          <div style="font-size:.68rem;color:var(--copper);font-weight:600;margin-top:4px">7:30 PM</div>
+        </div>
+        <div style="padding:12px 0">
+          <div style="font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:4px">Dinner</div>
+          <div style="font-size:.8rem;color:var(--text-dim);line-height:1.6">"Josh, dinner scene." — Dining at 55% warm amber, kitchen to 30%, living room soft fill, outdoor patio at 40%. Ketra shifts color temp to 2700K for that perfect candlelit feel.</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:start" class="day-row">
+        <div style="text-align:center;padding:12px 0;border-right:1px solid var(--border)">
+          <div style="font-size:1.1rem">🌙</div>
+          <div style="font-size:.68rem;color:var(--copper);font-weight:600;margin-top:4px">10:30 PM</div>
+        </div>
+        <div style="padding:12px 0">
+          <div style="font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:4px">Goodnight</div>
+          <div style="font-size:.8rem;color:var(--text-dim);line-height:1.6">"Josh, goodnight." — Whole house off except bedroom nightlight at 2%. Shades fully closed. Security armed. Thermostat to 68°. Ketra in bedroom dims to 1% at 1800K — a soft ember glow while you fall asleep.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 7. NEXT STEPS ═══════════════════ -->
+<section id="next" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">What Happens Next</span>
+      <h2 class="headline">The<br><strong>Walkthrough.</strong></h2>
+      <p class="subhead">Now that you know what these systems do — the walkthrough is where we figure out exactly where and how they go in your home.</p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:40px">
+      <div class="card">
+        <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--copper);font-weight:600;margin-bottom:12px">Step 01</div>
+        <div class="card-title">Room-by-Room Assessment</div>
+        <div class="card-sub">We walk every room and identify fixture locations, switch placements, shade mounting points, and Josh device placement. Takes 45–90 minutes depending on home size.</div>
+      </div>
+      <div class="card">
+        <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--copper);font-weight:600;margin-bottom:12px">Step 02</div>
+        <div class="card-title">Custom Proposal</div>
+        <div class="card-sub">Within 48 hours of the walkthrough we deliver a detailed proposal — itemized by room, with hardware, labor, programming, and warranty clearly laid out. No surprises.</div>
+      </div>
+      <div class="card">
+        <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--copper);font-weight:600;margin-bottom:12px">Step 03</div>
+        <div class="card-title">Design Review</div>
+        <div class="card-sub">We review the proposal together, adjust scope, finalize fixture and keypad finishes, and answer every question before a single item is ordered.</div>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <span class="label" style="display:block;margin-bottom:12px">Ready to Walk the Space?</span>
+      <h3 class="headline" style="font-size:clamp(1.8rem,3vw,2.6rem)">Let's Build<br><strong>Your Home.</strong></h3>
+      <p style="font-size:.92rem;color:var(--text-dim);max-width:480px;margin:16px auto 0;line-height:1.7">The walkthrough is the most important hour of the entire project. Everything after it moves fast — let's make sure we get it right.</p>
+      <a href="tel:+15089542159" class="cta-btn" style="margin-right:12px">Call Ryan — (508) 954-2159</a>
+      <a href="mailto:ryan@realtyryan.com" class="cta-btn" style="background:var(--surface2);border:1px solid var(--border-light);color:var(--text-dim)">ryan@realtyryan.com</a>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--bg);border-top:1px solid var(--border);padding:24px 40px;text-align:center">
+  <p style="font-size:.65rem;color:var(--text-muted);letter-spacing:.08em">Alt3 Smart Homes · Charlotte · Mooresville · Lake Norman · ryan@realtyryan.com · (508) 954-2159</p>
+  <p style="font-size:.6rem;color:var(--text-muted);margin-top:6px;letter-spacing:.06em">Lutron, RadioRA 3, and Ketra are registered trademarks of Lutron Electronics Co., Inc. Josh.ai is a trademark of Josh.ai Inc.</p>
+</footer>
+
+<script>
+// Mobile: fix any grid issues
+if (window.innerWidth <= 768) {
+  document.querySelectorAll('.day-row').forEach(function(el){
+    el.style.gridTemplateColumns = '60px 1fr';
+    el.style.gap = '12px';
+  });
+}
+// Nav active state on scroll
+var sections = document.querySelectorAll('section[id]');
+var navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', function(){
+  var scrollY = window.scrollY + 100;
+  sections.forEach(function(s){
+    if (scrollY >= s.offsetTop && scrollY < s.offsetTop + s.offsetHeight) {
+      navLinks.forEach(function(a){ a.style.color = ''; });
+      var active = document.querySelector('.nav-links a[href="#'+s.id+'"]');
+      if (active) active.style.color = 'var(--copper-light)';
+    }
+  });
+});
+</script>
+</body>
+</html>
