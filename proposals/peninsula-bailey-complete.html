@@ -1182,20 +1182,17 @@ function sendApprovalNotification(name,date,time){
     body:JSON.stringify(payload)
   }).then(()=>console.log('Firebase: approval saved'))
     .catch(e=>console.warn('Firebase write failed',e));
-  // 2. Send email notification to Ryan via Gmail API (through Jarvis)
-  fetch(FIREBASE_URL+'/alt3/pending_notifications.json',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      type:'change_order_approved',
-      to:'ryan.palmer@alt3.com',
-      subject:'✅ Bailey Change Order Approved — $22,684.51',
-      body:'Alex Bailey approved the Peninsula Club change order.\n\nProject: 18235 Peninsula Club Dr, Cornelius NC\nApproved by: '+name+'\nAmount: $22,684.51\nDate: '+date+' at '+time+'\n\nView full project: https://realtyryanjarvis.github.io/alt3-dashboard/proposals/peninsula-bailey-complete.html',
-      createdAt:new Date().toISOString(),
-      status:'pending'
-    })
-  }).then(()=>console.log('Notification queued'))
-    .catch(e=>console.warn('Notification queue failed',e));
+  // 2. Send email notification to Ryan via mailto
+  const subject=encodeURIComponent('✅ Bailey Change Order Approved — $22,684.51');
+  const body=encodeURIComponent(
+    'Alex Bailey has approved the Peninsula Club Change Order #4.\n\n' +
+    'Project: 18235 Peninsula Club Dr, Cornelius NC\n' +
+    'Approved by: '+name+'\n' +
+    'Amount: $22,684.51\n' +
+    'Date: '+date+' at '+time+'\n\n' +
+    'View full project:\nhttps://realtyryanjarvis.github.io/alt3-dashboard/proposals/peninsula-bailey-complete.html'
+  );
+  window.open('mailto:ryan@realtyryan.com?subject='+subject+'&body='+body,'_blank');
 }
 function renderApproval(name,date){
   const btn=document.getElementById('approve-btn');
