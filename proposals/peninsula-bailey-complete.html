@@ -181,6 +181,52 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
 .si-action.amber:hover{background:#d4920a;color:#fff}
 @media(max-width:768px){.status-split{grid-template-columns:1fr!important}}
 
+/* Project Process Flow */
+.process-track{display:flex;align-items:flex-start;justify-content:space-between;position:relative;max-width:900px;margin:0 auto;padding:0 20px}
+.process-track::before{content:'';position:absolute;top:28px;left:60px;right:60px;height:3px;background:var(--border);z-index:0}
+.process-track::after{content:'';position:absolute;top:28px;left:60px;width:calc(57% * 1);height:3px;background:var(--green);z-index:1;transition:width .5s}
+.process-step{display:flex;flex-direction:column;align-items:center;position:relative;z-index:2;flex:1;max-width:130px}
+.step-dot{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;border:3px solid var(--border);background:#fff;transition:all .3s;margin-bottom:12px}
+.step-dot.done{border-color:var(--green);background:var(--green);color:#fff}
+.step-dot.active{border-color:#d4920a;background:#fff8e1;animation:step-pulse 2s infinite}
+.step-dot.upcoming{border-color:var(--border);background:var(--surface);opacity:.6}
+@keyframes step-pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,146,10,.3)}50%{box-shadow:0 0 0 10px rgba(212,146,10,0)}}
+.step-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);text-align:center;line-height:1.3}
+.step-date{font-size:.62rem;color:var(--dim);margin-top:4px;text-align:center}
+.step-desc{font-size:.65rem;color:var(--lighter);margin-top:3px;text-align:center;line-height:1.4}
+.current-items{max-width:800px;margin:0 auto}
+.ci-card{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--bg);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;transition:all .2s}
+.ci-card:hover{border-color:var(--taupe);box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.ci-icon{font-size:1.1rem;margin-top:2px;flex-shrink:0}
+.ci-content .ci-title{font-weight:600;font-size:.85rem;color:var(--navy)}
+.ci-content .ci-desc{font-size:.78rem;color:var(--dim);margin-top:3px;line-height:1.5}
+.ci-status{margin-left:auto;flex-shrink:0;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:4px 10px;border-radius:4px;white-space:nowrap}
+.ci-status.in-progress{background:#fff8e1;color:#b37a00}
+.ci-status.pending{background:#e3f2fd;color:#1565c0}
+.ci-status.scheduled{background:#f3e5f5;color:#7b1fa2}
+.ci-status.upcoming{background:var(--surface);color:var(--dim)}
+@media(max-width:600px){
+  .process-track{flex-wrap:wrap;gap:12px;justify-content:center}
+  .process-track::before,.process-track::after{display:none}
+  .process-step{max-width:80px}
+  .step-dot{width:44px;height:44px;font-size:1rem}
+}
+
+/* Added Value Section */
+.av-section{border:2px solid var(--green);border-radius:20px;padding:40px 32px;background:linear-gradient(135deg,#f0faf0,#e8f5e9);position:relative;overflow:hidden}
+.av-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green),#66bb6a,var(--green))}
+.av-badge{display:inline-block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--green);padding:6px 16px;border-radius:20px;margin-bottom:16px}
+.av-item{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid rgba(46,125,50,.12)}
+.av-item:last-child{border-bottom:none}
+.av-icon{font-size:1.1rem;margin-top:2px;flex-shrink:0}
+.av-text{flex:1}
+.av-text .av-name{font-weight:600;font-size:.9rem;color:var(--navy)}
+.av-text .av-desc{font-size:.8rem;color:var(--dim);margin-top:2px;line-height:1.5}
+.av-tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:4px;background:rgba(46,125,50,.1);color:var(--green);white-space:nowrap}
+.av-total-box{text-align:center;padding:20px;background:rgba(46,125,50,.08);border:1px solid rgba(46,125,50,.2);border-radius:12px;margin-top:24px}
+.av-total-box .big{font-size:1.4rem;font-weight:800;color:var(--green)}
+.av-total-box .sub{font-size:.8rem;color:var(--dim);margin-top:4px}
+
 /* Pending Change Order */
 .co-section{border:2px solid #d4920a;border-radius:20px;padding:40px 32px;background:linear-gradient(135deg,#fffcf5,#fef7e8);position:relative;overflow:hidden}
 .co-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#d4920a,#f0b429,#d4920a)}
@@ -293,10 +339,15 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
       <div><dt>Client</dt><dd>Alex Bailey<br>Keen Building Company</dd></div>
       <div><dt>Last Updated</dt><dd>February 17, 2026</dd></div>
     </dl>
-    <!-- Pending CO Banner -->
-    <div id="hero-co-banner" style="margin-top:36px">
-      <a href="#pending-co" style="display:inline-flex;align-items:center;gap:10px;background:#d4920a;color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-size:.95rem;font-weight:700;box-shadow:0 4px 20px rgba(212,146,10,.4);transition:all .25s;animation:pulse-co 2s infinite">
-        <span style="font-size:1.2rem">⚠️</span> Pending Change Order — $15,273.31 — Review & Approve
+    <!-- Hero Action Buttons -->
+    <div style="margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:14px">
+      <!-- Project Progress -->
+      <a href="#process" style="display:inline-flex;align-items:center;gap:10px;background:#1565c0;color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-size:.85rem;font-weight:600;transition:all .25s;letter-spacing:.02em;box-shadow:0 4px 16px rgba(21,101,192,.4)">
+        <span style="font-size:1rem">📍</span> Project Progress — Final Punch &amp; Handoff
+      </a>
+      <!-- Pending CO Banner -->
+      <a href="#change-order" style="display:inline-flex;align-items:center;gap:10px;background:#d4920a;color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-size:.95rem;font-weight:700;box-shadow:0 4px 20px rgba(212,146,10,.4);transition:all .25s;animation:pulse-co 2s infinite">
+        <span style="font-size:1.2rem">⚠️</span> Pending Change Order — $22,763.13 — Review & Approve
       </a>
     </div>
     <style>@keyframes pulse-co{0%,100%{box-shadow:0 4px 20px rgba(212,146,10,.4)}50%{box-shadow:0 4px 30px rgba(212,146,10,.65)}}</style>
@@ -308,16 +359,127 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
 <!-- Financial Dashboard -->
 <section id="dashboard" class="alt-bg">
   <div class="container">
-    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto">
+    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto;margin-bottom:32px">
       <div class="section-label">Financial Overview</div>
       <div class="section-title">Project <strong>At a Glance</strong></div>
     </div>
-    <div class="stats-grid">
-      <div class="stat-card fade-in"><div class="number">$220,245</div><div class="label">Total Project</div></div>
-      <div class="stat-card green fade-in"><div class="number">$195,869</div><div class="label">Paid to Date</div></div>
-      <div class="stat-card fade-in"><div class="number">$24,376</div><div class="label">Remaining</div></div>
-      <div class="stat-card blue fade-in"><div class="number">~$33,806</div><div class="label">Alt3 Value Added</div></div>
+    <div class="fade-in" style="max-width:700px;margin:0 auto">
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.04)">
+        <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.88rem">
+          <span style="color:var(--dim)">Original Total</span><span style="font-weight:600;color:var(--navy)">$231,162.94</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.85rem;background:var(--surface)">
+          <span style="color:var(--dim);padding-left:12px">Tax</span><span style="font-weight:500;color:var(--dim)">−$6,287.16</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.85rem;background:var(--surface)">
+          <span style="color:var(--dim);padding-left:12px">Sonance Speaker Refund</span><span style="font-weight:500;color:var(--green)">−$4,629.89</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.88rem;border-top:2px solid var(--border)">
+          <span style="color:var(--navy);font-weight:600">Adjusted Project Total</span><span style="font-weight:700;color:var(--navy)">$220,245.89</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.88rem">
+          <span style="color:var(--dim)">Change Orders (#1–#3)</span><span style="font-weight:600;color:var(--navy)">Included Above</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.88rem;background:#fffcf5">
+          <span style="color:#b37a00;font-weight:500">⚠️ Pending Change Order</span><span style="font-weight:600;color:#b37a00">$22,763.13</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.88rem">
+          <span style="color:var(--dim)">Paid to Date</span><span style="font-weight:600;color:var(--green)">$195,869.15</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.88rem">
+          <span style="color:var(--dim)">Remaining Balance</span><span style="font-weight:600;color:var(--red)">$24,376.44</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.85rem;background:#fffcf5">
+          <span style="color:#b37a00;padding-left:12px">Remaining if CO Approved</span><span style="font-weight:600;color:#b37a00">$40,414.75</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:14px 24px;font-size:.88rem;background:rgba(21,101,192,.03)">
+          <span style="color:var(--blue);font-weight:500">Alt3 Value Added</span><span style="font-weight:600;color:var(--blue)">~$37,000</span>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- Project Notes -->
+<section id="notes">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto;margin-bottom:32px">
+      <div class="section-label">Feb 17, 2026 — Onsite Visit</div>
+      <div class="section-title">Project <strong>Notes</strong></div>
+      <div class="section-desc" style="margin:0 auto">The following items are actively being worked through following the onsite walkthrough on February 17, 2026.</div>
+    </div>
+    <div class="fade-in" style="max-width:800px;margin:0 auto">
+
+      <div style="border:1px solid var(--border);border-radius:12px;padding:20px 24px;background:var(--bg)">
+        <div style="font-size:.85rem;color:var(--dim);line-height:1.8">
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)"><strong>Primary Bath</strong> — Toe kick lighting under one vanity not activating with the rest of the linear lighting. Possible loose connection.</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)"><strong>Primary Bath</strong> — Shower exhaust fan not audible when all systems are on. Water closet fan works fine. Needs diagnosis.</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)"><strong>Wardrobe 1 Cabinet Lighting</strong> — Half of cabinet lights staying on (plugged directly into outlet, bypassing dimming module). Needs a 1×2 splitter to connect both transformers to the dimming module.</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)"><strong>Gym Service Bar</strong> — Ceiling-mounted lights above bar not responding from any output. Needs trace.</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)"><strong>Main Stair</strong> — Linear lighting tape installed but not activating. May not be connected to panel output under the house.</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)"><strong>Exterior Floods</strong> — Currently on motion sensors, not responding correctly to lighting controls. Can motion sensing be disabled?</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)"><strong>Room Naming Sync</strong> — Matching area/room names between Lutron and Josh.ai for seamless voice control.</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)"><strong>Voice Control Refinement</strong> — Once room naming is synced, voice control will be refined over time as Alex adapts and naturally uses the system.</div>
+          <div style="padding:8px 12px;background:rgba(239,83,80,.04);border-radius:6px;border:1px solid rgba(239,83,80,.1);margin-top:4px"><strong style="color:#c62828">🔴 Panel B / Rec Room Exterior</strong> — Breaker tripping again. Outdoor sconces on back of rec room disconnected to stop the trip (same recurring fix). Electrician to investigate root cause.</div>
+        </div>
+      </div>
+
+      <div style="background:rgba(46,125,50,.04);border:1px solid rgba(46,125,50,.15);border-radius:10px;padding:14px 20px;text-align:center;margin-top:16px">
+        <p style="font-size:.85rem;color:var(--green);font-weight:600;margin:0">✅ All other lights working correctly and identified. Several items corrected during this visit.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Project Process Flow -->
+<section id="process">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;max-width:650px;margin:0 auto;margin-bottom:48px">
+      <div class="section-label">Your Journey</div>
+      <div class="section-title">Project <strong>Progress</strong></div>
+      <div class="section-desc" style="margin:0 auto">Where we are today and what's ahead. Alt3 stays with you long after move-in.</div>
+    </div>
+
+    <!-- Milestone Track -->
+    <div class="process-track fade-in" style="--progress:72%">
+      <div class="process-step">
+        <div class="step-dot done">✓</div>
+        <div class="step-label">Design &amp; Scope</div>
+        <div class="step-date">May 2025</div>
+      </div>
+      <div class="process-step">
+        <div class="step-dot done">✓</div>
+        <div class="step-label">Pre-Wire &amp; Rough-In</div>
+        <div class="step-date">Jul–Aug 2025</div>
+      </div>
+      <div class="process-step">
+        <div class="step-dot done">✓</div>
+        <div class="step-label">Equipment &amp; Trim</div>
+        <div class="step-date">Sep–Nov 2025</div>
+      </div>
+      <div class="process-step">
+        <div class="step-dot done">✓</div>
+        <div class="step-label">Programming &amp; Testing</div>
+        <div class="step-date">Dec 2025–Feb 2026</div>
+      </div>
+      <div class="process-step">
+        <div class="step-dot active">📍</div>
+        <div class="step-label">Final Punch &amp; Handoff</div>
+        <div class="step-date">Now</div>
+      </div>
+      <div class="process-step">
+        <div class="step-dot upcoming">🏠</div>
+        <div class="step-label">Move-In Walkthrough</div>
+        <div class="step-date">At Move-In</div>
+      </div>
+      <div class="process-step">
+        <div class="step-dot upcoming">🔄</div>
+        <div class="step-label">Living-In Tuning</div>
+        <div class="step-date">30–60 Days</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -400,6 +562,12 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
         <div class="tl-title">Updated Pre-Wire — Sonance Removed</div>
         <div class="tl-desc">Proposal #119 — Sonance speakers removed (-$5,426.62). Replaced by Origin Acoustics in Josh.ai scope.</div>
         <a class="tl-link" href="https://drive.google.com/file/d/1NdRh2UW62Te1vTy4uQoW7saiF97zMx5_/view" target="_blank">View Updated Pre-Wire →</a>
+      </div>
+      <div class="tl-item fade-in" style="border-left-color:#d4920a">
+        <div class="tl-date" style="color:#b37a00">February 7, 2026</div>
+        <div class="tl-title" style="color:#b37a00">⚠️ Change Order #4 — Pending Approval</div>
+        <div class="tl-desc">Outdoor speakers, garage camera, TV mounts &amp; media (Rec Room, Living Room, Master Bedroom, Gym), Josh Touchscreen, Office &amp; Patio LED lighting. $22,763.13 — awaiting client approval.</div>
+        <a class="tl-link" href="#change-order" style="color:#d4920a">Review &amp; Approve →</a>
       </div>
     </div>
   </div>
@@ -715,6 +883,37 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
         </div>
       </div>
 
+      <!-- Change Order #4 — Pending -->
+      <div class="scope-card" style="border-color:#d4920a;border-width:2px;background:#fffcf5">
+        <div class="scope-header" onclick="toggleCard(this)" style="background:linear-gradient(135deg,#fff8e1,#ffecb3)">
+          <div class="scope-header-left">
+            <div class="scope-num" style="background:#d4920a">CO4</div>
+            <div class="scope-info"><h3 style="color:#b37a00">Change Order #4 — Pending Approval</h3><div class="scope-sub">Outdoor Speakers, Garage Camera, TV Mounts &amp; AV, Josh Touchscreen, LED Lighting — 8 Areas</div></div>
+          </div>
+          <div class="scope-header-right">
+            <div class="scope-total" style="color:#b37a00;font-size:1.1rem">$22,763.13</div>
+            <div class="scope-chevron">▼</div>
+          </div>
+        </div>
+        <div class="scope-body">
+          <div class="note-box" style="border-left-color:#d4920a;background:rgba(212,146,10,.06)"><strong style="color:#b37a00">Awaiting Approval</strong> — Bailey add-ons proposal dated February 7, 2026.</div>
+          <div class="room-hdr" style="border-left-color:#d4920a"><span>Outdoor Speakers — Equipment Room</span><span class="room-amt">$1,381.77</span></div>
+          <div class="room-hdr" style="border-left-color:#d4920a"><span>Garage Camera — Equipment Room</span><span class="room-amt">$537.49</span></div>
+          <div class="room-hdr" style="border-left-color:#d4920a"><span>Rec Room — TV Mount &amp; Media</span><span class="room-amt">$1,614.21</span></div>
+          <div class="room-hdr" style="border-left-color:#d4920a"><span>Living Room — Full AV System</span><span class="room-amt">$8,834.33</span></div>
+          <div class="room-hdr" style="border-left-color:#d4920a"><span>Master Bedroom — TV Mount, Josh Touchscreen &amp; Media</span><span class="room-amt">$2,822.24</span></div>
+          <div class="room-hdr" style="border-left-color:#d4920a"><span>Office — LED Linear Stair Tread Lighting</span><span class="room-amt">$427.50</span></div>
+          <div class="room-hdr" style="border-left-color:#d4920a"><span>Patio — Outdoor LED Stair &amp; Porch Lighting</span><span class="room-amt">$4,512.50</span></div>
+          <div class="room-hdr" style="border-left-color:#d4920a"><span>Gym — TV Mounts &amp; Media (x2)</span><span class="room-amt">$2,633.08</span></div>
+          <div style="margin-top:16px;padding:14px;background:rgba(212,146,10,.06);border-radius:8px;border:1px solid rgba(212,146,10,.2)">
+            <div class="area-total" style="border-color:#d4920a"><span>Change Order #4 Total (incl. tax &amp; labor)</span><span class="amt" style="color:#b37a00">$22,763.13</span></div>
+          </div>
+          <div style="text-align:center;margin-top:16px">
+            <a href="#change-order" style="display:inline-block;background:#d4920a;color:#fff;padding:10px 24px;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;transition:background .2s">Review &amp; Approve →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -748,6 +947,12 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
         <h3>Motorized Shades Added</h3>
         <p>17 Lutron Sivoia QS Triathlon shades for kitchen, master bedroom, closets, and bath — battery-operated with fascia.</p>
       </div>
+      <div class="change-card fade-in" style="border:2px solid #d4920a;background:#fffcf5">
+        <div class="icon">⚠️</div>
+        <h3 style="color:#b37a00">Pending: AV &amp; Media Package</h3>
+        <p>Outdoor speakers, garage camera, TV mounts &amp; media (Rec Room, Living Room, Master Bedroom, Gym), Josh Touchscreen, Office LED lighting, Patio LED stair lights. <strong style="color:#b37a00">$22,763.13 — awaiting approval.</strong></p>
+        <a href="#change-order" style="display:inline-block;margin-top:8px;font-size:.78rem;font-weight:600;color:#d4920a;text-decoration:none">Review &amp; Approve →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -761,134 +966,31 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
     </div>
     <div class="fade-in" style="margin-top:40px;max-width:700px;margin-left:auto;margin-right:auto">
       <div class="value-hero">
-        <div class="big">$33,806.39+</div>
+        <div class="big">~$37,000</div>
         <div class="sub">Alt3 invested in upgrading your system to ensure the best possible experience.</div>
       </div>
-      <div class="value-grid">
-        <div class="value-row"><div><div class="val-label">Josh.ai Preferred Client Discount</div><div class="val-desc">Josh microphones, system pricing, network + speaker upgrades</div></div><div class="val-amt">$19,241.24</div></div>
-        <div class="value-row"><div><div class="val-label">Additional Josh.ai Items</div><div class="val-desc">Touchscreens, MRX 740, Paradigm sub, programming</div></div><div class="val-amt">$11,749.95</div></div>
-        <div class="value-row"><div><div class="val-label">Rush D3 Shipping</div><div class="val-desc">Expedited Ketra D3 downlight delivery</div></div><div class="val-amt">$1,661.20</div></div>
-        <div class="value-row"><div><div class="val-label">Low Voltage Panel</div><div class="val-desc">Additional panel for garage runs</div></div><div class="val-amt">$640.00</div></div>
-        <div class="value-row"><div><div class="val-label">Dimmer Plug-in Modules</div><div class="val-desc">2 modules for master closet</div></div><div class="val-amt">$514.00</div></div>
+      <div style="margin-top:28px;padding:24px;background:var(--bg);border:1px solid var(--border);border-radius:12px">
+        <div style="font-size:.85rem;color:var(--dim);line-height:2">
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)">Josh.ai Preferred Client Discount — microphones, system pricing, network + speaker upgrades</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)">Additional Josh.ai Items — touchscreens, MRX 740, Paradigm subwoofer, programming hours</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)">Rush D3 Shipping — expedited Ketra D3 downlight delivery</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)">Low Voltage Panel — additional panel for garage runs</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)">Dimmer Plug-in Modules — 2 modules for master closet</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)">2 Outdoor Speakers — installed</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)">1 Additional 24-Port POE Switch — needed two instead of one</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)">Lighting Keypad Relocations</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)">Patio LED Tape Wire Fix — for final inspection</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)">Control4 Core1 Controller</div>
+          <div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)">Shade Batteries — $450 covered by Alt3</div>
+          <div style="padding:6px 0">Miscellaneous Onsite Labor</div>
+        </div>
       </div>
-      <div class="value-total"><span>Total Alt3 Value Added</span><span class="val-amt">~$33,806</span></div>
     </div>
   </div>
 </section>
 
-<!-- Old Outstanding Items replaced by Project Status section above -->
+<!-- Project Status section consolidated into Added Value -->
 
-<!-- Project Status — Additional Items -->
-<section id="status-items">
-  <div class="container">
-    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto;margin-bottom:40px">
-      <div class="section-label">Project Status</div>
-      <div class="section-title">Additional <strong>Items</strong></div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px" class="fade-in status-split">
-
-      <!-- Completed -->
-      <div style="border:2px solid var(--green);border-radius:16px;overflow:hidden;background:var(--bg);box-shadow:0 4px 20px rgba(46,125,50,.08)">
-        <div style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);padding:18px 24px;display:flex;align-items:center;gap:10px">
-          <span style="font-size:1.4rem">✅</span>
-          <h3 style="font-size:.95rem;font-weight:700;color:var(--green);margin:0">Completed — No Additional Charge</h3>
-        </div>
-        <div style="padding:20px 24px">
-          <div class="status-item si-green">2 Outdoor Speakers — installed</div>
-          <div class="status-item si-green">1 Additional 24-Port POE Switch — needed two instead of one</div>
-          <div class="status-item si-green">Moved lighting keypads a few times <span class="si-note">Covered by Alt3</span></div>
-          <div class="status-item si-green">Fixed patio LED tape wires for final inspection <span class="si-note">Tracks only — tape light selection pending</span></div>
-          <div class="status-item si-green">Control4 Core1 Controller <span class="si-note">Covered by Alt3</span></div>
-          <div class="status-item si-green">Other miscellaneous labor items absorbed by Alt3 onsite</div>
-        </div>
-      </div>
-
-      <!-- Still To Do -->
-      <div style="border:2px solid #d4920a;border-radius:16px;overflow:hidden;background:var(--bg);box-shadow:0 4px 20px rgba(212,146,10,.08)">
-        <div style="background:linear-gradient(135deg,#fff8e1,#ffecb3);padding:18px 24px;display:flex;align-items:center;gap:10px">
-          <span style="font-size:1.4rem">🔧</span>
-          <h3 style="font-size:.95rem;font-weight:700;color:#b37a00;margin:0">Items Still To Do</h3>
-        </div>
-        <div style="padding:20px 24px">
-          <div class="status-item si-amber">
-            Outdoor speakers, Great Room (Receiver, Sound Bar, Toe Kick Subwoofer), TV mounts for Great Room, Owner's Bedroom, Rec Room &amp; Exercise Room, additional garage security camera
-            <a href="#change-order" class="si-action">See Pending Change Order ↓</a>
-          </div>
-          <div class="status-item si-amber">
-            Integrate: Microwave, Stove, Sliding Doors, Bathroom Floor Heaters, Steam Shower, Sauna, Overhead Doors
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Latest Site Update -->
-<section id="site-update" class="alt-bg">
-  <div class="container">
-    <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto;margin-bottom:32px">
-      <div class="section-label">Feb 17, 2026</div>
-      <div class="section-title">Latest <strong>Site Update</strong></div>
-      <div class="section-desc">Onsite walkthrough completed. All lights identified and working correctly, with the following items requiring attention.</div>
-    </div>
-
-    <div class="fade-in" style="max-width:800px;margin:0 auto">
-      <!-- Electrician Items -->
-      <div style="border:2px solid #ef5350;border-radius:16px;overflow:hidden;background:var(--bg);box-shadow:0 4px 20px rgba(239,83,80,.08);margin-bottom:20px">
-        <div style="background:linear-gradient(135deg,#ffebee,#ffcdd2);padding:16px 24px;display:flex;align-items:center;gap:10px">
-          <span style="font-size:1.3rem">⚡</span>
-          <h3 style="font-size:.9rem;font-weight:700;color:#c62828;margin:0">Electrician Action Required</h3>
-        </div>
-        <div style="padding:16px 24px">
-          <div class="status-item" style="padding:10px 0;border-bottom:1px solid #f5f5f5;font-size:.85rem;color:#333">
-            <strong>Primary Bath</strong> — Toe kick lighting under one vanity not activating with rest of linear lighting. Possible loose connection.
-          </div>
-          <div class="status-item" style="padding:10px 0;border-bottom:1px solid #f5f5f5;font-size:.85rem;color:#333">
-            <strong>Primary Bath</strong> — Shower exhaust fan not audible when all systems on. Water closet fan working fine. Needs diagnosis.
-          </div>
-          <div class="status-item" style="padding:10px 0;border-bottom:1px solid #f5f5f5;font-size:.85rem;color:#333">
-            <strong>Gym Service Bar</strong> — Ceiling-mounted lights above bar not coming on from any output. Needs electrician trace.
-          </div>
-          <div class="status-item" style="padding:10px 0;border-bottom:1px solid #f5f5f5;font-size:.85rem;color:#333">
-            <strong>Main Stair</strong> — Linear lighting tape installed but not activating. May not be connected to panel output under house.
-          </div>
-          <div class="status-item" style="padding:10px 0;border-bottom:1px solid #f5f5f5;font-size:.85rem;color:#333">
-            <strong>Exterior Floods</strong> — Currently on motion sensors, not responding correctly to lighting controls. Can motion sensing be disabled?
-          </div>
-          <div class="status-item" style="padding:10px 0;font-size:.85rem;color:#333;background:rgba(239,83,80,.04);padding:12px;border-radius:8px;border:1px solid rgba(239,83,80,.15)">
-            <strong>🔴 PRIORITY — Rec Room Exterior / Panel B</strong> — Breaker tripping again. Resolved temporarily by disconnecting outdoor sconces on back of rec room (same recurring fix). Adam / electrician to investigate root cause.
-          </div>
-        </div>
-      </div>
-
-      <!-- Alt3 / Tech Items -->
-      <div style="border:2px solid #1565c0;border-radius:16px;overflow:hidden;background:var(--bg);box-shadow:0 4px 20px rgba(21,101,192,.08);margin-bottom:20px">
-        <div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);padding:16px 24px;display:flex;align-items:center;gap:10px">
-          <span style="font-size:1.3rem">🔧</span>
-          <h3 style="font-size:.9rem;font-weight:700;color:#1565c0;margin:0">Alt3 Smart Homes — Action Items</h3>
-        </div>
-        <div style="padding:16px 24px">
-          <div class="status-item" style="padding:10px 0;border-bottom:1px solid #f5f5f5;font-size:.85rem;color:#333">
-            <strong>Wardrobe 1</strong> — Half of cabinet lights staying on (plugged directly into outlet, bypassing dimming module). Need 1×2 splitter to connect both transformers to dimming module. <span style="font-size:.75rem;color:var(--lighter);font-style:italic">Minor — part needed</span>
-          </div>
-          <div class="status-item" style="padding:10px 0;border-bottom:1px solid #f5f5f5;font-size:.85rem;color:#333">
-            <strong>All Rooms</strong> — Match area/room naming between Lutron and Josh.ai systems for seamless voice control.
-          </div>
-          <div class="status-item" style="padding:10px 0;font-size:.85rem;color:#333">
-            <strong>Voice Control</strong> — Refinement phase begins once room naming is synced. Will be tuned to how Alex naturally uses voice commands.
-          </div>
-        </div>
-      </div>
-
-      <!-- Good News -->
-      <div style="background:rgba(46,125,50,.04);border:1px solid rgba(46,125,50,.2);border-radius:12px;padding:16px 24px;text-align:center">
-        <span style="font-size:1.2rem">✅</span>
-        <p style="font-size:.85rem;color:var(--green);font-weight:600;margin:4px 0 0">All other lights working correctly and identified. Several items corrected during this visit.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Pending Change Order -->
 <section id="change-order">
@@ -902,150 +1004,57 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
       <div class="co-section">
         <div class="co-badge">⚡ Pending Approval</div>
         <h2 style="font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:4px">Bailey Add-Ons — February 7, 2026</h2>
-        <p style="font-size:.82rem;color:var(--dim);margin-bottom:8px">Outdoor speakers, garage camera, TV mounts &amp; media for Rec Room, Living Room, Master Bedroom, and Gym.</p>
-        <a class="co-link" href="#">View Original Proposal →</a>
+        <p style="font-size:.82rem;color:var(--dim);margin-bottom:8px">Outdoor speakers, garage camera, TV mounts &amp; media (Rec Room, Living Room, Master Bedroom, Gym), Josh Touchscreen, Office LED linear lighting, Patio outdoor LED stair &amp; porch lighting — 8 areas.</p>
+        <a class="co-link" href="peninsula-change-order-4.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:10px 22px;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;transition:background .2s;margin-top:8px">📄 View Full Change Order (PDF)</a>
 
         <div class="co-total-box">
-          <div class="big">$15,273.31</div>
-          <div class="sub">Equipment &amp; Materials: $10,350.81 &nbsp;|&nbsp; Professional Installation: $4,922.50 &nbsp;|&nbsp; No Tax</div>
+          <div class="big">$22,763.13</div>
+          <div class="sub" style="margin-top:8px">Change Order Total (no tax)</div>
         </div>
 
-        <!-- Room breakdowns -->
-        <div class="scope-cards" style="margin-top:16px">
-
-          <!-- Outdoor Speakers -->
-          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
-            <div class="scope-header" onclick="toggleCard(this)">
-              <div class="scope-header-left">
-                <div class="scope-num" style="background:#d4920a">1</div>
-                <div class="scope-info"><h3>Outdoor Speakers</h3><div class="scope-sub">Equipment Room Floor</div></div>
-              </div>
-              <div class="scope-header-right">
-                <div class="scope-total" style="color:#b37a00">$1,311.00</div>
-                <div class="scope-chevron">▼</div>
-              </div>
-            </div>
-            <div class="scope-body">
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Origin Acoustics OS80W</div></div>
-              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$1,311.00</span></div>
-            </div>
+        <!-- Room breakdown -->
+        <div style="max-width:600px;margin:24px auto 0">
+          <div style="padding:14px 16px;background:rgba(212,146,10,.04);border-bottom:1px solid rgba(212,146,10,.12);border-radius:8px 8px 0 0">
+            <div style="display:flex;justify-content:space-between;font-weight:600;font-size:.88rem;color:var(--navy)"><span>Outdoor Speakers — Equipment Room</span><span>$1,381.77</span></div>
+            <div style="font-size:.78rem;color:var(--dim);margin-top:4px">Origin Acoustics OS80W · Labor $300 · Tax incl.</div>
           </div>
-
-          <!-- Garage Camera -->
-          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
-            <div class="scope-header" onclick="toggleCard(this)">
-              <div class="scope-header-left">
-                <div class="scope-num" style="background:#d4920a">2</div>
-                <div class="scope-info"><h3>Garage Camera</h3><div class="scope-sub">Equipment Room Floor</div></div>
-              </div>
-              <div class="scope-header-right">
-                <div class="scope-total" style="color:#b37a00">$537.49</div>
-                <div class="scope-chevron">▼</div>
-              </div>
-            </div>
-            <div class="scope-body">
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Luma 520 Series 5MP Turret IP Outdoor Camera</div></div>
-              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$537.49</span></div>
-            </div>
+          <div style="padding:14px 16px;background:var(--bg);border-bottom:1px solid rgba(212,146,10,.12)">
+            <div style="display:flex;justify-content:space-between;font-weight:600;font-size:.88rem;color:var(--navy)"><span>Garage Camera — Equipment Room</span><span>$537.49</span></div>
+            <div style="font-size:.78rem;color:var(--dim);margin-top:4px">Luma 520 Series 5MP Turret IP Outdoor Camera · Labor $152.50</div>
           </div>
-
-          <!-- Rec Room -->
-          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
-            <div class="scope-header" onclick="toggleCard(this)">
-              <div class="scope-header-left">
-                <div class="scope-num" style="background:#d4920a">3</div>
-                <div class="scope-info"><h3>Rec Room</h3><div class="scope-sub">Main Floor</div></div>
-              </div>
-              <div class="scope-header-right">
-                <div class="scope-total" style="color:#b37a00">$1,576.97</div>
-                <div class="scope-chevron">▼</div>
-              </div>
-            </div>
-            <div class="scope-body">
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Sanus VXT7 TV Mount</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Roku Ultra</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Binary B6 HDMI Cable</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Control4 Driver: TCL TV (Cindev)</div></div>
-              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$1,576.97</span></div>
-            </div>
+          <div style="padding:14px 16px;background:rgba(212,146,10,.04);border-bottom:1px solid rgba(212,146,10,.12)">
+            <div style="display:flex;justify-content:space-between;font-weight:600;font-size:.88rem;color:var(--navy)"><span>Rec Room</span><span>$1,614.21</span></div>
+            <div style="font-size:.78rem;color:var(--dim);margin-top:4px">Sanus Tilting TV Mount, Roku Ultra, Binary B6 HDMI, Control4 TCL TV Driver · Labor $1,045 · Tax incl.</div>
           </div>
-
-          <!-- Living Room -->
-          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
-            <div class="scope-header" onclick="toggleCard(this)">
-              <div class="scope-header-left">
-                <div class="scope-num" style="background:#d4920a">4</div>
-                <div class="scope-info"><h3>Living Room</h3><div class="scope-sub">Main Floor</div></div>
-              </div>
-              <div class="scope-header-right">
-                <div class="scope-total" style="color:#b37a00">$8,366.94</div>
-                <div class="scope-chevron">▼</div>
-              </div>
-            </div>
-            <div class="scope-body">
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Roku Ultra</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Binary B6 HDMI Cable</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Triad MFS-BDL1</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Origin Acoustics SBR43-60 Soundbar</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Anthem MRX 540 8K Receiver</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Strong Razor XL Tilt Mount 49-90"</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Strong Universal Soundbar Bracket</div></div>
-              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$8,366.94</span></div>
-            </div>
+          <div style="padding:14px 16px;background:var(--bg);border-bottom:1px solid rgba(212,146,10,.12)">
+            <div style="display:flex;justify-content:space-between;font-weight:600;font-size:.88rem;color:var(--navy)"><span>Living Room</span><span>$8,834.33</span></div>
+            <div style="font-size:.78rem;color:var(--dim);margin-top:4px">Anthem MRX 540 8K Receiver, Origin Acoustics SBR43-60 Soundbar, Triad MFS-BDL1 Subwoofer, Strong Razor Tilt Mount, Roku Ultra, Binary B6 HDMI, Soundbar Bracket · Labor $1,690 · Tax incl.</div>
           </div>
-
-          <!-- Master Bedroom -->
-          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
-            <div class="scope-header" onclick="toggleCard(this)">
-              <div class="scope-header-left">
-                <div class="scope-num" style="background:#d4920a">5</div>
-                <div class="scope-info"><h3>Master Bedroom</h3><div class="scope-sub">Main Floor</div></div>
-              </div>
-              <div class="scope-header-right">
-                <div class="scope-total" style="color:#b37a00">$938.97</div>
-                <div class="scope-chevron">▼</div>
-              </div>
-            </div>
-            <div class="scope-body">
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Strong Razor Large Tilt Mount 40-80"</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Roku Ultra</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Binary B6 HDMI Cable</div></div>
-              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$938.97</span></div>
-            </div>
+          <div style="padding:14px 16px;background:rgba(212,146,10,.04);border-bottom:1px solid rgba(212,146,10,.12)">
+            <div style="display:flex;justify-content:space-between;font-weight:600;font-size:.88rem;color:var(--navy)"><span>Master Bedroom</span><span>$2,822.24</span></div>
+            <div style="font-size:.78rem;color:var(--dim);margin-top:4px">Strong Razor Large Tilt Mount, Roku Ultra, Binary B6 HDMI, Josh Touchscreen (Ceramic White) · Labor $660 · Tax incl.</div>
           </div>
-
-          <!-- Gym -->
-          <div class="scope-card" style="border-color:rgba(212,146,10,.3)">
-            <div class="scope-header" onclick="toggleCard(this)">
-              <div class="scope-header-left">
-                <div class="scope-num" style="background:#d4920a">6</div>
-                <div class="scope-info"><h3>Gym</h3><div class="scope-sub">2nd Floor</div></div>
-              </div>
-              <div class="scope-header-right">
-                <div class="scope-total" style="color:#b37a00">$2,541.94</div>
-                <div class="scope-chevron">▼</div>
-              </div>
-            </div>
-            <div class="scope-body">
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Strong Carbon Series Dual Arm Mount 40-80"</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Roku Ultra</div></div>
-              <div class="prod-row" style="display:block;padding:4px 12px;border-bottom:1px solid rgba(0,0,0,.04)"><div class="prod-name">Binary B6 HDMI Cable</div></div>
-              <div class="area-total"><span>Room Total</span><span class="amt" style="color:#b37a00">$2,541.94</span></div>
-            </div>
+          <div style="padding:14px 16px;background:var(--bg);border-bottom:1px solid rgba(212,146,10,.12)">
+            <div style="display:flex;justify-content:space-between;font-weight:600;font-size:.88rem;color:var(--navy)"><span>Office — LED Linear Lighting</span><span>$427.50</span></div>
+            <div style="font-size:.78rem;color:var(--dim);margin-top:4px">LED Linear Stair Tread &amp; Toe Kick Light (17' linear, 3000K) · Labor $227.50</div>
           </div>
-
-        </div>
-
-        <!-- Summary -->
-        <div style="margin-top:24px;padding:16px;background:rgba(212,146,10,.06);border-radius:10px;border:1px solid rgba(212,146,10,.2)">
-          <div class="fee-line"><span>Equipment &amp; Materials</span><span>$10,350.81</span></div>
-          <div class="fee-line"><span>Professional Installation</span><span>$4,922.50</span></div>
-          <div class="area-total" style="border-color:#d4920a"><span>Change Order Total (no tax)</span><span class="amt" style="color:#b37a00">$15,273.31</span></div>
+          <div style="padding:14px 16px;background:rgba(212,146,10,.04);border-bottom:1px solid rgba(212,146,10,.12)">
+            <div style="display:flex;justify-content:space-between;font-weight:600;font-size:.88rem;color:var(--navy)"><span>Patio — Outdoor LED Stair &amp; Porch Lighting</span><span>$4,512.50</span></div>
+            <div style="font-size:.78rem;color:var(--dim);margin-top:4px">Outdoor LED Linear Stair Tread &amp; Toe Kick (steps, porch, side steps near pool) · 3000K · Labor $2,252.50</div>
+          </div>
+          <div style="padding:14px 16px;background:var(--bg);border-bottom:1px solid rgba(212,146,10,.12)">
+            <div style="display:flex;justify-content:space-between;font-weight:600;font-size:.88rem;color:var(--navy)"><span>Gym</span><span>$2,633.08</span></div>
+            <div style="font-size:.78rem;color:var(--dim);margin-top:4px">Strong Carbon Series Dual Arm Mounts (x2), Roku Ultra (x2), Binary B6 HDMI (x2) · Labor $1,240 · Tax incl.</div>
+          </div>
+          <div style="padding:14px 16px;background:rgba(212,146,10,.1);border-radius:0 0 8px 8px">
+            <div style="font-size:.78rem;color:var(--dim);margin-bottom:8px;text-align:right">Sub-Total $14,498 · Labor $7,567.50 · Tax $697.62</div>
+            <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1rem;color:#b37a00"><span>Change Order #4 Total</span><span>$22,763.13</span></div>
+          </div>
         </div>
 
         <!-- Approval -->
         <div style="text-align:center;margin-top:32px;padding:32px;background:rgba(212,146,10,.06);border:2px solid rgba(212,146,10,.25);border-radius:12px" id="approval-area">
-          <p style="font-size:.9rem;color:var(--dim);margin-bottom:16px">By clicking below, you approve this change order for <strong style="color:var(--navy)">$15,273.31</strong></p>
+          <p style="font-size:.9rem;color:var(--dim);margin-bottom:16px">By clicking below, you approve this change order for <strong style="color:var(--navy)">$22,763.13</strong></p>
           <button class="approve-btn" id="approve-btn" onclick="showApprovalModal()" style="font-size:1.1rem;padding:18px 48px;">✍️ Approve Change Order</button>
           <div id="approval-stamp" style="display:none;margin-top:12px;padding:14px 20px;background:rgba(46,125,50,.08);border:2px solid var(--green);border-radius:10px;font-size:.9rem;color:var(--green);font-weight:600"></div>
         </div>
@@ -1069,37 +1078,21 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
           <tr><td>Section 5 — Lighting (Proposal #106 + CO #1 & #2)</td><td>$132,174.43</td></tr>
           <tr><td>Section 6 — Change Order #3 (Proposal #114)</td><td>$14,318.50</td></tr>
           <tr class="total-row"><td>Current Total</td><td>$220,245.89</td></tr>
-          <tr class="pending-row"><td>⏳ Pending Change Order (Feb 7, 2026)</td><td>$15,273.31</td></tr>
+          <tr class="pending-row"><td>⏳ Pending Change Order (Feb 7, 2026)</td><td>$22,763.13</td></tr>
           <tr class="grand-row"><td>Including Pending CO</td><td>$235,519.20</td></tr>
         </table>
         <div class="fin-divider"></div>
         <div class="fin-row paid"><span>Paid to Date</span><span>$195,869.45</span></div>
         <div class="fin-divider"></div>
         <div class="fin-final"><span class="label">Remaining Balance</span><span class="amount">$24,376.44</span></div>
-        <div class="fin-pending-note">⏳ Pending change order of $15,273.31 not yet included in remaining balance — awaiting approval.</div>
+        <div class="fin-pending-note">⏳ Pending change order of $22,763.13 not yet included in remaining balance — awaiting approval.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Acceptance -->
-<section id="accept">
-  <div class="container">
-    <div class="fade-in" style="max-width:700px;margin:0 auto">
-      <div class="section-label">Acceptance</div>
-      <div class="section-title" style="margin-bottom:8px">Project <strong>Acknowledgment</strong></div>
-      <p style="font-size:.85rem;color:var(--dim);margin-bottom:32px;">By signing below, you acknowledge this reconciliation accurately reflects all work performed, equipment provided, and amounts due for the project at 18235 Peninsula Club Dr. The remaining balance of <strong style="color:var(--navy);">$24,376.44</strong> is due upon project completion.</p>
-      <div class="sig-grid">
-        <div class="sig-block"><div class="label">Client Signature</div><div class="line"></div><div class="label">Alex Bailey / Keen Building Company</div></div>
-        <div class="sig-block"><div class="label">Date</div><div class="line"></div></div>
-      </div>
-      <div class="sig-grid" style="margin-top:20px">
-        <div class="sig-block"><div class="label">Alt3 Smart Homes</div><div class="line"></div><div class="label">Ryan Palmer, CEO</div></div>
-        <div class="sig-block"><div class="label">Date</div><div class="line"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Acceptance section removed -->
 
 <!-- Footer -->
 <footer>
@@ -1111,7 +1104,7 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
 <div class="modal-overlay" id="approval-modal">
   <div class="modal-box">
     <h3>Approve Change Order</h3>
-    <p style="font-size:.82rem;color:var(--dim);margin-bottom:8px">By confirming, you approve the pending change order totaling <strong>$15,273.31</strong>.</p>
+    <p style="font-size:.82rem;color:var(--dim);margin-bottom:8px">By confirming, you approve the pending change order totaling <strong>$22,763.13</strong>.</p>
     <label>Full Name</label>
     <input type="text" id="approval-name" placeholder="e.g. Alex Bailey">
     <label>Date</label>
@@ -1167,7 +1160,7 @@ function sendApprovalNotification(name,date,time){
     name:name,
     date:date,
     time:time,
-    amount:'$15,273.31',
+    amount:'$22,763.13',
     project:'Peninsula Club — 18235 Peninsula Club Dr',
     approvedAt:new Date().toISOString(),
     status:'approved'
@@ -1186,8 +1179,8 @@ function sendApprovalNotification(name,date,time){
     body:JSON.stringify({
       type:'change_order_approved',
       to:'ryan.palmer@alt3.com',
-      subject:'✅ Bailey Change Order Approved — $15,273.31',
-      body:'Alex Bailey approved the Peninsula Club change order.\n\nProject: 18235 Peninsula Club Dr, Cornelius NC\nApproved by: '+name+'\nAmount: $15,273.31\nDate: '+date+' at '+time+'\n\nView full project: https://realtyryanjarvis.github.io/alt3-dashboard/proposals/peninsula-bailey-complete.html',
+      subject:'✅ Bailey Change Order Approved — $22,763.13',
+      body:'Alex Bailey approved the Peninsula Club change order.\n\nProject: 18235 Peninsula Club Dr, Cornelius NC\nApproved by: '+name+'\nAmount: $22,763.13\nDate: '+date+' at '+time+'\n\nView full project: https://realtyryanjarvis.github.io/alt3-dashboard/proposals/peninsula-bailey-complete.html',
       createdAt:new Date().toISOString(),
       status:'pending'
     })
