@@ -81,6 +81,41 @@ section:nth-child(even){background:var(--cream-bg)}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 @media(max-width:900px){.split{grid-template-columns:1fr;gap:40px}}
 
+/* Day-in-life timeline */
+.day-timeline{margin-top:64px;display:flex;flex-direction:column;gap:0}
+.day-moment{display:grid;grid-template-columns:160px 1fr;gap:0;position:relative}
+.day-moment::before{content:'';position:absolute;left:159px;top:0;bottom:0;width:2px;background:rgba(190,177,162,.3)}
+.day-moment:last-child::before{display:none}
+.day-time{padding:28px 32px 28px 0;text-align:right}
+.day-time .time-label{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.day-time .time-icon{font-size:1.8rem;margin-top:6px}
+.day-content{padding:24px 0 24px 40px;position:relative}
+.day-content::before{content:'';position:absolute;left:-5px;top:32px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid #fff;box-shadow:0 0 0 2px var(--accent)}
+.day-content h4{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+.day-content p{font-size:.9rem;color:var(--text-light);line-height:1.7;max-width:600px}
+.day-content .day-trigger{display:inline-block;margin-top:10px;font-size:.8rem;font-style:italic;color:var(--accent);background:rgba(17,54,101,.06);padding:6px 14px;border-radius:20px;border:1px solid rgba(17,54,101,.15)}
+
+/* Intelligence highlight bar */
+.intel-bar{margin-top:64px;padding:48px;background:linear-gradient(135deg,var(--accent-dark),var(--accent));border-radius:24px;color:#fff}
+.intel-bar h3{font-size:1.5rem;font-weight:300;margin-bottom:8px}
+.intel-bar h3 strong{font-weight:700}
+.intel-bar p{font-size:.95rem;color:rgba(255,255,255,.75);max-width:700px;line-height:1.8;margin-bottom:36px}
+.intel-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.intel-point{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px}
+.intel-point .ip-icon{font-size:1.6rem;margin-bottom:10px}
+.intel-point h4{font-size:.9rem;font-weight:600;color:#fff;margin-bottom:6px}
+.intel-point p{font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.6}
+
+@media(max-width:640px){
+  .day-moment{grid-template-columns:1fr;padding-left:24px}
+  .day-moment::before{left:0}
+  .day-time{text-align:left;padding:16px 0 0 16px}
+  .day-content{padding:8px 0 24px 16px}
+  .day-content::before{left:-29px}
+  .intel-bar{padding:28px 20px}
+  .intel-points{grid-template-columns:1fr 1fr}
+}
+
 /* Room scope panels */
 .rooms-grid{display:flex;flex-direction:column;gap:32px;margin-top:48px}
 .room-panel{background:var(--white);border:1px solid rgba(190,177,162,.3);border-radius:20px;overflow:hidden;box-shadow:0 4px 30px rgba(0,0,0,.05)}
@@ -253,6 +288,120 @@ footer .contact a{color:var(--accent);text-decoration:none}
         <div class="cmd">Goodnight</div>
         <div class="arrow">→</div>
         <div class="result">All lights off · Security arms · Outdoor lights off · Thermostat to sleep mode · Shades close</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Intelligence Summary -->
+<section id="experience" style="background:var(--cream-bg)">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label">Your Home, Intelligent</div>
+      <div class="section-title">This is what your home<br><strong>actually does for you.</strong></div>
+      <div class="section-subtitle">Every system in this proposal connects to one brain — Josh. Here's what a real day at 1609 Walden Pond looks like once your home is intelligent.</div>
+    </div>
+
+    <div class="day-timeline">
+
+      <div class="day-moment fade-in">
+        <div class="day-time">
+          <div class="time-label">Morning</div>
+          <div class="time-icon">🌅</div>
+        </div>
+        <div class="day-content">
+          <h4>The house wakes up before you do</h4>
+          <p>Your Ketra lighting in the living and entertaining area begins warming gradually — not a harsh on/off, but a soft glow that follows your natural wake-up pattern. The kitchen speakers ease on with whatever you had playing last. Your thermostat has already shifted to daytime mode. You walk into the kitchen and the 10" touchscreen shows you the weather, who's on camera outside, and the day's lighting scenes — all without touching your phone.</p>
+          <span class="day-trigger">Trigger: "Good morning" — or automatic on schedule</span>
+        </div>
+      </div>
+
+      <div class="day-moment fade-in">
+        <div class="day-time">
+          <div class="time-label">During the Day</div>
+          <div class="time-icon">☀️</div>
+        </div>
+        <div class="day-content">
+          <h4>The home adapts — you don't have to manage it</h4>
+          <p>Ketra lighting in the entertaining area automatically tracks the time of day — bright and energizing in the morning, natural white at midday, warm amber as the afternoon winds down. The Lutron RA3 system keeps every light in the main areas exactly where you want it, controlled by a single keypad tap or your voice. Someone rings the doorbell — Josh announces it through whichever room you're in, and the visitor's image pops up on the nearest screen. No phone required.</p>
+          <span class="day-trigger">Trigger: Automatic + "Josh, who's at the door?"</span>
+        </div>
+      </div>
+
+      <div class="day-moment fade-in">
+        <div class="day-time">
+          <div class="time-label">Entertaining</div>
+          <div class="time-icon">🥂</div>
+        </div>
+        <div class="day-content">
+          <h4>One word sets the entire scene</h4>
+          <p>Guests are coming. You say "Entertaining mode" — or tap the keypad once. The living area lights shift to a warm, inviting glow. The kitchen and dining speakers fill the open space with music at the right volume. Outside, the landscape lights come on around the pool and outdoor kitchen. The motorized shades on the window wall open to let the evening light in. The Sonos Arc in the living room is ready for background audio or to anchor the sound if you want the TV on. Every zone — kitchen, dining, living, outdoor — plays together seamlessly, or independently if you want to split them.</p>
+          <span class="day-trigger">Trigger: "Entertaining mode" or keypad scene tap</span>
+        </div>
+      </div>
+
+      <div class="day-moment fade-in">
+        <div class="day-time">
+          <div class="time-label">Watching TV</div>
+          <div class="time-icon">📺</div>
+        </div>
+        <div class="day-content">
+          <h4>The whole room transforms in seconds</h4>
+          <p>Say "Movie time" and the MantelMount lowers the TV to the perfect viewing angle. The Sonos Arc and rear in-wall speakers activate for full surround sound. Lights dim to 10%. The motorized shades close on the window wall so there's no glare. The HVAC drops to quiet mode so you can actually hear the dialogue. All of it happens at once, without you touching a single remote.</p>
+          <span class="day-trigger">Trigger: "Movie time" — or keypad scene</span>
+        </div>
+      </div>
+
+      <div class="day-moment fade-in">
+        <div class="day-time">
+          <div class="time-label">Heading Out</div>
+          <div class="time-icon">🚗</div>
+        </div>
+        <div class="day-content">
+          <h4>Leave without second-guessing anything</h4>
+          <p>Walking out the door, you say "Heading out." Every light in the house turns off. The security system arms automatically. The thermostat shifts to away mode. Outdoor lights go off. The shades close. You don't wonder if you left something on — you know you didn't. And if you're already in the car and suddenly not sure, the app on your phone shows you exactly what's happening at home, live.</p>
+          <span class="day-trigger">Trigger: "Heading out" or auto-arm on door lock</span>
+        </div>
+      </div>
+
+      <div class="day-moment fade-in">
+        <div class="day-time">
+          <div class="time-label">Nighttime</div>
+          <div class="time-icon">🌙</div>
+        </div>
+        <div class="day-content">
+          <h4>The house winds down with you</h4>
+          <p>In the master bedroom, the in-ceiling speakers play softly — TV sound routed through them at a comfortable level so you're not fighting with a soundbar. Say "Goodnight" from bed and the whole house responds: every light off, security armed, thermostat to sleep mode, outdoor lights off, shades closed. You never have to get up. The house is locked, quiet, and secured — and you didn't have to think about any of it.</p>
+          <span class="day-trigger">Trigger: "Goodnight" — or bedside keypad tap</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="intel-bar fade-in">
+      <h3>The home learns.<br><strong>It gets smarter every week.</strong></h3>
+      <p>Josh AI doesn't just execute commands — it observes patterns. Over time, it anticipates what you want before you ask. It knows when you typically wake up, when guests arrive, when you're winding down. The more you use it, the more it feels less like a system and more like the home just knowing what to do.</p>
+      <div class="intel-points">
+        <div class="intel-point">
+          <div class="ip-icon">🔗</div>
+          <h4>Everything Connected</h4>
+          <p>Lighting, audio, security, shades, climate — one platform, not six apps</p>
+        </div>
+        <div class="intel-point">
+          <div class="ip-icon">🗣️</div>
+          <h4>Natural Language</h4>
+          <p>No keywords. Just speak naturally — the home understands context</p>
+        </div>
+        <div class="intel-point">
+          <div class="ip-icon">📱</div>
+          <h4>Full Remote Control</h4>
+          <p>Check cameras, adjust lights, arm security — from anywhere in the world</p>
+        </div>
+        <div class="intel-point">
+          <div class="ip-icon">📈</div>
+          <h4>Grows With You</h4>
+          <p>Add rooms, add devices, add scenes — the system scales without starting over</p>
+        </div>
       </div>
     </div>
   </div>
