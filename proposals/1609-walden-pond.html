@@ -11,183 +11,156 @@
 :root{
   --accent:#113665;--accent-light:#1a4a8a;--accent-dark:#0c264a;
   --taupe:#BEB1A2;--cream:#E1D8CE;
-  --bg:#FFFFFF;--white:#FFFFFF;--cream-bg:#E1D8CE;--text:#1a1a1a;--text-light:#555;--text-lighter:#888;
-  --section-gap:120px;--ease:cubic-bezier(.25,.46,.45,.94);
+  --bg:#FFFFFF;--cream-bg:#E1D8CE;--text:#1a1a1a;--text-light:#555;--text-lighter:#888;
+  --section-gap:110px;--ease:cubic-bezier(.25,.46,.45,.94);
 }
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Neue Montreal',-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:'Neue Montreal',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 ::selection{background:var(--accent);color:#fff}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
-.fade-in{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.fade-in{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .fade-in.visible{opacity:1;transform:translateY(0)}
-.fade-in-left{opacity:0;transform:translateX(-40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.fade-in-left.visible{opacity:1;transform:translateX(0)}
-.fade-in-right{opacity:0;transform:translateX(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.fade-in-right.visible{opacity:1;transform:translateX(0)}
 
 /* Nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all .4s var(--ease)}
-nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 20px rgba(0,0,0,.06);padding:12px 0}
+nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(20px);box-shadow:0 1px 20px rgba(0,0,0,.06);padding:12px 0}
 nav .container{display:flex;justify-content:space-between;align-items:center}
-.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:.08em;color:var(--text)}
+.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:.08em}
 .nav-logo span{color:var(--accent)}
-.nav-badge{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);border:1px solid var(--taupe);padding:4px 12px;border-radius:20px}
+.nav-badge{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);border:1px solid var(--taupe);padding:4px 14px;border-radius:20px}
 
 /* Hero */
-.hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(135deg,#0c264a 0%,#113665 60%,#1a4a8a 100%)}
+.hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(135deg,#0c264a,#113665 60%,#1a4a8a)}
 #heroCanvas{position:absolute;inset:0;z-index:0}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,54,101,.45) 0%,rgba(17,54,101,.25) 50%,rgba(12,38,74,.55) 100%);z-index:1}
-.hero-content{position:relative;z-index:2;max-width:820px;padding:0 24px}
-.hero-prepared{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:30px;margin-bottom:32px}
-.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px;color:#fff}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,54,101,.4) 0%,rgba(17,54,101,.2) 50%,rgba(12,38,74,.5) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:780px;padding:0 24px}
+.hero-tag{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.25);padding:8px 20px;border-radius:30px;margin-bottom:32px}
+.hero h1{font-size:clamp(2.8rem,6vw,4.8rem);font-weight:300;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:20px}
 .hero h1 strong{font-weight:700}
-.hero p{font-size:1.15rem;color:rgba(255,255,255,.75);max-width:540px;margin:0 auto 40px}
-.hero-scroll{display:inline-block;width:24px;height:40px;border:2px solid rgba(255,255,255,.5);border-radius:12px;position:relative;cursor:pointer}
-.hero-scroll::after{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:3px;height:8px;background:#fff;border-radius:2px;animation:scrollDot 2s infinite}
-@keyframes scrollDot{0%,100%{opacity:1;transform:translateX(-50%) translateY(0)}50%{opacity:.3;transform:translateX(-50%) translateY(10px)}}
+.hero p{font-size:1.1rem;color:rgba(255,255,255,.7);max-width:500px;margin:0 auto 44px;line-height:1.75}
+.scroll-hint{display:inline-block;width:24px;height:40px;border:2px solid rgba(255,255,255,.4);border-radius:12px;position:relative;cursor:pointer}
+.scroll-hint::after{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:3px;height:8px;background:#fff;border-radius:2px;animation:dot 2s infinite}
+@keyframes dot{0%,100%{opacity:1;transform:translateX(-50%) translateY(0)}50%{opacity:.3;transform:translateX(-50%) translateY(10px)}}
 
+/* Sections */
 section{padding:var(--section-gap) 0}
 section:nth-child(even){background:var(--cream-bg)}
+.label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
+.title{font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:300;line-height:1.18;margin-bottom:18px;letter-spacing:-.01em}
+.title strong{font-weight:700}
+.sub{font-size:1rem;color:var(--text-light);line-height:1.75;max-width:580px}
 
-.section-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:600}
-.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.15;margin-bottom:20px;letter-spacing:-.01em}
-.section-title strong{font-weight:700}
-.section-subtitle{font-size:1.05rem;color:var(--text-light);max-width:640px;line-height:1.7}
+/* Promise cards */
+.promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:52px}
+.promise{padding:32px;border-radius:16px;background:#fff;border:1px solid rgba(190,177,162,.35);box-shadow:0 2px 20px rgba(0,0,0,.04)}
+.promise .p-icon{font-size:2rem;margin-bottom:14px}
+.promise h3{font-size:.95rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+.promise p{font-size:.88rem;color:var(--text-light);line-height:1.7}
 
-/* Overview cards */
-.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:56px}
-.overview-card{padding:32px;border-radius:16px;background:var(--cream-bg);border:1px solid var(--taupe)}
-.overview-card .icon{font-size:2rem;margin-bottom:16px}
-.overview-card h3{font-size:1rem;font-weight:600;margin-bottom:8px}
-.overview-card p{font-size:.88rem;color:var(--text-light);line-height:1.65}
+/* Voice examples */
+.voices{display:flex;flex-direction:column;gap:16px;margin-top:52px}
+.voice{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding:24px 28px;border-radius:14px;background:#fff;border:1px solid rgba(190,177,162,.25);box-shadow:0 2px 16px rgba(0,0,0,.03)}
+.voice .said{font-size:1.1rem;font-weight:300;font-style:italic;text-align:right}
+.voice .said::before{content:'"'}
+.voice .said::after{content:'"'}
+.voice .arr{color:var(--accent);font-size:1.1rem}
+.voice .happens{font-size:.85rem;color:var(--text-light);line-height:1.65}
 
-/* Voice */
-.voice-commands{margin-top:56px;display:flex;flex-direction:column;gap:20px}
-.voice-cmd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding:26px 30px;border-radius:16px;background:var(--white);border:1px solid rgba(190,177,162,.3);box-shadow:0 2px 20px rgba(0,0,0,.03);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.voice-cmd:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.06)}
-.voice-cmd .cmd{font-size:1.2rem;font-weight:300;font-style:italic;color:var(--text);text-align:right}
-.voice-cmd .cmd::before{content:'"'}
-.voice-cmd .cmd::after{content:'"'}
-.voice-cmd .arrow{color:var(--accent);font-size:1.2rem}
-.voice-cmd .result{font-size:.85rem;color:var(--text-light);line-height:1.6}
+/* Room cards */
+.rooms{display:flex;flex-direction:column;gap:28px;margin-top:52px}
+.room{border-radius:20px;overflow:hidden;background:#fff;border:1px solid rgba(190,177,162,.25);box-shadow:0 4px 28px rgba(0,0,0,.05)}
+.room-top{padding:28px 36px 24px;border-bottom:1px solid rgba(190,177,162,.2)}
+.room-top .r-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}
+.room-top h3{font-size:1.2rem;font-weight:600;margin-bottom:10px}
+.room-top p{font-size:.92rem;color:var(--text-light);line-height:1.72;max-width:680px}
+.room-bottom{padding:20px 36px;display:flex;flex-wrap:wrap;gap:10px}
+.r-tag{font-size:.75rem;padding:5px 14px;border-radius:20px;background:rgba(17,54,101,.06);color:var(--accent);font-weight:500;border:1px solid rgba(17,54,101,.12)}
 
-/* Stats */
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;margin-top:40px}
-.stat-card{text-align:center;padding:28px 16px;border-radius:16px;background:var(--white);border:1px solid rgba(190,177,162,.3);box-shadow:0 2px 20px rgba(0,0,0,.03)}
-.stat-card .number{font-size:1.9rem;font-weight:700;color:var(--accent);margin-bottom:4px}
-.stat-card .label{font-size:.78rem;color:var(--text-light);letter-spacing:.04em}
-
-/* Split */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-@media(max-width:900px){.split{grid-template-columns:1fr;gap:40px}}
-
-/* Day-in-life timeline */
-.day-timeline{margin-top:64px;display:flex;flex-direction:column;gap:0}
-.day-moment{display:grid;grid-template-columns:160px 1fr;gap:0;position:relative}
-.day-moment::before{content:'';position:absolute;left:159px;top:0;bottom:0;width:2px;background:rgba(190,177,162,.3)}
-.day-moment:last-child::before{display:none}
-.day-time{padding:28px 32px 28px 0;text-align:right}
-.day-time .time-label{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
-.day-time .time-icon{font-size:1.8rem;margin-top:6px}
-.day-content{padding:24px 0 24px 40px;position:relative}
-.day-content::before{content:'';position:absolute;left:-5px;top:32px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid #fff;box-shadow:0 0 0 2px var(--accent)}
-.day-content h4{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text)}
-.day-content p{font-size:.9rem;color:var(--text-light);line-height:1.7;max-width:600px}
-.day-content .day-trigger{display:inline-block;margin-top:10px;font-size:.8rem;font-style:italic;color:var(--accent);background:rgba(17,54,101,.06);padding:6px 14px;border-radius:20px;border:1px solid rgba(17,54,101,.15)}
-
-/* Intelligence highlight bar */
-.intel-bar{margin-top:64px;padding:48px;background:linear-gradient(135deg,var(--accent-dark),var(--accent));border-radius:24px;color:#fff}
-.intel-bar h3{font-size:1.5rem;font-weight:300;margin-bottom:8px}
-.intel-bar h3 strong{font-weight:700}
-.intel-bar p{font-size:.95rem;color:rgba(255,255,255,.75);max-width:700px;line-height:1.8;margin-bottom:36px}
-.intel-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
-.intel-point{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px}
-.intel-point .ip-icon{font-size:1.6rem;margin-bottom:10px}
-.intel-point h4{font-size:.9rem;font-weight:600;color:#fff;margin-bottom:6px}
-.intel-point p{font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.6}
-
-@media(max-width:640px){
-  .day-moment{grid-template-columns:1fr;padding-left:24px}
-  .day-moment::before{left:0}
-  .day-time{text-align:left;padding:16px 0 0 16px}
-  .day-content{padding:8px 0 24px 16px}
-  .day-content::before{left:-29px}
-  .intel-bar{padding:28px 20px}
-  .intel-points{grid-template-columns:1fr 1fr}
-}
-
-/* Room scope panels */
-.rooms-grid{display:flex;flex-direction:column;gap:32px;margin-top:48px}
-.room-panel{background:var(--white);border:1px solid rgba(190,177,162,.3);border-radius:20px;overflow:hidden;box-shadow:0 4px 30px rgba(0,0,0,.05)}
-.room-header{padding:24px 32px;background:linear-gradient(135deg,var(--accent-dark),var(--accent));display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.room-header h3{color:#fff;font-size:1.1rem;font-weight:600}
-.room-header .room-tag{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);background:rgba(255,255,255,.12);padding:4px 12px;border-radius:20px}
-.room-intelligence{padding:20px 32px;background:rgba(17,54,101,.04);border-bottom:1px solid rgba(190,177,162,.2)}
-.room-intelligence-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
-.room-intelligence p{font-size:.88rem;color:var(--text-light);line-height:1.65;font-style:italic}
-.room-body{padding:24px 32px}
-.scope-item{display:flex;justify-content:space-between;padding:9px 0;font-size:.85rem;color:var(--text);border-bottom:1px solid rgba(190,177,162,.15)}
-.scope-item:last-child{border-bottom:none}
-.scope-item.sub{padding-left:16px;color:var(--text-light);font-size:.82rem}
-.scope-item.sub span:first-child::before{content:'·';color:var(--taupe);margin-right:8px}
-.scope-item span:last-child{font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap;color:var(--text-light)}
-.room-total{display:flex;justify-content:space-between;padding:18px 32px;border-top:2px solid var(--accent);font-weight:700;color:var(--accent);font-size:1.05rem}
+/* Moment timeline */
+.moments{display:flex;flex-direction:column;gap:0;margin-top:52px}
+.moment{display:grid;grid-template-columns:120px 1fr;position:relative}
+.moment::after{content:'';position:absolute;left:119px;top:36px;bottom:-1px;width:2px;background:rgba(190,177,162,.3)}
+.moment:last-child::after{display:none}
+.m-time{padding:28px 24px 28px 0;text-align:right}
+.m-time .m-icon{font-size:1.8rem}
+.m-time .m-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-top:4px}
+.m-body{padding:24px 0 36px 36px;position:relative}
+.m-body::before{content:'';position:absolute;left:-5px;top:30px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid #fff;box-shadow:0 0 0 2px var(--accent)}
+.m-body h4{font-size:1rem;font-weight:700;margin-bottom:8px}
+.m-body p{font-size:.9rem;color:var(--text-light);line-height:1.72;max-width:580px}
 
 /* Investment */
-.invest-summary{margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
-.invest-card{text-align:center;padding:36px 20px;border-radius:16px;background:var(--white);border:1px solid rgba(190,177,162,.35);box-shadow:0 4px 24px rgba(0,0,0,.04);transition:transform .3s var(--ease)}
-.invest-card:hover{transform:translateY(-4px)}
-.invest-card .val{font-size:1.9rem;font-weight:700;color:var(--accent)}
-.invest-card .desc{font-size:.82rem;color:var(--text-light);margin-top:6px;line-height:1.4}
-.invest-total-bar{margin-top:40px;padding:40px;background:linear-gradient(135deg,var(--accent-dark),var(--accent));border-radius:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.invest-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:48px}
+.i-card{padding:28px 20px;border-radius:14px;background:#fff;border:1px solid rgba(190,177,162,.3);text-align:center}
+.i-card .i-val{font-size:1.6rem;font-weight:700;color:var(--accent);margin-bottom:4px}
+.i-card .i-desc{font-size:.78rem;color:var(--text-light);line-height:1.4}
+.total-bar{margin-top:36px;background:linear-gradient(135deg,var(--accent-dark),var(--accent));border-radius:20px;padding:40px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;color:#fff}
+.total-bar .t-main{font-size:3.2rem;font-weight:700;line-height:1}
+.total-bar .t-note{font-size:.85rem;color:rgba(255,255,255,.6);margin-top:6px}
+.total-bar .t-sub{text-align:right}
+.total-bar .t-sub-val{font-size:1.6rem;font-weight:600;color:rgba(255,255,255,.85)}
+.total-bar .t-sub-label{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:4px}
+
+/* Urgency */
+.urgency{background:linear-gradient(135deg,var(--accent-dark),var(--accent));border-radius:20px;padding:48px;color:#fff;margin-top:52px}
+.urgency h3{font-size:1.6rem;font-weight:300;margin-bottom:10px}
+.urgency h3 strong{font-weight:700}
+.urgency p{font-size:.95rem;color:rgba(255,255,255,.72);line-height:1.8;max-width:640px;margin-bottom:36px}
+.urgency-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px}
+.u-point{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:22px}
+.u-point .u-icon{font-size:1.5rem;margin-bottom:8px}
+.u-point h4{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:4px}
+.u-point p{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.55}
 
 /* Process */
-.timeline{display:flex;gap:0;margin-top:56px;overflow-x:auto;padding-bottom:12px}
-.timeline-step{flex:1;min-width:140px;text-align:center;position:relative;padding:0 12px}
-.timeline-step::before{content:'';position:absolute;top:20px;left:0;right:0;height:2px;background:var(--taupe)}
-.timeline-step:first-child::before{left:50%}
-.timeline-step:last-child::before{right:50%}
-.timeline-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;position:relative;z-index:1;margin-bottom:16px}
-.timeline-step h4{font-size:.9rem;font-weight:600;margin-bottom:4px}
-.timeline-step p{font-size:.75rem;color:var(--text-light)}
+.steps{display:flex;gap:0;margin-top:52px;overflow-x:auto;padding-bottom:8px}
+.step{flex:1;min-width:130px;text-align:center;position:relative;padding:0 12px}
+.step::before{content:'';position:absolute;top:20px;left:0;right:0;height:2px;background:rgba(190,177,162,.35)}
+.step:first-child::before{left:50%}
+.step:last-child::before{right:50%}
+.step-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;position:relative;z-index:1;margin-bottom:14px}
+.step h4{font-size:.88rem;font-weight:600;margin-bottom:4px}
+.step p{font-size:.75rem;color:var(--text-light);line-height:1.5}
 
 /* Sign */
-.sign-section{background:var(--accent);padding:var(--section-gap) 0;text-align:center}
-.sign-section h2{color:#fff;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;margin-bottom:8px}
-.sign-section h2 strong{font-weight:700}
-.sign-section p{color:rgba(255,255,255,.7);margin-bottom:40px;font-size:1rem}
-.sign-card{background:#fff;border-radius:20px;padding:48px;max-width:600px;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,.15)}
-.sign-card label{display:block;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:8px;font-weight:600}
-.sign-card input{width:100%;border:1px solid var(--taupe);border-radius:10px;padding:14px 16px;font-family:inherit;font-size:.95rem;color:var(--text);margin-bottom:20px;transition:border .2s}
+.sign-wrap{background:var(--accent);padding:var(--section-gap) 0;text-align:center}
+.sign-wrap h2{color:#fff;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;margin-bottom:8px}
+.sign-wrap h2 strong{font-weight:700}
+.sign-wrap > .container > p{color:rgba(255,255,255,.65);margin-bottom:40px}
+.sign-card{background:#fff;border-radius:20px;padding:48px;max-width:560px;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.sign-card label{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin-bottom:8px;font-weight:600}
+.sign-card input{width:100%;border:1px solid var(--taupe);border-radius:10px;padding:14px 16px;font-family:inherit;font-size:.95rem;margin-bottom:20px;transition:border .2s;color:var(--text)}
 .sign-card input:focus{outline:none;border-color:var(--accent)}
-.sign-btn{width:100%;padding:16px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.sign-btn{width:100%;padding:16px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
 .sign-btn:hover{background:var(--accent-light)}
-#sig-stamp{display:none;margin-top:16px;padding:16px;background:rgba(17,54,101,.06);border:1px solid var(--accent);border-radius:10px;font-size:.9rem;color:var(--accent);font-weight:600;text-align:center}
+#sig-stamp{display:none;margin-top:16px;padding:14px;background:rgba(17,54,101,.06);border:1px solid rgba(17,54,101,.2);border-radius:10px;font-size:.88rem;color:var(--accent);font-weight:600;text-align:center}
 
-footer{text-align:center;padding:60px 24px;background:var(--cream-bg);border-top:1px solid var(--taupe)}
-footer .brand{font-size:.9rem;font-weight:700;letter-spacing:.08em;margin-bottom:8px}
-footer .brand span{color:var(--accent)}
-footer .tagline{font-size:.8rem;color:var(--text-lighter);margin-bottom:16px;font-style:italic}
-footer .contact{font-size:.75rem;color:var(--text-lighter);line-height:2}
-footer .contact a{color:var(--accent);text-decoration:none}
+footer{text-align:center;padding:56px 24px;background:var(--cream-bg);border-top:1px solid var(--taupe)}
+footer .f-brand{font-size:.9rem;font-weight:700;letter-spacing:.08em;margin-bottom:6px}
+footer .f-brand span{color:var(--accent)}
+footer .f-tag{font-size:.8rem;color:var(--text-lighter);font-style:italic;margin-bottom:14px}
+footer .f-contact{font-size:.75rem;color:var(--text-lighter);line-height:2}
+footer .f-contact a{color:var(--accent);text-decoration:none}
 
-@media(max-width:640px){
-  .container{padding:0 16px}
+@media(max-width:700px){
   section{padding:64px 0}
-  .section-title{font-size:1.6rem}
-  .voice-cmd{grid-template-columns:1fr;text-align:center;gap:10px;padding:18px}
-  .voice-cmd .cmd{text-align:center;font-size:1rem}
-  .voice-cmd .arrow{display:none}
-  .stats-row{grid-template-columns:1fr 1fr}
-  .timeline{flex-direction:column;gap:20px}
-  .timeline-step::before{display:none}
-  .room-header{flex-direction:column;align-items:flex-start}
-  .room-header h3{font-size:1rem}
-  .room-body,.room-intelligence{padding:16px 20px}
-  .room-total{padding:14px 20px}
-  .invest-total-bar{flex-direction:column;text-align:center}
+  .container{padding:0 16px}
+  .title{font-size:1.65rem}
+  .voice{grid-template-columns:1fr;gap:8px;padding:18px}
+  .voice .said{text-align:left;font-size:1rem}
+  .voice .arr{display:none}
+  .room-top,.room-bottom{padding:20px}
+  .moment{grid-template-columns:80px 1fr}
+  .moment::after{left:79px}
+  .m-body{padding:16px 0 28px 28px}
+  .m-time{padding:20px 16px 20px 0}
+  .total-bar{flex-direction:column;padding:28px 24px}
+  .total-bar .t-sub{text-align:left}
+  .urgency{padding:28px 20px}
+  .steps{flex-direction:column;gap:20px}
+  .step::before{display:none}
   .sign-card{padding:28px 20px}
-  .hero h1{font-size:2rem}
+  .invest-row{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -201,507 +174,290 @@ footer .contact a{color:var(--accent);text-decoration:none}
 </nav>
 
 <!-- Hero -->
-<section class="hero" id="hero">
+<section class="hero">
   <canvas id="heroCanvas"></canvas>
   <div class="hero-overlay"></div>
   <div class="hero-content fade-in">
-    <div class="hero-prepared">1609 Walden Pond &bull; Waxhaw, NC &bull; 3,600 SF</div>
-    <h1>Practical.<br><strong>Powerful. Yours.</strong></h1>
-    <p>A smart home system built around what you actually want — not everything, just the right things. Designed from our walkthrough conversation.</p>
-    <a href="#overview" class="hero-scroll" aria-label="Scroll down"></a>
+    <div class="hero-tag">1609 Walden Pond &bull; Waxhaw, NC</div>
+    <h1>Simple.<br><strong>Smart. Yours.</strong></h1>
+    <p>One voice. One app. Everything in your home works together — the way it should have always worked.</p>
+    <a href="#vision" class="scroll-hint" aria-label="Scroll"></a>
   </div>
 </section>
 
-<!-- Overview -->
-<section id="overview">
+<!-- The Promise -->
+<section id="vision">
   <div class="container">
     <div class="fade-in">
-      <div class="section-label">What We're Building</div>
-      <div class="section-title">One place to control<br><strong>everything that matters.</strong></div>
-      <div class="section-subtitle">Based on our walkthrough, here's the system we've designed for you — voice control, entertainment, lighting, security, and shades, all working together from a single intelligent platform.</div>
+      <div class="label">What We're Building</div>
+      <div class="title">One system.<br><strong>Everything connected.</strong></div>
+      <div class="sub">No app-switching. No remotes. No second-guessing if you left something on. Just speak, or tap once, and your home handles the rest.</div>
     </div>
-    <div class="overview-grid">
-      <div class="overview-card fade-in">
-        <div class="icon">🎙️</div>
-        <h3>Josh.ai Voice Control</h3>
-        <p>Natural language control for the whole home. No keywords to memorize — just speak. "Josh, turn on the outside lights." Done.</p>
+    <div class="promise-grid">
+      <div class="promise fade-in">
+        <div class="p-icon">🎙️</div>
+        <h3>Your voice controls everything</h3>
+        <p>Lights, music, cameras, security, shades — all responding to natural speech. No commands to memorize. Just talk to your home.</p>
       </div>
-      <div class="overview-card fade-in">
-        <div class="icon">🎵</div>
-        <h3>Multi-Zone Audio</h3>
-        <p>In-ceiling speakers in the kitchen/dining, living room surround sound, master bedroom and bath, and hardwired outdoor speakers by the pool and outdoor kitchen.</p>
+      <div class="promise fade-in">
+        <div class="p-icon">🎵</div>
+        <h3>Music everywhere — without the mess</h3>
+        <p>In-ceiling speakers in the kitchen, living room, master suite, and outdoors. Hardwired, always ready. No Bluetooth, no carrying speakers around the yard.</p>
       </div>
-      <div class="overview-card fade-in">
-        <div class="icon">💡</div>
-        <h3>Lutron RadioRA 3</h3>
-        <p>Elegant keypads in the main living areas, standard switching in secondary rooms. Clean walls. No more banks of switches.</p>
+      <div class="promise fade-in">
+        <div class="p-icon">💡</div>
+        <h3>Lighting that sets the mood</h3>
+        <p>One keypad replaces that whole bank of switches. Tap once for entertaining, once for movie night, once for goodnight. The house knows what that means.</p>
       </div>
-      <div class="overview-card fade-in">
-        <div class="icon">🔒</div>
-        <h3>Security & Cameras</h3>
-        <p>AI cameras front and back, video doorbell with two-way audio, and a full security system — all announced through Josh when someone arrives.</p>
+      <div class="promise fade-in">
+        <div class="p-icon">🔒</div>
+        <h3>Security that tells you what's happening</h3>
+        <p>AI cameras that announce who's at the door — through whichever room you're in. "A man is at the front door." No phone required.</p>
       </div>
-      <div class="overview-card fade-in">
-        <div class="icon">🪟</div>
-        <h3>Motorized Shades</h3>
-        <p>Automated shades for the large window wall in the open entertaining space — controlled by voice, keypad, or schedule.</p>
+      <div class="promise fade-in">
+        <div class="p-icon">🌿</div>
+        <h3>Outdoor living, elevated</h3>
+        <p>Pool, patio, and outdoor kitchen — speakers and landscape lighting controlled from inside with a single voice command.</p>
       </div>
-      <div class="overview-card fade-in">
-        <div class="icon">🌿</div>
-        <h3>Landscape Lighting</h3>
-        <p>Outdoor lighting focused around the pool, patio, and outdoor kitchen — voice controlled from inside the home.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Why This Why Now -->
-<section id="why">
-  <div class="container">
-    <div class="fade-in">
-      <div class="section-label">Built Around You</div>
-      <div class="section-title">Not everything.<br><strong>The right things.</strong></div>
-      <div class="section-subtitle">You've been down the road of over-investing in technology. This proposal isn't that. Every item in it came directly from our conversation — nothing more, nothing less.</div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:56px">
-
-      <div class="overview-card fade-in" style="border-left:4px solid var(--accent)">
-        <div class="icon">🎯</div>
-        <h3>"I just want to control everything from one place."</h3>
-        <p>That's exactly what this does. One voice command. One app. Every light, speaker, camera, and shade in the home — controlled together, or room by room. No stack of apps. No switching between systems.</p>
-      </div>
-
-      <div class="overview-card fade-in" style="border-left:4px solid var(--accent)">
-        <div class="icon">🧘</div>
-        <h3>"I just want to enjoy my life."</h3>
-        <p>This system is designed to disappear into the background. You don't manage it — it manages itself. Lighting adjusts on its own. Music follows you room to room. The house arms itself when you leave. You just live.</p>
-      </div>
-
-      <div class="overview-card fade-in" style="border-left:4px solid var(--accent)">
-        <div class="icon">🚫</div>
-        <h3>"I don't want things I'm not going to use."</h3>
-        <p>We've kept this scope tight on purpose. No over-engineered theater room. No full Homeworks system. Just the rooms that matter to you — entertaining, master, outdoor — done exceptionally well.</p>
-      </div>
-
-      <div class="overview-card fade-in" style="border-left:4px solid var(--accent)">
-        <div class="icon">📢</div>
-        <h3>The AI camera you loved.</h3>
-        <p>Remember when we talked about the camera that announces "a man in his 40s is at the front door"? That's in this proposal. Your home tells you who's there — through whichever room you're in — before you even reach for your phone.</p>
-      </div>
-
-      <div class="overview-card fade-in" style="border-left:4px solid var(--accent)">
-        <div class="icon">🔊</div>
-        <h3>No more carrying Bluetooth speakers.</h3>
-        <p>Hardwired outdoor speakers by the pool and outdoor kitchen sound better, are always ready, and work with a single voice command. No charging. No pairing. No carrying anything around the yard.</p>
-      </div>
-
-      <div class="overview-card fade-in" style="border-left:4px solid var(--accent)">
-        <div class="icon">✨</div>
-        <h3>Clean walls. Like new construction.</h3>
-        <p>That entire bank of switches gets replaced by one elegant Lutron keypad. Your contractor said it best — clean, like new construction. The renovation is the perfect moment to make that happen permanently.</p>
-      </div>
-
-    </div>
-
-    <div class="intel-bar fade-in" style="margin-top:56px">
-      <h3>The walls are open <strong>right now.</strong></h3>
-      <p>This is the single best moment to build this system — while the renovation is active and the walls are bare. Running wire cleanly through a finished home costs significantly more and never looks as good. Once the sheetrock goes up, that window closes. The prewire phase happens first, costs the least, and sets the foundation for everything else. If you want to add to any room later, the infrastructure is already there — it's just a device swap, not a construction project.</p>
-      <div class="intel-points">
-        <div class="intel-point">
-          <div class="ip-icon">🏗️</div>
-          <h4>Prewire Now</h4>
-          <p>Wire during framing = clean install, lower cost, no drywall repair ever</p>
-        </div>
-        <div class="intel-point">
-          <div class="ip-icon">📦</div>
-          <h4>Add Later</h4>
-          <p>Not sure about a room? Prewire it anyway — add the device whenever you're ready</p>
-        </div>
-        <div class="intel-point">
-          <div class="ip-icon">⚡</div>
-          <h4>Save on Electrical</h4>
-          <p>Lutron RA3 saves ~30% on electrician cost vs. traditional switch wiring</p>
-        </div>
-        <div class="intel-point">
-          <div class="ip-icon">🗓️</div>
-          <h4>4-Month Timeline</h4>
-          <p>Framing starts in a week — we need to be in right behind the demo crew</p>
-        </div>
+      <div class="promise fade-in">
+        <div class="p-icon">🪟</div>
+        <h3>Shades that open and close on command</h3>
+        <p>The large window wall gets motorized shades — voice controlled, on a schedule, or part of a scene. "Movie time" closes them automatically.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Josh.ai -->
-<section id="intelligence" style="background:var(--cream-bg)">
+<!-- Built Around You -->
+<section id="you" style="background:var(--cream-bg)">
   <div class="container">
     <div class="fade-in">
-      <div class="section-label">Josh.ai — The Brain</div>
-      <div class="section-title">Everything runs<br><strong>through one system.</strong></div>
-      <div class="section-subtitle">Josh replaces the fragmented stack — Ring app, Sonos app, thermostat app, camera app — with natural voice control and a single app. It learns your patterns and gets smarter over time.</div>
+      <div class="label">Built Around You</div>
+      <div class="title">We kept it<br><strong>exactly what you asked for.</strong></div>
+      <div class="sub">You've invested in smart home technology before. You know what it feels like when a system is too big, too complicated, or just never gets used. This isn't that.</div>
     </div>
-    <div class="voice-commands">
-      <div class="voice-cmd fade-in">
-        <div class="cmd">Turn on the outside lights</div>
-        <div class="arrow">→</div>
-        <div class="result">Landscape lights activate around the pool, patio, and outdoor kitchen — all from the couch, or from anywhere in the home</div>
+    <div class="promise-grid" style="margin-top:44px">
+      <div class="promise fade-in" style="border-left:3px solid var(--accent)">
+        <div class="p-icon">🎯</div>
+        <h3>"I want to control everything from one place"</h3>
+        <p>Done. Every light, speaker, camera, and shade — one voice, one app. The fragmented stack of Ring, Sonos, thermostat apps is gone.</p>
       </div>
-      <div class="voice-cmd fade-in">
-        <div class="cmd">Good morning</div>
-        <div class="arrow">→</div>
-        <div class="result">Lights ease on in the kitchen and living area · Thermostat adjusts to daytime · Soft music in the kitchen and dining area</div>
+      <div class="promise fade-in" style="border-left:3px solid var(--accent)">
+        <div class="p-icon">✂️</div>
+        <h3>"I don't want things I'm not going to use"</h3>
+        <p>This scope covers only what we talked about in the walkthrough. Nothing extra. No system you'll ignore. Just the things that improve your daily life.</p>
       </div>
-      <div class="voice-cmd fade-in">
-        <div class="cmd">Movie time</div>
-        <div class="arrow">→</div>
-        <div class="result">Sonos Arc activates · Lights dim in the living room · Shades close on the window wall · HVAC goes quiet</div>
+      <div class="promise fade-in" style="border-left:3px solid var(--accent)">
+        <div class="p-icon">📢</div>
+        <h3>The AI camera announcement</h3>
+        <p>You lit up when we talked about this. It's in here. A camera that says "a man in his 40s is at the front door" — announced through your home, no app needed.</p>
       </div>
-      <div class="voice-cmd fade-in">
-        <div class="cmd">Someone's at the door</div>
-        <div class="arrow">→</div>
-        <div class="result">AI camera identifies the visitor and announces through the home — "A man in his 40s is at the front door" — live video pops up on the touchscreen</div>
-      </div>
-      <div class="voice-cmd fade-in">
-        <div class="cmd">Goodnight</div>
-        <div class="arrow">→</div>
-        <div class="result">All lights off · Security arms · Outdoor lights off · Thermostat to sleep mode · Shades close</div>
+      <div class="promise fade-in" style="border-left:3px solid var(--accent)">
+        <div class="p-icon">✨</div>
+        <h3>Clean walls. No switch banks.</h3>
+        <p>One elegant keypad replaces the whole wall of switches. Your contractor said it best — clean, like new construction. This renovation is the perfect moment.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Intelligence Summary -->
-<section id="experience" style="background:var(--cream-bg)">
+<!-- Voice Examples -->
+<section id="voice">
   <div class="container">
     <div class="fade-in">
-      <div class="section-label">Your Home, Intelligent</div>
-      <div class="section-title">This is what your home<br><strong>actually does for you.</strong></div>
-      <div class="section-subtitle">Every system in this proposal connects to one brain — Josh. Here's what a real day at 1609 Walden Pond looks like once your home is intelligent.</div>
+      <div class="label">Natural Language Control</div>
+      <div class="title">Just say it.<br><strong>The home handles it.</strong></div>
+      <div class="sub">No apps to open. No keywords to learn. Josh understands natural conversation — and gets smarter every week.</div>
     </div>
+    <div class="voices">
+      <div class="voice fade-in">
+        <div class="said">Turn on the outside lights</div>
+        <div class="arr">→</div>
+        <div class="happens">Landscape lights activate around the pool, patio, and outdoor kitchen — all at once, instantly</div>
+      </div>
+      <div class="voice fade-in">
+        <div class="said">Movie time</div>
+        <div class="arr">→</div>
+        <div class="happens">TV lowers to the perfect angle · surround sound on · lights dim · shades close on the window wall · HVAC goes quiet</div>
+      </div>
+      <div class="voice fade-in">
+        <div class="said">Play music in the kitchen</div>
+        <div class="arr">→</div>
+        <div class="happens">Kitchen and dining speakers come on at the right volume — pick up where you left off, or ask for something new</div>
+      </div>
+      <div class="voice fade-in">
+        <div class="said">Heading out</div>
+        <div class="arr">→</div>
+        <div class="happens">Every light off · security arms · outdoor lights off · thermostat to away · shades close — all in one command</div>
+      </div>
+      <div class="voice fade-in">
+        <div class="said">Goodnight</div>
+        <div class="arr">→</div>
+        <div class="happens">Whole house shuts down from bed — lights, locks, security, thermostat. You don't move. It just happens.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="day-timeline">
-
-      <div class="day-moment fade-in">
-        <div class="day-time">
-          <div class="time-label">Morning</div>
-          <div class="time-icon">🌅</div>
-        </div>
-        <div class="day-content">
-          <h4>The house wakes up before you do</h4>
-          <p>Your Ketra lighting in the living and entertaining area begins warming gradually — not a harsh on/off, but a soft glow that follows your natural wake-up pattern. The kitchen speakers ease on with whatever you had playing last. Your thermostat has already shifted to daytime mode. You walk into the kitchen and the 10" touchscreen shows you the weather, who's on camera outside, and the day's lighting scenes — all without touching your phone.</p>
-          <span class="day-trigger">Trigger: "Good morning" — or automatic on schedule</span>
+<!-- Day in the Life -->
+<section id="day" style="background:var(--cream-bg)">
+  <div class="container">
+    <div class="fade-in">
+      <div class="label">A Day at 1609 Walden Pond</div>
+      <div class="title">Your home,<br><strong>working for you.</strong></div>
+      <div class="sub">Here's what a real day looks like once your home is intelligent.</div>
+    </div>
+    <div class="moments">
+      <div class="moment fade-in">
+        <div class="m-time"><div class="m-icon">🌅</div><div class="m-label">Morning</div></div>
+        <div class="m-body">
+          <h4>The house starts before you do</h4>
+          <p>Lights ease on gradually in the living area and kitchen. The thermostat shifts to daytime. Soft music plays in the kitchen. You walk in, and the 10" touchscreen shows you who's outside on camera — all before you've touched your phone.</p>
         </div>
       </div>
-
-      <div class="day-moment fade-in">
-        <div class="day-time">
-          <div class="time-label">During the Day</div>
-          <div class="time-icon">☀️</div>
-        </div>
-        <div class="day-content">
-          <h4>The home adapts — you don't have to manage it</h4>
-          <p>Ketra lighting in the entertaining area automatically tracks the time of day — bright and energizing in the morning, natural white at midday, warm amber as the afternoon winds down. The Lutron RA3 system keeps every light in the main areas exactly where you want it, controlled by a single keypad tap or your voice. Someone rings the doorbell — Josh announces it through whichever room you're in, and the visitor's image pops up on the nearest screen. No phone required.</p>
-          <span class="day-trigger">Trigger: Automatic + "Josh, who's at the door?"</span>
+      <div class="moment fade-in">
+        <div class="m-time"><div class="m-icon">🥂</div><div class="m-label">Entertaining</div></div>
+        <div class="m-body">
+          <h4>One tap. The whole home shifts.</h4>
+          <p>Guests are coming. Tap the keypad once — or just say "entertaining." Lights warm throughout the open space, music fills the kitchen, dining area, and living room, outdoor speakers come on by the pool and outdoor kitchen, and the landscape lights activate. Every zone, together, at once.</p>
         </div>
       </div>
-
-      <div class="day-moment fade-in">
-        <div class="day-time">
-          <div class="time-label">Entertaining</div>
-          <div class="time-icon">🥂</div>
-        </div>
-        <div class="day-content">
-          <h4>One word sets the entire scene</h4>
-          <p>Guests are coming. You say "Entertaining mode" — or tap the keypad once. The living area lights shift to a warm, inviting glow. The kitchen and dining speakers fill the open space with music at the right volume. Outside, the landscape lights come on around the pool and outdoor kitchen. The motorized shades on the window wall open to let the evening light in. The Sonos Arc in the living room is ready for background audio or to anchor the sound if you want the TV on. Every zone — kitchen, dining, living, outdoor — plays together seamlessly, or independently if you want to split them.</p>
-          <span class="day-trigger">Trigger: "Entertaining mode" or keypad scene tap</span>
+      <div class="moment fade-in">
+        <div class="m-time"><div class="m-icon">📺</div><div class="m-label">Movie Night</div></div>
+        <div class="m-body">
+          <h4>The room transforms in seconds</h4>
+          <p>Say "movie time." The TV lowers to the perfect viewing angle. Surround sound activates — Arc in front, speakers in the walls for the full effect. Lights go dark. Shades close. HVAC quiets down. All of it, at once, without touching a single remote.</p>
         </div>
       </div>
-
-      <div class="day-moment fade-in">
-        <div class="day-time">
-          <div class="time-label">Watching TV</div>
-          <div class="time-icon">📺</div>
-        </div>
-        <div class="day-content">
-          <h4>The whole room transforms in seconds</h4>
-          <p>Say "Movie time" and the MantelMount lowers the TV to the perfect viewing angle. The Sonos Arc and rear in-wall speakers activate for full surround sound. Lights dim to 10%. The motorized shades close on the window wall so there's no glare. The HVAC drops to quiet mode so you can actually hear the dialogue. All of it happens at once, without you touching a single remote.</p>
-          <span class="day-trigger">Trigger: "Movie time" — or keypad scene</span>
+      <div class="moment fade-in">
+        <div class="m-time"><div class="m-icon">🛏️</div><div class="m-label">Bedtime</div></div>
+        <div class="m-body">
+          <h4>The whole house shuts down from bed</h4>
+          <p>In-ceiling speakers in the master bedroom play the TV sound overhead — quiet and clear, no soundbar blasting. Say "goodnight" and every light in the house goes off, security arms, doors lock, thermostat drops to sleep mode. You don't get up. It just happens.</p>
         </div>
       </div>
-
-      <div class="day-moment fade-in">
-        <div class="day-time">
-          <div class="time-label">Heading Out</div>
-          <div class="time-icon">🚗</div>
-        </div>
-        <div class="day-content">
+      <div class="moment fade-in">
+        <div class="m-time"><div class="m-icon">🚗</div><div class="m-label">Away</div></div>
+        <div class="m-body">
           <h4>Leave without second-guessing anything</h4>
-          <p>Walking out the door, you say "Heading out." Every light in the house turns off. The security system arms automatically. The thermostat shifts to away mode. Outdoor lights go off. The shades close. You don't wonder if you left something on — you know you didn't. And if you're already in the car and suddenly not sure, the app on your phone shows you exactly what's happening at home, live.</p>
-          <span class="day-trigger">Trigger: "Heading out" or auto-arm on door lock</span>
-        </div>
-      </div>
-
-      <div class="day-moment fade-in">
-        <div class="day-time">
-          <div class="time-label">Nighttime</div>
-          <div class="time-icon">🌙</div>
-        </div>
-        <div class="day-content">
-          <h4>The house winds down with you</h4>
-          <p>In the master bedroom, the in-ceiling speakers play softly — TV sound routed through them at a comfortable level so you're not fighting with a soundbar. Say "Goodnight" from bed and the whole house responds: every light off, security armed, thermostat to sleep mode, outdoor lights off, shades closed. You never have to get up. The house is locked, quiet, and secured — and you didn't have to think about any of it.</p>
-          <span class="day-trigger">Trigger: "Goodnight" — or bedside keypad tap</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="intel-bar fade-in">
-      <h3>The home learns.<br><strong>It gets smarter every week.</strong></h3>
-      <p>Josh AI doesn't just execute commands — it observes patterns. Over time, it anticipates what you want before you ask. It knows when you typically wake up, when guests arrive, when you're winding down. The more you use it, the more it feels less like a system and more like the home just knowing what to do.</p>
-      <div class="intel-points">
-        <div class="intel-point">
-          <div class="ip-icon">🔗</div>
-          <h4>Everything Connected</h4>
-          <p>Lighting, audio, security, shades, climate — one platform, not six apps</p>
-        </div>
-        <div class="intel-point">
-          <div class="ip-icon">🗣️</div>
-          <h4>Natural Language</h4>
-          <p>No keywords. Just speak naturally — the home understands context</p>
-        </div>
-        <div class="intel-point">
-          <div class="ip-icon">📱</div>
-          <h4>Full Remote Control</h4>
-          <p>Check cameras, adjust lights, arm security — from anywhere in the world</p>
-        </div>
-        <div class="intel-point">
-          <div class="ip-icon">📈</div>
-          <h4>Grows With You</h4>
-          <p>Add rooms, add devices, add scenes — the system scales without starting over</p>
+          <p>Say "heading out" at the door. Everything off. Security armed. Thermostat to away. You're already in the car and not wondering if you left something on — because you know you didn't. And if you want to check, the app shows you live cameras from anywhere.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Room-by-Room Scope -->
-<section id="scope">
+<!-- What's In Each Space -->
+<section id="spaces">
   <div class="container">
-    <div class="fade-in" style="margin-bottom:16px">
-      <div class="section-label">Room-by-Room Scope</div>
-      <div class="section-title">What goes where.<br><strong>And how it works.</strong></div>
-      <div class="section-subtitle">Each space below includes the equipment, the installation, and exactly how that room will operate once we're done.</div>
+    <div class="fade-in">
+      <div class="label">Space by Space</div>
+      <div class="title">What happens<br><strong>in each room.</strong></div>
+      <div class="sub">Here's exactly what we're adding to each space — and what it means for how that room feels to live in.</div>
+    </div>
+    <div class="rooms">
+
+      <div class="room fade-in">
+        <div class="room-top">
+          <div class="r-label">Living Room</div>
+          <h3>Your main entertaining space — fully alive</h3>
+          <p>This is the heart of the home. One keypad tap — or one voice command — shifts the entire room. Lights warm for entertaining, dim for movie night, or go off entirely. The TV lowers to the perfect height on command. Surround sound fills the room from the soundbar and rear in-wall speakers. Ketra lighting in this space shifts automatically through the day — energizing in the morning, warm and inviting by evening, perfect candlelight for dinner.</p>
+        </div>
+        <div class="room-bottom">
+          <span class="r-tag">Motorized TV lift</span>
+          <span class="r-tag">Surround sound</span>
+          <span class="r-tag">Ketra mood lighting</span>
+          <span class="r-tag">Voice control</span>
+          <span class="r-tag">Keypad scene control</span>
+          <span class="r-tag">Motorized shades</span>
+        </div>
+      </div>
+
+      <div class="room fade-in">
+        <div class="room-top">
+          <div class="r-label">Kitchen &amp; Dining</div>
+          <h3>Open, connected, and always playing</h3>
+          <p>The kitchen and dining area flow as one zone. Say "play music in the kitchen" and in-ceiling speakers fill the open space at the right volume. A 10" touchscreen mounted in the kitchen gives you full control of music, lights, and cameras — without picking up your phone. One keypad handles all the lighting scenes for the space, and it all syncs with the living room when you're entertaining across the whole floor.</p>
+        </div>
+        <div class="room-bottom">
+          <span class="r-tag">In-ceiling speakers</span>
+          <span class="r-tag">10" touchscreen</span>
+          <span class="r-tag">Voice control</span>
+          <span class="r-tag">Lighting scenes</span>
+        </div>
+      </div>
+
+      <div class="room fade-in">
+        <div class="room-top">
+          <div class="r-label">Master Bedroom &amp; Bathroom</div>
+          <h3>Wind down the way you want to</h3>
+          <p>In-ceiling speakers positioned over the bed handle both TV audio and music — no soundbar needed, nothing blasting. Say "goodnight" from bed and the whole house responds. The bathroom runs as its own audio zone — say "play music in the bathroom" and it follows along independently, or syncs with the bedroom. A keypad by the bed handles scenes with a single tap.</p>
+        </div>
+        <div class="room-bottom">
+          <span class="r-tag">In-ceiling speakers (bedroom + bath)</span>
+          <span class="r-tag">Bedside voice control</span>
+          <span class="r-tag">Keypad scene control</span>
+          <span class="r-tag">Goodnight scene</span>
+        </div>
+      </div>
+
+      <div class="room fade-in">
+        <div class="room-top">
+          <div class="r-label">Pool, Patio &amp; Outdoor Kitchen</div>
+          <h3>Outside feels as good as inside</h3>
+          <p>Hardwired speakers by the pool and outdoor kitchen — always there, always ready, no Bluetooth needed. Say "heading to the patio" and the outdoor zone activates, indoor music fades, and landscape lights come on around the entertaining area. Everything is voice-controlled from anywhere in the home.</p>
+        </div>
+        <div class="room-bottom">
+          <span class="r-tag">Hardwired outdoor speakers</span>
+          <span class="r-tag">Landscape lighting</span>
+          <span class="r-tag">Voice-activated scenes</span>
+          <span class="r-tag">Syncs with indoor audio</span>
+        </div>
+      </div>
+
+      <div class="room fade-in">
+        <div class="room-top">
+          <div class="r-label">Security — Whole Home</div>
+          <h3>Your home watches out for you</h3>
+          <p>AI cameras at the front and back detect and announce visitors through the home — not just a chime, but an actual description spoken through your speakers. The video doorbell lets you see and respond to whoever's there from any room, or from your phone anywhere in the world. The security system arms and disarms through Josh automatically — no separate panel to remember, no extra app to open.</p>
+        </div>
+        <div class="room-bottom">
+          <span class="r-tag">AI visitor announcements</span>
+          <span class="r-tag">Front + back cameras</span>
+          <span class="r-tag">Video doorbell</span>
+          <span class="r-tag">24/7 monitoring</span>
+          <span class="r-tag">Auto arm/disarm with Josh</span>
+        </div>
+      </div>
+
     </div>
 
-    <div class="rooms-grid">
-
-      <!-- Equipment Closet -->
-      <div class="room-panel fade-in">
-        <div class="room-header">
-          <h3>⚙️ Equipment Closet — System Hub</h3>
-          <span class="room-tag">Foundation of everything</span>
+    <!-- Urgency -->
+    <div class="urgency fade-in">
+      <h3>The walls are open <strong>right now.</strong></h3>
+      <p>This renovation is the only time to build this in cleanly and invisibly. Once the sheetrock goes up, running wire costs more, takes longer, and always shows. This is the moment — and your framing starts in a week.</p>
+      <div class="urgency-points">
+        <div class="u-point">
+          <div class="u-icon">🏗️</div>
+          <h4>Wire it now</h4>
+          <p>Run during framing — no drywall cuts, no visible conduit, lower cost</p>
         </div>
-        <div class="room-intelligence">
-          <div class="room-intelligence-label">🧠 How It Operates</div>
-          <p>This is the brain of the whole home. Tucked in a dedicated closet, the rack runs invisibly — routing every signal, managing every network device, and keeping Josh online 24/7. You never see it. You never touch it. It just works.</p>
+        <div class="u-point">
+          <div class="u-icon">📦</div>
+          <h4>Add later, any time</h4>
+          <p>Not sure about a room? Prewire it now. Add the device whenever you're ready.</p>
         </div>
-        <div class="room-body">
-          <div class="scope-item"><span>Rack — Floor Standing AV Rack</span><span>× 1</span></div>
-          <div class="scope-item"><span>Wattbox UPS — Uninterruptible Power Supply</span><span>× 1</span></div>
-          <div class="scope-item"><span>Wattbox IP Power Conditioner</span><span>× 1</span></div>
-          <div class="scope-item"><span>Araknis Dual-WAN Router</span><span>× 1</span></div>
-          <div class="scope-item"><span>Araknis 24-Port POE Network Switch</span><span>× 1</span></div>
-          <div class="scope-item"><span>Araknis Wi-Fi 6 Indoor Access Points</span><span>× 2</span></div>
-          <div class="scope-item"><span>Araknis Wi-Fi 6 Outdoor Access Point</span><span>× 1</span></div>
-          <div class="scope-item"><span>Josh Core — Hardware + Software</span><span>× 1</span></div>
-          <div class="scope-item"><span>Sonos Amplifiers</span><span>× 4</span></div>
-          <div class="scope-item sub"><span>Installation, rack build, cable management, programming</span><span>—</span></div>
+        <div class="u-point">
+          <div class="u-icon">⚡</div>
+          <h4>Save on your electrician</h4>
+          <p>Our lighting system saves ~30% on electrical labor vs. traditional wiring</p>
         </div>
-        <div class="room-total"><span>Equipment Room</span><span>~$14,500</span></div>
+        <div class="u-point">
+          <div class="u-icon">🗓️</div>
+          <h4>4-month move-in</h4>
+          <p>Framing starts next week — we need to move right behind the demo crew</p>
+        </div>
       </div>
-
-      <!-- Living Room / Entertainment -->
-      <div class="room-panel fade-in">
-        <div class="room-header">
-          <h3>🛋️ Living Room — Entertainment Hub</h3>
-          <span class="room-tag">Primary entertaining space</span>
-        </div>
-        <div class="room-intelligence">
-          <div class="room-intelligence-label">🧠 How It Operates</div>
-          <p>This is the heart of the home. A Lutron keypad by the entry controls the entire living scene — one tap for "entertaining," one for "movie," one for "dim." The Sonos Arc Ultra handles TV sound plus rear in-wall speakers for surround. Say "Movie time" and the Arc activates, lights dim, shades close on the window wall, and the HVAC quiets down — automatically. The MantelMount lowers the TV to the perfect angle with a voice command or keypad tap. Ketra lighting in this space gives the living area a warm, tunable glow that shifts from bright and energizing during the day to warm candlelight at dinner — all on its own schedule.</p>
-        </div>
-        <div class="room-body">
-          <div class="scope-item"><span>Sonos Arc Ultra Soundbar</span><span>× 1</span></div>
-          <div class="scope-item"><span>Sonos Sub 4</span><span>× 1</span></div>
-          <div class="scope-item"><span>MartinLogan In-Wall Rear Surround Speakers</span><span>× 2</span></div>
-          <div class="scope-item"><span>Josh Nano Microphone — Coral White</span><span>× 1</span></div>
-          <div class="scope-item"><span>Josh Edge Processor</span><span>× 1</span></div>
-          <div class="scope-item"><span>MantelMount Motorized TV Lift</span><span>× 1</span></div>
-          <div class="scope-item"><span>Lutron RA3 Keypad — Main Scene Control</span><span>× 1</span></div>
-          <div class="scope-item"><span>Ketra Tunable White Lighting (entertaining area)</span><span>—</span></div>
-          <div class="scope-item sub"><span>Circadian rhythm dimming — warm in the evening, bright and energizing during the day</span><span>—</span></div>
-          <div class="scope-item"><span>TV wiring, HDMI routing, cable concealment</span><span>—</span></div>
-        </div>
-        <div class="room-total"><span>Living Room</span><span>~$12,800</span></div>
-      </div>
-
-      <!-- Kitchen / Dining -->
-      <div class="room-panel fade-in">
-        <div class="room-header">
-          <h3>🍳 Kitchen &amp; Dining — Open Space Audio</h3>
-          <span class="room-tag">Open concept entertaining</span>
-        </div>
-        <div class="room-intelligence">
-          <div class="room-intelligence-label">🧠 How It Operates</div>
-          <p>The open kitchen and dining area flow together as one audio zone. Say "Josh, play music in the kitchen" and the in-ceiling speakers fill the space naturally — not too loud, not too quiet. A 10" Josh touchscreen mounted in the kitchen gives you full control of music, lights, and cameras without reaching for your phone. A Lutron keypad handles all lighting scenes for the space. The zone can play independently or sync with the living room for one seamless flow when you're entertaining across the whole open floor plan.</p>
-        </div>
-        <div class="room-body">
-          <div class="scope-item"><span>MartinLogan In-Ceiling Speakers</span><span>× 4</span></div>
-          <div class="scope-item"><span>Josh Nano Microphone — Coral White</span><span>× 1</span></div>
-          <div class="scope-item"><span>Josh 10" Touchscreen — Ceramic White</span><span>× 1</span></div>
-          <div class="scope-item"><span>Lutron RA3 Keypad — Lighting Scene Control</span><span>× 1</span></div>
-          <div class="scope-item"><span>Speaker prewire, in-ceiling installation</span><span>—</span></div>
-        </div>
-        <div class="room-total"><span>Kitchen &amp; Dining</span><span>~$4,800</span></div>
-      </div>
-
-      <!-- Master Bedroom -->
-      <div class="room-panel fade-in">
-        <div class="room-header">
-          <h3>🛏️ Master Bedroom</h3>
-          <span class="room-tag">Sleep, music & TV</span>
-        </div>
-        <div class="room-intelligence">
-          <div class="room-intelligence-label">🧠 How It Operates</div>
-          <p>In-ceiling speakers positioned above the bed handle both TV sound and music — so you're not running a soundbar or turning volume up loud late at night. The TV is wall-mounted and wired cleanly behind the wall. A Josh Nano by the bed means you never have to reach for a remote. Say "Goodnight" and lights go off, the thermostat drops to sleep mode, and the security system arms — all from bed. A Lutron keypad at the entry controls all room scenes with a single tap.</p>
-        </div>
-        <div class="room-body">
-          <div class="scope-item"><span>MartinLogan In-Ceiling Speakers (above bed)</span><span>× 2</span></div>
-          <div class="scope-item"><span>Josh Nano Microphone — Coral White</span><span>× 1</span></div>
-          <div class="scope-item"><span>Lutron RA3 Keypad — Scene Control</span><span>× 1</span></div>
-          <div class="scope-item"><span>TV wiring — HDMI + power concealed in wall</span><span>× 1</span></div>
-          <div class="scope-item"><span>Speaker prewire + installation</span><span>—</span></div>
-        </div>
-        <div class="room-total"><span>Master Bedroom</span><span>~$3,200</span></div>
-      </div>
-
-      <!-- Master Bathroom -->
-      <div class="room-panel fade-in">
-        <div class="room-header">
-          <h3>🛁 Master Bathroom</h3>
-          <span class="room-tag">Audio zone</span>
-        </div>
-        <div class="room-intelligence">
-          <div class="room-intelligence-label">🧠 How It Operates</div>
-          <p>In-ceiling speakers in the master bath run as their own zone or can sync with the bedroom. Say "Play music in the bathroom" or it follows the master bedroom zone automatically. Voice control works through the bedroom Josh Nano — you don't need a separate device in here.</p>
-        </div>
-        <div class="room-body">
-          <div class="scope-item"><span>MartinLogan In-Ceiling Speakers</span><span>× 2</span></div>
-          <div class="scope-item"><span>Speaker prewire + installation</span><span>—</span></div>
-        </div>
-        <div class="room-total"><span>Master Bathroom</span><span>~$1,400</span></div>
-      </div>
-
-      <!-- Secondary Bedrooms -->
-      <div class="room-panel fade-in">
-        <div class="room-header">
-          <h3>🚪 Secondary Bedrooms &amp; Other Rooms</h3>
-          <span class="room-tag">Standard switching</span>
-        </div>
-        <div class="room-intelligence">
-          <div class="room-intelligence-label">🧠 How It Operates</div>
-          <p>Secondary bedrooms and utility spaces get clean, standard light switches — no keypads needed. Lights still work normally, and you save cost without compromising the main living areas. If you ever want to add keypads later, the wiring infrastructure is already in place.</p>
-        </div>
-        <div class="room-body">
-          <div class="scope-item"><span>Standard dimmer switches — secondary bedrooms</span><span>—</span></div>
-          <div class="scope-item"><span>Low-voltage prewire for future keypad upgrades</span><span>—</span></div>
-        </div>
-        <div class="room-total"><span>Secondary Rooms</span><span>~$800</span></div>
-      </div>
-
-      <!-- Lutron RA3 -->
-      <div class="room-panel fade-in">
-        <div class="room-header">
-          <h3>💡 Lutron RadioRA 3 — Whole-Home Lighting</h3>
-          <span class="room-tag">Wireless · Keypads · Fully integrated</span>
-        </div>
-        <div class="room-intelligence">
-          <div class="room-intelligence-label">🧠 How It Operates</div>
-          <p>Lutron RA3 controls every light in the main living areas wirelessly — no wiring back to switches. Your electrician runs the fixtures hot (one continuous circuit, up to 50 bulbs), and we handle all the low-voltage keypad wiring. That means significant savings on electrical labor — typically 30% less than traditional wiring. Keypads in main areas replace the wall of switches with one clean panel. You can also control everything by voice through Josh or remotely from the app.</p>
-        </div>
-        <div class="room-body">
-          <div class="scope-item"><span>Lutron RA3 Main Repeater + Bridge</span><span>× 1</span></div>
-          <div class="scope-item"><span>Lutron Sunnata Keypads — Main Living Areas</span><span>× 5</span></div>
-          <div class="scope-item"><span>Lutron RA3 Dimmers — Throughout</span><span>—</span></div>
-          <div class="scope-item"><span>Low-voltage keypad wiring + programming</span><span>—</span></div>
-          <div class="scope-item"><span>Josh.ai full integration + scene creation</span><span>—</span></div>
-        </div>
-        <div class="room-total"><span>Lutron RA3 System</span><span>~$9,500</span></div>
-      </div>
-
-      <!-- Motorized Shades -->
-      <div class="room-panel fade-in">
-        <div class="room-header">
-          <h3>🪟 Motorized Shades — Window Wall</h3>
-          <span class="room-tag">Open entertaining area</span>
-        </div>
-        <div class="room-intelligence">
-          <div class="room-intelligence-label">🧠 How It Operates</div>
-          <p>The large window wall in the open entertaining space gets motorized shades that close and open on command — or on a schedule. "Josh, close the shades" brings them down from the top. They integrate into your Lutron system and Josh scenes, so "Movie time" automatically closes them. Fabric options TBD based on your design preferences — pricing is per window and depends on size and material.</p>
-        </div>
-        <div class="room-body">
-          <div class="scope-item"><span>Lutron Serena or Palladiom motorized shades</span><span>per window</span></div>
-          <div class="scope-item"><span>Motor prewire + installation</span><span>—</span></div>
-          <div class="scope-item"><span>Josh + RA3 integration</span><span>—</span></div>
-          <div class="scope-item sub"><span>Final count and fabric TBD — estimated $800–$1,500 per window</span><span>—</span></div>
-        </div>
-        <div class="room-total"><span>Motorized Shades (est.)</span><span>~$3,500</span></div>
-      </div>
-
-      <!-- Outdoor / Pool -->
-      <div class="room-panel fade-in">
-        <div class="room-header">
-          <h3>🌊 Outdoor — Pool, Patio &amp; Kitchen</h3>
-          <span class="room-tag">Hardwired · Weather-resistant</span>
-        </div>
-        <div class="room-intelligence">
-          <div class="room-intelligence-label">🧠 How It Operates</div>
-          <p>Hardwired outdoor speakers eliminate the need to carry around Bluetooth speakers — you get better sound, no charging, and Josh integration. Speakers near the outdoor kitchen and along the pool area run as their own zone or sync with the indoor entertainment. "Heading to the patio" activates the zone and adjusts the indoor music to fade. Landscape lighting around the pool and patio activates with a single voice command or scene — "Josh, turn on the outside lights."</p>
-        </div>
-        <div class="room-body">
-          <div class="scope-item"><span>MartinLogan Outdoor Speakers — Pool/Patio Area</span><span>× 2</span></div>
-          <div class="scope-item"><span>MartinLogan Outdoor Speaker — Outdoor Kitchen Wall</span><span>× 1</span></div>
-          <div class="scope-item"><span>Speaker prewire + weather-resistant installation</span><span>—</span></div>
-          <div class="scope-item"><span>Landscape Lighting — Pool, Patio, Outdoor Kitchen</span><span>—</span></div>
-          <div class="scope-item sub"><span>Path lights, uplighting, patio perimeter — Josh scene integrated</span><span>—</span></div>
-        </div>
-        <div class="room-total"><span>Outdoor</span><span>~$7,200</span></div>
-      </div>
-
-      <!-- Security -->
-      <div class="room-panel fade-in">
-        <div class="room-header">
-          <h3>🔒 Security — Cameras &amp; Monitoring</h3>
-          <span class="room-tag">AI cameras · 24/7 monitoring</span>
-        </div>
-        <div class="room-intelligence">
-          <div class="room-intelligence-label">🧠 How It Operates</div>
-          <p>AI cameras at the front and back of the property detect and announce visitors through the home — not just a chime, but an actual description: "A man is at the front door." The Josh-integrated video doorbell lets you see and talk to whoever's there from the kitchen touchscreen, the bedroom, or your phone — anywhere. The Qolsys security panel handles 24/7 professional monitoring, door/window sensors, and motion detection. Everything arms and disarms through Josh, the app, or a keypad — no separate security app needed.</p>
-        </div>
-        <div class="room-body">
-          <div class="scope-item"><span>Qolsys IQ Panel 4 — Verizon 4G/LTE Backup</span><span>× 1</span></div>
-          <div class="scope-item"><span>Door/Window Sensors — Perimeter Doors</span><span>—</span></div>
-          <div class="scope-item"><span>Wireless Motion Sensors</span><span>× 2</span></div>
-          <div class="scope-item"><span>IC Realtime AI Cameras — Front + Back</span><span>× 4</span></div>
-          <div class="scope-item"><span>NVR + Storage (4–6TB)</span><span>× 1</span></div>
-          <div class="scope-item"><span>Josh Video Doorbell — 2MP PoE</span><span>× 1</span></div>
-          <div class="scope-item"><span>Security prewire, Cat6 drops, installation</span><span>—</span></div>
-          <div class="scope-item sub"><span>24/7 monitoring — 3rd party monitoring plan (separate, ~$30–50/mo)</span><span>—</span></div>
-        </div>
-        <div class="room-total"><span>Security System</span><span>~$7,800</span></div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -710,29 +466,29 @@ footer .contact a{color:var(--accent);text-decoration:none}
 <section id="investment" style="background:var(--cream-bg)">
   <div class="container">
     <div class="fade-in">
-      <div class="section-label">Investment Summary</div>
-      <div class="section-title">Practical scope.<br><strong>Clear numbers.</strong></div>
-      <div class="section-subtitle">Preliminary estimate based on our walkthrough. Final investment is refined once we receive the floor plans and confirm equipment quantities.</div>
+      <div class="label">Investment</div>
+      <div class="title">Practical scope.<br><strong>Clear number.</strong></div>
+      <div class="sub">This is a preliminary estimate based on our walkthrough. We'll finalize once we receive your floor plans and confirm room quantities.</div>
     </div>
-    <div class="invest-summary">
-      <div class="invest-card fade-in"><div class="val">$14,500</div><div class="desc">Equipment Room &amp; Network Infrastructure</div></div>
-      <div class="invest-card fade-in"><div class="val">$12,800</div><div class="desc">Living Room — AV, Ketra Lighting &amp; TV Lift</div></div>
-      <div class="invest-card fade-in"><div class="val">$9,500</div><div class="desc">Lutron RA3 — Whole-Home Lighting Control</div></div>
-      <div class="invest-card fade-in"><div class="val">$7,800</div><div class="desc">Security — Cameras, Panel &amp; Doorbell</div></div>
-      <div class="invest-card fade-in"><div class="val">$7,200</div><div class="desc">Outdoor — Speakers &amp; Landscape Lighting</div></div>
-      <div class="invest-card fade-in"><div class="val">$4,800</div><div class="desc">Kitchen &amp; Dining — Audio &amp; Josh</div></div>
-      <div class="invest-card fade-in"><div class="val">$4,600</div><div class="desc">Master Bedroom &amp; Bathroom</div></div>
-      <div class="invest-card fade-in"><div class="val">$3,500</div><div class="desc">Motorized Shades (est. — fabric TBD)</div></div>
+    <div class="invest-row">
+      <div class="i-card fade-in"><div class="i-val">$14,500</div><div class="i-desc">System Hub &amp; Network</div></div>
+      <div class="i-card fade-in"><div class="i-val">$12,800</div><div class="i-desc">Living Room — AV, Lighting &amp; TV Lift</div></div>
+      <div class="i-card fade-in"><div class="i-val">$9,500</div><div class="i-desc">Lighting Control (Lutron)</div></div>
+      <div class="i-card fade-in"><div class="i-val">$7,800</div><div class="i-desc">Security &amp; Cameras</div></div>
+      <div class="i-card fade-in"><div class="i-val">$7,200</div><div class="i-desc">Outdoor Speakers &amp; Landscape</div></div>
+      <div class="i-card fade-in"><div class="i-val">$4,800</div><div class="i-desc">Kitchen &amp; Dining Audio</div></div>
+      <div class="i-card fade-in"><div class="i-val">$4,600</div><div class="i-desc">Master Bedroom &amp; Bath</div></div>
+      <div class="i-card fade-in"><div class="i-val">$3,500</div><div class="i-desc">Motorized Shades (est.)</div></div>
     </div>
-    <div class="invest-total-bar fade-in">
+    <div class="total-bar fade-in">
       <div>
-        <div style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:8px">Preliminary Total Estimate</div>
-        <div style="font-size:3.5rem;font-weight:700;color:#fff;line-height:1">~$64,700</div>
-        <div style="font-size:.85rem;color:rgba(255,255,255,.55);margin-top:6px">Refined upon receipt of floor plans</div>
+        <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px">Preliminary Total</div>
+        <div class="t-main">~$64,700</div>
+        <div class="t-note">Refined upon receipt of floor plans</div>
       </div>
-      <div style="text-align:right">
-        <div style="font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:6px">What's not included</div>
-        <div style="font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.8">Electrician (high-voltage runs)<br>3rd party monitoring plan<br>Final shade fabric upgrades</div>
+      <div class="t-sub">
+        <div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-bottom:6px">Not included in this estimate</div>
+        <div style="font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.9">Electrician (high-voltage runs)<br>3rd party monitoring (~$35/mo)<br>Final shade fabric selection</div>
       </div>
     </div>
   </div>
@@ -742,47 +498,23 @@ footer .contact a{color:var(--accent);text-decoration:none}
 <section id="process">
   <div class="container">
     <div class="fade-in">
-      <div class="section-label">What Happens Next</div>
-      <div class="section-title">From plans<br><strong>to move-in ready.</strong></div>
-      <div class="section-subtitle">Send us the floor plans and we'll mark up the exact placement of every device, keypad, speaker, and camera — then we move fast alongside your contractor.</div>
+      <div class="label">What Happens Next</div>
+      <div class="title">Simple steps.<br><strong>Fast execution.</strong></div>
+      <div class="sub">Send us the floor plans and we move immediately — right behind your demo crew.</div>
     </div>
-    <div class="timeline">
-      <div class="timeline-step fade-in">
-        <div class="timeline-dot">1</div>
-        <h4>Floor Plans</h4>
-        <p>You send plans — we mark up placement of every device</p>
-      </div>
-      <div class="timeline-step fade-in">
-        <div class="timeline-dot">2</div>
-        <h4>Final Scope</h4>
-        <p>We refine quantities, confirm equipment, and finalize investment</p>
-      </div>
-      <div class="timeline-step fade-in">
-        <div class="timeline-dot">3</div>
-        <h4>Prewire</h4>
-        <p>Our team runs all low-voltage during framing — before sheetrock</p>
-      </div>
-      <div class="timeline-step fade-in">
-        <div class="timeline-dot">4</div>
-        <h4>Install</h4>
-        <p>Rack build, device mounting, speaker and camera installation</p>
-      </div>
-      <div class="timeline-step fade-in">
-        <div class="timeline-dot">5</div>
-        <h4>Program</h4>
-        <p>Josh scenes, Lutron keypads, Sonos zones, security setup</p>
-      </div>
-      <div class="timeline-step fade-in">
-        <div class="timeline-dot">6</div>
-        <h4>Walkthrough</h4>
-        <p>Full demo — every voice command, every scene, every device</p>
-      </div>
+    <div class="steps">
+      <div class="step fade-in"><div class="step-dot">1</div><h4>Floor Plans</h4><p>You send plans, we map every device, keypad, speaker & camera</p></div>
+      <div class="step fade-in"><div class="step-dot">2</div><h4>Final Scope</h4><p>We confirm quantities and finalize your investment</p></div>
+      <div class="step fade-in"><div class="step-dot">3</div><h4>Prewire</h4><p>We run all wiring during framing — before sheetrock</p></div>
+      <div class="step fade-in"><div class="step-dot">4</div><h4>Install</h4><p>Equipment rack, speakers, cameras, keypads, touchscreens</p></div>
+      <div class="step fade-in"><div class="step-dot">5</div><h4>Program</h4><p>Every scene, voice command, and automation configured</p></div>
+      <div class="step fade-in"><div class="step-dot">6</div><h4>Walk-Through</h4><p>Full demo — you know exactly how everything works before we leave</p></div>
     </div>
   </div>
 </section>
 
 <!-- Sign -->
-<section class="sign-section" id="approve">
+<section class="sign-wrap" id="approve">
   <div class="container">
     <h2>Ready to move forward,<br><strong>Farroukh?</strong></h2>
     <p>Sign below to approve this proposal and get on the schedule.</p>
@@ -791,84 +523,54 @@ footer .contact a{color:var(--accent);text-decoration:none}
       <input type="text" id="sig-name" placeholder="Farroukh Hafeez">
       <label for="sig-date">Date</label>
       <input type="date" id="sig-date">
-      <button class="sign-btn" onclick="submitSignature()">✍️ Approve Proposal</button>
+      <button class="sign-btn" onclick="sign()">✍️ Approve Proposal</button>
       <div id="sig-stamp"></div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="brand">ALT<span>3</span> SMART HOMES</div>
-  <div class="tagline">Intelligent living, beautifully executed.</div>
-  <div class="contact">
+  <div class="f-brand">ALT<span>3</span> SMART HOMES</div>
+  <div class="f-tag">Intelligent living, beautifully executed.</div>
+  <div class="f-contact">
     Prepared by Ryan Palmer &nbsp;·&nbsp;
     <a href="mailto:ryan.palmer@alt3.com">ryan.palmer@alt3.com</a>
   </div>
 </footer>
 
 <script>
+// Nav
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 50);
-});
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.fade-in,.fade-in-left,.fade-in-right').forEach(el => observer.observe(el));
+// Fade-in
+const io = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), {threshold:.08, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
 
-// Hero canvas
+// Canvas
 const canvas = document.getElementById('heroCanvas');
 const ctx = canvas.getContext('2d');
-let W = canvas.width = window.innerWidth;
-let H = canvas.height = window.innerHeight;
-window.addEventListener('resize', () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; });
-const particles = Array.from({length:60}, () => ({
-  x: Math.random() * window.innerWidth,
-  y: Math.random() * window.innerHeight,
-  r: Math.random() * 1.5 + 0.3,
-  vx: (Math.random() - 0.5) * 0.3,
-  vy: (Math.random() - 0.5) * 0.3,
-  a: Math.random() * 0.4 + 0.1
-}));
-function draw() {
-  ctx.clearRect(0,0,W,H);
-  particles.forEach(p => {
-    p.x += p.vx; p.y += p.vy;
-    if(p.x < 0) p.x = W; if(p.x > W) p.x = 0;
-    if(p.y < 0) p.y = H; if(p.y > H) p.y = 0;
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-    ctx.fillStyle = `rgba(255,255,255,${p.a})`;
-    ctx.fill();
-  });
-  requestAnimationFrame(draw);
-}
-draw();
+let W, H;
+function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+resize(); window.addEventListener('resize', resize);
+const pts = Array.from({length:55}, () => ({x:Math.random()*innerWidth, y:Math.random()*innerHeight, vx:(Math.random()-.5)*.28, vy:(Math.random()-.5)*.28, r:Math.random()*1.4+.3, a:Math.random()*.35+.1}));
+(function draw(){ ctx.clearRect(0,0,W,H); pts.forEach(p => { p.x+=p.vx; p.y+=p.vy; if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=`rgba(255,255,255,${p.a})`; ctx.fill(); }); requestAnimationFrame(draw); })();
 
-function submitSignature() {
+// Sign
+function sign(){
   const name = document.getElementById('sig-name').value.trim();
   const date = document.getElementById('sig-date').value;
-  if(!name) { alert('Please enter your name.'); return; }
-  if(!date) { alert('Please select a date.'); return; }
-  const formatted = new Date(date + 'T12:00:00').toLocaleDateString('en-US', {month:'long',day:'numeric',year:'numeric'});
+  if(!name){ alert('Please enter your name.'); return; }
+  if(!date){ alert('Please select a date.'); return; }
+  const formatted = new Date(date+'T12:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
   const stamp = document.getElementById('sig-stamp');
   stamp.style.display = 'block';
   stamp.innerHTML = '✅ Approved by ' + name + ' on ' + formatted;
   document.querySelector('.sign-btn').disabled = true;
   document.querySelector('.sign-btn').textContent = '✅ Proposal Approved';
-  const subject = encodeURIComponent('✅ 1609 Walden Pond Proposal Approved — Farroukh Hafeez');
-  const body = encodeURIComponent(
-    '1609 Walden Pond proposal has been approved.\n\n' +
-    'Client: Farroukh Hafeez\n' +
-    'Property: 1609 Walden Pond, Waxhaw, NC\n' +
-    'Approved by: ' + name + '\n' +
-    'Date: ' + formatted + '\n' +
-    'Preliminary Investment: ~$64,700\n\n' +
-    'Next step: Send floor plans to finalize scope.\n\n' +
-    'View proposal:\nhttps://realtyryanjarvis.github.io/alt3-dashboard/proposals/1609-walden-pond.html'
-  );
-  window.open('mailto:ryan@realtyryan.com?subject=' + subject + '&body=' + body, '_blank');
+  const s = encodeURIComponent('✅ 1609 Walden Pond Approved — Farroukh Hafeez');
+  const b = encodeURIComponent('Proposal approved.\n\nClient: Farroukh Hafeez\nProperty: 1609 Walden Pond, Waxhaw NC\nApproved by: '+name+'\nDate: '+formatted+'\nEst. Investment: ~$64,700\n\nhttps://realtyryanjarvis.github.io/alt3-dashboard/proposals/1609-walden-pond.html');
+  window.open('mailto:ryan@realtyryan.com?subject='+s+'&body='+b,'_blank');
 }
 </script>
 </body>
