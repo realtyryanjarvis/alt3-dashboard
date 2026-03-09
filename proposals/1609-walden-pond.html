@@ -112,6 +112,11 @@ section:nth-child(even){background:var(--cream-bg)}
 .u-point h4{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:4px}
 .u-point p{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.55}
 
+/* Video embed */
+.vid-wrap{position:relative;width:100%;max-width:880px;margin:44px auto 0;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1);aspect-ratio:16/9;background:#000}
+.vid-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.vid-label{text-align:center;margin-top:16px;font-size:.78rem;color:var(--text-lighter);letter-spacing:.06em;text-transform:uppercase}
+
 /* Process */
 .steps{display:flex;gap:0;margin-top:52px;overflow-x:auto;padding-bottom:8px}
 .step{flex:1;min-width:130px;text-align:center;position:relative;padding:0 12px}
@@ -299,6 +304,13 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
   </div>
 </section>
 
+    <div class="vid-wrap fade-in">
+      <iframe src="https://www.youtube.com/embed/OEnkdHUWcM8?rel=0&modestbranding=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="vid-label fade-in">See Josh.ai in action</div>
+  </div>
+</section>
+
 <!-- Day in the Life -->
 <section id="day" style="background:var(--cream-bg)">
   <div class="container">
@@ -371,6 +383,14 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
           <span class="r-tag">Keypad scene control</span>
           <span class="r-tag">Motorized shades</span>
         </div>
+      </div>
+
+      <!-- Ketra video -->
+      <div class="fade-in" style="margin:8px 0 4px">
+        <div class="vid-wrap" style="margin-top:0">
+          <iframe src="https://www.youtube.com/embed/pNHQo3TBEwE?rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="vid-label">Ketra by Lutron — see how tunable lighting transforms a space</div>
       </div>
 
       <div class="room fade-in">
