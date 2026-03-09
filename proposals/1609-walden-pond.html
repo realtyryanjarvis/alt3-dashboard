@@ -112,6 +112,13 @@ section:nth-child(even){background:var(--cream-bg)}
 .u-point h4{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:4px}
 .u-point p{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.55}
 
+/* Scope detail rows */
+.room-body{padding:8px 36px 16px}
+.scope-item{display:flex;justify-content:space-between;padding:8px 0;font-size:.85rem;color:var(--text);border-bottom:1px solid rgba(190,177,162,.15)}
+.scope-item:last-child{border-bottom:none}
+.scope-item span:last-child{font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap;color:var(--text-light);flex-shrink:0;padding-left:16px}
+.room-total{display:flex;justify-content:space-between;padding:16px 36px;border-top:2px solid var(--accent);font-weight:700;color:var(--accent);font-size:1rem}
+
 /* Video embed */
 .vid-wrap{position:relative;width:100%;max-width:880px;margin:44px auto 0;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1);aspect-ratio:16/9;background:#000}
 .vid-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
@@ -530,6 +537,256 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
         <div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-bottom:6px">Not included</div>
         <div style="font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.9">Electrician (high-voltage runs)<br>3rd party monitoring (~$35/mo)</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Detailed Breakdown -->
+<section id="breakdown">
+  <div class="container">
+    <div class="fade-in">
+      <div class="label">Full Breakdown</div>
+      <div class="title">Every room.<br><strong>Every item. Every dollar.</strong></div>
+      <div class="sub">Here's exactly what's going into each space and what it costs.</div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px;margin-top:48px">
+
+      <!-- Equipment Room -->
+      <div class="room fade-in">
+        <div class="room-top" style="padding-bottom:0;border-bottom:none">
+          <div class="r-label">System Hub & Network Infrastructure</div>
+          <h3>Equipment Closet</h3>
+          <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:0">The backbone — rack, networking, Josh brain, and all Sonos amplifiers live here invisibly.</p>
+        </div>
+        <div class="room-body" style="padding:16px 36px">
+          <div class="scope-item"><span>Floor Standing AV Rack</span><span>× 1</span></div>
+          <div class="scope-item"><span>Wattbox UPS — Uninterruptible Power (12 Outlets)</span><span>× 1</span></div>
+          <div class="scope-item"><span>Wattbox IP Power Conditioner (12 Outlets)</span><span>× 1</span></div>
+          <div class="scope-item"><span>Araknis Dual-WAN Router</span><span>× 1</span></div>
+          <div class="scope-item"><span>Araknis 48-Port POE Network Switch</span><span>× 1</span></div>
+          <div class="scope-item"><span>Araknis Wi-Fi 6 Indoor Access Points</span><span>× 2</span></div>
+          <div class="scope-item"><span>Araknis Wi-Fi 6 Outdoor Access Point</span><span>× 1</span></div>
+          <div class="scope-item"><span>AVPro Edge Distribution Hub</span><span>× 1</span></div>
+          <div class="scope-item"><span>Sonos Amplifiers</span><span>× 6</span></div>
+          <div class="scope-item"><span>Josh Core (Hardware + Lifetime Software)</span><span>× 1</span></div>
+          <div class="scope-item"><span>DMARK, cabling, rack build & installation</span><span>—</span></div>
+          <div class="scope-item" style="color:var(--text-lighter);font-size:.82rem"><span>Labor</span><span>$4,252.50</span></div>
+        </div>
+        <div class="room-total" style="padding:16px 36px">
+          <span>Equipment Room Total</span><span>$25,552.64</span>
+        </div>
+      </div>
+
+      <!-- Security -->
+      <div class="room fade-in">
+        <div class="room-top" style="padding-bottom:0;border-bottom:none">
+          <div class="r-label">Security & Cameras</div>
+          <h3>Whole Home Security</h3>
+          <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:0">AI cameras, video doorbell, full security panel — all announced through Josh.</p>
+        </div>
+        <div class="room-body" style="padding:16px 36px">
+          <div class="scope-item"><span>Qolsys IQ Panel 4 — Verizon 4G/LTE Backup</span><span>× 1</span></div>
+          <div class="scope-item"><span>Recessed Door & Window Sensors</span><span>× 5</span></div>
+          <div class="scope-item"><span>Wireless PIR Motion Sensors</span><span>× 2</span></div>
+          <div class="scope-item"><span>Carbon Monoxide Detector</span><span>× 1</span></div>
+          <div class="scope-item"><span>Wireless LED Strobe Siren</span><span>× 1</span></div>
+          <div class="scope-item"><span>IC Realtime NVR — 8 Channel / 6TB Storage</span><span>× 1</span></div>
+          <div class="scope-item"><span>IC Realtime AI Cameras</span><span>× 5</span></div>
+          <div class="scope-item"><span>Josh Video Doorbell — 2MP PoE</span><span>× 1</span></div>
+          <div class="scope-item"><span>Security prewire, Cat6 drops, installation</span><span>—</span></div>
+          <div class="scope-item" style="color:var(--text-lighter);font-size:.82rem"><span>Labor</span><span>$3,300.00</span></div>
+        </div>
+        <div class="room-total" style="padding:16px 36px">
+          <span>Security Total</span><span>$10,697.95</span>
+        </div>
+      </div>
+
+      <!-- Landscape Lighting -->
+      <div class="room fade-in">
+        <div class="room-top" style="padding-bottom:0;border-bottom:none">
+          <div class="r-label">Outdoor</div>
+          <h3>Landscape Lighting — Pool, Patio & Outdoor Kitchen</h3>
+          <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:0">Professional lighting design around the entertaining area — voice controlled through Josh.</p>
+        </div>
+        <div class="room-body" style="padding:16px 36px">
+          <div class="scope-item"><span>Landscape lighting design + 40-fixture installation</span><span>—</span></div>
+          <div class="scope-item"><span>Pool & pond area path lights</span><span>—</span></div>
+          <div class="scope-item"><span>Soffit downlights</span><span>—</span></div>
+          <div class="scope-item"><span>Patio & outdoor kitchen perimeter</span><span>—</span></div>
+          <div class="scope-item"><span>Pool waterfall feature lights</span><span>—</span></div>
+          <div class="scope-item"><span>Smart controller + Josh integration</span><span>—</span></div>
+        </div>
+        <div class="room-total" style="padding:16px 36px">
+          <span>Landscape Lighting Total</span><span>$20,282.50</span>
+        </div>
+      </div>
+
+      <!-- Living Room -->
+      <div class="room fade-in">
+        <div class="room-top" style="padding-bottom:0;border-bottom:none">
+          <div class="r-label">Living Room</div>
+          <h3>Living Room — AV & Ketra Lighting</h3>
+          <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:0">Full surround sound, Ketra mood lighting, Josh voice control, and Lutron keypad scene control.</p>
+        </div>
+        <div class="room-body" style="padding:16px 36px">
+          <div class="scope-item"><span>Sonos Arc Ultra Soundbar</span><span>× 1</span></div>
+          <div class="scope-item"><span>Sonos Sub 4</span><span>× 1</span></div>
+          <div class="scope-item"><span>MartinLogan In-Wall Surround Speakers</span><span>× 2</span></div>
+          <div class="scope-item"><span>Josh Nano Microphone</span><span>× 1</span></div>
+          <div class="scope-item"><span>Josh Edge Processor</span><span>× 1</span></div>
+          <div class="scope-item"><span>AVPro Edge HDMI Distribution</span><span>× 1</span></div>
+          <div class="scope-item"><span>Ketra Tunable White Lighting — entertaining area</span><span>—</span></div>
+          <div class="scope-item"><span>Lutron RA3 Keypad — scene control</span><span>× 1</span></div>
+          <div class="scope-item"><span>Speaker prewire, TV wiring, installation</span><span>—</span></div>
+          <div class="scope-item" style="color:var(--text-lighter);font-size:.82rem"><span>Labor</span><span>$1,375.00</span></div>
+        </div>
+        <div class="room-total" style="padding:16px 36px">
+          <span>Living Room Total</span><span>$6,907.79</span>
+        </div>
+      </div>
+
+      <!-- TV Lift -->
+      <div class="room fade-in">
+        <div class="room-top" style="padding-bottom:0;border-bottom:none">
+          <div class="r-label">Living Room</div>
+          <h3>Motorized TV Lift — MantelMount</h3>
+          <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:0">TV lowers to the perfect viewing angle on command — "Movie time" triggers it automatically.</p>
+        </div>
+        <div class="room-body" style="padding:16px 36px">
+          <div class="scope-item"><span>MantelMount Motorized TV Lift (MAN-MM860V2)</span><span>× 1</span></div>
+          <div class="scope-item"><span>Full installation, cable management & commissioning</span><span>—</span></div>
+          <div class="scope-item" style="color:var(--text-lighter);font-size:.82rem"><span>Labor</span><span>$977.50</span></div>
+        </div>
+        <div class="room-total" style="padding:16px 36px">
+          <span>TV Lift Total</span><span>$4,248.42</span>
+        </div>
+      </div>
+
+      <!-- Kitchen -->
+      <div class="room fade-in">
+        <div class="room-top" style="padding-bottom:0;border-bottom:none">
+          <div class="r-label">Kitchen & Dining</div>
+          <h3>Kitchen & Dining — Audio & Josh</h3>
+          <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:0">In-ceiling speakers fill the open space. A 10" touchscreen gives full control without reaching for your phone.</p>
+        </div>
+        <div class="room-body" style="padding:16px 36px">
+          <div class="scope-item"><span>MartinLogan In-Ceiling Speakers</span><span>× 4</span></div>
+          <div class="scope-item"><span>Josh Nano Microphone</span><span>× 1</span></div>
+          <div class="scope-item"><span>Josh 10" Touchscreen — Ceramic White</span><span>× 1</span></div>
+          <div class="scope-item"><span>Lutron RA3 Keypad — lighting scenes</span><span>× 1</span></div>
+          <div class="scope-item"><span>Speaker prewire + in-ceiling installation</span><span>—</span></div>
+          <div class="scope-item" style="color:var(--text-lighter);font-size:.82rem"><span>Labor</span><span>$1,305.00</span></div>
+        </div>
+        <div class="room-total" style="padding:16px 36px">
+          <span>Kitchen & Dining Total</span><span>$6,196.99</span>
+        </div>
+      </div>
+
+      <!-- Master Bedroom -->
+      <div class="room fade-in">
+        <div class="room-top" style="padding-bottom:0;border-bottom:none">
+          <div class="r-label">Master Bedroom</div>
+          <h3>Master Bedroom — Audio, Josh & TV</h3>
+          <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:0">In-ceiling speakers above the bed handle TV sound + music. Say "goodnight" and the whole house shuts down.</p>
+        </div>
+        <div class="room-body" style="padding:16px 36px">
+          <div class="scope-item"><span>MartinLogan In-Ceiling Speakers (above bed)</span><span>× 2</span></div>
+          <div class="scope-item"><span>Josh Nano Microphone</span><span>× 1</span></div>
+          <div class="scope-item"><span>Josh 10" Touchscreen — Ceramic White</span><span>× 1</span></div>
+          <div class="scope-item"><span>Josh Edge Processor</span><span>× 1</span></div>
+          <div class="scope-item"><span>AVPro Edge HDMI Distribution</span><span>× 1</span></div>
+          <div class="scope-item"><span>Lutron RA3 Keypad — scene control</span><span>× 1</span></div>
+          <div class="scope-item"><span>TV wiring — HDMI + power in-wall</span><span>—</span></div>
+          <div class="scope-item" style="color:var(--text-lighter);font-size:.82rem"><span>Labor</span><span>$1,257.50</span></div>
+        </div>
+        <div class="room-total" style="padding:16px 36px">
+          <span>Master Bedroom Total</span><span>$6,334.99</span>
+        </div>
+      </div>
+
+      <!-- Master Bathroom -->
+      <div class="room fade-in">
+        <div class="room-top" style="padding-bottom:0;border-bottom:none">
+          <div class="r-label">Master Bathroom</div>
+          <h3>Master Bathroom — Audio</h3>
+          <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:0">Own audio zone — plays independently or syncs with the master bedroom.</p>
+        </div>
+        <div class="room-body" style="padding:16px 36px">
+          <div class="scope-item"><span>MartinLogan In-Ceiling Speakers</span><span>× 2</span></div>
+          <div class="scope-item"><span>Josh Nano Microphone</span><span>× 1</span></div>
+          <div class="scope-item"><span>Speaker prewire + installation</span><span>—</span></div>
+          <div class="scope-item" style="color:var(--text-lighter);font-size:.82rem"><span>Labor</span><span>$835.00</span></div>
+        </div>
+        <div class="room-total" style="padding:16px 36px">
+          <span>Master Bathroom Total</span><span>$2,621.63</span>
+        </div>
+      </div>
+
+      <!-- Patios -->
+      <div class="room fade-in">
+        <div class="room-top" style="padding-bottom:0;border-bottom:none">
+          <div class="r-label">Outdoor</div>
+          <h3>Patio & Master Patio — Outdoor Speakers</h3>
+          <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:0">Hardwired outdoor speakers. Always there, always ready — no Bluetooth, no carrying anything around.</p>
+        </div>
+        <div class="room-body" style="padding:16px 36px">
+          <div class="scope-item"><span>MartinLogan ML-75AW Outdoor Speakers — Patio</span><span>× 2</span></div>
+          <div class="scope-item"><span>MartinLogan ML-75AW Outdoor Speaker — Master Patio</span><span>× 1</span></div>
+          <div class="scope-item"><span>Speaker prewire + weather-resistant installation</span><span>—</span></div>
+          <div class="scope-item" style="color:var(--text-lighter);font-size:.82rem"><span>Labor</span><span>$942.50</span></div>
+        </div>
+        <div class="room-total" style="padding:16px 36px">
+          <span>Patio & Master Patio Total</span><span>$2,727.10</span>
+        </div>
+      </div>
+
+      <!-- Climate -->
+      <div class="room fade-in">
+        <div class="room-top" style="padding-bottom:0;border-bottom:none">
+          <div class="r-label">Climate Control</div>
+          <h3>Smart Thermostats</h3>
+          <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:0">Two ecobee thermostats fully integrated with Josh. "Set the temperature to 72." Done.</p>
+        </div>
+        <div class="room-body" style="padding:16px 36px">
+          <div class="scope-item"><span>ecobee Smart Thermostat</span><span>× 2</span></div>
+          <div class="scope-item"><span>Josh.ai integration + programming</span><span>—</span></div>
+          <div class="scope-item" style="color:var(--text-lighter);font-size:.82rem"><span>Labor</span><span>$130.00</span></div>
+        </div>
+        <div class="room-total" style="padding:16px 36px">
+          <span>Climate Control Total</span><span>$459.22</span>
+        </div>
+      </div>
+
+      <!-- Window Treatments -->
+      <div class="room fade-in">
+        <div class="room-top" style="padding-bottom:0;border-bottom:none">
+          <div class="r-label">Window Treatments</div>
+          <h3>Motorized Shade Prewire</h3>
+          <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:0">Motor wiring run during the renovation — shades added once fabric selections are finalized.</p>
+        </div>
+        <div class="room-body" style="padding:16px 36px">
+          <div class="scope-item"><span>Shade motor prewire — window wall</span><span>—</span></div>
+          <div class="scope-item"><span>Lutron + Josh integration (ready for shade install)</span><span>—</span></div>
+        </div>
+        <div class="room-total" style="padding:16px 36px">
+          <span>Window Treatments Total</span><span>$106.75</span>
+        </div>
+      </div>
+
+      <!-- Grand Total -->
+      <div class="total-bar fade-in" style="margin-top:8px">
+        <div>
+          <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px">Grand Total — All Rooms</div>
+          <div class="t-main">$86,136.06</div>
+          <div class="t-note">Equipment $66,280.88 · Labor $14,375.00 · Tax included</div>
+        </div>
+        <div class="t-sub">
+          <div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-bottom:6px">Not included</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.9">Electrician (high-voltage runs)<br>3rd party monitoring (~$35/mo)</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
