@@ -174,6 +174,22 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
   .sign-card{padding:28px 20px}
   .invest-row{grid-template-columns:1fr 1fr}
 }
+/* Collapsible Scope of Work */
+.scope-toggle-btn {
+  display:flex;align-items:center;gap:8px;
+  background:none;border:none;cursor:pointer;
+  font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;padding:0;font-family:inherit;
+  width:100%;justify-content:space-between;
+}
+.scope-toggle-btn .scope-toggle-icon {
+  width:20px;height:20px;border-radius:50%;
+  border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:transform .3s ease;font-size:14px;line-height:1;color:var(--accent);
+}
+.scope-toggle-btn.open .scope-toggle-icon { transform:rotate(45deg); }
+.scope-details { display:none; margin-top:14px; }
+.scope-details.open { display:flex;flex-direction:column;gap:12px; }
 </style>
 </head>
 <body>
@@ -551,8 +567,8 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
           <h3>Equipment Closet</h3>
           <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:16px">The backbone of the entire system — rack, networking, Josh brain, and all Sonos amplifiers live here invisibly. Includes 4 hours of programming and integration.</p>
           <div style="background:rgba(17,54,101,.04);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;margin-top:4px">
-            <div style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px">Scope of Work</div>
-            <div style="display:flex;flex-direction:column;gap:12px;font-size:.85rem;color:var(--text-light);line-height:1.65">
+            <button class="scope-toggle-btn" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><span>Scope of Work</span><span class="scope-toggle-icon">+</span></button>
+            <div class="scope-details" style="font-size:.85rem;color:var(--text-light);line-height:1.65">
               <div><strong style="color:var(--text)">1. 42U Skeleton Rack Frame (Strong)</strong><br>Installation in a suitable location ensuring floor support, clearance for ventilation, and efficient cable management. Mounted per manufacturer guidelines.</div>
               <div><strong style="color:var(--text)">2. IP UPS Kit — 12 Outlets / 1100VA (Wattbox)</strong><br>Installed within the rack, connected to power supply and network for remote management. Configured for power failure actions and alerts.</div>
               <div><strong style="color:var(--text)">3. Router (Araknis)</strong><br>Installed in rack, connected to network and power. Configured with security parameters, SSID, passwords, and IP settings per network requirements.</div>
@@ -599,8 +615,8 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
           <h3>Whole Home Security</h3>
           <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:16px">AI cameras that announce visitors by description, video doorbell, full Qolsys panel with 4G/LTE backup, and NVR with 6TB local recording — all integrated with Josh.</p>
           <div style="background:rgba(17,54,101,.04);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;margin-top:4px">
-            <div style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px">Scope of Work</div>
-            <div style="display:flex;flex-direction:column;gap:12px;font-size:.85rem;color:var(--text-light);line-height:1.65">
+            <button class="scope-toggle-btn" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><span>Scope of Work</span><span class="scope-toggle-icon">+</span></button>
+            <div class="scope-details" style="font-size:.85rem;color:var(--text-light);line-height:1.65">
               <div><strong style="color:var(--text)">1. Qolsys IQ Panel 4 (IQP4002) — Qty: 1</strong><br>Positioned and mounted at the garage entrance, connected to power and Verizon network. PowerG network configured and all Qolsys security devices enrolled.</div>
               <div><strong style="color:var(--text)">2. Door/Window Sensors (QS1134-840) — Qty: 5</strong><br>Installed at all perimeter doors, properly mounted and positioned for optimal performance. Connected and configured through the IQ Panel.</div>
               <div><strong style="color:var(--text)">3. Wireless PIR Motion Sensors (QS5110-840) — Qty: 2</strong><br>Installed in appropriate interior locations. Connected to the IQ Panel and configured per room-specific needs.</div>
@@ -665,8 +681,8 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
           <h3>Living Room — AV & Voice Control</h3>
           <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:16px">Sonos Arc Ultra soundbar, Sub 4, rear in-wall surround speakers, Josh Nano for voice, and AVPro HDMI distribution for a full cinematic experience.</p>
           <div style="background:rgba(17,54,101,.04);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;margin-top:4px">
-            <div style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px">Scope of Work</div>
-            <div style="display:flex;flex-direction:column;gap:12px;font-size:.85rem;color:var(--text-light);line-height:1.65">
+            <button class="scope-toggle-btn" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><span>Scope of Work</span><span class="scope-toggle-icon">+</span></button>
+            <div class="scope-details" style="font-size:.85rem;color:var(--text-light);line-height:1.65">
               <div><strong style="color:var(--text)">1. MartinLogan IW6 In-Wall Speakers — Qty: 2</strong><br>Positioned for optimal sound quality in the living room. Drilled into walls, securely mounted and wired. All wiring concealed to maintain the room's aesthetic.</div>
               <div><strong style="color:var(--text)">2. Sonos Amp — Qty: 1</strong><br>Installed in a suitable location, accessible but unobtrusive. Connected to speakers and power supply with neatly organized wiring.</div>
               <div><strong style="color:var(--text)">3. Sonos Arc Ultra Soundbar — Qty: 1</strong><br>Installed directly under the TV at optimal listening level. Securely mounted, connected to power supply and TV for best sound quality.</div>
@@ -703,8 +719,8 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
           <h3>Motorized TV Lift — MantelMount</h3>
           <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:16px">"Movie time" lowers the TV to the perfect viewing angle automatically. Full range of motion with one voice command or keypad tap.</p>
           <div style="background:rgba(17,54,101,.04);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;margin-top:4px">
-            <div style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px">Scope of Work</div>
-            <div style="display:flex;flex-direction:column;gap:12px;font-size:.85rem;color:var(--text-light);line-height:1.65">
+            <button class="scope-toggle-btn" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><span>Scope of Work</span><span class="scope-toggle-icon">+</span></button>
+            <div class="scope-details" style="font-size:.85rem;color:var(--text-light);line-height:1.65">
               <div><strong style="color:var(--text)">1. Installation</strong><br>Space inspected prior to installation to confirm it can safely support the mount and TV weight. MAN-MM860V2 carefully unboxed and assembled per manufacturer instructions. Holes drilled into wall studs or masonry to match mounting holes; mount attached using supplied hardware.</div>
               <div><strong style="color:var(--text)">2. Setup & Configuration</strong><br>Height adjusted to the preferred viewing level with multiple adjustments made for optimal comfort. TV securely attached to the mount, confirmed stable and level. All screws and bolts double-checked for security.</div>
               <div><strong style="color:var(--text)">3. Wiring & Cable Management</strong><br>TV power cord and all attached cables concealed and managed — secured to the wall or routed through a cord concealer to maintain a clean look and eliminate trip hazards. Mount positioned for best viewing from all areas of the living room.</div>
@@ -729,8 +745,8 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
           <h3>Kitchen & Dining — Audio & Josh</h3>
           <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:16px">Four in-ceiling speakers fill the open space, a 10" touchscreen gives full home control, and a Josh Nano responds to natural voice commands from anywhere in the kitchen.</p>
           <div style="background:rgba(17,54,101,.04);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;margin-top:4px">
-            <div style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px">Scope of Work</div>
-            <div style="display:flex;flex-direction:column;gap:12px;font-size:.85rem;color:var(--text-light);line-height:1.65">
+            <button class="scope-toggle-btn" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><span>Scope of Work</span><span class="scope-toggle-icon">+</span></button>
+            <div class="scope-details" style="font-size:.85rem;color:var(--text-light);line-height:1.65">
               <div><strong style="color:var(--text)">1. MartinLogan ML-IC8 In-Ceiling Speakers — Qty: 4</strong><br>Positioned for optimal sound distribution — typically the four corners of the kitchen/dining space. Holes drilled at predetermined locations, mounting brackets installed, speakers securely affixed. Each speaker connected to the house audio prewire with proper cable management.</div>
               <div><strong style="color:var(--text)">2. Josh Nano (Coral White) — Qty: 1</strong><br>Installed in a central location for optimal voice pickup, with consideration for appliance noise sources. Secured to the wall using provided hardware, connected to the audio prewire system with wiring neatly concealed.</div>
               <div><strong style="color:var(--text)">3. Josh 10" Touchscreen (Ceramic White) — Qty: 1</strong><br>Positioned near the main work area or kitchen island at a suitable height and angle for easy use. Secured to the wall using provided hardware. Connected to power supply and audio prewire with all cables managed and hidden from view.</div>
@@ -760,8 +776,8 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
           <h3>Master Bedroom — Audio, Josh & TV</h3>
           <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:16px">In-ceiling speakers above the bed handle TV sound and music. A 10" touchscreen and Josh Nano give full control from bed. Say "goodnight" and the whole house responds.</p>
           <div style="background:rgba(17,54,101,.04);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;margin-top:4px">
-            <div style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px">Scope of Work</div>
-            <div style="display:flex;flex-direction:column;gap:12px;font-size:.85rem;color:var(--text-light);line-height:1.65">
+            <button class="scope-toggle-btn" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><span>Scope of Work</span><span class="scope-toggle-icon">+</span></button>
+            <div class="scope-details" style="font-size:.85rem;color:var(--text-light);line-height:1.65">
               <div><strong style="color:var(--text)">1. Josh Nano (Coral White) — Qty: 1</strong><br>Installed at a central location in the master bedroom where it can easily pick up voice commands from any part of the room. Connected to the room's main electrical supply.</div>
               <div><strong style="color:var(--text)">2. Josh 10" Touchscreen (Ceramic White) — Qty: 1</strong><br>Mounted on the wall near the bed or entrance for easy access. Connected to the main power supply and integrated with the home's Wi-Fi network.</div>
               <div><strong style="color:var(--text)">3. Josh Edge — Qty: 1</strong><br>Installed near the Josh Nano and Touchscreen for seamless connectivity. Connected to the main power supply and home Wi-Fi network for local AI processing.</div>
@@ -796,8 +812,8 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
           <h3>Master Bathroom — Audio & Voice</h3>
           <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:16px">Its own audio zone — plays independently or syncs with the bedroom. Voice controlled through the bedroom Josh Nano; no separate device needed.</p>
           <div style="background:rgba(17,54,101,.04);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;margin-top:4px">
-            <div style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px">Scope of Work</div>
-            <div style="display:flex;flex-direction:column;gap:12px;font-size:.85rem;color:var(--text-light);line-height:1.65">
+            <button class="scope-toggle-btn" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><span>Scope of Work</span><span class="scope-toggle-icon">+</span></button>
+            <div class="scope-details" style="font-size:.85rem;color:var(--text-light);line-height:1.65">
               <div><strong style="color:var(--text)">1. Josh Nano (Coral White) — Qty: 1</strong><br>Installed near the vanity for easy access, away from direct water sources. Requires minimal wall drilling for mounting. Connected to the home's Wi-Fi network and configured to control lighting and audio in the master bathroom. Voice recognition, response, and device control tested upon completion.</div>
               <div><strong style="color:var(--text)">2. MartinLogan ML-IC8 In-Ceiling Speakers — Qty: 2</strong><br>Installed in the ceiling at locations optimized for sound dispersion and away from direct water exposure. Precise ceiling cuts made for secure mounting. Wired to the house audio prewire and configured for voice-activated control through Josh. Speaker functionality, sound quality, and Josh integration tested.</div>
               <div><strong style="color:var(--text)">3. House Audio Prewire — Qty: 1</strong><br>Audio wiring run within walls and ceiling to connect ML-IC8 speakers and Josh Nano. All wiring concealed to maintain the bathroom's aesthetics and protected against moisture. Signal transmission and audio quality tested upon completion.</div>
@@ -823,8 +839,8 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
           <h3>Patio — Outdoor Speakers</h3>
           <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:16px">Two hardwired outdoor speakers by the pool and patio. No Bluetooth. No charging. Always ready — voice-activated through Josh from inside the home.</p>
           <div style="background:rgba(17,54,101,.04);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;margin-top:4px">
-            <div style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px">Scope of Work</div>
-            <div style="display:flex;flex-direction:column;gap:12px;font-size:.85rem;color:var(--text-light);line-height:1.65">
+            <button class="scope-toggle-btn" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><span>Scope of Work</span><span class="scope-toggle-icon">+</span></button>
+            <div class="scope-details" style="font-size:.85rem;color:var(--text-light);line-height:1.65">
               <div><strong style="color:var(--text)">1. MartinLogan ML-75AW Outdoor Speakers — Qty: 2</strong><br>Optimal speaker positions identified for best sound quality and coverage across the patio area. Brackets and cables accommodated via drilling, speakers securely mounted using provided hardware. Connected to the audio system with cables protected from outdoor elements and secured against physical damage. Speaker angles adjusted for ideal sound dispersion in the outdoor environment.</div>
               <div><strong style="color:var(--text)">2. House Audio Prewire — Qty: 1</strong><br>Most appropriate location identified for the prewire system installation. Securely mounted with all wiring run from the audio system to the ML-75AW speakers. All wiring carefully hidden and protected for safety and aesthetics. System positioned to be accessible yet protected from outdoor elements.</div>
               <div style="margin-top:8px;padding-top:12px;border-top:1px solid rgba(190,177,162,.3)"><strong style="color:var(--text)">Testing & Commissioning</strong><br>Sound quality of both ML-75AW speakers tested along with full audio prewire system functionality. Connection between speakers and audio system verified. System adjusted and re-tested until optimal sound quality is achieved. Client demonstration provided with full walkthrough of system functionality and operations. All questions addressed and final adjustments made.</div>
@@ -848,8 +864,8 @@ footer .f-contact a{color:var(--accent);text-decoration:none}
           <h3>Master Patio — Outdoor Speaker</h3>
           <p style="font-size:.85rem;color:var(--text-lighter);margin-bottom:16px">One hardwired outdoor speaker for the master patio — its own audio zone, syncs with the rest of the home or plays independently.</p>
           <div style="background:rgba(17,54,101,.04);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;margin-top:4px">
-            <div style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px">Scope of Work</div>
-            <div style="display:flex;flex-direction:column;gap:12px;font-size:.85rem;color:var(--text-light);line-height:1.65">
+            <button class="scope-toggle-btn" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><span>Scope of Work</span><span class="scope-toggle-icon">+</span></button>
+            <div class="scope-details" style="font-size:.85rem;color:var(--text-light);line-height:1.65">
               <div><strong style="color:var(--text)">1. MartinLogan ML-75AW Outdoor Speaker — Qty: 1</strong><br>Installed in a designated dry area with no obstructions, allowing for optimal sound distribution across the master patio. Wall-mounted using secure, robust fixtures. Speaker settings configured to suit the patio's acoustics and user preferences. All wiring concealed to maintain aesthetics and safety.</div>
               <div><strong style="color:var(--text)">2. House Audio Prewire — Qty: 1</strong><br>Wiring and cabling installed systematically in designated areas, establishing all necessary connections for audio equipment. Tailored to the specific layout of the master patio with all cables strategically routed and concealed.</div>
               <div style="margin-top:8px;padding-top:12px;border-top:1px solid rgba(190,177,162,.3)"><strong style="color:var(--text)">Testing & Commissioning</strong><br>Comprehensive testing completed after all installations — sound checks, connectivity tests, and user interface verification. Final commissioning only after successful testing and all adjustments made. Final walkthrough with client demonstrating full functionality and operation of installed equipment.</div>
