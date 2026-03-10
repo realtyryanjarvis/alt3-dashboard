@@ -177,8 +177,8 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
 .si-note{display:block;font-size:.72rem;color:var(--lighter);font-style:italic;margin-top:2px}
 .si-action{display:inline-block;margin-top:6px;font-size:.72rem;font-weight:700;color:var(--green);background:rgba(46,125,50,.08);padding:3px 12px;border-radius:16px;text-decoration:none;transition:all .2s}
 .si-action:hover{background:var(--green);color:#fff}
-.si-action.amber{color:#d4920a;background:rgba(212,146,10,.08)}
-.si-action.amber:hover{background:#d4920a;color:#fff}
+.si-action.amber{color:var(--green);background:rgba(212,146,10,.08)}
+.si-action.amber:hover{background:var(--green);color:#fff}
 @media(max-width:768px){.status-split{grid-template-columns:1fr!important}}
 
 /* Project Process Flow */
@@ -188,7 +188,7 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
 .process-step{display:flex;flex-direction:column;align-items:center;position:relative;z-index:2;flex:1;max-width:130px}
 .step-dot{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;border:3px solid var(--border);background:#fff;transition:all .3s;margin-bottom:12px}
 .step-dot.done{border-color:var(--green);background:var(--green);color:#fff}
-.step-dot.active{border-color:#d4920a;background:#fff8e1;animation:step-pulse 2s infinite}
+.step-dot.active{border-color:var(--green);background:#fff8e1;animation:step-pulse 2s infinite}
 .step-dot.upcoming{border-color:var(--border);background:var(--surface);opacity:.6}
 @keyframes step-pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,146,10,.3)}50%{box-shadow:0 0 0 10px rgba(212,146,10,0)}}
 .step-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);text-align:center;line-height:1.3}
@@ -201,7 +201,7 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
 .ci-content .ci-title{font-weight:600;font-size:.85rem;color:var(--navy)}
 .ci-content .ci-desc{font-size:.78rem;color:var(--dim);margin-top:3px;line-height:1.5}
 .ci-status{margin-left:auto;flex-shrink:0;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:4px 10px;border-radius:4px;white-space:nowrap}
-.ci-status.in-progress{background:#fff8e1;color:#b37a00}
+.ci-status.in-progress{background:#fff8e1;color:var(--green)}
 .ci-status.pending{background:#e3f2fd;color:#1565c0}
 .ci-status.scheduled{background:#f3e5f5;color:#7b1fa2}
 .ci-status.upcoming{background:var(--surface);color:var(--dim)}
@@ -227,20 +227,20 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
 .av-total-box .big{font-size:1.4rem;font-weight:800;color:var(--green)}
 .av-total-box .sub{font-size:.8rem;color:var(--dim);margin-top:4px}
 
-/* Pending Change Order */
-.co-section{border:2px solid #d4920a;border-radius:20px;padding:40px 32px;background:linear-gradient(135deg,#fffcf5,#fef7e8);position:relative;overflow:hidden}
-.co-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#d4920a,#f0b429,#d4920a)}
-.co-badge{display:inline-block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#fff;background:#d4920a;padding:6px 16px;border-radius:20px;margin-bottom:16px}
+/* Change Order #4 — Paid */
+.co-section{border:2px solid var(--green);border-radius:20px;padding:40px 32px;background:linear-gradient(135deg,#f5fff7,#e8fced);position:relative;overflow:hidden}
+.co-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green),#4caf50,var(--green))}
+.co-badge{display:inline-block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--green);padding:6px 16px;border-radius:20px;margin-bottom:16px}
 .co-total-box{text-align:center;padding:24px;background:rgba(212,146,10,.08);border:1px solid rgba(212,146,10,.25);border-radius:12px;margin:24px 0}
-.co-total-box .big{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:#b37a00}
+.co-total-box .big{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--green)}
 .co-total-box .sub{font-size:.82rem;color:var(--dim);margin-top:4px}
-.co-note{font-size:.82rem;color:var(--dim);line-height:1.7;margin:16px 0;padding:12px 16px;background:rgba(212,146,10,.06);border-left:3px solid #d4920a;border-radius:0 8px 8px 0}
-.co-link{display:inline-block;font-size:.75rem;font-weight:600;color:#d4920a;text-decoration:none;margin-top:8px;transition:color .2s}
-.co-link:hover{color:#b37a00}
+.co-note{font-size:.82rem;color:var(--dim);line-height:1.7;margin:16px 0;padding:12px 16px;background:rgba(46,125,50,.06);border-left:3px solid var(--green);border-radius:0 8px 8px 0}
+.co-link{display:inline-block;font-size:.75rem;font-weight:600;color:var(--green);text-decoration:none;margin-top:8px;transition:color .2s}
+.co-link:hover{color:var(--green)}
 
 /* Approval Button */
-.approve-btn{display:inline-flex;align-items:center;gap:8px;background:#d4920a;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .25s var(--ease);box-shadow:0 4px 16px rgba(212,146,10,.35);margin-top:12px}
-.approve-btn:hover{background:#b37a00;transform:translateY(-2px);box-shadow:0 6px 24px rgba(212,146,10,.45)}
+.approve-btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .25s var(--ease);box-shadow:0 4px 16px rgba(212,146,10,.35);margin-top:12px}
+.approve-btn:hover{background:#1b5e20;transform:translateY(-2px);box-shadow:0 6px 24px rgba(46,125,50,.45)}
 .approve-btn.approved{background:var(--green);cursor:default;box-shadow:0 4px 16px rgba(46,125,50,.3)}
 .approve-btn.approved:hover{transform:none;box-shadow:0 4px 16px rgba(46,125,50,.3)}
 
@@ -260,9 +260,9 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
 .modal-actions .cancel:hover{background:var(--border)}
 
 /* Pending row in fin table */
-.fin-table .pending-row td{color:#d4920a;font-style:italic;border-bottom:1px dashed rgba(212,146,10,.4)}
+.fin-table .pending-row td{color:var(--green);font-style:italic;border-bottom:1px dashed rgba(212,146,10,.4)}
 .fin-table .grand-row td{border-top:3px solid var(--navy);font-size:1.1rem;font-weight:800}
-.fin-pending-note{font-size:.75rem;color:#d4920a;margin-top:6px;font-style:italic;padding:0 12px}
+.fin-pending-note{font-size:.75rem;color:var(--green);margin-top:6px;font-style:italic;padding:0 12px}
 
 /* Future Enhancements */
 .future-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px}
@@ -346,11 +346,11 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
         <span style="font-size:1rem">📍</span> Project Progress — Final Punch &amp; Handoff
       </a>
       <!-- Pending CO Banner -->
-      <a href="#change-order" style="display:inline-flex;align-items:center;gap:10px;background:#d4920a;color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-size:.95rem;font-weight:700;box-shadow:0 4px 20px rgba(212,146,10,.4);transition:all .25s;animation:pulse-co 2s infinite">
-        <span style="font-size:1.2rem">⚠️</span> Pending Change Order — $28,604.28 — Review & Approve
+      <a href="#change-order" style="display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-size:.95rem;font-weight:700;box-shadow:0 4px 20px rgba(46,125,50,.4);transition:all .25s;">
+        <span style="font-size:1.2rem">⚠️</span> Change Order #4 — Paid — $28,604.28 — Review & Approve
       </a>
     </div>
-    <style>@keyframes pulse-co{0%,100%{box-shadow:0 4px 20px rgba(212,146,10,.4)}50%{box-shadow:0 4px 30px rgba(212,146,10,.65)}}</style>
+    <style>@keyframes pulse-co{0%,100%{box-shadow:0 4px 20px rgba(46,125,50,.4)}50%{box-shadow:0 4px 30px rgba(212,146,10,.65)}}</style>
 
     <a href="#dashboard" class="hero-scroll" aria-label="Scroll down" style="margin-top:24px"></a>
   </div>
@@ -381,7 +381,7 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
           <span style="color:var(--dim)">Change Orders (#1–#3)</span><span style="font-weight:600;color:var(--navy)">Included Above</span>
         </div>
         <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.88rem;background:#fffcf5">
-          <span style="color:#b37a00;font-weight:500">⚠️ Pending Change Order</span><span style="font-weight:600;color:#b37a00">$28,604.28</span>
+          <span style="color:var(--green);font-weight:500">⚠️ Change Order #4 — Paid</span><span style="font-weight:600;color:var(--green)">$28,604.28</span>
         </div>
         <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.88rem">
           <span style="color:var(--dim)">Paid to Date</span><span style="font-weight:600;color:var(--green)">$195,869.15</span>
@@ -390,7 +390,7 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
           <span style="color:var(--dim)">Remaining Balance</span><span style="font-weight:600;color:var(--red)">$24,376.44</span>
         </div>
         <div style="display:flex;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);font-size:.85rem;background:#fffcf5">
-          <span style="color:#b37a00;padding-left:12px">Remaining if CO Approved</span><span style="font-weight:600;color:#b37a00">$52,980.72</span>
+          <span style="color:var(--green);padding-left:12px">Remaining Balance</span><span style="font-weight:600;color:var(--green)">$52,980.72</span>
         </div>
         <div style="display:flex;justify-content:space-between;padding:14px 24px;font-size:.88rem;background:rgba(21,101,192,.03)">
           <span style="color:var(--blue);font-weight:500">Alt3 Value Added</span><span style="font-weight:600;color:var(--blue)">~$37,000</span>
@@ -563,11 +563,11 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
         <div class="tl-desc">Proposal #119 — Sonance speakers removed (-$5,426.62). Replaced by Origin Acoustics in Josh.ai scope.</div>
         <a class="tl-link" href="https://drive.google.com/file/d/1NdRh2UW62Te1vTy4uQoW7saiF97zMx5_/view" target="_blank">View Updated Pre-Wire →</a>
       </div>
-      <div class="tl-item fade-in" style="border-left-color:#d4920a">
-        <div class="tl-date" style="color:#b37a00">March 5, 2026</div>
-        <div class="tl-title" style="color:#b37a00">⚠️ Change Order #4 — Pending Approval</div>
-        <div class="tl-desc">Outdoor speakers, garage camera, TV mounts &amp; media (Rec Room, Living Room, Master Bedroom, Gym), Josh Touchscreen, Office &amp; Patio LED lighting. $28,604.28 — awaiting client approval.</div>
-        <a class="tl-link" href="#change-order" style="color:#d4920a">Review &amp; Approve →</a>
+      <div class="tl-item fade-in" style="border-left-color:var(--green)">
+        <div class="tl-date" style="color:var(--green)">March 5, 2026</div>
+        <div class="tl-title" style="color:var(--green)">⚠️ Change Order #4 — Paid</div>
+        <div class="tl-desc">Outdoor speakers, garage camera, TV mounts &amp; media (Rec Room, Living Room, Master Bedroom, Gym), Josh Touchscreen, Office &amp; Patio LED lighting. $28,604.28 — Paid.</div>
+        <a class="tl-link" href="#change-order" style="color:var(--green)">Review &amp; Approve →</a>
       </div>
     </div>
   </div>
@@ -884,40 +884,40 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
       </div>
 
       <!-- Change Order #4 — Pending -->
-      <div class="scope-card" style="border-color:#d4920a;border-width:2px;background:#fffcf5">
+      <div class="scope-card" style="border-color:var(--green);border-width:2px;background:#fffcf5">
         <div class="scope-header" onclick="toggleCard(this)" style="background:linear-gradient(135deg,#fff8e1,#ffecb3)">
           <div class="scope-header-left">
             <div class="scope-num" style="background:#d4920a">CO4</div>
-            <div class="scope-info"><h3 style="color:#b37a00">Change Order #4 — Pending Approval</h3><div class="scope-sub">Outdoor Speakers, Garage Camera, TV Mounts &amp; AV, Josh Touchscreen, LED Lighting — 8 Areas</div></div>
+            <div class="scope-info"><h3 style="color:var(--green)">Change Order #4 — Paid</h3><div class="scope-sub">Outdoor Speakers, Garage Camera, TV Mounts &amp; AV, Josh Touchscreen, LED Lighting — 8 Areas</div></div>
           </div>
           <div class="scope-header-right">
-            <div class="scope-total" style="color:#b37a00;font-size:1.1rem">$28,604.28</div>
+            <div class="scope-total" style="color:var(--green);font-size:1.1rem">$28,604.28</div>
             <div class="scope-chevron">▼</div>
           </div>
         </div>
         <div class="scope-body">
-          <div class="note-box" style="border-left-color:#d4920a;background:rgba(212,146,10,.06)"><strong style="color:#b37a00">Awaiting Approval</strong> — Bailey add-ons proposal dated March 5, 2026.</div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Outdoor Speakers — Equipment Room</span><span class="room-amt">$1,311.00</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Garage Camera — Equipment Room</span><span class="room-amt">$537.49</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Rec Room — TV Mount &amp; Media</span><span class="room-amt">$1,576.97</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Living Room — Full AV System</span><span class="room-amt">$8,366.94</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Master Bedroom — TV Mount, Josh Touchscreen &amp; Media</span><span class="room-amt">$2,791.16</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Office — LED Linear Stair Tread Lighting</span><span class="room-amt">$427.50</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Patio — Outdoor LED Stair &amp; Porch Lighting</span><span class="room-amt">$4,512.50</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Gym — TV Mounts &amp; Media (x2)</span><span class="room-amt">$2,541.94</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Closet Lighting — Plug-in Dimmers (added 2/9/26)</span><span class="room-amt">$514.00</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Wireless Occupancy Sensor (added 3/5/26)</span><span class="room-amt">$105.00</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Porch Heater Dimmers (added 3/6/26)</span><span class="room-amt">$594.00</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Ketra S30 Trims — Guest Room (added 3/6/26)</span><span class="room-amt">$600.00</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>LRF2 Occ Sensor — Master Hall (added 3/6/26)</span><span class="room-amt">$118.65</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Security System (added 3/6/26)</span><span class="room-amt">$3,427.62</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>Shade Installation Labor</span><span class="room-amt">$765.00</span></div>
-          <div class="room-hdr" style="border-left-color:#d4920a"><span>D8 Duracell Shade Batteries</span><span class="room-amt">$414.50</span></div>
+          <div class="note-box" style="border-left-color:var(--green);background:rgba(212,146,10,.06)"><strong style="color:var(--green)">Awaiting Approval</strong> — Bailey add-ons proposal dated March 5, 2026.</div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Outdoor Speakers — Equipment Room</span><span class="room-amt">$1,311.00</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Garage Camera — Equipment Room</span><span class="room-amt">$537.49</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Rec Room — TV Mount &amp; Media</span><span class="room-amt">$1,576.97</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Living Room — Full AV System</span><span class="room-amt">$8,366.94</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Master Bedroom — TV Mount, Josh Touchscreen &amp; Media</span><span class="room-amt">$2,791.16</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Office — LED Linear Stair Tread Lighting</span><span class="room-amt">$427.50</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Patio — Outdoor LED Stair &amp; Porch Lighting</span><span class="room-amt">$4,512.50</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Gym — TV Mounts &amp; Media (x2)</span><span class="room-amt">$2,541.94</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Closet Lighting — Plug-in Dimmers (added 2/9/26)</span><span class="room-amt">$514.00</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Wireless Occupancy Sensor (added 3/5/26)</span><span class="room-amt">$105.00</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Porch Heater Dimmers (added 3/6/26)</span><span class="room-amt">$594.00</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Ketra S30 Trims — Guest Room (added 3/6/26)</span><span class="room-amt">$600.00</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>LRF2 Occ Sensor — Master Hall (added 3/6/26)</span><span class="room-amt">$118.65</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Security System (added 3/6/26)</span><span class="room-amt">$3,427.62</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>Shade Installation Labor</span><span class="room-amt">$765.00</span></div>
+          <div class="room-hdr" style="border-left-color:var(--green)"><span>D8 Duracell Shade Batteries</span><span class="room-amt">$414.50</span></div>
           <div style="margin-top:16px;padding:14px;background:rgba(212,146,10,.06);border-radius:8px;border:1px solid rgba(212,146,10,.2)">
-            <div class="area-total" style="border-color:#d4920a"><span>Change Order #4 Total (no tax)</span><span class="amt" style="color:#b37a00">$28,604.28</span></div>
+            <div class="area-total" style="border-color:var(--green)"><span>Change Order #4 Total (no tax)</span><span class="amt" style="color:var(--green)">$28,604.28</span></div>
           </div>
           <div style="text-align:center;margin-top:16px">
-            <a href="#change-order" style="display:inline-block;background:#d4920a;color:#fff;padding:10px 24px;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;transition:background .2s">Review &amp; Approve →</a>
+            <a href="#change-order" style="display:inline-block;background:var(--green);color:#fff;padding:10px 24px;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;transition:background .2s">Review &amp; Approve →</a>
           </div>
         </div>
       </div>
@@ -957,9 +957,9 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
       </div>
       <div class="change-card fade-in" style="border:2px solid #d4920a;background:#fffcf5">
         <div class="icon">⚠️</div>
-        <h3 style="color:#b37a00">Pending: AV &amp; Media Package</h3>
-        <p>Outdoor speakers, garage camera, TV mounts &amp; media (Rec Room, Living Room, Master Bedroom, Gym), Josh Touchscreen, Office LED lighting, Patio LED stair lights. <strong style="color:#b37a00">$28,604.28 — awaiting approval.</strong></p>
-        <a href="#change-order" style="display:inline-block;margin-top:8px;font-size:.78rem;font-weight:600;color:#d4920a;text-decoration:none">Review &amp; Approve →</a>
+        <h3 style="color:var(--green)">Pending: AV &amp; Media Package</h3>
+        <p>Outdoor speakers, garage camera, TV mounts &amp; media (Rec Room, Living Room, Master Bedroom, Gym), Josh Touchscreen, Office LED lighting, Patio LED stair lights. <strong style="color:var(--green)">$28,604.28 — Paid.</strong></p>
+        <a href="#change-order" style="display:inline-block;margin-top:8px;font-size:.78rem;font-weight:600;color:var(--green);text-decoration:none">Review &amp; Approve →</a>
       </div>
     </div>
   </div>
@@ -1000,17 +1000,17 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
 <!-- Project Status section consolidated into Added Value -->
 
 
-<!-- Pending Change Order -->
+<!-- Change Order #4 — Paid -->
 <section id="change-order">
   <div class="container">
     <div class="fade-in" style="text-align:center;max-width:600px;margin:0 auto;margin-bottom:40px">
       <div class="section-label">Action Required</div>
-      <div class="section-title">Pending Change Order — <strong>Approval Required</strong></div>
+      <div class="section-title">Change Order #4 — <strong>Paid</strong></div>
       <div class="section-desc" style="margin:0 auto">Bailey add-ons proposal dated March 5, 2026. Review the room-by-room breakdown below.</div>
     </div>
     <div class="fade-in" style="max-width:800px;margin:0 auto">
       <div class="co-section">
-        <div class="co-badge">⚡ Pending Approval</div>
+        <div class="co-badge">⚡ Paid</div>
         <h2 style="font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:4px">Bailey Add-Ons — March 5, 2026</h2>
         <p style="font-size:.82rem;color:var(--dim);margin-bottom:8px">Outdoor speakers, garage camera, TV mounts &amp; media (Rec Room, Living Room, Master Bedroom, Gym), Josh Touchscreen, Office LED linear lighting, Patio outdoor LED stair &amp; porch lighting — 8 areas.</p>
 
@@ -1098,7 +1098,7 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
             <div style="font-size:.78rem;color:var(--dim);margin-top:4px">D8 Duracell batteries for motorized shades · Added 3/6/26</div>
           </div>
           <div style="padding:14px 16px;background:rgba(212,146,10,.1);border-radius:0 0 8px 8px">
-            <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1rem;color:#b37a00"><span>Change Order #4 Total (no tax)</span><span>$28,604.28</span></div>
+            <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1rem;color:var(--green)"><span>Change Order #4 Total (no tax)</span><span>$28,604.28</span></div>
           </div>
         </div>
 
@@ -1128,14 +1128,14 @@ footer .tagline{font-size:.72rem;color:var(--lighter);letter-spacing:2px;text-tr
           <tr><td>Section 5 — Lighting (Proposal #106 + CO #1 & #2)</td><td>$132,174.43</td></tr>
           <tr><td>Section 6 — Change Order #3 (Proposal #114)</td><td>$14,318.50</td></tr>
           <tr class="total-row"><td>Current Total</td><td>$220,245.89</td></tr>
-          <tr class="pending-row"><td>⏳ Pending Change Order (Mar 5, 2026)</td><td>$28,604.28</td></tr>
-          <tr class="grand-row"><td>Including Pending CO</td><td>$248,850.17</td></tr>
+          <tr class="pending-row"><td>✅ Change Order #4 — Paid (Mar 5, 2026)</td><td>$28,604.28</td></tr>
+          <tr class="grand-row"><td>Total Approved Scopes</td><td>$248,850.17</td></tr>
         </table>
         <div class="fin-divider"></div>
         <div class="fin-row paid"><span>Paid to Date</span><span>$195,869.45</span></div>
         <div class="fin-divider"></div>
         <div class="fin-final"><span class="label">Remaining Balance</span><span class="amount">$24,376.44</span></div>
-        <div class="fin-pending-note">⏳ Pending change order of $28,604.28 not yet included in remaining balance — awaiting approval.</div>
+        
       </div>
     </div>
   </div>
