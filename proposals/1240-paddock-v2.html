@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1240 Paddock Avenue — Alt3 Smart Homes</title>
+<link rel="preconnect" href="https://fonts.cdnfonts.com">
+<style>
+@import url('https://fonts.cdnfonts.com/css/neue-montreal');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --accent:#113665;--accent-light:#1a4a8a;--accent-dark:#0c264a;
+  --taupe:#BEB1A2;--cream:#E1D8CE;
+  --bg:#FFFFFF;--white:#FFFFFF;--cream-bg:#E1D8CE;--text:#1a1a1a;--text-light:#555;--text-lighter:#888;
+  --green:#2e7d32;
+  --section-gap:120px;--ease:cubic-bezier(.25,.46,.45,.94);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Neue Montreal',-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all .4s var(--ease)}
+nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(20px);box-shadow:0 1px 20px rgba(0,0,0,.06);padding:12px 0}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:.08em;color:var(--text)}
+.nav-logo span{color:var(--accent)}
+.nav-badge{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);border:1px solid var(--taupe);padding:4px 12px;border-radius:20px}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(135deg,#0c264a 0%,#113665 50%,#1a4a8a 100%)}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,255,255,.04) 0%,transparent 70%)}
+.hero-content{position:relative;z-index:2;max-width:800px;padding:120px 24px 80px}
+.hero-prepared{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.2);padding:8px 20px;border-radius:30px;margin-bottom:32px}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px;color:#fff}
+.hero h1 strong{font-weight:700}
+.hero .sub{font-size:1.15rem;color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 48px}
+.hero-stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-top:48px;padding-top:48px;border-top:1px solid rgba(255,255,255,.12)}
+.hero-stat .val{font-size:2rem;font-weight:700;color:#fff}
+.hero-stat .lbl{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
+
+/* Section */
+section{padding:var(--section-gap) 0}
+section:nth-child(even){background:var(--cream-bg)}
+.section-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:600}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.15;margin-bottom:20px;letter-spacing:-.01em}
+.section-title strong{font-weight:700}
+.section-subtitle{font-size:1.05rem;color:var(--text-light);max-width:600px;line-height:1.7}
+
+/* Problem cards */
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;margin-top:60px}
+.problem-card{padding:32px;border-radius:16px;background:var(--bg);border:1px solid var(--taupe)}
+.problem-card .icon{font-size:2rem;margin-bottom:16px}
+.problem-card h3{font-size:1rem;font-weight:600;margin-bottom:8px}
+.problem-card p{font-size:.9rem;color:var(--text-light)}
+
+/* Voice */
+.voice-commands{margin-top:60px;display:flex;flex-direction:column;gap:24px}
+.voice-cmd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding:28px 32px;border-radius:16px;background:var(--white);border:1px solid rgba(190,177,162,.3);box-shadow:0 2px 20px rgba(0,0,0,.03);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.voice-cmd:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.06)}
+.voice-cmd .cmd{font-size:1.3rem;font-weight:300;font-style:italic;color:var(--text);text-align:right}
+.voice-cmd .cmd::before{content:'"'}.voice-cmd .cmd::after{content:'"'}
+.voice-cmd .arrow{color:var(--accent);font-size:1.2rem}
+.voice-cmd .result{font-size:.85rem;color:var(--text-light);line-height:1.6}
+
+/* Split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.split.reverse{direction:rtl}.split.reverse>*{direction:ltr}
+@media(max-width:900px){.split,.split.reverse{grid-template-columns:1fr;gap:40px}}
+
+/* Video */
+.video-embed{position:relative;width:100%;max-width:900px;margin:48px auto 0;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.08);aspect-ratio:16/9;background:#000}
+.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+
+/* Security grid */
+.security-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:48px}
+.sec-card{padding:28px;border-radius:16px;background:var(--white);border:1px solid rgba(190,177,162,.3);text-align:center}
+.sec-card .sec-icon{font-size:2.2rem;margin-bottom:12px}
+.sec-card h4{font-size:.95rem;font-weight:600;margin-bottom:6px}
+.sec-card p{font-size:.8rem;color:var(--text-light)}
+
+/* Investment */
+.invest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:48px}
+.invest-card{text-align:center;padding:40px 24px;border-radius:20px;background:var(--white);border:1px solid rgba(190,177,162,.4);box-shadow:0 4px 30px rgba(0,0,0,.04);transition:transform .3s var(--ease)}
+.invest-card:hover{transform:translateY(-4px)}
+.invest-card .val{font-size:2.2rem;font-weight:700;color:var(--accent)}
+.invest-card .desc{font-size:.85rem;color:var(--text-light);margin-top:8px}
+
+/* Total bar */
+.total-bar{margin-top:40px;background:linear-gradient(135deg,var(--accent-dark),var(--accent));border-radius:20px;padding:40px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;color:#fff}
+.total-bar .t-main{font-size:3rem;font-weight:700;line-height:1}
+.total-bar .t-note{font-size:.85rem;color:rgba(255,255,255,.6);margin-top:6px}
+.total-bar .t-sub{text-align:right}
+.total-bar .t-sub-val{font-size:1.5rem;font-weight:600;color:rgba(255,255,255,.85)}
+.total-bar .t-sub-label{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:4px}
+
+/* Process */
+.process-steps{display:flex;gap:0;margin-top:60px;overflow-x:auto;padding-bottom:8px}
+.process-step{flex:1;min-width:160px;text-align:center;position:relative;padding:0 16px}
+.process-step::before{content:'';position:absolute;top:20px;left:0;right:0;height:2px;background:var(--taupe)}
+.process-step:first-child::before{left:50%}.process-step:last-child::before{right:50%}
+.process-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;position:relative;z-index:1;margin-bottom:16px}
+.process-step h4{font-size:.9rem;font-weight:600;margin-bottom:4px}
+.process-step p{font-size:.75rem;color:var(--text-light)}
+
+/* Scope panels */
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scope-tabs{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;margin-top:48px}
+.scope-tab{padding:10px 24px;border-radius:50px;border:1.5px solid var(--taupe);font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;background:transparent;font-family:inherit;color:var(--text-light);letter-spacing:.03em}
+.scope-tab:hover{border-color:var(--accent);color:var(--accent)}
+.scope-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.scope-panel{display:none;animation:fadeSlideIn .35s ease}
+.scope-panel.active{display:block}
+.scope-detail{background:var(--white);border:1px solid rgba(190,177,162,.3);border-radius:16px;padding:32px;box-shadow:0 4px 30px rgba(0,0,0,.06)}
+.scope-detail-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(190,177,162,.3)}
+.scope-detail-header h3{font-size:1.15rem;font-weight:600}
+.scope-detail-note{font-size:.82rem;color:var(--accent);background:rgba(17,54,101,.06);padding:12px 16px;border-radius:8px;margin-bottom:24px;border-left:3px solid var(--accent)}
+.scope-room{margin-bottom:12px}
+.scope-room-header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:rgba(190,177,162,.1);border-radius:10px;font-weight:500;font-size:.9rem;cursor:pointer;transition:background .2s}
+.scope-room-header:hover{background:rgba(190,177,162,.2)}
+.scope-room-total{font-weight:700;color:var(--accent)}
+.scope-items{padding:8px 16px}
+.scope-item{display:flex;justify-content:space-between;padding:8px 0;font-size:.85rem;color:var(--text);border-bottom:1px solid rgba(190,177,162,.15)}
+.scope-item:last-child{border-bottom:none}
+.scope-item span:last-child{font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap;margin-left:16px}
+.scope-item.sub{padding-left:16px;color:var(--text-light);font-size:.82rem}
+.scope-item.dim{color:var(--text-lighter);font-size:.8rem}
+.scope-total-row{display:flex;justify-content:space-between;padding:20px 16px;margin-top:16px;border-top:2px solid var(--accent);font-size:1.1rem;font-weight:700;color:var(--accent)}
+
+/* Lighting table */
+.ltg-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.85rem}
+.ltg-table th{text-align:left;padding:10px 12px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-lighter);border-bottom:2px solid rgba(190,177,162,.4);font-weight:600}
+.ltg-table th:last-child,.ltg-table td:last-child{text-align:right}
+.ltg-table td{padding:10px 12px;border-bottom:1px solid rgba(190,177,162,.15);color:var(--text)}
+.ltg-table tr:last-child td{border-bottom:none}
+.ltg-table tr.total-row td{font-weight:700;color:var(--accent);border-top:2px solid var(--accent);padding-top:14px;border-bottom:none}
+.ltg-table tr:hover td{background:rgba(190,177,162,.07)}
+
+/* Signature */
+.sig-section{background:var(--accent);border-radius:24px;padding:60px 48px;color:#fff;text-align:center}
+.sig-section h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;margin-bottom:12px}
+.sig-section h2 strong{font-weight:700}
+.sig-section p{color:rgba(255,255,255,.7);margin-bottom:40px;font-size:1rem}
+.sig-form{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.sig-form input{padding:14px 20px;border-radius:10px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-family:inherit;font-size:.95rem;outline:none;transition:border .2s}
+.sig-form input::placeholder{color:rgba(255,255,255,.4)}
+.sig-form input:focus{border-color:rgba(255,255,255,.5)}
+.sig-canvas-wrap{border-radius:10px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.95);overflow:hidden}
+.sig-canvas-wrap canvas{display:block;width:100%;cursor:crosshair}
+.sig-actions{display:flex;gap:12px}
+.sig-btn{flex:1;padding:14px;border-radius:10px;border:none;font-family:inherit;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s}
+.sig-btn.submit{background:#fff;color:var(--accent)}
+.sig-btn.submit:hover{background:rgba(255,255,255,.9)}
+.sig-btn.clear{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2)}
+.sig-btn.clear:hover{background:rgba(255,255,255,.15)}
+
+/* Footer */
+footer{text-align:center;padding:60px 24px;background:var(--cream-bg);border-top:1px solid var(--taupe)}
+footer .brand{font-size:.9rem;font-weight:700;letter-spacing:.08em;margin-bottom:8px}
+footer .brand span{color:var(--accent)}
+footer .contact{font-size:.75rem;color:var(--text-lighter);line-height:2}
+footer .contact a{color:var(--accent);text-decoration:none}
+
+@media(max-width:768px){
+  :root{--section-gap:72px}
+  .hero-stats{gap:24px}
+  .voice-cmd{grid-template-columns:1fr;text-align:center;gap:12px;padding:20px}
+  .voice-cmd .cmd{text-align:center;font-size:1.1rem}
+  .voice-cmd .arrow{display:none}
+  .total-bar{flex-direction:column;padding:28px 24px}
+  .total-bar .t-sub{text-align:left}
+  .sig-section{padding:40px 24px}
+  .scope-detail{padding:20px 16px}
+  .scope-detail-header{flex-direction:column;gap:12px;align-items:flex-start}
+  .ltg-table th:nth-child(2),.ltg-table td:nth-child(2){display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-logo">ALT<span>3</span></div>
+    <div class="nav-badge">Prepared for Ann Milgrom</div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-prepared">Prepared exclusively for Ann Milgrom · 1240 Paddock Avenue · Charlotte</div>
+    <h1>Your Home,<br><strong>Reimagined</strong></h1>
+    <p class="sub">A complete smart home ecosystem — lighting, audio, security, climate, and voice intelligence — designed around how you actually live.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="val">$189,234</div><div class="lbl">Total Investment</div></div>
+      <div class="hero-stat"><div class="val">19</div><div class="lbl">Rooms Covered</div></div>
+      <div class="hero-stat"><div class="val">1</div><div class="lbl">Voice. Controls Everything.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem -->
+<section id="problem">
+  <div class="container">
+    <div class="section-label">The Challenge</div>
+    <div class="section-title">Your home has dozens of systems.<br><strong>None of them talk to each other.</strong></div>
+    <div class="section-subtitle">Lighting, audio, climate, security, shades — each on its own app, its own remote, its own logic. The technology exists to change that. This proposal shows you exactly what that looks like at 1240 Paddock.</div>
+    <div class="problem-grid">
+      <div class="problem-card fade-in">
+        <div class="icon">🔀</div>
+        <h3>Fragmented Systems</h3>
+        <p>Six apps, four remotes, two hubs. Every system speaks its own language and answers to no one.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="icon">⏱</div>
+        <h3>Lost Time</h3>
+        <p>Adjusting lights, setting the thermostat, arming security — 150+ micro-decisions every single day.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="icon">✨</div>
+        <h3>The Opportunity</h3>
+        <p>One voice. One system. Everything talks. The home responds to you — not the other way around.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Josh.ai -->
+<section id="intelligence" style="background:var(--cream-bg)">
+  <div class="container">
+    <div class="section-label">Voice Intelligence</div>
+    <div class="section-title">Meet Your Home's <strong>Intelligence Layer</strong></div>
+    <div class="section-subtitle">Josh.ai understands natural language. No keywords, no programmed routines. Just speak naturally — your home responds.</div>
+    <div class="voice-commands" style="margin-top:48px">
+      <div class="voice-cmd fade-in">
+        <div class="cmd">Good morning</div>
+        <div class="arrow">→</div>
+        <div class="result">Shades open to your preferred level. Lights come up to energizing daylight tones. Coffee schedule activates. HVAC shifts to day mode.</div>
+      </div>
+      <div class="voice-cmd fade-in">
+        <div class="cmd">Movie time in the bonus room</div>
+        <div class="arrow">→</div>
+        <div class="result">Shades close. Lights dim to cinematic levels. Anthem receiver powers on. Surround speakers activate. TV switches input automatically.</div>
+      </div>
+      <div class="voice-cmd fade-in">
+        <div class="cmd">Play something in the kitchen</div>
+        <div class="arrow">→</div>
+        <div class="result">Your preferred music service picks up in the kitchen zone — independent of whatever's playing elsewhere in the house.</div>
+      </div>
+      <div class="voice-cmd fade-in">
+        <div class="cmd">Goodnight</div>
+        <div class="arrow">→</div>
+        <div class="result">Every light off. Doors locked. Security armed. Thermostat to sleep mode. One word — the whole house responds.</div>
+      </div>
+    </div>
+    <div class="video-embed fade-in">
+      <iframe src="https://www.youtube.com/embed/OEnkdHUWcM8?rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Lighting -->
+<section id="lighting">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="section-label">Lutron Homeworks</div>
+        <div class="section-title">Light That <strong>Thinks</strong></div>
+        <div class="section-subtitle">Ketra tunable white technology follows your circadian rhythm — energizing daylight in the morning, warm candlelight at dinner, perfect dim for movies. Sunnata keypads throughout. 56 Ketra and Rania fixtures that never look the same twice.</div>
+        <div style="margin-top:32px;display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:flex-start;gap:16px;padding:20px;background:rgba(17,54,101,.04);border-radius:12px;border-left:3px solid var(--accent)">
+            <span style="font-size:1.4rem">🌅</span>
+            <div><strong style="font-size:.9rem">Circadian Tuning</strong><br><span style="font-size:.82rem;color:var(--text-light)">Ketra D2 and D3 fixtures shift color temperature automatically throughout the day — no manual adjustment needed.</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:16px;padding:20px;background:rgba(17,54,101,.04);border-radius:12px;border-left:3px solid var(--accent)">
+            <span style="font-size:1.4rem">🎛</span>
+            <div><strong style="font-size:.9rem">Sunnata Keypads</strong><br><span style="font-size:.82rem;color:var(--text-light)">21 Sunnata keypads — hybrid and 4-button — engraved and flush. Every room has a single elegant control point.</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:16px;padding:20px;background:rgba(17,54,101,.04);border-radius:12px;border-left:3px solid var(--accent)">
+            <span style="font-size:1.4rem">🎙</span>
+            <div><strong style="font-size:.9rem">Voice Controlled</strong><br><span style="font-size:.82rem;color:var(--text-light)">All lighting responds to Josh.ai voice commands and scenes. "Entertaining mode" — one command, the whole home shifts.</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="background:linear-gradient(135deg,var(--accent-dark),var(--accent));border-radius:24px;padding:40px 32px;color:#fff">
+          <div style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:24px">Lighting at a Glance</div>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)"><span style="font-size:.9rem;color:rgba(255,255,255,.8)">Ketra D3 Fixtures</span><span style="font-weight:700">8 × $1,200</span></div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)"><span style="font-size:.9rem;color:rgba(255,255,255,.8)">Ketra D2 Fixtures</span><span style="font-weight:700">30 × $997.50</span></div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)"><span style="font-size:.9rem;color:rgba(255,255,255,.8)">Rania D2 Fixtures</span><span style="font-weight:700">26 × $728</span></div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)"><span style="font-size:.9rem;color:rgba(255,255,255,.8)">Sunnata Keypads</span><span style="font-weight:700">21 total</span></div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)"><span style="font-size:.9rem;color:rgba(255,255,255,.8)">HRST-PRO Dimmers</span><span style="font-weight:700">30 × $293</span></div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)"><span style="font-size:.9rem;color:rgba(255,255,255,.8)">HW Processors + Panel</span><span style="font-weight:700">Included</span></div>
+            <div style="display:flex;justify-content:space-between;padding-top:8px"><span style="font-size:1rem;font-weight:700">Lighting Total</span><span style="font-size:1.3rem;font-weight:700">$86,970.50</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Audio -->
+<section id="audio" style="background:var(--cream-bg)">
+  <div class="container">
+    <div class="split reverse">
+      <div>
+        <div class="section-label">MartinLogan Audio</div>
+        <div class="section-title">Sound That <strong>Surrounds</strong></div>
+        <div class="section-subtitle">Whole-home audio with architectural MartinLogan speakers in every room. From background music in the kitchen to full Anthem surround in the bonus room — all voice controlled, all seamlessly zoned.</div>
+        <div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div style="padding:20px;background:var(--white);border-radius:12px;border:1px solid rgba(190,177,162,.3);text-align:center"><div style="font-size:1.6rem;font-weight:700;color:var(--accent)">13</div><div style="font-size:.8rem;color:var(--text-light)">Audio Zones</div></div>
+          <div style="padding:20px;background:var(--white);border-radius:12px;border:1px solid rgba(190,177,162,.3);text-align:center"><div style="font-size:1.6rem;font-weight:700;color:var(--accent)">7.1</div><div style="font-size:.8rem;color:var(--text-light)">Bonus Room Surround</div></div>
+          <div style="padding:20px;background:var(--white);border-radius:12px;border:1px solid rgba(190,177,162,.3);text-align:center"><div style="font-size:1.6rem;font-weight:700;color:var(--accent)">Anthem</div><div style="font-size:.8rem;color:var(--text-light)">MRX 740 8K Receiver</div></div>
+          <div style="padding:20px;background:var(--white);border-radius:12px;border:1px solid rgba(190,177,162,.3);text-align:center"><div style="font-size:1.6rem;font-weight:700;color:var(--accent)">Sonos</div><div style="font-size:.8rem;color:var(--text-light)">Multi-room Streaming</div></div>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--white);border-radius:20px;padding:32px;border:1px solid rgba(190,177,162,.3);box-shadow:0 8px 40px rgba(0,0,0,.06)">
+          <div style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;font-weight:600">Room by Room</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:.88rem">
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(190,177,162,.15)"><span>Bonus Room (7.1 Theater)</span><span style="font-weight:600;color:var(--accent)">$21,084.66</span></div>
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(190,177,162,.15)"><span>Owner's Bedroom</span><span style="font-weight:600;color:var(--accent)">$8,377.59</span></div>
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(190,177,162,.15)"><span>Kitchen</span><span style="font-weight:600;color:var(--accent)">$6,036.05</span></div>
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(190,177,162,.15)"><span>Covered Porch</span><span style="font-weight:600;color:var(--accent)">$3,954.54</span></div>
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(190,177,162,.15)"><span>Gym / Flex</span><span style="font-weight:600;color:var(--accent)">$4,631.86</span></div>
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(190,177,162,.15)"><span>Living Room</span><span style="font-weight:600;color:var(--accent)">$5,602.33</span></div>
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(190,177,162,.15)"><span>Pergola + Firepit</span><span style="font-weight:600;color:var(--accent)">$2,597.39</span></div>
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(190,177,162,.15)"><span>Owner's Bathroom + Lounge + Office</span><span style="font-weight:600;color:var(--accent)">$4,267.64</span></div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0 0"><span style="font-weight:600">AV + Equipment Total</span><span style="font-weight:700;color:var(--accent);font-size:1rem">$102,264.40</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Security -->
+<section id="security">
+  <div class="container">
+    <div class="section-label">Protection</div>
+    <div class="section-title">Security That <strong>Watches</strong></div>
+    <div class="section-subtitle" style="margin:0 auto">AI-powered cameras, smart sensors, and video doorbells — integrated into Josh.ai so your home protects itself intelligently.</div>
+    <div class="security-grid" style="margin-top:48px">
+      <div class="sec-card fade-in"><div class="sec-icon">📷</div><h4>AI Cameras</h4><p>NIGHTWATCH PRO AI — person, vehicle & package detection with instant alerts to Josh</p></div>
+      <div class="sec-card fade-in"><div class="sec-icon">🔔</div><h4>Video Doorbells</h4><p>2× Josh Video Doorbells with IR night vision, two-way audio, and SIP support</p></div>
+      <div class="sec-card fade-in"><div class="sec-icon">🚪</div><h4>Perimeter Sensors</h4><p>5× door/window sensors, 3× motion detectors, 6× glass break detectors — all encrypted</p></div>
+      <div class="sec-card fade-in"><div class="sec-icon">🧠</div><h4>Qolsys IQ4 Hub</h4><p>Verizon 4G/LTE backup with 7" touchscreen — never loses connection if Wi-Fi goes down</p></div>
+      <div class="sec-card fade-in"><div class="sec-icon">☁️</div><h4>CO Detection</h4><p>2× carbon monoxide detectors integrated into the Qolsys panel with Josh alerts</p></div>
+      <div class="sec-card fade-in"><div class="sec-icon">🛜</div><h4>Wi-Fi 6 Network</h4><p>Araknis 820 + 520 Series Wi-Fi 6 APs — whole-home coverage, dual-WAN router</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Investment -->
+<section id="investment" style="background:var(--cream-bg)">
+  <div class="container">
+    <div class="section-label">Your Investment</div>
+    <div class="section-title">Complete. Considered. <strong>Yours.</strong></div>
+    <div class="section-subtitle" style="margin:0 auto">Every line item scoped specifically for 1240 Paddock — no generic packages, no hidden costs.</div>
+    <div class="invest-grid fade-in" style="margin-top:48px">
+      <div class="invest-card"><div class="val">$86,970.50</div><div class="desc">Lutron Homeworks Lighting<br><span style="font-size:.78rem;opacity:.7">64 Ketra & Rania fixtures · 21 keypads · HW processors</span></div></div>
+      <div class="invest-card"><div class="val">$29,819.73</div><div class="desc">Equipment Room & Network<br><span style="font-size:.78rem;opacity:.7">Rack, Wi-Fi 6, Josh Core, AV distribution, cabling</span></div></div>
+      <div class="invest-card"><div class="val">$21,084.66</div><div class="desc">Bonus Room — 7.1 Theater<br><span style="font-size:.78rem;opacity:.7">Anthem MRX 740, MartinLogan surround, Josh</span></div></div>
+      <div class="invest-card"><div class="val">$8,796.40</div><div class="desc">Security & Cameras<br><span style="font-size:.78rem;opacity:.7">Qolsys IQ4, AI cameras, 2× video doorbells</span></div></div>
+      <div class="invest-card"><div class="val">$8,377.59</div><div class="desc">Owner's Suite<br><span style="font-size:.78rem;opacity:.7">Audio, Josh, touchscreen, TV distribution</span></div></div>
+      <div class="invest-card"><div class="val">$5,355.35</div><div class="desc">Shade Wiring (22 motors)<br><span style="font-size:.78rem;opacity:.7">Bonus, Kitchen, Mud Room, Dining, Primary BR, Guest</span></div></div>
+    </div>
+    <div class="total-bar fade-in" style="margin-top:32px">
+      <div>
+        <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px">Total Investment</div>
+        <div class="t-main">$189,234.90</div>
+        <div class="t-note">Tax included · Materials, labor, programming & commissioning</div>
+      </div>
+      <div class="t-sub">
+        <div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-bottom:6px">Not included</div>
+        <div style="font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.9">Electrician (high-voltage runs)<br>Motorized shades (budgetary — prewire included)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scope Detail -->
+<section id="included">
+  <div class="container">
+    <div class="section-label">Scope</div>
+    <div class="section-title">What's <strong>Included</strong></div>
+    <div class="section-subtitle">Full line-item breakdown across all systems. Click a tab to explore.</div>
+
+    <div class="scope-tabs">
+      <button class="scope-tab active" onclick="showScope('av')">AV & Technology</button>
+      <button class="scope-tab" onclick="showScope('lighting')">Lutron Lighting</button>
+    </div>
+
+    <!-- AV Panel -->
+    <div id="scope-av" class="scope-panel active">
+      <div class="scope-detail">
+        <div class="scope-detail-header">
+          <h3>Audio, Video & Technology — Room by Room</h3>
+          <span style="font-weight:700;color:var(--accent);font-size:1.1rem">$102,264.40</span>
+        </div>
+        <p class="scope-detail-note">Totals include materials, labor, and tax (7%). Prices from final proposal.</p>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Equipment Room — Infrastructure & Network</span><span class="scope-room-total">$29,819.73</span></div>
+        <div class="scope-items">
+          <div class="scope-item"><span>Floor Standing Rack (Strong)</span><span>1</span></div>
+          <div class="scope-item"><span>Wattbox 800 IP Power Conditioner (12-outlet)</span><span>1</span></div>
+          <div class="scope-item"><span>Araknis 520 Dual-WAN Router</span><span>1</span></div>
+          <div class="scope-item"><span>Araknis 220 Managed Gigabit Switch</span><span>1</span></div>
+          <div class="scope-item"><span>Araknis Wi-Fi 6 820 Series Indoor AP</span><span>4</span></div>
+          <div class="scope-item"><span>Araknis Wi-Fi 6 520 Series Indoor AP</span><span>1</span></div>
+          <div class="scope-item"><span>Josh Core</span><span>1</span></div>
+          <div class="scope-item"><span>AVPro AVP-AC-AEX-RC-HUB</span><span>1</span></div>
+          <div class="scope-item"><span>MartinLogan MDA16</span><span>1</span></div>
+          <div class="scope-item"><span>Anthem MDX 8</span><span>1</span></div>
+          <div class="scope-item"><span>Binary B5 Analog Audio Cable (3.3 ft) × 12, B5 4-pack × 4</span></div>
+          <div class="scope-item"><span>Sonos Port × 3</span></div>
+          <div class="scope-item"><span>Vanco SCAT6-5BU × 15, DMARK, Cat6 × 6</span></div>
+        </div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Security</span><span class="scope-room-total">$8,796.40</span></div>
+        <div class="scope-items">
+          <div class="scope-item"><span>IC Realtime NIGHTWATCH-PRO-AI-4ED-VFX</span><span>1</span></div>
+          <div class="scope-item"><span>Qolsys IQ4 Hub — Verizon 319.5 MHz, 7" Touchscreen</span><span>1</span></div>
+          <div class="scope-item"><span>QS1134-840 Door/Window Sensor</span><span>5</span></div>
+          <div class="scope-item"><span>QOL-QS5110-840 Motion Sensor</span><span>2</span></div>
+          <div class="scope-item"><span>CO Detector</span><span>2</span></div>
+          <div class="scope-item"><span>QS1431-840 Glass Break Detector</span><span>6</span></div>
+          <div class="scope-item"><span>QS1231-840 PIR Motion Sensor</span><span>3</span></div>
+          <div class="scope-item"><span>Josh Video Doorbell (IC Realtime) × 2</span></div>
+        </div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Climate Control</span><span class="scope-room-total">$689.99</span></div>
+        <div class="scope-items"><div class="scope-item"><span>Ecobee EB-STATE3LTP-02 Thermostats</span><span>3</span></div></div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Shade Wiring (22 motors — Bonus, Kitchen, Mud Room, Dining, Primary BR, Guest)</span><span class="scope-room-total">$5,355.35</span></div>
+        <div class="scope-items"><div class="scope-item"><span>Shade Motor Prewire × 22 — all wiring concealed during renovation</span></div></div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Living Room</span><span class="scope-room-total">$5,602.33</span></div>
+        <div class="scope-items">
+          <div class="scope-item"><span>MartinLogan Motion MC6-HT (+ C6-HT Bracket)</span><span>2</span></div>
+          <div class="scope-item"><span>MartinLogan Dynamo IW-O Subwoofer (+ IW-S bracket)</span><span>1</span></div>
+          <div class="scope-item"><span>Josh Edge, Roku Ultra, HDMI + Toslink cables</span></div>
+          <div class="scope-item"><span>AVPro AVP-AC-AEX-T, On Q MP500 amplifier</span></div>
+          <div class="scope-item"><span>2 Ethernet Plate, House Audio Prewire</span></div>
+        </div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Kitchen</span><span class="scope-room-total">$6,036.05</span></div>
+        <div class="scope-items">
+          <div class="scope-item"><span>MartinLogan Motion MC8 (+ C8 Bracket)</span><span>2</span></div>
+          <div class="scope-item"><span>Josh Nano (Coral White), Josh 10" Touchscreen (Ceramic White)</span></div>
+          <div class="scope-item"><span>Cat6 × 2, House Audio Prewire</span></div>
+        </div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Lounge</span><span class="scope-room-total">$1,168.96</span></div>
+        <div class="scope-items"><div class="scope-item"><span>MartinLogan Motion MC8 (+ bracket), House Audio Prewire</span><span>1</span></div></div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Office</span><span class="scope-room-total">$1,212.83</span></div>
+        <div class="scope-items"><div class="scope-item"><span>Arlington FLBR5420BL, Cat6, Ethernet Plate, House Audio Prewire</span></div></div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Owner's Bedroom</span><span class="scope-room-total">$8,377.59</span></div>
+        <div class="scope-items">
+          <div class="scope-item"><span>MartinLogan Motion MC8 (+ bracket)</span><span>2</span></div>
+          <div class="scope-item"><span>Josh Edge, Josh Nano (Coral White), Josh 10" Touchscreen (Ceramic White)</span></div>
+          <div class="scope-item"><span>Roku Ultra, AVPro AEX-T, Strong Razor Tilt Mount</span></div>
+          <div class="scope-item"><span>Cat6 × 2, Ethernet Plate, House Audio Prewire</span></div>
+        </div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Owner's Bathroom</span><span class="scope-room-total">$1,885.85</span></div>
+        <div class="scope-items"><div class="scope-item"><span>MartinLogan Motion MC8 × 2 (+ brackets), House Audio Prewire</span></div></div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Covered Porch</span><span class="scope-room-total">$3,954.54</span></div>
+        <div class="scope-items">
+          <div class="scope-item"><span>MartinLogan IC8-AW Outdoor Speakers</span><span>2</span></div>
+          <div class="scope-item"><span>Josh Edge, Roku Ultra, AVPro AEX-T, Strong Razor Tilt Mount</span></div>
+          <div class="scope-item"><span>Ethernet Plate, House Audio Prewire</span></div>
+        </div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Bonus Room — 7.1 Theater</span><span class="scope-room-total">$21,084.66</span></div>
+        <div class="scope-items">
+          <div class="scope-item"><span>Anthem MRX 740 8K Receiver</span><span>1</span></div>
+          <div class="scope-item"><span>MartinLogan Motion MC8 × 4, XTW5-LCR × 3, Dynamo IW-O × 2, MP500 × 1</span></div>
+          <div class="scope-item"><span>Josh Edge, Josh Nano, Josh 10" Touchscreen</span></div>
+          <div class="scope-item"><span>Roku Ultra, Sanus VXT7-B2 mount, Cat6 × 2</span></div>
+          <div class="scope-item"><span>Ethernet Plate, 5.1 Surround Prewire</span></div>
+        </div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Pergola</span><span class="scope-room-total">$1,580.90</span></div>
+        <div class="scope-items"><div class="scope-item"><span>MartinLogan ML-75AW Outdoor Speakers × 2, House Audio Prewire</span></div></div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Firepit</span><span class="scope-room-total">$1,016.49</span></div>
+        <div class="scope-items"><div class="scope-item"><span>MartinLogan ML-75AW Outdoor Speaker × 1, House Audio Prewire</span></div></div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Gym / Flex</span><span class="scope-room-total">$4,631.86</span></div>
+        <div class="scope-items">
+          <div class="scope-item"><span>MartinLogan Motion MC8 × 2 (+ brackets)</span></div>
+          <div class="scope-item"><span>Josh Edge, Roku Ultra, AVPro AEX-T, Strong Razor Tilt Mount</span></div>
+          <div class="scope-item"><span>Cat6 × 2, Ethernet Plate, House Audio Prewire</span></div>
+        </div></div>
+
+        <div class="scope-room"><div class="scope-room-header"><span>Guest Bedroom 1, JR Suite, Guest BR 2, Guest BR 3</span><span class="scope-room-total">$1,050.72</span></div>
+        <div class="scope-items"><div class="scope-item"><span>2 Ethernet Plate in each room — $262.68 each</span></div></div></div>
+
+        <div class="scope-total-row"><span>AV & Technology Total</span><span>$102,264.40</span></div>
+      </div>
+    </div>
+
+    <!-- Lighting Panel -->
+    <div id="scope-lighting" class="scope-panel">
+      <div class="scope-detail">
+        <div class="scope-detail-header">
+          <h3>Lutron Homeworks — Lighting Equipment</h3>
+          <span style="font-weight:700;color:var(--accent);font-size:1.1rem">$86,970.50</span>
+        </div>
+        <p class="scope-detail-note">Equipment pricing only. Installation by licensed electrician. All prices are selling price per unit × quantity.</p>
+        <table class="ltg-table">
+          <thead><tr><th>Product</th><th>Qty</th><th style="text-align:right">Unit</th><th>Extended</th></tr></thead>
+          <tbody>
+            <tr><td>Ketra D3 Fixture</td><td>8</td><td style="text-align:right">$1,200.00</td><td>$9,600.00</td></tr>
+            <tr><td>Ketra D2 Fixture</td><td>30</td><td style="text-align:right">$997.50</td><td>$29,925.00</td></tr>
+            <tr><td>Rania D2 Fixture</td><td>26</td><td style="text-align:right">$728.00</td><td>$18,928.00</td></tr>
+            <tr><td>Sunnata Hybrid Keypad — Engraved</td><td>18</td><td style="text-align:right">$653.00</td><td>$11,754.00</td></tr>
+            <tr><td>Sunnata 4B Keypad — Engraved</td><td>3</td><td style="text-align:right">$531.00</td><td>$1,593.00</td></tr>
+            <tr><td>HRST-PRO-N-RW Dimmer</td><td>30</td><td style="text-align:right">$293.00</td><td>$8,790.00</td></tr>
+            <tr><td>HRST-8ANS-RW Switch</td><td>6</td><td style="text-align:right">$307.00</td><td>$1,842.00</td></tr>
+            <tr><td>HQ-LV21-120 Low-Voltage Panel</td><td>1</td><td style="text-align:right">$640.00</td><td>$640.00</td></tr>
+            <tr><td>HQP7-2 2-Link Processor</td><td>1</td><td style="text-align:right">$1,826.00</td><td>$1,826.00</td></tr>
+            <tr><td>HQP7-RF2 Dual Radio Processor</td><td>1</td><td style="text-align:right">$1,705.00</td><td>$1,705.00</td></tr>
+            <tr><td>QSPS-DH-1-75-H Power Supply</td><td>1</td><td style="text-align:right">$367.50</td><td>$367.50</td></tr>
+            <tr class="total-row"><td colspan="3"><strong>Lighting Total</strong></td><td><strong>$86,970.50</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Process -->
+<section id="process" style="background:var(--cream-bg)">
+  <div class="container">
+    <div class="section-label">The Process</div>
+    <div class="section-title">How It <strong>Works</strong></div>
+    <div class="section-subtitle">From signature to move-in day — a clear path with no surprises.</div>
+    <div class="process-steps" style="margin-top:60px">
+      <div class="process-step fade-in"><div class="process-dot">1</div><h4>Proposal Approved</h4><p>Signature and deposit secure your project slot</p></div>
+      <div class="process-step fade-in"><div class="process-dot">2</div><h4>Pre-Wire</h4><p>All infrastructure installed during framing — clean, invisible, permanent</p></div>
+      <div class="process-step fade-in"><div class="process-dot">3</div><h4>Equipment Install</h4><p>Devices, racks, and systems installed after drywall</p></div>
+      <div class="process-step fade-in"><div class="process-dot">4</div><h4>Programming</h4><p>Josh.ai configured, lighting scenes set, automations built around your routines</p></div>
+      <div class="process-step fade-in"><div class="process-dot">5</div><h4>Your Home, Ready</h4><p>Full walkthrough, hands-on training, and ongoing support</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Signature -->
+<section id="next">
+  <div class="container">
+    <div class="sig-section">
+      <h2>Ready to Move<br><strong>Forward?</strong></h2>
+      <p>Approve this proposal to secure your project and lock in pricing. We'll reach out within 24 hours to schedule kickoff.</p>
+      <div class="sig-form">
+        <input type="text" id="sig-name" placeholder="Full Name" autocomplete="name">
+        <input type="email" id="sig-email" placeholder="Email Address" autocomplete="email">
+        <div style="font-size:.78rem;color:rgba(255,255,255,.5);text-align:left;margin-bottom:4px">Signature</div>
+        <div class="sig-canvas-wrap"><canvas id="sigCanvas" height="140"></canvas></div>
+        <div class="sig-actions">
+          <button class="sig-btn clear" onclick="clearSig()">Clear</button>
+          <button class="sig-btn submit" onclick="submitSig()">Approve Proposal →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="brand">ALT<span>3</span> SMART HOMES</div>
+  <div style="font-size:.8rem;color:var(--text-lighter);margin-bottom:16px;font-style:italic">Quietly intelligent. Simply yours.</div>
+  <div class="contact">
+    <a href="mailto:ryan.palmer@alt3.com">ryan.palmer@alt3.com</a><br>
+    Prepared for Ann Milgrom · 1240 Paddock Avenue · Charlotte, NC
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>40)});
+
+// Fade-in observer
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:.15});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// Scope tabs
+function showScope(tab){
+  document.querySelectorAll('.scope-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.scope-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('scope-'+tab).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Signature canvas
+const canvas = document.getElementById('sigCanvas');
+const ctx = canvas.getContext('2d');
+let drawing = false;
+function resizeCanvas(){canvas.width=canvas.offsetWidth;canvas.height=140;ctx.strokeStyle='#113665';ctx.lineWidth=2;ctx.lineCap='round';ctx.lineJoin='round'}
+resizeCanvas();
+window.addEventListener('resize',resizeCanvas);
+function getPos(e){const r=canvas.getBoundingClientRect();const t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top}}
+canvas.addEventListener('mousedown',e=>{drawing=true;const p=getPos(e);ctx.beginPath();ctx.moveTo(p.x,p.y)});
+canvas.addEventListener('mousemove',e=>{if(!drawing)return;const p=getPos(e);ctx.lineTo(p.x,p.y);ctx.stroke()});
+canvas.addEventListener('mouseup',()=>drawing=false);
+canvas.addEventListener('mouseleave',()=>drawing=false);
+canvas.addEventListener('touchstart',e=>{e.preventDefault();drawing=true;const p=getPos(e);ctx.beginPath();ctx.moveTo(p.x,p.y)},{passive:false});
+canvas.addEventListener('touchmove',e=>{e.preventDefault();if(!drawing)return;const p=getPos(e);ctx.lineTo(p.x,p.y);ctx.stroke()},{passive:false});
+canvas.addEventListener('touchend',()=>drawing=false);
+function clearSig(){ctx.clearRect(0,0,canvas.width,canvas.height)}
+function submitSig(){
+  const name=document.getElementById('sig-name').value.trim();
+  const email=document.getElementById('sig-email').value.trim();
+  if(!name||!email){alert('Please enter your name and email.');return}
+  const sig=canvas.toDataURL();
+  if(sig===document.createElement('canvas').toDataURL()){alert('Please add your signature.');return}
+  const body=`Proposal Approval - 1240 Paddock Avenue\n\nClient: ${name}\nEmail: ${email}\nDate: ${new Date().toLocaleDateString()}\nProposal Total: $189,234.90`;
+  window.open(`mailto:ryan@realtyryan.com?subject=Proposal Approved — 1240 Paddock Avenue&body=${encodeURIComponent(body)}`,'_blank');
+}
+</script>
+</body>
+</html>
