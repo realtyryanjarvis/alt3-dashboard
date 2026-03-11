@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="https://iqsecurityproducts.com/xmlrpc.php" />
+	<title>Page not found &#8211; IQ</title>
+<meta name='robots' content='max-image-preview:large' />
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link rel='dns-prefetch' href='//cdn.reamaze.com' />
+<link rel='dns-prefetch' href='//maps.googleapis.com' />
+<link rel="alternate" type="text/calendar" title="IQ &raquo; iCal Feed" href="https://iqsecurityproducts.com/events/?ical=1" />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/iqsecurityproducts.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.2"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link rel='stylesheet' id='tribe-events-pro-mini-calendar-block-styles-css' href='https://iqsecurityproducts.com/wp-content/plugins/events-calendar-pro/src/resources/css/tribe-events-pro-mini-calendar-block.min.css?ver=7.3.0' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://iqsecurityproducts.com/wp-includes/css/dist/block-library/style.min.css?ver=6.7.2' type='text/css' media='all' />
+<style id='powerpress-player-block-style-inline-css' type='text/css'>
+
+
+</style>
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='contact-form-7-css' href='https://iqsecurityproducts.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='reamaze-frontend-css' href='https://iqsecurityproducts.com/wp-content/plugins/reamaze/assets/css/reamaze-frontend.css?ver=6.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='vantage-style-css' href='https://iqsecurityproducts.com/wp-content/themes/vantage/style.css?ver=1.5' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='https://iqsecurityproducts.com/wp-content/themes/vantage/fontawesome/css/font-awesome.css?ver=4.6.2' type='text/css' media='all' />
+<link rel='stylesheet' id='social-media-widget-css' href='https://iqsecurityproducts.com/wp-content/themes/vantage/css/social-media-widget.css?ver=1.5' type='text/css' media='all' />
+<link rel='stylesheet' id='siteorigin-mobilenav-css' href='https://iqsecurityproducts.com/wp-content/themes/vantage/inc/mobilenav/css/mobilenav.css?ver=1.5' type='text/css' media='all' />
+<style id='akismet-widget-style-inline-css' type='text/css'>
+
+			.a-stats {
+				--akismet-color-mid-green: #357b49;
+				--akismet-color-white: #fff;
+				--akismet-color-light-grey: #f6f7f7;
+
+				max-width: 350px;
+				width: auto;
+			}
+
+			.a-stats * {
+				all: unset;
+				box-sizing: border-box;
+			}
+
+			.a-stats strong {
+				font-weight: 600;
+			}
+
+			.a-stats a.a-stats__link,
+			.a-stats a.a-stats__link:visited,
+			.a-stats a.a-stats__link:active {
+				background: var(--akismet-color-mid-green);
+				border: none;
+				box-shadow: none;
+				border-radius: 8px;
+				color: var(--akismet-color-white);
+				cursor: pointer;
+				display: block;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+				font-weight: 500;
+				padding: 12px;
+				text-align: center;
+				text-decoration: none;
+				transition: all 0.2s ease;
+			}
+
+			/* Extra specificity to deal with TwentyTwentyOne focus style */
+			.widget .a-stats a.a-stats__link:focus {
+				background: var(--akismet-color-mid-green);
+				color: var(--akismet-color-white);
+				text-decoration: none;
+			}
+
+			.a-stats a.a-stats__link:hover {
+				filter: brightness(110%);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 0 2px rgba(0, 0, 0, 0.16);
+			}
+
+			.a-stats .count {
+				color: var(--akismet-color-white);
+				display: block;
+				font-size: 1.5em;
+				line-height: 1.4;
+				padding: 0 13px;
+				white-space: nowrap;
+			}
+		
+</style>
+<link rel='stylesheet' id='popup-maker-site-css' href='https://iqsecurityproducts.com/wp-content/plugins/popup-maker/assets/css/pum-site.min.css?ver=1.20.4' type='text/css' media='all' />
+<style id='popup-maker-site-inline-css' type='text/css'>
+/* Popup Google Fonts */
+@import url('//fonts.googleapis.com/css?family=Montserrat|Acme');
+
+/* Popup Theme 7392: Floating Bar - Soft Blue */
+.pum-theme-7392, .pum-theme-floating-bar { background-color: rgba( 255, 255, 255, 0.00 ) } 
+.pum-theme-7392 .pum-container, .pum-theme-floating-bar .pum-container { padding: 8px; border-radius: 0px; border: 1px none #000000; box-shadow: 1px 1px 3px 0px rgba( 2, 2, 2, 0.23 ); background-color: rgba( 238, 246, 252, 1.00 ) } 
+.pum-theme-7392 .pum-title, .pum-theme-floating-bar .pum-title { color: #505050; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: 400; font-size: 32px; line-height: 36px } 
+.pum-theme-7392 .pum-content, .pum-theme-floating-bar .pum-content { color: #505050; font-family: inherit; font-weight: 400 } 
+.pum-theme-7392 .pum-content + .pum-close, .pum-theme-floating-bar .pum-content + .pum-close { position: absolute; height: 18px; width: 18px; left: auto; right: 5px; bottom: auto; top: 50%; padding: 0px; color: #505050; font-family: Sans-Serif; font-weight: 700; font-size: 15px; line-height: 18px; border: 1px solid #505050; border-radius: 15px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.00 ); background-color: rgba( 255, 255, 255, 0.00 ); transform: translate(0, -50%) } 
+
+/* Popup Theme 7393: Content Only - For use with page builders or block editor */
+.pum-theme-7393, .pum-theme-content-only { background-color: rgba( 0, 0, 0, 0.70 ) } 
+.pum-theme-7393 .pum-container, .pum-theme-content-only .pum-container { padding: 0px; border-radius: 0px; border: 1px none #000000; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ) } 
+.pum-theme-7393 .pum-title, .pum-theme-content-only .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: 400; font-size: 32px; line-height: 36px } 
+.pum-theme-7393 .pum-content, .pum-theme-content-only .pum-content { color: #8c8c8c; font-family: inherit; font-weight: 400 } 
+.pum-theme-7393 .pum-content + .pum-close, .pum-theme-content-only .pum-content + .pum-close { position: absolute; height: 18px; width: 18px; left: auto; right: 7px; bottom: auto; top: 7px; padding: 0px; color: #000000; font-family: inherit; font-weight: 700; font-size: 20px; line-height: 20px; border: 1px none #ffffff; border-radius: 15px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.00 ); background-color: rgba( 255, 255, 255, 0.00 ) } 
+
+/* Popup Theme 4105: Hello Box */
+.pum-theme-4105, .pum-theme-hello-box { background-color: rgba( 0, 0, 0, 0.75 ) } 
+.pum-theme-4105 .pum-container, .pum-theme-hello-box .pum-container { padding: 30px; border-radius: 80px; border: 14px solid #81d742; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+.pum-theme-4105 .pum-title, .pum-theme-hello-box .pum-title { color: #2d2d2d; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: Montserrat; font-size: 32px; line-height: 36px } 
+.pum-theme-4105 .pum-content, .pum-theme-hello-box .pum-content { color: #2d2d2d; font-family: inherit } 
+.pum-theme-4105 .pum-content + .pum-close, .pum-theme-hello-box .pum-content + .pum-close { position: absolute; height: auto; width: auto; left: auto; right: -30px; bottom: auto; top: -30px; padding: 0px; color: #2d2d2d; font-family: inherit; font-size: 32px; line-height: 28px; border: 1px none #ffffff; border-radius: 28px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+
+/* Popup Theme 4106: Cutting Edge */
+.pum-theme-4106, .pum-theme-cutting-edge { background-color: rgba( 0, 0, 0, 0.50 ) } 
+.pum-theme-4106 .pum-container, .pum-theme-cutting-edge .pum-container { padding: 18px; border-radius: 0px; border: 1px none #000000; box-shadow: 0px 10px 25px 0px rgba( 2, 2, 2, 0.50 ); background-color: rgba( 30, 115, 190, 1.00 ) } 
+.pum-theme-4106 .pum-title, .pum-theme-cutting-edge .pum-title { color: #ffffff; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: Sans-Serif; font-size: 26px; line-height: 28px } 
+.pum-theme-4106 .pum-content, .pum-theme-cutting-edge .pum-content { color: #ffffff; font-family: inherit } 
+.pum-theme-4106 .pum-content + .pum-close, .pum-theme-cutting-edge .pum-content + .pum-close { position: absolute; height: 24px; width: 24px; left: auto; right: 0px; bottom: auto; top: 0px; padding: 0px; color: #1e73be; font-family: inherit; font-size: 32px; line-height: 24px; border: 1px none #ffffff; border-radius: 0px; box-shadow: -1px 1px 1px 0px rgba( 2, 2, 2, 0.10 ); text-shadow: -1px 1px 1px rgba( 0, 0, 0, 0.10 ); background-color: rgba( 238, 238, 34, 1.00 ) } 
+
+/* Popup Theme 4107: Framed Border */
+.pum-theme-4107, .pum-theme-framed-border { background-color: rgba( 255, 255, 255, 0.50 ) } 
+.pum-theme-4107 .pum-container, .pum-theme-framed-border .pum-container { padding: 18px; border-radius: 0px; border: 20px outset #dd3333; box-shadow: 1px 1px 3px 0px rgba( 2, 2, 2, 0.97 ) inset; background-color: rgba( 255, 251, 239, 1.00 ) } 
+.pum-theme-4107 .pum-title, .pum-theme-framed-border .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-size: 32px; line-height: 36px } 
+.pum-theme-4107 .pum-content, .pum-theme-framed-border .pum-content { color: #2d2d2d; font-family: inherit } 
+.pum-theme-4107 .pum-content + .pum-close, .pum-theme-framed-border .pum-content + .pum-close { position: absolute; height: 20px; width: 20px; left: auto; right: -20px; bottom: auto; top: -20px; padding: 0px; color: #ffffff; font-family: Acme; font-size: 20px; line-height: 20px; border: 1px none #ffffff; border-radius: 0px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 0, 0, 0, 0.55 ) } 
+
+/* Popup Theme 4102: Default Theme */
+.pum-theme-4102, .pum-theme-default-theme { background-color: rgba( 255, 255, 255, 1.00 ) } 
+.pum-theme-4102 .pum-container, .pum-theme-default-theme .pum-container { padding: 18px; border-radius: 0px; border: 1px none #000000; box-shadow: 1px 1px 3px 0px rgba( 2, 2, 2, 0.23 ); background-color: rgba( 249, 249, 249, 1.00 ) } 
+.pum-theme-4102 .pum-title, .pum-theme-default-theme .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: inherit; font-size: 32px; font-style: normal; line-height: 36px } 
+.pum-theme-4102 .pum-content, .pum-theme-default-theme .pum-content { color: #8c8c8c; font-family: inherit; font-weight: inherit; font-style: normal } 
+.pum-theme-4102 .pum-content + .pum-close, .pum-theme-default-theme .pum-content + .pum-close { position: absolute; height: auto; width: auto; left: auto; right: 0px; bottom: auto; top: 0px; padding: 8px; color: #ffffff; font-family: inherit; font-weight: inherit; font-size: 12px; font-style: normal; line-height: 14px; border: 1px none #ffffff; border-radius: 0px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 0, 183, 205, 1.00 ) } 
+
+/* Popup Theme 4103: Light Box */
+.pum-theme-4103, .pum-theme-lightbox { background-color: rgba( 0, 0, 0, 0.60 ) } 
+.pum-theme-4103 .pum-container, .pum-theme-lightbox .pum-container { padding: 18px; border-radius: 3px; border: 8px solid #000000; box-shadow: 0px 0px 30px 0px rgba( 2, 2, 2, 1.00 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+.pum-theme-4103 .pum-title, .pum-theme-lightbox .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-size: 32px; line-height: 36px } 
+.pum-theme-4103 .pum-content, .pum-theme-lightbox .pum-content { color: #000000; font-family: inherit } 
+.pum-theme-4103 .pum-content + .pum-close, .pum-theme-lightbox .pum-content + .pum-close { position: absolute; height: 30px; width: 30px; left: auto; right: -24px; bottom: auto; top: -24px; padding: 0px; color: #ffffff; font-family: inherit; font-size: 24px; line-height: 26px; border: 2px solid #ffffff; border-radius: 30px; box-shadow: 0px 0px 15px 1px rgba( 2, 2, 2, 0.75 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 0, 0, 0, 1.00 ) } 
+
+/* Popup Theme 4104: Enterprise Blue */
+.pum-theme-4104, .pum-theme-enterprise-blue { background-color: rgba( 0, 0, 0, 0.70 ) } 
+.pum-theme-4104 .pum-container, .pum-theme-enterprise-blue .pum-container { padding: 28px; border-radius: 5px; border: 1px none #000000; box-shadow: 0px 10px 25px 4px rgba( 2, 2, 2, 0.50 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+.pum-theme-4104 .pum-title, .pum-theme-enterprise-blue .pum-title { color: #315b7c; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-size: 34px; line-height: 36px } 
+.pum-theme-4104 .pum-content, .pum-theme-enterprise-blue .pum-content { color: #2d2d2d; font-family: inherit } 
+.pum-theme-4104 .pum-content + .pum-close, .pum-theme-enterprise-blue .pum-content + .pum-close { position: absolute; height: 28px; width: 28px; left: auto; right: 8px; bottom: auto; top: 8px; padding: 4px; color: #ffffff; font-family: inherit; font-size: 20px; line-height: 20px; border: 1px none #ffffff; border-radius: 42px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 49, 91, 124, 1.00 ) } 
+
+#pum-4108 {z-index: 1999999999}
+
+</style>
+<!--n2css--><!--n2js--><script type="text/javascript" src="https://iqsecurityproducts.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-content/themes/vantage/js/jquery.flexslider.min.js?ver=2.1" id="jquery-flexslider-js"></script>
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-content/themes/vantage/js/jquery.touchSwipe.min.js?ver=1.6.6" id="jquery-touchswipe-js"></script>
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-content/themes/vantage/js/jquery.theme-main.min.js?ver=1.5" id="vantage-main-js"></script>
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-content/plugins/so-widgets-bundle/js/lib/jquery.fitvids.min.js?ver=1.1" id="jquery-fitvids-js"></script>
+<script type="text/javascript" id="siteorigin-mobilenav-js-extra">
+/* <![CDATA[ */
+var mobileNav = {"search":"","text":{"navigate":"Menu","back":"Back","close":"Close"},"nextIconUrl":"https:\/\/iqsecurityproducts.com\/wp-content\/themes\/vantage\/inc\/mobilenav\/images\/next.png"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-content/themes/vantage/inc/mobilenav/js/mobilenav.min.js?ver=1.5" id="siteorigin-mobilenav-js"></script>
+<link rel="https://api.w.org/" href="https://iqsecurityproducts.com/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://iqsecurityproducts.com/xmlrpc.php?rsd" />
+<!-- HFCM by 99 Robots - Snippet # 1: GTAG CODE -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17611383243"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17611383243');
+</script>
+
+<script>
+jQuery(document).ready(function() {
+    jQuery(document).bind("gform_confirmation_loaded", function(event, formID) {
+        var callback = function () {};
+        if(formID == 3) gtag('event', 'conversion', {'send_to': 'AW-17611383243/45YVCMDs6qQbEMvD4c1B'});
+    });
+	
+		jQuery(".comm-essential.bottom.panel-row-style a").click(function(){
+			gtag('event', 'conversion', {
+      	'send_to': 'AW-17611383243/_EwgCMv96qQbEMvD4c1B'
+  		});
+		})
+  });
+</script>
+<!-- /end HFCM by 99 Robots -->
+            <script type="text/javascript"><!--
+                                function powerpress_pinw(pinw_url){window.open(pinw_url, 'PowerPressPlayer','toolbar=0,status=0,resizable=1,width=460,height=320');	return false;}
+                //-->
+
+                // tabnab protection
+                window.addEventListener('load', function () {
+                    // make all links have rel="noopener noreferrer"
+                    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+                        link.setAttribute('rel', 'noopener noreferrer');
+                    });
+                });
+            </script>
+            <!-- SLP Custom CSS -->
+<style type="text/css">
+div#map.slp_map {
+width:100%;
+height:550px;
+}
+div#slp_tagline {
+width:100%;
+}
+</style>
+
+<meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://iqsecurityproducts.com"><link rel="alternate" href="https://iqsecurityproducts.com/wp-json/tribe/events/v1/" />	<!--[if lt IE 9]>
+		<script src="https://iqsecurityproducts.com/wp-content/themes/vantage/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+	<!--[if (gte IE 6)&(lte IE 8)]>
+		<script type="text/javascript" src="https://iqsecurityproducts.com/wp-content/themes/vantage/js/selectivizr.js"></script>
+	<![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />	<style type="text/css">
+		.so-mobilenav-mobile + * { display: none; }
+		@media screen and (max-width: 920px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } }
+	</style>
+		<style type="text/css" media="screen">
+		#footer-widgets .widget { width: 16.667%; }
+		@media screen and (max-width: 640px) {
+			#footer-widgets .widget { width: auto; float: none; }
+		}
+	</style>
+	<style type="text/css" id="vantage-footer-widgets">#footer-widgets aside { width : 16.667%; } </style> <style type="text/css" id="customizer-css">@import url(https://fonts.googleapis.com/css?family=Cabin:400); body,button,input,select,textarea { font-family: "Cabin"; font-weight: 400 } #masthead h1 { font-family: "Cabin"; font-weight: 400 } h1,h2,h3,h4,h5,h6 { font-family: "Cabin"; font-weight: 400 } #masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1 { font-size: 0px } #masthead .hgroup .logo { text-align: center } #masthead .hgroup .logo, #masthead .hgroup .site-logo-link { float: none } #masthead .hgroup .logo img, #masthead .hgroup .site-logo-link img { display: block; margin: 0 auto } .entry-content a, .entry-content a:visited, #secondary a, #secondary a:visited, #masthead .hgroup a, #masthead .hgroup a:visited { color: #00539e } .entry-content a, .textwidget a { text-decoration: none } .entry-content a:hover, .entry-content a:focus, .entry-content a:active, #secondary a:hover, #masthead .hgroup a:hover, #masthead .hgroup a:focus, #masthead .hgroup a:active { color: #00539e } .main-navigation ul { text-align: right } .main-navigation { background-color: #000000 } .main-navigation a { color: #ffffff } .main-navigation ul ul { background-color: #ffffff } .main-navigation ul ul a { color: #5e5e5e } .main-navigation ul li:hover > a, #search-icon #search-icon-icon:hover { background-color: #000000 } .main-navigation ul ul li:hover > a { background-color: #5e5e5e } .main-navigation ul li.current-menu-item > a, .main-navigation ul li.current_page_item > a  { background-color: #ffffff } .main-navigation ul li.current-menu-item > a, .main-navigation ul li.current-menu-item > a [class^="fa fa-"], .main-navigation ul li.current-page-item > a, .main-navigation ul li.current-page-item > a [class^="fa fa-"] { color: #000000 } .main-navigation ul li a { padding-top: 15px; padding-bottom: 15px } .main-navigation ul li a, #masthead.masthead-logo-in-menu .logo { padding-left: 25px; padding-right: 25px } .mobile-nav-frame { background-color: #ffffff } .mobile-nav-frame .title { background-color: #000000 } .mobile-nav-frame ul li a.link, .mobile-nav-frame .next { color: #ffffff } .mobile-nav-frame ul { background-color: #000000; border-color: #000000 } #main { background-color: #ffffff } #colophon, body.layout-full { background-color: #cccccc } #colophon #theme-attribution, #colophon #site-info { color: #cccccc } #colophon #theme-attribution a, #colophon #site-info a { color: #cccccc } </style><link rel="icon" href="https://iqsecurityproducts.com/wp-content/uploads/2017/05/cropped-Qolsys-Q-Icon-Trans-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://iqsecurityproducts.com/wp-content/uploads/2017/05/cropped-Qolsys-Q-Icon-Trans-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://iqsecurityproducts.com/wp-content/uploads/2017/05/cropped-Qolsys-Q-Icon-Trans-180x180.png" />
+<meta name="msapplication-TileImage" content="https://iqsecurityproducts.com/wp-content/uploads/2017/05/cropped-Qolsys-Q-Icon-Trans-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			.page-id-10543 h1{
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.page-id-10543  label.gfield_label.gform-field-label {
+    font-size: 17px;
+}
+
+.page-id-10543  input#gform_submit_button_1 {
+    background: #000;
+    font-size: 15px;
+    padding: 15px 30px;
+}
+
+.page-id-5599 h1{
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.page-id-5599  label.gfield_label.gform-field-label {
+    font-size: 17px;
+}
+
+.page-id-5599 input#gform_submit_button_1 {
+    background: #000;
+    font-size: 15px;
+    padding: 15px 30px;
+}
+
+.chosen-results{
+    display: block !important;
+}
+
+#gform_wrapper_4 .gform_required_legend{
+display:none;	
+}
+
+
+input#gform_submit_button_4{
+	background: #1d66d1;
+    color: #FFF;
+    font-size: 18px;
+    padding: 12px 70px;
+    cursor: pointer;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+
+input#gform_submit_button_4:hover{
+	background:#000;
+}
+
+		</style>
+		    <script src= https://consent.trustarc.com/v2/autoblockasset/core.min.js?cmId=wqstc3></script>
+
+<script src= https://consent.trustarc.com/v2/autoblock?cmId=wqstc3></script>
+
+<script type="text/javascript" async="async" src=https://consent.trustarc.com/v2/notice/wqstc3></script>
+</head>
+
+<body class="error404 tribe-no-js group-blog responsive layout-full no-js has-sidebar panels-style-force-full page-layout-default sidebar-position-left mobilenav">
+<script type="text/javascript">
+var utag_data = {
+  tealium_event : "", // 
+  linkClicks_GA4Category : "", // 
+  linkClicks_GA4Action : "", // 
+  linkClicks_GA4Label : "" // 
+}
+</script>
+<!-- Loading script asynchronously -->
+<script type="text/javascript">
+    (function(a,b,c,d){
+    a='https://tags.tiqcdn.com/utag/jci/security-iqsecurityproducts.com/prod/utag.js';
+    b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+    a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+    })();
+</script>
+
+<div id="page-wrapper">
+
+	
+	
+		
+<header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+
+	
+<nav role="navigation" class="site-navigation main-navigation primary">
+
+	<div class="full-container">
+					<a href="https://iqsecurityproducts.com/" title="IQ" rel="home" class="logo"><img src="https://iqsecurityproducts.com/wp-content/uploads/2025/06/Qolsys-Logo-WHITE-Large.png"  class="logo-height-constrain"  width="288"  height="225"  alt="IQ Logo"  /></a>
+				
+					<div id="so-mobilenav-standard-1" data-id="1" class="so-mobilenav-standard"></div><div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-1620" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1620"><a href="https://iqsecurityproducts.com/all-products/">PRODUCTS</a></li>
+<li id="menu-item-10503" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10503"><a href="https://qolsys.com/connected-by-powerg/"><span class="icon"></span>POWERG</a>
+<ul class="sub-menu">
+	<li id="menu-item-10840" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10840"><a href="https://iqsecurityproducts.com/powerg-plus/">POWERG +</a></li>
+	<li id="menu-item-10480" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10480"><a href="https://iqsecurityproducts.com/powerg-everywhere/">POWERG EVERYWHERE</a></li>
+</ul>
+</li>
+<li id="menu-item-6293" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6293"><a href="#"><span class="icon"></span>SOLUTIONS</a>
+<ul class="sub-menu">
+	<li id="menu-item-5852" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5852"><a href="https://iqsecurityproducts.com/residential/">RESIDENTIAL</a></li>
+	<li id="menu-item-10338" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10338"><a href="https://iqsecurityproducts.com/commercial/">COMMERCIAL</a></li>
+	<li id="menu-item-10809" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10809"><a href="https://iqsecurityproducts.com/iq-builder-program/">BUILDER</a></li>
+</ul>
+</li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-36"><a href="https://iqsecurityproducts.com/find-a-dealer/">FIND A DEALER</a>
+<ul class="sub-menu">
+	<li id="menu-item-2366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2366"><a href="https://iqsecurityproducts.com/professional-installation/">PROFESSIONAL INSTALLATION</a></li>
+	<li id="menu-item-2367" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2367"><a href="https://iqsecurityproducts.com/do-it-yourself/">DO IT YOURSELF</a></li>
+</ul>
+</li>
+<li id="menu-item-1625" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1625"><a href="https://iqsecurityproducts.com/contact-us/">SUPPORT</a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="https://iqsecurityproducts.com/dealers/">DEALERS</a></li>
+</ul></div><div id="so-mobilenav-mobile-1" data-id="1" class="so-mobilenav-mobile"></div><div class="menu-mobilenav-container"><ul id="mobile-nav-item-wrap-1" class="menu"><li><a href="#" class="mobilenav-main-link" data-id="1"><span class="mobile-nav-icon"></span>Menu</a></li></ul></div>			</div>
+</nav><!-- .site-navigation .main-navigation -->
+
+</header><!-- #masthead .site-header -->
+	
+	
+	
+	
+	<div id="main" class="site-main">
+		<div class="full-container">
+			
+<div id="primary" class="content-area">
+	<div id="content" class="site-content" role="main">
+
+		<article id="post-0" class="post error404 not-found">
+
+			<div class="entry-main">
+
+				
+				<header class="entry-header">
+											<h1 class="entry-title">That page can't be found.</h1>
+									</header><!-- .entry-header -->
+
+				<div class="entry-content">
+					<p>It looks like nothing was found at this location. Maybe try one of the links below or a search?</p>
+
+					
+<form method="get" class="searchform" action="https://iqsecurityproducts.com/" role="search">
+	<input type="text" class="field" name="s" value="" placeholder="Search"/>
+</form>
+
+					
+		<div class="widget widget_recent_entries">
+		<h2 class="widgettitle">Recent Posts</h2>
+		<ul>
+											<li>
+					<a href="https://iqsecurityproducts.com/freeze-detection-that-saves-thousands-meet-the-powerg-water-tile/">Freeze Detection That Saves Thousands: Meet the PowerG + Water Tile</a>
+									</li>
+											<li>
+					<a href="https://iqsecurityproducts.com/important-notice-rogers-3g-network-shutdown/">Important Notice: Rogers 3G Network Shutdown</a>
+									</li>
+											<li>
+					<a href="https://iqsecurityproducts.com/become-a-pro-with-iq-installer/">Become a Pro with IQ Installer</a>
+									</li>
+											<li>
+					<a href="https://iqsecurityproducts.com/install-reliability-with-iq-pro/">Install Reliability with IQ Pro</a>
+									</li>
+											<li>
+					<a href="https://iqsecurityproducts.com/iq-pro-connectivity-for-all/">IQ Pro: Connectivity for All</a>
+									</li>
+					</ul>
+
+		</div>
+					<div class="widget">
+						<h2 class="widgettitle">Most Used Categories</h2>
+						<ul>
+							<li class="cat-item cat-item-15"><a href="https://iqsecurityproducts.com/category/press-releases/">PRESS RELEASES</a> (57)
+</li>
+	<li class="cat-item cat-item-11"><a href="https://iqsecurityproducts.com/category/blog/">BLOG</a> (49)
+</li>
+	<li class="cat-item cat-item-35"><a href="https://iqsecurityproducts.com/category/news/">NEWS</a> (29)
+</li>
+	<li class="cat-item cat-item-1"><a href="https://iqsecurityproducts.com/category/product-announcements/">PRODUCT ANNOUNCEMENTS</a> (23)
+</li>
+	<li class="cat-item cat-item-12"><a href="https://iqsecurityproducts.com/category/accolades/">ACCOLADES</a> (19)
+</li>
+	<li class="cat-item cat-item-13"><a href="https://iqsecurityproducts.com/category/awards/">AWARDS</a> (3)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://iqsecurityproducts.com/category/events/">EVENTS</a> (3)
+</li>
+						</ul>
+					</div><!-- .widget -->
+
+					<div class="widget widget_archive"><h2 class="widgettitle">Archives</h2><p>Try looking in the monthly archives.</p>		<label class="screen-reader-text" for="archives-dropdown--1">Archives</label>
+		<select id="archives-dropdown--1" name="archive-dropdown">
+			
+			<option value="">Select Month</option>
+				<option value='https://iqsecurityproducts.com/2025/11/'> November 2025 </option>
+	<option value='https://iqsecurityproducts.com/2024/11/'> November 2024 </option>
+	<option value='https://iqsecurityproducts.com/2023/11/'> November 2023 </option>
+	<option value='https://iqsecurityproducts.com/2023/10/'> October 2023 </option>
+	<option value='https://iqsecurityproducts.com/2023/09/'> September 2023 </option>
+	<option value='https://iqsecurityproducts.com/2023/08/'> August 2023 </option>
+	<option value='https://iqsecurityproducts.com/2023/04/'> April 2023 </option>
+	<option value='https://iqsecurityproducts.com/2023/02/'> February 2023 </option>
+	<option value='https://iqsecurityproducts.com/2023/01/'> January 2023 </option>
+	<option value='https://iqsecurityproducts.com/2022/12/'> December 2022 </option>
+	<option value='https://iqsecurityproducts.com/2022/11/'> November 2022 </option>
+	<option value='https://iqsecurityproducts.com/2022/10/'> October 2022 </option>
+	<option value='https://iqsecurityproducts.com/2022/09/'> September 2022 </option>
+	<option value='https://iqsecurityproducts.com/2022/07/'> July 2022 </option>
+	<option value='https://iqsecurityproducts.com/2022/03/'> March 2022 </option>
+	<option value='https://iqsecurityproducts.com/2021/12/'> December 2021 </option>
+	<option value='https://iqsecurityproducts.com/2021/11/'> November 2021 </option>
+	<option value='https://iqsecurityproducts.com/2021/07/'> July 2021 </option>
+	<option value='https://iqsecurityproducts.com/2021/03/'> March 2021 </option>
+	<option value='https://iqsecurityproducts.com/2021/01/'> January 2021 </option>
+	<option value='https://iqsecurityproducts.com/2020/12/'> December 2020 </option>
+	<option value='https://iqsecurityproducts.com/2020/11/'> November 2020 </option>
+	<option value='https://iqsecurityproducts.com/2020/10/'> October 2020 </option>
+	<option value='https://iqsecurityproducts.com/2020/09/'> September 2020 </option>
+	<option value='https://iqsecurityproducts.com/2020/08/'> August 2020 </option>
+	<option value='https://iqsecurityproducts.com/2020/07/'> July 2020 </option>
+	<option value='https://iqsecurityproducts.com/2020/02/'> February 2020 </option>
+	<option value='https://iqsecurityproducts.com/2020/01/'> January 2020 </option>
+	<option value='https://iqsecurityproducts.com/2019/09/'> September 2019 </option>
+	<option value='https://iqsecurityproducts.com/2019/08/'> August 2019 </option>
+	<option value='https://iqsecurityproducts.com/2019/06/'> June 2019 </option>
+	<option value='https://iqsecurityproducts.com/2019/03/'> March 2019 </option>
+	<option value='https://iqsecurityproducts.com/2019/02/'> February 2019 </option>
+	<option value='https://iqsecurityproducts.com/2018/10/'> October 2018 </option>
+	<option value='https://iqsecurityproducts.com/2018/09/'> September 2018 </option>
+	<option value='https://iqsecurityproducts.com/2018/08/'> August 2018 </option>
+	<option value='https://iqsecurityproducts.com/2018/06/'> June 2018 </option>
+	<option value='https://iqsecurityproducts.com/2018/04/'> April 2018 </option>
+	<option value='https://iqsecurityproducts.com/2018/03/'> March 2018 </option>
+	<option value='https://iqsecurityproducts.com/2018/02/'> February 2018 </option>
+	<option value='https://iqsecurityproducts.com/2018/01/'> January 2018 </option>
+	<option value='https://iqsecurityproducts.com/2017/12/'> December 2017 </option>
+	<option value='https://iqsecurityproducts.com/2017/06/'> June 2017 </option>
+	<option value='https://iqsecurityproducts.com/2016/10/'> October 2016 </option>
+	<option value='https://iqsecurityproducts.com/2016/06/'> June 2016 </option>
+	<option value='https://iqsecurityproducts.com/2016/04/'> April 2016 </option>
+	<option value='https://iqsecurityproducts.com/2016/03/'> March 2016 </option>
+	<option value='https://iqsecurityproducts.com/2016/02/'> February 2016 </option>
+	<option value='https://iqsecurityproducts.com/2015/12/'> December 2015 </option>
+	<option value='https://iqsecurityproducts.com/2015/11/'> November 2015 </option>
+	<option value='https://iqsecurityproducts.com/2015/10/'> October 2015 </option>
+	<option value='https://iqsecurityproducts.com/2015/09/'> September 2015 </option>
+	<option value='https://iqsecurityproducts.com/2015/06/'> June 2015 </option>
+	<option value='https://iqsecurityproducts.com/2015/05/'> May 2015 </option>
+	<option value='https://iqsecurityproducts.com/2015/01/'> January 2015 </option>
+	<option value='https://iqsecurityproducts.com/2014/12/'> December 2014 </option>
+	<option value='https://iqsecurityproducts.com/2014/11/'> November 2014 </option>
+	<option value='https://iqsecurityproducts.com/2014/10/'> October 2014 </option>
+	<option value='https://iqsecurityproducts.com/2014/09/'> September 2014 </option>
+	<option value='https://iqsecurityproducts.com/2014/08/'> August 2014 </option>
+	<option value='https://iqsecurityproducts.com/2014/06/'> June 2014 </option>
+	<option value='https://iqsecurityproducts.com/2014/04/'> April 2014 </option>
+	<option value='https://iqsecurityproducts.com/2014/02/'> February 2014 </option>
+	<option value='https://iqsecurityproducts.com/2013/12/'> December 2013 </option>
+	<option value='https://iqsecurityproducts.com/2013/11/'> November 2013 </option>
+	<option value='https://iqsecurityproducts.com/2013/10/'> October 2013 </option>
+	<option value='https://iqsecurityproducts.com/2013/06/'> June 2013 </option>
+	<option value='https://iqsecurityproducts.com/2013/05/'> May 2013 </option>
+	<option value='https://iqsecurityproducts.com/2013/04/'> April 2013 </option>
+	<option value='https://iqsecurityproducts.com/2013/03/'> March 2013 </option>
+	<option value='https://iqsecurityproducts.com/2013/01/'> January 2013 </option>
+
+		</select>
+
+			<script type="text/javascript">
+/* <![CDATA[ */
+
+(function() {
+	var dropdown = document.getElementById( "archives-dropdown--1" );
+	function onSelectChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value !== '' ) {
+			document.location.href = this.options[ this.selectedIndex ].value;
+		}
+	}
+	dropdown.onchange = onSelectChange;
+})();
+
+/* ]]> */
+</script>
+</div>
+					<div class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud"><a href="https://iqsecurityproducts.com/tag/2gig/" class="tag-cloud-link tag-link-36 tag-link-position-1" style="font-size: 12.09756097561pt;" aria-label="2GIG (5 items)">2GIG</a>
+<a href="https://iqsecurityproducts.com/tag/7-touchscreen/" class="tag-cloud-link tag-link-17 tag-link-position-2" style="font-size: 15.256097560976pt;" aria-label="7&quot; TOUCHSCREEN (13 items)">7&quot; TOUCHSCREEN</a>
+<a href="https://iqsecurityproducts.com/tag/7-inch-touchscreen/" class="tag-cloud-link tag-link-16 tag-link-position-3" style="font-size: 21.658536585366pt;" aria-label="7-INCH TOUCHSCREEN (79 items)">7-INCH TOUCHSCREEN</a>
+<a href="https://iqsecurityproducts.com/tag/7%e2%80%b3-touchscreen/" class="tag-cloud-link tag-link-46 tag-link-position-4" style="font-size: 21.060975609756pt;" aria-label="7″ TOUCHSCREEN (66 items)">7″ TOUCHSCREEN</a>
+<a href="https://iqsecurityproducts.com/tag/adc/" class="tag-cloud-link tag-link-18 tag-link-position-5" style="font-size: 21.658536585366pt;" aria-label="ADC (78 items)">ADC</a>
+<a href="https://iqsecurityproducts.com/tag/addressable-loops/" class="tag-cloud-link tag-link-69 tag-link-position-6" style="font-size: 11.414634146341pt;" aria-label="ADDRESSABLE LOOPS (4 items)">ADDRESSABLE LOOPS</a>
+<a href="https://iqsecurityproducts.com/tag/affordable-security/" class="tag-cloud-link tag-link-60 tag-link-position-7" style="font-size: 10.560975609756pt;" aria-label="Affordable Security (3 items)">Affordable Security</a>
+<a href="https://iqsecurityproducts.com/tag/alarm-com/" class="tag-cloud-link tag-link-19 tag-link-position-8" style="font-size: 21.914634146341pt;" aria-label="ALARM.COM (85 items)">ALARM.COM</a>
+<a href="https://iqsecurityproducts.com/tag/alarm-com-for-business/" class="tag-cloud-link tag-link-70 tag-link-position-9" style="font-size: 11.414634146341pt;" aria-label="ALARM.COM FOR BUSINESS (4 items)">ALARM.COM FOR BUSINESS</a>
+<a href="https://iqsecurityproducts.com/tag/bluetooth-speaker/" class="tag-cloud-link tag-link-58 tag-link-position-10" style="font-size: 11.414634146341pt;" aria-label="Bluetooth Speaker (4 items)">Bluetooth Speaker</a>
+<a href="https://iqsecurityproducts.com/tag/commercial-intrusion/" class="tag-cloud-link tag-link-63 tag-link-position-11" style="font-size: 11.414634146341pt;" aria-label="COMMERCIAL INTRUSION (4 items)">COMMERCIAL INTRUSION</a>
+<a href="https://iqsecurityproducts.com/tag/communicator/" class="tag-cloud-link tag-link-68 tag-link-position-12" style="font-size: 11.414634146341pt;" aria-label="COMMUNICATOR (4 items)">COMMUNICATOR</a>
+<a href="https://iqsecurityproducts.com/tag/dr-horton/" class="tag-cloud-link tag-link-51 tag-link-position-13" style="font-size: 19.353658536585pt;" aria-label="DR HORTON (42 items)">DR HORTON</a>
+<a href="https://iqsecurityproducts.com/tag/dsc/" class="tag-cloud-link tag-link-21 tag-link-position-14" style="font-size: 21.829268292683pt;" aria-label="DSC (83 items)">DSC</a>
+<a href="https://iqsecurityproducts.com/tag/dsc-powerseries-neo/" class="tag-cloud-link tag-link-65 tag-link-position-15" style="font-size: 11.414634146341pt;" aria-label="DSC POWERSERIES NEO (4 items)">DSC POWERSERIES NEO</a>
+<a href="https://iqsecurityproducts.com/tag/home-automation/" class="tag-cloud-link tag-link-22 tag-link-position-16" style="font-size: 21.658536585366pt;" aria-label="HOME AUTOMATION (79 items)">HOME AUTOMATION</a>
+<a href="https://iqsecurityproducts.com/tag/home-control/" class="tag-cloud-link tag-link-23 tag-link-position-17" style="font-size: 21.658536585366pt;" aria-label="HOME CONTROL (79 items)">HOME CONTROL</a>
+<a href="https://iqsecurityproducts.com/tag/hybrid/" class="tag-cloud-link tag-link-66 tag-link-position-18" style="font-size: 8pt;" aria-label="HYBRID (1 item)">HYBRID</a>
+<a href="https://iqsecurityproducts.com/tag/installer-app/" class="tag-cloud-link tag-link-71 tag-link-position-19" style="font-size: 8pt;" aria-label="INSTALLER APP (1 item)">INSTALLER APP</a>
+<a href="https://iqsecurityproducts.com/tag/internet-of-things/" class="tag-cloud-link tag-link-24 tag-link-position-20" style="font-size: 21.658536585366pt;" aria-label="INTERNET OF THINGS (79 items)">INTERNET OF THINGS</a>
+<a href="https://iqsecurityproducts.com/tag/iot/" class="tag-cloud-link tag-link-25 tag-link-position-21" style="font-size: 21.658536585366pt;" aria-label="IOT (79 items)">IOT</a>
+<a href="https://iqsecurityproducts.com/tag/iq4-hub/" class="tag-cloud-link tag-link-75 tag-link-position-22" style="font-size: 8pt;" aria-label="IQ4 Hub (1 item)">IQ4 Hub</a>
+<a href="https://iqsecurityproducts.com/tag/iq4hub/" class="tag-cloud-link tag-link-59 tag-link-position-23" style="font-size: 10.560975609756pt;" aria-label="IQ4Hub (3 items)">IQ4Hub</a>
+<a href="https://iqsecurityproducts.com/tag/iq-base/" class="tag-cloud-link tag-link-57 tag-link-position-24" style="font-size: 12.09756097561pt;" aria-label="IQ Base (5 items)">IQ Base</a>
+<a href="https://iqsecurityproducts.com/tag/iq-panel/" class="tag-cloud-link tag-link-26 tag-link-position-25" style="font-size: 21.829268292683pt;" aria-label="IQ PANEL (83 items)">IQ PANEL</a>
+<a href="https://iqsecurityproducts.com/tag/iq-panel-4/" class="tag-cloud-link tag-link-64 tag-link-position-26" style="font-size: 9.5365853658537pt;" aria-label="IQ PANEL 4 (2 items)">IQ PANEL 4</a>
+<a href="https://iqsecurityproducts.com/tag/iq-pro/" class="tag-cloud-link tag-link-72 tag-link-position-27" style="font-size: 10.560975609756pt;" aria-label="IQ Pro (3 items)">IQ Pro</a>
+<a href="https://iqsecurityproducts.com/tag/iq-remote/" class="tag-cloud-link tag-link-73 tag-link-position-28" style="font-size: 8pt;" aria-label="IQ Remote (1 item)">IQ Remote</a>
+<a href="https://iqsecurityproducts.com/tag/iq-remote-powerg/" class="tag-cloud-link tag-link-74 tag-link-position-29" style="font-size: 8pt;" aria-label="IQ Remote PowerG (1 item)">IQ Remote PowerG</a>
+<a href="https://iqsecurityproducts.com/tag/iq-water-valve/" class="tag-cloud-link tag-link-56 tag-link-position-30" style="font-size: 12.69512195122pt;" aria-label="IQ Water Valve (6 items)">IQ Water Valve</a>
+<a href="https://iqsecurityproducts.com/tag/iq-wifi-6/" class="tag-cloud-link tag-link-61 tag-link-position-31" style="font-size: 8pt;" aria-label="IQ WiFi 6 (1 item)">IQ WiFi 6</a>
+<a href="https://iqsecurityproducts.com/tag/kevin-bish/" class="tag-cloud-link tag-link-49 tag-link-position-32" style="font-size: 8pt;" aria-label="KEVIN BISH (1 item)">KEVIN BISH</a>
+<a href="https://iqsecurityproducts.com/tag/powerg/" class="tag-cloud-link tag-link-67 tag-link-position-33" style="font-size: 12.09756097561pt;" aria-label="POWERG (5 items)">POWERG</a>
+<a href="https://iqsecurityproducts.com/tag/qolsys/" class="tag-cloud-link tag-link-27 tag-link-position-34" style="font-size: 22pt;" aria-label="QOLSYS (86 items)">QOLSYS</a>
+<a href="https://iqsecurityproducts.com/tag/qolsysinc/" class="tag-cloud-link tag-link-28 tag-link-position-35" style="font-size: 21.658536585366pt;" aria-label="QOLSYSINC (79 items)">QOLSYSINC</a>
+<a href="https://iqsecurityproducts.com/tag/qolsys-offers-transition-path-for-interlogix-dealers/" class="tag-cloud-link tag-link-53 tag-link-position-36" style="font-size: 8pt;" aria-label="Qolsys Offers Transition Path for Interlogix Dealers (1 item)">Qolsys Offers Transition Path for Interlogix Dealers</a>
+<a href="https://iqsecurityproducts.com/tag/residential-security/" class="tag-cloud-link tag-link-29 tag-link-position-37" style="font-size: 21.743902439024pt;" aria-label="RESIDENTIAL SECURITY (80 items)">RESIDENTIAL SECURITY</a>
+<a href="https://iqsecurityproducts.com/tag/secondary-remote/" class="tag-cloud-link tag-link-76 tag-link-position-38" style="font-size: 8pt;" aria-label="Secondary Remote (1 item)">Secondary Remote</a>
+<a href="https://iqsecurityproducts.com/tag/security/" class="tag-cloud-link tag-link-30 tag-link-position-39" style="font-size: 21.743902439024pt;" aria-label="SECURITY (80 items)">SECURITY</a>
+<a href="https://iqsecurityproducts.com/tag/silicon-labs/" class="tag-cloud-link tag-link-54 tag-link-position-40" style="font-size: 16.365853658537pt;" aria-label="Silicon Labs (18 items)">Silicon Labs</a>
+<a href="https://iqsecurityproducts.com/tag/smarthome/" class="tag-cloud-link tag-link-32 tag-link-position-41" style="font-size: 21.743902439024pt;" aria-label="SMARTHOME (80 items)">SMARTHOME</a>
+<a href="https://iqsecurityproducts.com/tag/smart-home/" class="tag-cloud-link tag-link-31 tag-link-position-42" style="font-size: 21.743902439024pt;" aria-label="SMART HOME (80 items)">SMART HOME</a>
+<a href="https://iqsecurityproducts.com/tag/tyco/" class="tag-cloud-link tag-link-33 tag-link-position-43" style="font-size: 21.743902439024pt;" aria-label="TYCO (80 items)">TYCO</a>
+<a href="https://iqsecurityproducts.com/tag/wifi-6/" class="tag-cloud-link tag-link-62 tag-link-position-44" style="font-size: 8pt;" aria-label="WiFi 6 (1 item)">WiFi 6</a>
+<a href="https://iqsecurityproducts.com/tag/z-wave/" class="tag-cloud-link tag-link-34 tag-link-position-45" style="font-size: 18.414634146341pt;" aria-label="Z-WAVE (32 items)">Z-WAVE</a></div>
+</div>
+				</div><!-- .entry-content -->
+
+				
+			</div><!-- .entry-main -->
+
+		</article><!-- #post-0 .post .error404 .not-found -->
+
+	</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+
+					</div><!-- .full-container -->
+	</div><!-- #main .site-main -->
+
+	
+	
+	<footer id="colophon" class="site-footer" role="contentinfo">
+
+			<div id="footer-widgets" class="full-container">
+			<aside id="nav_menu-3" class="widget widget_nav_menu"><h3 class="widget-title">PRODUCTS</h3><div class="menu-devices-container"><ul id="menu-devices" class="menu"><li id="menu-item-401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-401"><a href="https://iqsecurityproducts.com/panels/">PANELS</a></li>
+<li id="menu-item-400" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-400"><a href="https://iqsecurityproducts.com/kits/">KITS</a></li>
+<li id="menu-item-399" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-399"><a href="https://iqsecurityproducts.com/security/">SECURITY</a></li>
+<li id="menu-item-398" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-398"><a href="https://iqsecurityproducts.com/life-safety/">LIFE SAFETY</a></li>
+<li id="menu-item-397" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-397"><a href="https://iqsecurityproducts.com/lifestyle/">LIFESTYLE</a></li>
+<li id="menu-item-396" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-396"><a href="https://iqsecurityproducts.com/extras/">EXTRAS</a></li>
+</ul></div></aside><aside id="nav_menu-5" class="widget widget_nav_menu"><h3 class="widget-title">CONNECTIVITY</h3><div class="menu-interactive-container"><ul id="menu-interactive" class="menu"><li id="menu-item-1429" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1429"><a href="https://iqsecurityproducts.com/lifestyle/">LIFESTYLE</a></li>
+<li id="menu-item-412" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-412"><a href="https://iqsecurityproducts.com/surveillance/">SURVEILLANCE</a></li>
+<li id="menu-item-411" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-411"><a href="https://iqsecurityproducts.com/compatible-devices/">COMPATIBLE Z-WAVE DEVICES</a></li>
+<li id="menu-item-8711" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8711"><a href="https://iqsecurityproducts.com/compatible-zigbee-devices/">COMPATIBLE ZIGBEE DEVICES</a></li>
+</ul></div></aside><aside id="siteorigin-panels-builder-2" class="widget widget_siteorigin-panels-builder"><div id="pl-w6656c845b9544"  class="panel-layout" ><div id="pg-w6656c845b9544-0"  class="panel-grid panel-no-style" ><div id="pgc-w6656c845b9544-0-0"  class="panel-grid-cell" ><div id="panel-w6656c845b9544-0-0-0" class="so-panel widget widget_nav_menu panel-first-child" data-index="0" ><div class="custom-about-footer panel-widget-style panel-widget-style-for-w6656c845b9544-0-0-0" ><h3 class="widget-title">ABOUT</h3><div class="menu-custom-container"><ul id="menu-custom" class="menu"><li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61"><a href="https://iqsecurityproducts.com/partners/">PARTNERS</a></li>
+<li id="menu-item-60" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60"><a href="https://iqsecurityproducts.com/newsroom/">NEWSROOM</a></li>
+<li id="menu-item-7483" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7483"><a href="https://iqsecurityproducts.com/privacy-notice/">PRIVACY CENTER</a></li>
+<li id="menu-item-6507" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6507"><a href="https://iqsecurityproducts.com/disclaimer/">DISCLAIMER</a></li>
+<li id="menu-item-6704" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6704"><a href="https://iqsecurityproducts.com/certifications/">CERTIFICATIONS</a></li>
+</ul></div></div></div><div id="panel-w6656c845b9544-0-0-1" class="widget_text so-panel widget widget_custom_html panel-last-child" data-index="1" ><div class="textwidget custom-html-widget"><div class="trustarc-wrapper">
+
+<div id="consent-banner"></div>
+
+<div id="teconsent"></div>
+
+</div></div></div></div></div></div></aside><aside id="black-studio-tinymce-4" class="widget widget_black_studio_tinymce"><h3 class="widget-title">CONTACT US</h3><div class="textwidget"><p><span style="color: #ffffff;">Johnson Controls,</span><span style="color: #ffffff;"><br />
+5757 N Green Bay Ave</span><br />
+<span style="color: #ffffff;">Milwaukee, WI 53209<br />
+</span><a href="mailto:smartsecurity@jci.com">smartsecurity@jci.com</a></p>
+</div></aside><aside id="vantage-social-media-2" class="widget widget_vantage-social-media"><h3 class="widget-title">FOLLOW US</h3><a class="social-media-icon social-media-icon-facebook social-media-icon-size-small" href="https://www.facebook.com/JohnsonControlsIQ" title="IQ Facebook" target="_blank"><span class="fa fa-facebook"></span></a><a class="social-media-icon social-media-icon-linkedin social-media-icon-size-small" href="https://www.linkedin.com/company/iqsecurityproducts" title="IQ LinkedIn" target="_blank"><span class="fa fa-linkedin"></span></a><a class="social-media-icon social-media-icon-instagram social-media-icon-size-small" href="https://www.instagram.com/qolsys/?ref=badge" title="IQ Instagram" target="_blank"><span class="fa fa-instagram"></span></a><a class="social-media-icon social-media-icon-youtube social-media-icon-size-small" href="https://www.youtube.com/@IQSecurityProducts" title="IQ YouTube" target="_blank"><span class="fa fa-youtube"></span></a></aside><aside id="search-2" class="widget widget_search"><h3 class="widget-title">SEARCH</h3>
+<form method="get" class="searchform" action="https://iqsecurityproducts.com/" role="search">
+	<input type="text" class="field" name="s" value="" placeholder="Search"/>
+</form>
+</aside>		</div><!-- #footer-widgets -->
+	
+	
+	<div id="theme-attribution">A <a href="https://siteorigin.com">SiteOrigin</a> Theme</div>
+</footer><!-- #colophon .site-footer -->
+    <div id="footer-widgets" class="full-container">
+        <div class="trustarc-wrapper">
+
+        <div id="consent-banner"></div>
+
+        <div id="teconsent"></div>
+
+        </div>
+	</div>
+	
+</div><!-- #page-wrapper -->
+
+
+<script type="text/javascript" async src="https://cdn.reamaze.com/assets/reamaze.js"></script>
+<script type="text/javascript">
+  var _support = _support || { 'ui': {}, 'user': {} };
+  _support['account'] = 'qolsys';
+  _support['ui']['contactMode'] = 'default';
+  _support['ui']['enableKb'] = 'true';
+  _support['ui']['styles'] = {
+    widgetColor: 'rgb(6, 6, 6)',
+    gradient: true,
+  };
+  _support['ui']['lightbox_mode'] = 'kb';
+  _support['ui']['widget'] = {
+    icon: 'help',
+    label: {
+      text: 'Let us know if you have any questions! &#128522;',
+      mode: "notification",
+      delay: 3,
+      duration: 30,
+      sound: true,
+    },
+    position: 'bottom-right',
+  };
+  _support['custom_fields'] = {
+    'Phone Number': {
+      pos: 1573499758411,
+      type: 'text',
+      value: '',
+      required: true,
+      placeholder: ''
+    },
+    'Customer': {
+      pos: 1573499788430,
+      type: 'dropdown',
+      value: ['End User','Dealer'],
+      required: true,
+      placeholder: ''
+    },
+    'Company': {
+      pos: 1573499847908,
+      type: 'text',
+      value: '',
+      required: true,
+      placeholder: ''
+    }
+  };
+  _support['apps'] = {
+    faq: {"enabled":true},
+    recentConversations: {},
+    orders: {}
+  };
+</script>
+
+    <script type="text/javascript">
+          </script>
+          <script>
+        _support['ui']['widget'] = false;
+      </script>
+    		<script>
+		( function ( body ) {
+			'use strict';
+			body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
+		} )( document.body );
+		</script>
+		<div 
+	id="pum-4108" 
+	role="dialog" 
+	aria-modal="false"
+	class="pum pum-overlay pum-theme-4102 pum-theme-default-theme popmake-overlay click_open" 
+	data-popmake="{&quot;id&quot;:4108,&quot;slug&quot;:&quot;commercial&quot;,&quot;theme_id&quot;:4102,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;auto&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;center top&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;0&quot;,&quot;position_right&quot;:&quot;0&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:false,&quot;esc_press&quot;:false,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}">
+
+	<div id="popmake-4108" class="pum-container popmake theme-4102">
+
+				
+				
+		
+				<div class="pum-content popmake-content" tabindex="0">
+			<p style="text-align: center;"><iframe src="https://www.youtube.com/embed/5xbmluLoCdM" width="889" height="500" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+		</div>
+
+				
+							<button type="button" class="pum-close popmake-close" aria-label="Close">
+			CLOSE			</button>
+		
+	</div>
+
+</div>
+<script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria":{"sort_ascending":": activate to sort column ascending","sort_descending":": activate to sort column descending"},"length_menu":"Show _MENU_ entries","empty_table":"No data available in table","info":"Showing _START_ to _END_ of _TOTAL_ entries","info_empty":"Showing 0 to 0 of 0 entries","info_filtered":"(filtered from _MAX_ total entries)","zero_records":"No matching records found","search":"Search:","all_selected_text":"All items on this page were selected. ","select_all_link":"Select all pages","clear_selection":"Clear Selection.","pagination":{"all":"All","next":"Next","previous":"Previous"},"select":{"rows":{"0":"","_":": Selected %d rows","1":": Selected 1 row"}},"datepicker":{"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesMin":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Prev","currentText":"Today","closeText":"Done","today":"Today","clear":"Clear"}};/* ]]> */ </script><style media="all" id="siteorigin-panels-layouts-footer">/* Layout w6656c845b9544 */ #pgc-w6656c845b9544-0-0 { width:100%;width:calc(100% - ( 0 * 30px ) ) } #pl-w6656c845b9544 .so-panel { margin-bottom:35px } #pl-w6656c845b9544 .so-panel:last-of-type { margin-bottom:0px } @media (max-width:780px){ #pg-w6656c845b9544-0.panel-no-style, #pg-w6656c845b9544-0.panel-has-style > .panel-row-style, #pg-w6656c845b9544-0 { -webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column } #pg-w6656c845b9544-0 > .panel-grid-cell , #pg-w6656c845b9544-0 > .panel-row-style > .panel-grid-cell { width:100%;margin-right:0 } #pl-w6656c845b9544 .panel-grid-cell { padding:0 } #pl-w6656c845b9544 .panel-grid .panel-grid-cell-empty { display:none } #pl-w6656c845b9544 .panel-grid .panel-grid-cell-mobile-last { margin-bottom:0px }  } </style><link rel='stylesheet' id='so-css-vantage-css' href='https://iqsecurityproducts.com/wp-content/uploads/so-css/so-css-vantage.css?ver=1615323268' type='text/css' media='all' />
+<link rel='stylesheet' id='siteorigin-panels-front-css' href='https://iqsecurityproducts.com/wp-content/plugins/siteorigin-panels/css/front-flex.min.css?ver=2.31.4' type='text/css' media='all' />
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.9.8" id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/iqsecurityproducts.com\/wp-json\/","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.9.8" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://cdn.reamaze.com/assets/reamaze-loader.js?ver=6.7.2" id="reamaze-js-js"></script>
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script type="text/javascript" id="popup-maker-site-js-extra">
+/* <![CDATA[ */
+var pum_vars = {"version":"1.20.4","pm_dir_url":"https:\/\/iqsecurityproducts.com\/wp-content\/plugins\/popup-maker\/","ajaxurl":"https:\/\/iqsecurityproducts.com\/wp-admin\/admin-ajax.php","restapi":"https:\/\/iqsecurityproducts.com\/wp-json\/pum\/v1","rest_nonce":null,"default_theme":"4102","debug_mode":"","disable_tracking":"","home_url":"\/","message_position":"top","core_sub_forms_enabled":"1","popups":[],"cookie_domain":"","analytics_route":"analytics","analytics_api":"https:\/\/iqsecurityproducts.com\/wp-json\/pum\/v1"};
+var pum_sub_vars = {"ajaxurl":"https:\/\/iqsecurityproducts.com\/wp-admin\/admin-ajax.php","message_position":"top"};
+var pum_popups = {"pum-4108":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"4102","size":"auto","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":4108,"slug":"commercial"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://iqsecurityproducts.com/wp-content/plugins/popup-maker/assets/js/site.min.js?defer&amp;ver=1.20.4" id="popup-maker-site-js"></script>
+<style>
+#panel-w6656c845b9544-0-0-0{
+margin-bottom:0 !important;
+width:100% !important;
+}
+
+#panel-w6656c845b9544-0-0-1{
+width: 100% !important;
+    margin-bottom: 35px !important;
+}
+
+
+#teconsent {
+
+  padding: 0 !important;
+
+}
+
+#teconsent a{
+
+  color: #ffffff !important;
+
+  text-transform: uppercase;
+
+}
+.truste_box_overlay_inner iframe,
+
+.truste_box_overlay_inner {
+
+              border-radius: 5px !important;
+
+              background-color: #333740 !important;
+
+}
+
+.truste_box_overlay_inner .truste-close-button img
+
+{
+
+filter: brightness(0) invert(1);
+
+margin-top: -3px;
+
+padding: 5px 3px 0;
+
+}
+
+.truste_box_overlay
+
+{
+
+position: fixed !important;
+
+}
+
+.truste_overlay, .truste_box_overlay
+
+{
+
+z-index: 2147483648 !important;
+
+}
+
+
+#truste-powered-by img
+
+{
+
+max-width: 70px !important;
+
+}
+
+.trustarc-wrapper
+
+{
+
+display: inline-block;
+
+}
+
+.trustarc-secondary-btn,
+
+.trustarc-reject-btn ,
+
+.trustarc-agree-btn,
+
+.trustarc-secondary-btn:focus,
+
+.trustarc-reject-btn:focus
+
+{
+
+  background:none;
+
+  text-shadow:none;
+
+}
+
+</style>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=2056368536" async></script></body>
+</html>
