@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alt3 Smart Homes · Builder Program</title>
+<meta name="description" content="Partner with Alt3 Smart Homes to deliver intelligent, integrated smart home systems in your builds — and capture the premium buyers expect.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --navy: #0d1f3c;
+    --navy-mid: #113665;
+    --accent: #113665;
+    --gold: #b8965a;
+    --gold-light: #d4ac6e;
+    --cream: #faf8f5;
+    --cream-dark: #f2ede6;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --text-light: #6b6560;
+    --border: rgba(190,177,162,.3);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Work Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+    background: rgba(13,31,60,.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav-logo {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.1rem; font-weight: 700; letter-spacing: .1em;
+    color: #fff;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+    color: rgba(255,255,255,.6); text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta {
+    font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+    font-weight: 600; color: var(--navy); background: var(--gold);
+    padding: 10px 22px; border-radius: 30px; text-decoration: none;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    position: relative; overflow: hidden;
+    padding: 140px 24px 100px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(184,150,90,.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(17,54,101,.4) 0%, transparent 50%);
+  }
+  .hero-label {
+    display: inline-block;
+    font-size: .65rem; letter-spacing: .25em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid rgba(184,150,90,.4);
+    padding: 7px 18px; border-radius: 30px; margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 300; line-height: 1.05;
+    color: #fff; margin-bottom: 28px;
+    position: relative; z-index: 1;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero p {
+    font-size: 1.1rem; color: rgba(255,255,255,.6);
+    max-width: 580px; margin: 0 auto 52px; line-height: 1.7;
+    position: relative; z-index: 1;
+  }
+  .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold); color: var(--navy);
+    font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    padding: 16px 36px; border-radius: 40px; text-decoration: none;
+    transition: all .2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-block;
+    border: 1.5px solid rgba(255,255,255,.3); color: #fff;
+    font-size: .78rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+    padding: 16px 36px; border-radius: 40px; text-decoration: none;
+    transition: all .2s;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,.6); }
+
+  /* HERO STATS BAR */
+  .hero-stats {
+    position: relative; z-index: 1;
+    margin-top: 80px; padding-top: 52px;
+    border-top: 1px solid rgba(255,255,255,.1);
+    display: flex; gap: 60px; justify-content: center; flex-wrap: wrap;
+  }
+  .hero-stat .val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 600; color: var(--gold); line-height: 1;
+  }
+  .hero-stat .lbl {
+    font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+    color: rgba(255,255,255,.45); margin-top: 6px;
+  }
+
+  /* SECTION BASE */
+  section { padding: 100px 24px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 300; line-height: 1.15; margin-bottom: 20px; color: var(--navy);
+  }
+  .section-title strong { font-weight: 600; }
+  .section-subtitle {
+    font-size: 1rem; color: var(--text-light);
+    max-width: 580px; line-height: 1.7; margin-bottom: 0;
+  }
+
+  /* OPPORTUNITY */
+  #opportunity { background: var(--cream); }
+  .opp-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+    margin-top: 52px;
+  }
+  .opp-card {
+    background: var(--white);
+    border-radius: 20px; padding: 36px 28px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 24px rgba(0,0,0,.04);
+  }
+  .opp-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 600; color: var(--navy);
+    line-height: 1; margin-bottom: 8px;
+  }
+  .opp-num span { font-size: 1.8rem; }
+  .opp-title { font-size: .9rem; font-weight: 600; margin-bottom: 10px; }
+  .opp-body { font-size: .82rem; color: var(--text-light); line-height: 1.6; }
+
+  /* ROI */
+  #roi { background: var(--navy); }
+  #roi .section-label { color: var(--gold); }
+  #roi .section-title { color: #fff; }
+  #roi .section-subtitle { color: rgba(255,255,255,.55); }
+
+  .roi-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    margin-top: 52px; align-items: start;
+  }
+  .roi-table {
+    background: rgba(255,255,255,.04);
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .roi-table-header {
+    padding: 20px 28px;
+    background: rgba(184,150,90,.12);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+  }
+  .roi-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 28px;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    font-size: .85rem;
+  }
+  .roi-row:last-child { border-bottom: none; }
+  .roi-row .label { color: rgba(255,255,255,.65); }
+  .roi-row .value { font-weight: 600; color: #fff; }
+  .roi-row .value.gold { color: var(--gold); }
+  .roi-row.total { background: rgba(184,150,90,.08); }
+  .roi-row.total .label { color: rgba(255,255,255,.8); font-weight: 600; }
+  .roi-row.total .value { font-size: 1.1rem; }
+
+  .roi-cards { display: flex; flex-direction: column; gap: 16px; }
+  .roi-card {
+    background: rgba(255,255,255,.04);
+    border-radius: 16px; padding: 24px 28px;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .roi-card-icon { font-size: 1.6rem; margin-bottom: 10px; }
+  .roi-card-title { font-size: .92rem; font-weight: 600; color: #fff; margin-bottom: 6px; }
+  .roi-card-body { font-size: .8rem; color: rgba(255,255,255,.5); line-height: 1.6; }
+
+  /* WHAT WE DELIVER */
+  #system { background: var(--white); }
+  .system-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+    margin-top: 52px;
+  }
+  .sys-card {
+    border-radius: 16px; padding: 28px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+  }
+  .sys-icon { font-size: 1.8rem; margin-bottom: 14px; }
+  .sys-title { font-size: .95rem; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+  .sys-body { font-size: .8rem; color: var(--text-light); line-height: 1.6; margin-bottom: 14px; }
+  .sys-items { display: flex; flex-direction: column; gap: 5px; }
+  .sys-item {
+    font-size: .75rem; color: var(--text-light);
+    padding-left: 12px; border-left: 2px solid rgba(17,54,101,.2);
+  }
+
+  /* PROCESS */
+  #process { background: var(--cream); }
+  .process-steps {
+    display: grid; grid-template-columns: repeat(5,1fr);
+    gap: 0; margin-top: 52px; position: relative;
+  }
+  .process-step { text-align: center; padding: 0 16px; position: relative; }
+  .process-step::after {
+    content: '';
+    position: absolute; top: 28px; left: calc(50% + 28px); right: calc(-50% + 28px);
+    height: 1px; background: rgba(17,54,101,.15);
+  }
+  .process-step:last-child::after { display: none; }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .8rem; font-weight: 700; margin: 0 auto 16px;
+  }
+  .step-title { font-size: .85rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .step-body { font-size: .75rem; color: var(--text-light); line-height: 1.5; }
+
+  /* TIERS */
+  #tiers { background: var(--white); }
+  .tiers-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 24px; margin-top: 52px;
+  }
+  .tier-card {
+    border-radius: 20px; padding: 36px 28px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    position: relative;
+  }
+  .tier-card.featured {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+  .tier-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: var(--navy);
+    font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    padding: 4px 14px; border-radius: 20px; white-space: nowrap;
+  }
+  .tier-label {
+    font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 8px;
+  }
+  .tier-name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; margin-bottom: 4px; }
+  .tier-card.featured .tier-name { color: #fff; }
+  .tier-range {
+    font-size: 1.4rem; font-weight: 700; color: var(--navy); margin-bottom: 6px;
+  }
+  .tier-card.featured .tier-range { color: var(--gold); }
+  .tier-sub { font-size: .75rem; color: var(--text-light); margin-bottom: 24px; }
+  .tier-card.featured .tier-sub { color: rgba(255,255,255,.45); }
+  .tier-divider { height: 1px; background: var(--border); margin-bottom: 20px; }
+  .tier-card.featured .tier-divider { background: rgba(255,255,255,.1); }
+  .tier-features { display: flex; flex-direction: column; gap: 10px; }
+  .tier-feature { display: flex; align-items: flex-start; gap: 8px; font-size: .8rem; color: var(--text-light); }
+  .tier-card.featured .tier-feature { color: rgba(255,255,255,.6); }
+  .tier-check { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+  /* WHY ALT3 */
+  #why { background: var(--navy); }
+  #why .section-title { color: #fff; }
+  #why .section-subtitle { color: rgba(255,255,255,.5); }
+  .why-grid {
+    display: grid; grid-template-columns: repeat(2,1fr); gap: 20px;
+    margin-top: 52px;
+  }
+  .why-card {
+    background: rgba(255,255,255,.04);
+    border-radius: 16px; padding: 28px;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .why-card-title { font-size: .92rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .why-card-body { font-size: .82rem; color: rgba(255,255,255,.5); line-height: 1.65; }
+
+  /* CTA */
+  #cta {
+    background: var(--cream);
+    text-align: center;
+  }
+  .cta-box {
+    background: var(--navy);
+    border-radius: 28px; padding: 72px 48px;
+    max-width: 800px; margin: 0 auto;
+  }
+  .cta-box h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300; color: #fff; margin-bottom: 20px; line-height: 1.2;
+  }
+  .cta-box h2 em { font-style: italic; color: var(--gold); }
+  .cta-box p { font-size: .95rem; color: rgba(255,255,255,.5); margin-bottom: 40px; line-height: 1.7; }
+  .cta-inputs { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .cta-input {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.15);
+    color: #fff; font-family: 'Work Sans', sans-serif;
+    font-size: .85rem; padding: 14px 20px; border-radius: 10px;
+    width: 220px; outline: none;
+    transition: border .2s;
+  }
+  .cta-input::placeholder { color: rgba(255,255,255,.3); }
+  .cta-input:focus { border-color: var(--gold); }
+  .cta-note { font-size: .72rem; color: rgba(255,255,255,.25); }
+
+  /* FOOTER */
+  footer {
+    background: #080f1e;
+    padding: 40px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo { font-size: 1rem; font-weight: 700; color: rgba(255,255,255,.4); letter-spacing: .1em; }
+  .footer-logo span { color: var(--gold); }
+  footer p { font-size: .72rem; color: rgba(255,255,255,.25); }
+
+  /* FADE IN */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media(max-width:900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .opp-grid, .system-grid, .tiers-grid { grid-template-columns: 1fr; }
+    .roi-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; gap: 24px; }
+    .process-step::after { display: none; }
+    .why-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">ALT<span>3</span> SMART HOMES</div>
+  <div class="nav-links">
+    <a href="#opportunity">The Opportunity</a>
+    <a href="#roi">ROI</a>
+    <a href="#system">The System</a>
+    <a href="#tiers">Packages</a>
+    <a href="#process">How It Works</a>
+  </div>
+  <a href="#cta" class="nav-cta">Partner With Us</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-label">Alt3 Smart Homes · Builder Partner Program</div>
+    <h1>Build Smarter.<br><em>Sell Faster.</em><br>Close Higher.</h1>
+    <p>Smart home technology is no longer a luxury add-on — it's what today's buyers expect. We handle the entire technology scope so you can focus on building.</p>
+    <div class="hero-ctas">
+      <a href="#roi" class="btn-primary">See the ROI →</a>
+      <a href="#cta" class="btn-outline">Start a Conversation</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="val">$50K<span>+</span></div>
+        <div class="lbl">Average sale price premium</div>
+      </div>
+      <div class="hero-stat">
+        <div class="val">3–5<span>×</span></div>
+        <div class="lbl">ROI on technology investment</div>
+      </div>
+      <div class="hero-stat">
+        <div class="val">40<span>%</span></div>
+        <div class="lbl">Faster time to contract</div>
+      </div>
+      <div class="hero-stat">
+        <div class="val">100<span>%</span></div>
+        <div class="lbl">Turnkey — we handle everything</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITY -->
+<section id="opportunity">
+  <div class="container">
+    <div class="section-label">The Market Shift</div>
+    <div class="section-title">Buyers Aren't Just <strong>Looking</strong> for Smart Homes.<br>They're Expecting Them.</div>
+    <div class="section-subtitle">The luxury new construction buyer has changed. Technology is no longer a differentiator — it's table stakes. Here's what the data says.</div>
+
+    <div class="opp-grid">
+      <div class="opp-card fade-in">
+        <div class="opp-num">87<span>%</span></div>
+        <div class="opp-title">Of luxury buyers consider smart home features essential</div>
+        <div class="opp-body">In homes over $1M, smart home integration is now listed among the top 3 decision factors — alongside location and finishes. Buyers who don't see it are looking for it elsewhere.</div>
+      </div>
+      <div class="opp-card fade-in">
+        <div class="opp-num">$75<span>K+</span></div>
+        <div class="opp-title">Average sale premium on fully integrated homes</div>
+        <div class="opp-body">Homes with professionally installed, whole-home automation consistently command a $50,000–$150,000 premium over comparable non-integrated builds. The system pays for itself at closing.</div>
+      </div>
+      <div class="opp-card fade-in">
+        <div class="opp-num">62<span>%</span></div>
+        <div class="opp-title">Of buyers won't compromise on lighting quality</div>
+        <div class="opp-body">Lutron Homeworks with Ketra tunable white lighting is the single most visible, most felt upgrade in a new build. Buyers notice it within seconds of walking in — and they don't forget it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section id="roi">
+  <div class="container">
+    <div class="section-label">Return on Investment</div>
+    <div class="section-title">The Numbers <strong>Work.</strong></div>
+    <div class="section-subtitle">A typical Alt3 installation on a luxury build pencils out well before closing day.</div>
+
+    <div class="roi-grid">
+      <div>
+        <div class="roi-table fade-in">
+          <div class="roi-table-header">Sample Build · $2.5M Home</div>
+          <div class="roi-row">
+            <span class="label">Alt3 Technology Package</span>
+            <span class="value">~$120,000</span>
+          </div>
+          <div class="roi-row">
+            <span class="label">Typical Sale Price Premium</span>
+            <span class="value gold">+$150,000</span>
+          </div>
+          <div class="roi-row">
+            <span class="label">Days on Market (w/ smart home)</span>
+            <span class="value">–40%</span>
+          </div>
+          <div class="roi-row">
+            <span class="label">Buyer Negotiation Leverage</span>
+            <span class="value gold">Significantly higher</span>
+          </div>
+          <div class="roi-row total">
+            <span class="label">Net Return at Closing</span>
+            <span class="value gold">$30K–$80K</span>
+          </div>
+        </div>
+
+        <div class="roi-table fade-in" style="margin-top:20px">
+          <div class="roi-table-header">What Buyers Are Paying For Elsewhere</div>
+          <div class="roi-row">
+            <span class="label">Post-close AV integration</span>
+            <span class="value">$80K–$200K</span>
+          </div>
+          <div class="roi-row">
+            <span class="label">Retrofit lighting system</span>
+            <span class="value">$40K–$120K</span>
+          </div>
+          <div class="roi-row">
+            <span class="label">Shade & AV retrofit</span>
+            <span class="value">$30K–$80K</span>
+          </div>
+          <div class="roi-row total">
+            <span class="label">Your advantage: pre-wired, built in</span>
+            <span class="value gold">Priceless</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="roi-cards">
+        <div class="roi-card fade-in">
+          <div class="roi-card-icon">🏷️</div>
+          <div class="roi-card-title">Command a Higher List Price</div>
+          <div class="roi-card-body">Integrated technology is a line item on the listing sheet. Buyers see $120K in built-in value — which justifies a higher ask from day one. Your realtor has a clear, compelling story to tell.</div>
+        </div>
+        <div class="roi-card fade-in">
+          <div class="roi-card-icon">⚡️</div>
+          <div class="roi-card-title">Sell Faster, Negotiate Less</div>
+          <div class="roi-card-body">Buyers who walk into a fully operational smart home — lights responding, music playing, voice control working — make decisions faster. Fewer days on market means lower carrying costs for you.</div>
+        </div>
+        <div class="roi-card fade-in">
+          <div class="roi-card-icon">🔁</div>
+          <div class="roi-card-title">Repeat Business & Referrals</div>
+          <div class="roi-card-body">Buyers who love their smart home tell other buyers. Builders who consistently deliver integrated experiences build a reputation that generates the next project. It compounds over time.</div>
+        </div>
+        <div class="roi-card fade-in">
+          <div class="roi-card-icon">🏗️</div>
+          <div class="roi-card-title">Zero Friction During Construction</div>
+          <div class="roi-card-body">We spec the prewire before framing, coordinate with your subs during rough-in, and come back at trim and finish. You don't manage it — we do. It just shows up done.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM -->
+<section id="system">
+  <div class="container">
+    <div class="section-label">The Technology</div>
+    <div class="section-title">A System Built on the <strong>World's Best</strong> Platforms</div>
+    <div class="section-subtitle">Every component is best-in-class. No compromise brands. No consumer-grade shortcuts. The same systems going into $5M+ homes, right-sized for your build.</div>
+
+    <div class="system-grid">
+      <div class="sys-card fade-in">
+        <div class="sys-icon">🧠</div>
+        <div class="sys-title">Josh.ai — Voice & Touch Control</div>
+        <div class="sys-body">The only AI voice platform built exclusively for the smart home — no Amazon, no Google, no cloud dependency. Local processing, total privacy.</div>
+        <div class="sys-items">
+          <div class="sys-item">In-wall 10" touchscreens</div>
+          <div class="sys-item">Architectural Nano microphones</div>
+          <div class="sys-item">Works offline — always responsive</div>
+          <div class="sys-item">Controls lights, audio, shades, HVAC, locks</div>
+        </div>
+      </div>
+
+      <div class="sys-card fade-in">
+        <div class="sys-icon">💡</div>
+        <div class="sys-title">Lutron Homeworks — Smart Lighting</div>
+        <div class="sys-body">The gold standard in residential lighting control. Ketra tunable white technology adjusts color temperature automatically throughout the day — no buyer has ever complained about the lighting.</div>
+        <div class="sys-items">
+          <div class="sys-item">Ketra D2/D3 tunable white downlights</div>
+          <div class="sys-item">Rania warm white architectural fixtures</div>
+          <div class="sys-item">Sunnata engraved keypads</div>
+          <div class="sys-item">Scene control — one button, whole home</div>
+        </div>
+      </div>
+
+      <div class="sys-card fade-in">
+        <div class="sys-icon">🔊</div>
+        <div class="sys-title">Distributed Audio</div>
+        <div class="sys-body">Whole-home audio with independent zones — every room plays what it wants, or the whole house plays together. Invisible architecture, audiophile performance.</div>
+        <div class="sys-items">
+          <div class="sys-item">MartinLogan in-ceiling speakers</div>
+          <div class="sys-item">Sonos multi-room amplification</div>
+          <div class="sys-item">Weather-rated outdoor speakers</div>
+          <div class="sys-item">Bonus room theater available</div>
+        </div>
+      </div>
+
+      <div class="sys-card fade-in">
+        <div class="sys-icon">🔒</div>
+        <div class="sys-title">Security & Cameras</div>
+        <div class="sys-body">Professional-grade security integrated directly into the smart home platform — not a bolted-on app. Monitoring, alerts, and camera feeds all in one place.</div>
+        <div class="sys-items">
+          <div class="sys-item">Qolsys IQ4 central panel</div>
+          <div class="sys-item">AI person-detection cameras</div>
+          <div class="sys-item">Video doorbells (IC Realtime)</div>
+          <div class="sys-item">Josh-integrated alerts & announcements</div>
+        </div>
+      </div>
+
+      <div class="sys-card fade-in">
+        <div class="sys-icon">🪟</div>
+        <div class="sys-title">Motorized Shades</div>
+        <div class="sys-body">Automated shades that integrate with lighting scenes, time of day, and voice commands. The finishing touch that makes every room feel effortless.</div>
+        <div class="sys-items">
+          <div class="sys-item">Lutron motorized roller & drapery</div>
+          <div class="sys-item">Tied to lighting and time-of-day scenes</div>
+          <div class="sys-item">Single-button "privacy" or "open" commands</div>
+          <div class="sys-item">Battery or hardwired — both available</div>
+        </div>
+      </div>
+
+      <div class="sys-card fade-in">
+        <div class="sys-icon">📡</div>
+        <div class="sys-title">Network & Infrastructure</div>
+        <div class="sys-body">A smart home is only as good as its network. We design and install enterprise-grade networking — the invisible foundation everything runs on.</div>
+        <div class="sys-items">
+          <div class="sys-item">Managed PoE switching</div>
+          <div class="sys-item">In-ceiling Wi-Fi access points</div>
+          <div class="sys-item">Structured media center / equipment rack</div>
+          <div class="sys-item">Full prewire spec before framing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section id="tiers">
+  <div class="container">
+    <div class="section-label">Builder Packages</div>
+    <div class="section-title">Right-Sized for <strong>Every Build</strong></div>
+    <div class="section-subtitle">From entry-level smart homes to full whole-home automation — we have a package that fits the price point and the buyer profile.</div>
+
+    <div class="tiers-grid">
+
+      <div class="tier-card fade-in">
+        <div class="tier-label">Essentials</div>
+        <div class="tier-name">Connected</div>
+        <div class="tier-range">$35K – $60K</div>
+        <div class="tier-sub">Ideal for $800K–$1.5M builds</div>
+        <div class="tier-divider"></div>
+        <div class="tier-features">
+          <div class="tier-feature"><span class="tier-check">✓</span> Josh.ai voice control + app</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Lutron RadioRA 3 lighting</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Distributed audio — 4–6 zones</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Video doorbell + basic security</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Enterprise networking</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Motorized shade prewire</div>
+        </div>
+      </div>
+
+      <div class="tier-card featured fade-in">
+        <div class="tier-badge">Most Popular</div>
+        <div class="tier-label">Signature</div>
+        <div class="tier-name" style="color:#fff">Integrated</div>
+        <div class="tier-range">$80K – $150K</div>
+        <div class="tier-sub">Ideal for $1.5M–$3M builds</div>
+        <div class="tier-divider"></div>
+        <div class="tier-features">
+          <div class="tier-feature"><span class="tier-check">✓</span> Josh.ai with touchscreens + Nano mics</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Lutron Homeworks + Ketra lighting</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> MartinLogan whole-home audio</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Cameras, AI doorbells, Qolsys panel</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Motorized shades — full install</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Structured rack + enterprise network</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Bonus room AV available</div>
+        </div>
+      </div>
+
+      <div class="tier-card fade-in">
+        <div class="tier-label">Full Automation</div>
+        <div class="tier-name">Bespoke</div>
+        <div class="tier-range">$150K – $300K+</div>
+        <div class="tier-sub">Ideal for $3M+ luxury builds</div>
+        <div class="tier-divider"></div>
+        <div class="tier-features">
+          <div class="tier-feature"><span class="tier-check">✓</span> Everything in Integrated, plus:</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Lutron Homeworks QSX (flagship)</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Full-home Ketra tunable white</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Dedicated home theater</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> Outdoor entertainment system</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> HVAC, gate & access control</div>
+          <div class="tier-feature"><span class="tier-check">✓</span> White-glove onboarding & training</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="section-label">How It Works</div>
+    <div class="section-title">We Fit Into Your <strong>Build Process</strong> Seamlessly</div>
+    <div class="section-subtitle">Five touchpoints across your build timeline — everything else is handled by us.</div>
+
+    <div class="process-steps">
+      <div class="process-step fade-in">
+        <div class="step-num">1</div>
+        <div class="step-title">Discovery</div>
+        <div class="step-body">We review your plans, discuss the buyer profile, and spec the right package for the price point.</div>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-num">2</div>
+        <div class="step-title">Prewire Spec</div>
+        <div class="step-body">Before framing, we deliver a complete prewire plan to your electrician. No guesswork, no rework.</div>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-num">3</div>
+        <div class="step-title">Rough-In</div>
+        <div class="step-body">We coordinate with your subs during rough-in to confirm conduit, low-voltage, and rack locations.</div>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-num">4</div>
+        <div class="step-title">Trim & Install</div>
+        <div class="step-body">Fixtures, keypads, speakers, touchscreens, cameras — all installed and commissioned at trim stage.</div>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-num">5</div>
+        <div class="step-title">Buyer Handoff</div>
+        <div class="step-body">We walk the buyer through their system at closing. They leave knowing exactly how to use everything.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ALT3 -->
+<section id="why">
+  <div class="container">
+    <div class="section-label">Why Alt3</div>
+    <div class="section-title">We're Not a Vendor.<br><strong>We're Your Partner.</strong></div>
+    <div class="section-subtitle">The difference between a box-moving AV company and Alt3 is the relationship — with you and with your buyer.</div>
+
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-card-title">🏆 Best-in-Class Brands Only</div>
+        <div class="why-card-body">We don't install consumer-grade systems. Every product — Josh.ai, Lutron, MartinLogan, Ketra — is the same platform used in the most prestigious homes in the country. Your buyers recognize the names.</div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-card-title">📐 We Spec Before You Break Ground</div>
+        <div class="why-card-body">Retrofit is expensive and messy. We get involved at the design phase, deliver a prewire plan your electrician can execute, and make sure nothing has to be touched twice. That's money saved for you.</div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-card-title">🤝 We Show Up for Your Buyer</div>
+        <div class="why-card-body">At closing, we're there. We walk every buyer through their system, personalize it, and hand them a home that works from day one. They call us, not you, when something needs attention.</div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-card-title">📊 We Build Your Sales Story</div>
+        <div class="why-card-body">We create a custom client-facing proposal for every build — a polished digital presentation your realtor can share with buyers before they ever set foot in the home. It's part of the package.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <div style="font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:20px">Let's Build Together</div>
+      <h2>Ready to Make Technology<br>a <em>Selling Point</em>?</h2>
+      <p>Tell us about your next project. We'll put together a package recommendation, ROI analysis, and prewire spec — at no cost and no obligation.</p>
+      <div class="cta-inputs">
+        <input class="cta-input" type="text" placeholder="Your name">
+        <input class="cta-input" type="text" placeholder="Builder / company">
+        <input class="cta-input" type="email" placeholder="Email address">
+      </div>
+      <a href="mailto:ryan@alt3smarthomes.com?subject=Builder Partner Program Inquiry" class="btn-primary" style="margin-bottom:20px;display:inline-block">Send Introduction →</a>
+      <div class="cta-note">Or call us directly · No pressure, no sales pitch — just a conversation about your build.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">ALT<span>3</span> SMART HOMES</div>
+  <p>© 2026 Alt3 Smart Homes. Charlotte, NC. All rights reserved.</p>
+</footer>
+
+<script>
+  // Fade in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 40 ? '0 2px 24px rgba(0,0,0,.3)' : 'none';
+  });
+</script>
+</body>
+</html>
