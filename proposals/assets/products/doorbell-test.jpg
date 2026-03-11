@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Page not found - 404</title>
+
+        <!-- Custom Styles -->
+        <link href="https://www.icrealtime.com/css/app.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <br />
+            <div class="text-center">
+                <a href="/"><img src="http://icrealtimescs.production.na1.netsuitestaging.com/c.3934323/scs//img/IC-Realtime-logo.jpg" id="mid-header-logo" alt="IC Realtime" /></a>
+            </div>
+            <hr>
+            <div style='min-height: 70vh; color: white; background: #ffffff url("/storage/site_images/404-image.jpg") no-repeat center center; padding-top: 15vh;'>    
+                <h1 class="text-center"><strong>OVER DECODE ABILITY</strong></h1>
+                <h3 class="text-center">Sorry, we failed to find the page you are looking for.</h3>
+                
+                <br />
+                <div class="text-center">
+                    <a href="/" type="button" class="btn btn-transparent-light">Back to Home</a>
+                </div>
+            </div>
+            <hr>
+            <h4 class="text-center">404 Not Found</h4>
+        </div>
+    </body>
+</html>
