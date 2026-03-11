@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alt3 Smart Homes · Realtor Partner Program</title>
+<link rel="preconnect" href="https://fonts.cdnfonts.com">
+<style>
+@import url('https://fonts.cdnfonts.com/css/neue-montreal');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Neue Montreal',-apple-system,sans-serif;background:#fff;color:#1a1a1a;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+:root{
+  --navy:#113665;--navy-dark:#0c264a;--navy-light:#1a4a8a;
+  --cream:#E1D8CE;--taupe:#BEB1A2;
+  --text:#1a1a1a;--muted:#6b6560;
+  --green:#1a7a4a;--green-bg:#f0faf5;
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(20px);box-shadow:0 1px 20px rgba(0,0,0,.07)}
+.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:.1em;color:#fff;transition:color .3s}
+nav.scrolled .nav-logo{color:var(--text)}
+.nav-logo span{color:var(--cream)}
+nav.scrolled .nav-logo span{color:var(--navy)}
+.nav-pill{font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8);padding:6px 16px;border-radius:20px;transition:all .3s}
+nav.scrolled .nav-pill{border-color:var(--taupe);color:var(--navy)}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(155deg,var(--navy-dark) 0%,var(--navy) 60%,var(--navy-light) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 32px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 65% 35%,rgba(225,216,206,.08) 0%,transparent 55%)}
+.hero-kicker{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:32px;display:flex;align-items:center;gap:8px;justify-content:center}
+.kicker-dot{width:5px;height:5px;border-radius:50%;background:var(--cream);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+.hero h1{font-size:clamp(3.5rem,8vw,6.5rem);font-weight:700;line-height:.95;letter-spacing:-.03em;color:#fff;margin-bottom:28px}
+.hero h1 em{font-style:italic;font-weight:300;color:var(--cream)}
+.hero-desc{font-size:1.05rem;color:rgba(255,255,255,.5);max-width:500px;line-height:1.7;margin-bottom:52px}
+
+/* Hero stat bar */
+.hero-stats{display:flex;gap:0;border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;background:rgba(255,255,255,.04);backdrop-filter:blur(10px)}
+.h-stat{flex:1;padding:28px 36px;border-right:1px solid rgba(255,255,255,.08);text-align:center}
+.h-stat:last-child{border:none}
+.h-stat-val{font-size:2.4rem;font-weight:700;color:#fff;line-height:1}
+.h-stat-val.green{color:#6ee7a0}
+.h-stat-lbl{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:8px}
+.scroll-hint{margin-top:48px;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.25);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent);margin-top:4px}
+
+/* SHARED */
+section{padding:100px 40px}
+.container{max-width:1140px;margin:0 auto}
+.s-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:16px}
+.s-title{font-size:clamp(2.6rem,5vw,4rem);font-weight:700;line-height:1;letter-spacing:-.025em;color:var(--text);margin-bottom:0}
+.s-title em{font-style:italic;font-weight:300;color:var(--navy)}
+.s-sub{font-size:.95rem;color:var(--muted);max-width:600px;line-height:1.75;margin-top:16px}
+
+/* HOW IT WORKS — earning section */
+.earn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.earn-card{border-radius:20px;overflow:hidden;border:1px solid rgba(190,177,162,.3);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.earn-header{padding:32px 28px 24px;background:var(--navy)}
+.earn-icon{font-size:2rem;margin-bottom:12px}
+.earn-category{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;font-weight:600}
+.earn-title{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:6px}
+.earn-fee{font-size:2.2rem;font-weight:700;color:#6ee7a0;line-height:1}
+.earn-fee-lbl{font-size:.7rem;color:rgba(255,255,255,.4);margin-top:4px}
+.earn-body{padding:24px 28px}
+.earn-desc{font-size:.8rem;color:var(--muted);line-height:1.65;margin-bottom:16px}
+.earn-items{display:flex;flex-direction:column;gap:7px}
+.earn-item{font-size:.76rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
+.earn-check{color:var(--navy);font-weight:700;flex-shrink:0}
+
+/* EXAMPLE EARNINGS */
+#earnings{background:var(--cream)}
+.earnings-scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.scenario{background:#fff;border-radius:20px;padding:36px 28px;border:1px solid rgba(190,177,162,.3);box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.scenario-type{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:12px}
+.scenario-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:20px}
+.scenario-line{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(190,177,162,.2);font-size:.82rem}
+.scenario-line:last-of-type{border:none}
+.scenario-line .lbl{color:var(--muted)}
+.scenario-line .val{font-weight:700;color:var(--text)}
+.scenario-total{margin-top:16px;padding:16px;background:rgba(17,54,101,.06);border-radius:10px;display:flex;justify-content:space-between;align-items:center}
+.scenario-total .lbl{font-size:.8rem;font-weight:600;color:var(--navy)}
+.scenario-total .val{font-size:1.4rem;font-weight:700;color:var(--navy)}
+
+/* WHAT WE OFFER CLIENTS */
+#services{background:#fff}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.svc-card{background:#fafafa;border-radius:18px;padding:32px 28px;border:1px solid rgba(190,177,162,.3);transition:transform .3s,box-shadow .3s}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.07)}
+.svc-icon{font-size:2.2rem;margin-bottom:16px}
+.svc-title{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.svc-body{font-size:.78rem;color:var(--muted);line-height:1.65;margin-bottom:16px}
+.svc-brands{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);font-weight:600;opacity:.7}
+
+/* WINDOW TREATMENTS */
+#shades{background:var(--navy)}
+.shades-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:56px}
+.shades-big{font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:#fff}
+.shades-big em{font-style:italic;font-weight:300;color:rgba(255,255,255,.4)}
+.shades-subtext{font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.75}
+.shade-partners{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.shade-partner{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:32px 28px}
+.sp-name{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:8px}
+.sp-body{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.65;margin-bottom:14px}
+.sp-tag{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+
+/* THE PROCESS */
+#how{background:var(--cream)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;position:relative}
+.process-steps::before{content:'';position:absolute;top:32px;left:12%;right:12%;height:1px;background:rgba(17,54,101,.15)}
+.proc-step{text-align:center;padding:0 16px;position:relative}
+.proc-num{width:64px;height:64px;border-radius:50%;background:var(--navy);color:#fff;font-size:.9rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 24px rgba(17,54,101,.2)}
+.proc-title{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.proc-body{font-size:.74rem;color:var(--muted);line-height:1.55}
+
+/* WHY US */
+#why{background:#fff}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
+.why-card{padding:36px 32px;border-radius:18px;background:#fafafa;border:1px solid rgba(190,177,162,.3)}
+.why-num{font-size:3rem;font-weight:700;color:rgba(17,54,101,.08);line-height:1;margin-bottom:14px}
+.why-title{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:10px}
+.why-body{font-size:.8rem;color:var(--muted);line-height:1.7}
+
+/* CTA */
+#cta{background:var(--cream);padding:80px 40px}
+.cta-box{background:var(--navy);border-radius:28px;padding:80px 64px;text-align:center;max-width:860px;margin:0 auto;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 25%,rgba(225,216,206,.08) 0%,transparent 55%);pointer-events:none}
+.cta-box h2{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;letter-spacing:-.03em;color:#fff;line-height:1;margin-bottom:16px;position:relative}
+.cta-box h2 em{font-style:italic;font-weight:300;color:rgba(255,255,255,.45)}
+.cta-tagline{font-size:.95rem;color:rgba(255,255,255,.4);margin-bottom:44px;position:relative}
+.cta-btn{display:inline-block;background:#fff;color:var(--navy);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:18px 42px;border-radius:40px;text-decoration:none;transition:all .25s;position:relative}
+.cta-btn:hover{background:var(--cream);transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.15)}
+.cta-sub{font-size:.7rem;color:rgba(255,255,255,.2);margin-top:20px;position:relative}
+
+footer{background:var(--navy-dark);padding:28px 40px;display:flex;justify-content:space-between;align-items:center}
+.f-logo{font-size:.95rem;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.35)}
+.f-logo span{color:rgba(255,255,255,.6)}
+footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
+
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:1024px){
+  nav{padding:16px 24px}
+  .earn-grid,.earnings-scenarios,.services-grid,.shade-partners,.why-grid{grid-template-columns:1fr}
+  .shades-intro{grid-template-columns:1fr;gap:32px}
+  .process-steps{grid-template-columns:1fr;gap:32px}
+  .process-steps::before{display:none}
+  .hero-stats{flex-wrap:wrap}
+  .h-stat{min-width:140px}
+  .cta-box{padding:48px 32px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">ALT<span>3</span></div>
+  <div class="nav-pill">Realtor Partner Program</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-kicker">
+    <div class="kicker-dot"></div>
+    Refer Once. Earn Every Time.
+  </div>
+
+  <h1>
+    Your Clients<br>
+    Deserve the<br>
+    <em>Best Home.</em>
+  </h1>
+
+  <div class="hero-desc">Partner with Alt3 Smart Homes and earn a referral fee every time a client upgrades their home with intelligent technology or window treatments — new build, retrofit, or shades only.</div>
+
+  <div class="hero-stats">
+    <div class="h-stat">
+      <div class="h-stat-val green">$500+</div>
+      <div class="h-stat-lbl">Shades referral fee</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-val green">$1,000+</div>
+      <div class="h-stat-lbl">Retrofit referral fee</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-val green">$2,500+</div>
+      <div class="h-stat-lbl">New build referral fee</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-val">100%</div>
+      <div class="h-stat-lbl">We handle everything</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    See how it works
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- HOW YOU EARN -->
+<section id="earn">
+  <div class="container">
+    <div class="s-label">The Partnership</div>
+    <div class="s-title">Three Ways to<br><em>Earn with Alt3.</em></div>
+    <div class="s-sub">Send a client our way — we take it from there. When the project closes, you get paid. Simple.</div>
+
+    <div class="earn-grid">
+
+      <!-- New Build -->
+      <div class="earn-card fade-in">
+        <div class="earn-header">
+          <div class="earn-icon">🏗️</div>
+          <div class="earn-category">New Construction</div>
+          <div class="earn-title">Builder Referral</div>
+          <div class="earn-fee">$2,500+</div>
+          <div class="earn-fee-lbl">per referred build project</div>
+        </div>
+        <div class="earn-body">
+          <div class="earn-desc">Know a builder who should be delivering intelligent homes? Connect us and earn when the contract is signed. Scales with project size.</div>
+          <div class="earn-items">
+            <div class="earn-item"><span class="earn-check">✓</span>Smart home design + prewire</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Lutron Homeworks lighting</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Josh.ai voice + touch control</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Audio, security, networking</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Window treatments — full install</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Retrofit -->
+      <div class="earn-card fade-in">
+        <div class="earn-header">
+          <div class="earn-icon">🏠</div>
+          <div class="earn-category">Existing Home</div>
+          <div class="earn-title">Smart Home Retrofit</div>
+          <div class="earn-fee">$1,000+</div>
+          <div class="earn-fee-lbl">per referred retrofit project</div>
+        </div>
+        <div class="earn-body">
+          <div class="earn-desc">Clients who just bought or are listing — a smart home upgrade adds value and makes the home stand out. We handle everything from assessment to installation.</div>
+          <div class="earn-items">
+            <div class="earn-item"><span class="earn-check">✓</span>Smart lighting & scene control</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Voice control — Josh.ai</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Security cameras & doorbells</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Distributed audio</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Network upgrade</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shades -->
+      <div class="earn-card fade-in">
+        <div class="earn-header">
+          <div class="earn-icon">🪟</div>
+          <div class="earn-category">Window Treatments</div>
+          <div class="earn-title">Shades & Drapery</div>
+          <div class="earn-fee">$500+</div>
+          <div class="earn-fee-lbl">per referred shades project</div>
+        </div>
+        <div class="earn-body">
+          <div class="earn-desc">Every buyer needs window treatments. Refer them to Alt3 and earn — whether they want motorized automation or traditional fabric shades. Three partner brands, every style.</div>
+          <div class="earn-items">
+            <div class="earn-item"><span class="earn-check">✓</span>Lutron motorized shades</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Hunter Douglas — all collections</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Clara designer treatments</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Motorized & traditional options</div>
+            <div class="earn-item"><span class="earn-check">✓</span>Measure, supply & install included</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLE EARNINGS -->
+<section id="earnings">
+  <div class="container">
+    <div class="s-label">What You Can Earn</div>
+    <div class="s-title">Real Numbers.<br><em>Real Payouts.</em></div>
+    <div class="s-sub">Three example referrals — what the client pays, and what comes back to you.</div>
+
+    <div class="earnings-scenarios">
+
+      <div class="scenario fade-in">
+        <div class="scenario-type">Scenario 1 · Shades Only</div>
+        <div class="scenario-title">New buyer, needs window treatments throughout</div>
+        <div class="scenario-line"><span class="lbl">Project value</span><span class="val">~$18,000</span></div>
+        <div class="scenario-line"><span class="lbl">Scope</span><span class="val">Full home shades</span></div>
+        <div class="scenario-line"><span class="lbl">Your effort</span><span class="val">One introduction</span></div>
+        <div class="scenario-total">
+          <span class="lbl">Your referral fee</span>
+          <span class="val">$500 – $900</span>
+        </div>
+      </div>
+
+      <div class="scenario fade-in">
+        <div class="scenario-type">Scenario 2 · Smart Home Retrofit</div>
+        <div class="scenario-title">Recent buyer wants smart lighting, audio & voice control</div>
+        <div class="scenario-line"><span class="lbl">Project value</span><span class="val">~$65,000</span></div>
+        <div class="scenario-line"><span class="lbl">Scope</span><span class="val">Lighting, audio, Josh.ai</span></div>
+        <div class="scenario-line"><span class="lbl">Your effort</span><span class="val">One introduction</span></div>
+        <div class="scenario-total">
+          <span class="lbl">Your referral fee</span>
+          <span class="val">$1,000 – $2,500</span>
+        </div>
+      </div>
+
+      <div class="scenario fade-in">
+        <div class="scenario-type">Scenario 3 · Full Package</div>
+        <div class="scenario-title">Builder partner — smart home + shades on new $2M build</div>
+        <div class="scenario-line"><span class="lbl">Project value</span><span class="val">~$150,000</span></div>
+        <div class="scenario-line"><span class="lbl">Scope</span><span class="val">Full integration + shades</span></div>
+        <div class="scenario-line"><span class="lbl">Your effort</span><span class="val">One introduction</span></div>
+        <div class="scenario-total">
+          <span class="lbl">Your referral fee</span>
+          <span class="val">$2,500 – $5,000</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER CLIENTS -->
+<section id="services">
+  <div class="container">
+    <div class="s-label">What Your Clients Get</div>
+    <div class="s-title">World-Class Technology.<br><em>White-Glove Service.</em></div>
+    <div class="s-sub">When you refer a client to Alt3, they're in the best hands in the business. Here's what we deliver.</div>
+
+    <div class="services-grid">
+      <div class="svc-card fade-in">
+        <div class="svc-icon">🧠</div>
+        <div class="svc-title">AI Voice & Touch Control</div>
+        <div class="svc-body">Josh.ai controls every system in the home through natural voice commands and elegant touchscreens. Lights, audio, shades, locks, HVAC — one brain, one experience.</div>
+        <div class="svc-brands">Josh.ai</div>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-icon">💡</div>
+        <div class="svc-title">Intelligent Lighting</div>
+        <div class="svc-body">Lutron Homeworks with Ketra tunable white fixtures. Light that shifts automatically from energizing morning daylight to warm evening ambiance. Buyers feel it the moment they walk in.</div>
+        <div class="svc-brands">Lutron · Ketra</div>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-icon">🎵</div>
+        <div class="svc-title">Whole-Home Audio</div>
+        <div class="svc-body">Music in every room, each zone independent. MartinLogan in-ceiling speakers disappear into the architecture. Audiophile sound — nothing to see, everything to hear.</div>
+        <div class="svc-brands">MartinLogan · Sonos</div>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-icon">🔒</div>
+        <div class="svc-title">Smart Security</div>
+        <div class="svc-body">AI cameras, video doorbells, and a professional security panel — all integrated into Josh.ai. Alerts announce through home speakers. Complete awareness, zero friction.</div>
+        <div class="svc-brands">Qolsys · IC Realtime</div>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-icon">🪟</div>
+        <div class="svc-title">Window Treatments</div>
+        <div class="svc-body">Motorized and traditional shades in every style, fabric, and price point. We measure, source, and install — your client moves in and they're done. No separate contractors, no follow-up calls.</div>
+        <div class="svc-brands">Lutron · Hunter Douglas · Clara</div>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-icon">📡</div>
+        <div class="svc-title">Enterprise Networking</div>
+        <div class="svc-body">The foundation every smart home needs. Managed switches, whole-home Wi-Fi, and a clean equipment rack. We make sure the infrastructure is right — because the experience is only as good as what's underneath.</div>
+        <div class="svc-brands">Enterprise grade</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WINDOW TREATMENTS DEEP DIVE -->
+<section id="shades">
+  <div class="container">
+    <div class="shades-intro fade-in">
+      <div>
+        <div class="s-label" style="color:rgba(255,255,255,.4)">Window Treatments</div>
+        <div class="shades-big">Every Buyer<br>Needs Shades.<br><em>We Make It Easy.</em></div>
+      </div>
+      <div class="shades-subtext">
+        Window treatments are one of the last things buyers deal with — and one of the most stressful. Multiple vendors, long lead times, installation headaches. We partner with three of the best brands in the industry to offer every buyer the perfect solution. One call. Done.
+        <br><br>
+        <strong style="color:rgba(255,255,255,.6)">And when you refer them, you earn.</strong>
+      </div>
+    </div>
+
+    <div class="shade-partners fade-in">
+      <div class="shade-partner">
+        <div style="font-size:1.8rem;margin-bottom:12px">✦</div>
+        <div class="sp-name">Lutron</div>
+        <div class="sp-body">The gold standard in motorized shades. Fully integrated with Homeworks lighting — shades respond to scenes, voice commands, and time of day as one unified system. For buyers who want total automation.</div>
+        <div class="sp-tag">Motorized · Smart Home Integrated · Precision Engineering</div>
+      </div>
+      <div class="shade-partner">
+        <div style="font-size:1.8rem;margin-bottom:12px">◆</div>
+        <div class="sp-name">Hunter Douglas</div>
+        <div class="sp-body">The world's most recognized window treatment brand. PowerView motorization integrates with smart systems. Their traditional line covers every fabric, opacity, and style — from blackout roller shades to sheer woven woods.</div>
+        <div class="sp-tag">Motorized & Traditional · Every Style · Widest Selection</div>
+      </div>
+      <div class="shade-partner">
+        <div style="font-size:1.8rem;margin-bottom:12px">◈</div>
+        <div class="sp-name">Clara</div>
+        <div class="sp-body">A designer collection for buyers who want something beyond the catalog. Curated fabrics, custom sizing, motorized and manual options. Beautiful treatments that feel as intentional as everything else in the home.</div>
+        <div class="sp-tag">Designer · Motorized & Manual · Custom Sizing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="s-label">The Process</div>
+    <div class="s-title">You Make the Intro.<br><em>We Do the Rest.</em></div>
+    <div class="s-sub">It's designed to be effortless for you. One email or text is all it takes.</div>
+
+    <div class="process-steps fade-in">
+      <div class="proc-step">
+        <div class="proc-num">01</div>
+        <div class="proc-title">You Refer</div>
+        <div class="proc-body">Send us your client's name and what they're looking for. That's it — a text, an email, whatever works.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">02</div>
+        <div class="proc-title">We Connect</div>
+        <div class="proc-body">We reach out to your client, schedule a consultation, and handle the discovery from there.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">03</div>
+        <div class="proc-title">We Deliver</div>
+        <div class="proc-body">Technology installed, shades hung, buyer walked through everything. Their home is complete.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">04</div>
+        <div class="proc-title">You Get Paid</div>
+        <div class="proc-body">Referral fee sent to you at project close. No chasing, no paperwork, no delays.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ALT3 -->
+<section id="why">
+  <div class="container">
+    <div class="s-label">Why Refer Alt3</div>
+    <div class="s-title">Your Reputation<br>Is <em>Safe With Us.</em></div>
+    <div class="s-sub">When you refer a client, you're putting your name on the line. Here's why that's a good thing.</div>
+
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-num">01</div>
+        <div class="why-title">We make you look good</div>
+        <div class="why-body">Clients who have an exceptional experience with Alt3 come back to you. "My realtor connected me with the best smart home company" is the kind of thing that builds referrals for you. We're part of your value add — not just a vendor you passed along.</div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-num">02</div>
+        <div class="why-title">White-glove from start to finish</div>
+        <div class="why-body">Your clients won't be handed off to a junior tech. Every project gets a dedicated project manager, professional installation, and a full walkthrough at completion. The experience they have reflects on you — and we take that seriously.</div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-num">03</div>
+        <div class="why-title">Best brands in the business</div>
+        <div class="why-body">Josh.ai. Lutron Homeworks. Ketra. MartinLogan. Hunter Douglas. These aren't box-store brands — they're the same platforms going into the most prestigious homes in the country. Your clients recognize quality when they see it.</div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-num">04</div>
+        <div class="why-title">A complete home on closing day</div>
+        <div class="why-body">Technology commissioned, shades installed, buyer trained. Your client walks in on day one and everything works. No stack of contractors to call, no boxes to unpack, no follow-up headaches. That's a closing day gift worth talking about.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Ready to Start<br><em>Earning With Alt3?</em></h2>
+      <div class="cta-tagline">Join the partner program. Refer your first client. Get paid when they close.</div>
+      <a href="mailto:ryan@alt3smarthomes.com?subject=Realtor Partner Program — I%27m In" class="cta-btn">Become a Partner →</a>
+      <div class="cta-sub">Alt3 Smart Homes · Charlotte, NC · ryan@alt3smarthomes.com</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">ALT<span>3</span></div>
+  <small>© 2026 Alt3 Smart Homes · Charlotte, NC · Realtor Partner Program</small>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:.08});
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
+</body>
+</html>
