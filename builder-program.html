@@ -11,6 +11,10 @@
 html{scroll-behavior:smooth}
 body{font-family:'Neue Montreal',-apple-system,sans-serif;background:#fff;color:#1a1a1a;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
+/* ── SCROLL SNAP ── */
+.snap-container{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch}
+.snap-section{scroll-snap-align:start;scroll-snap-stop:always;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;position:relative}
+
 :root{
   --navy:#113665;--navy-dark:#0c264a;--navy-light:#1a4a8a;
   --cream:#E1D8CE;--taupe:#BEB1A2;
@@ -49,7 +53,7 @@ nav.scrolled .nav-pill{border-color:var(--taupe);color:var(--navy)}
 .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent);margin-top:4px}
 
 /* ── SHARED ── */
-section{padding:100px 40px}
+section{padding:80px 40px}
 .container{max-width:1140px;margin:0 auto}
 .s-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:16px}
 .s-title{font-size:clamp(2.6rem,5vw,4rem);font-weight:700;line-height:1;letter-spacing:-.025em;color:var(--text);margin-bottom:0}
@@ -234,13 +238,14 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </head>
 <body>
 
+<div class="snap-container" id="snapContainer">
 <nav id="nav">
   <div class="nav-logo">ALT<span>3</span></div>
   <div class="nav-pill">Builder Partner Program</div>
 </nav>
 
 <!-- ── HERO ── -->
-<section class="hero">
+<section class="hero snap-section">
   <div class="hero-kicker">
     <div class="kicker-dot"></div>
     Alt3 Smart Homes · Builder Partner Program
@@ -279,7 +284,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── AI ERA + EVOLUTION ── -->
-<section id="ai-era" style="background:var(--cream)">
+<section id="ai-era" class="snap-section" style="background:var(--cream)">
   <div class="container">
 
     <!-- Headline -->
@@ -342,7 +347,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── THE SHIFT ── -->
-<section id="shift">
+<section id="shift" class="snap-section">
   <div class="container">
     <div class="s-label">The Opportunity</div>
     <div class="s-title">Buyers Already Know<br>What <em>Intelligence</em> Feels Like.</div>
@@ -383,7 +388,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── POST-CLOSE STRATEGY ── -->
-<section id="post-close" style="background:var(--navy)">
+<section id="post-close" class="snap-section" style="background:var(--navy)">
   <div class="container">
 
     <div style="text-align:center;max-width:760px;margin:0 auto 64px" class="fade-in">
@@ -457,7 +462,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── INTELLIGENCE ── -->
-<section id="intelligence">
+<section id="intelligence" class="snap-section">
   <div class="container">
     <div class="intel-intro fade-in">
       <div>
@@ -511,7 +516,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── JOSH SOFTWARE FIRST ── -->
-<section id="josh-software" style="background:var(--navy)">
+<section id="josh-software" class="snap-section" style="background:var(--navy)">
   <div class="container">
 
     <!-- Big analogy -->
@@ -586,7 +591,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── JOSH.AI DEEP DIVE ── -->
-<section id="josh" style="background:var(--cream)">
+<section id="josh" class="snap-section" style="background:var(--cream)">
   <div class="container">
     <div class="s-label">See It In Action</div>
     <div class="s-title" style="margin-bottom:16px">Josh.ai — <em>AI Built for the Home.</em></div>
@@ -624,7 +629,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── KETRA LIGHTING DEEP DIVE ── -->
-<section id="ketra" style="background:#fff">
+<section id="ketra" class="snap-section" style="background:#fff">
   <div class="container">
     <div class="s-label">The Light That Changes Everything</div>
     <div class="s-title" style="margin-bottom:16px">Ketra — Light That <em>Thinks.</em></div>
@@ -669,7 +674,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── ROI ── -->
-<section id="roi">
+<section id="roi" class="snap-section">
   <div class="container">
     <div class="s-label">The Business Case</div>
     <div class="s-title" style="color:#fff">The Numbers <em style="color:rgba(255,255,255,.45)">Work.</em></div>
@@ -710,7 +715,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── TIERS ── -->
-<section id="tiers">
+<section id="tiers" class="snap-section">
   <div class="container">
     <div class="s-label">Intelligence Packages</div>
     <div class="s-title">Every Build,<br>The <em>Right Level.</em></div>
@@ -769,7 +774,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── PROCESS ── -->
-<section id="process">
+<section id="process" class="snap-section">
   <div class="container">
     <div class="s-label">How We Work Together</div>
     <div class="s-title">Five Touchpoints.<br><em>Everything Else Is On Us.</em></div>
@@ -805,7 +810,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── TURNKEY CONCIERGE ── -->
-<section id="concierge" style="background:var(--navy)">
+<section id="concierge" class="snap-section" style="background:var(--navy)">
   <div class="container">
     <div class="s-label" style="color:rgba(255,255,255,.4)">The Full Picture</div>
     <div class="s-title" style="color:#fff;margin-bottom:16px">Your Buyer Moves In.<br><em style="color:rgba(255,255,255,.5)">And They're Done.</em></div>
@@ -871,7 +876,7 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
 </section>
 
 <!-- ── CTA ── -->
-<section id="cta">
+<section id="cta" class="snap-section">
   <div class="container">
     <div class="cta-box">
       <h2>Let's Put You at the<br>Front of <em>What's Coming.</em></h2>
@@ -886,16 +891,47 @@ footer small{font-size:.66rem;color:rgba(255,255,255,.2)}
   <div class="f-logo">ALT<span>3</span></div>
   <small>© 2026 Alt3 Smart Homes · Charlotte, NC</small>
 </footer>
+</div><!-- end snap-container -->
 
 <script>
+  const snapEl = document.getElementById('snapContainer');
+
+  // Fade-in observer
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-  }, {threshold:.08});
+  }, {root: snapEl, threshold:.08});
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
 
-  window.addEventListener('scroll', () => {
-    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  // Nav scroll style
+  snapEl.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', snapEl.scrollTop > 60);
   });
+
+  // Slide counter dots (optional visual indicator)
+  const sections = document.querySelectorAll('.snap-section');
+  const dotsWrap = document.createElement('div');
+  dotsWrap.style.cssText = 'position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:200;display:flex;flex-direction:column;gap:8px';
+  sections.forEach((s, i) => {
+    const d = document.createElement('div');
+    d.style.cssText = 'width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)';
+    d.addEventListener('click', () => s.scrollIntoView({behavior:'smooth'}));
+    dotsWrap.appendChild(d);
+  });
+  document.body.appendChild(dotsWrap);
+  const dots = dotsWrap.querySelectorAll('div');
+
+  const dotObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        const idx = Array.from(sections).indexOf(e.target);
+        dots.forEach((d,i) => {
+          d.style.background = i===idx ? '#fff' : 'rgba(255,255,255,.25)';
+          d.style.transform = i===idx ? 'scale(1.5)' : 'scale(1)';
+        });
+      }
+    });
+  }, {root: snapEl, threshold:.5});
+  sections.forEach(s => dotObs.observe(s));
 </script>
 </body>
 </html>
