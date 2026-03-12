@@ -33,6 +33,11 @@ nav .container{display:flex;justify-content:space-between;align-items:center}
 nav.scrolled .nav-logo{color:var(--text)}
 nav.scrolled .nav-logo span{color:var(--accent)}
 nav.scrolled .nav-badge{color:var(--accent);border-color:var(--taupe)}
+.nav-pdf-btn{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.9);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 16px;border-radius:20px;cursor:pointer;font-family:inherit;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.nav-pdf-btn:hover{background:rgba(255,255,255,.22);color:#fff}
+nav.scrolled .nav-pdf-btn{color:var(--accent);background:rgba(17,54,101,.06);border-color:var(--taupe)}
+nav.scrolled .nav-pdf-btn:hover{background:rgba(17,54,101,.12)}
+@media print{nav,.nav-pdf-btn,.scroll-hint,.scope-toggle-wrap,.sig-form,.sig-btn{display:none!important}.fade-in{opacity:1!important;transform:none!important}section{padding:40px 0}}
 
 /* Hero */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(135deg,#0c264a,#113665 60%,#1a4a8a)}
@@ -170,6 +175,7 @@ footer .contact a{color:var(--accent);text-decoration:none}
   <div class="container">
     <div class="nav-logo">ALT<span>3</span></div>
     <div class="nav-badge">Farroukh Hafeez · 1609 Walden Pond</div>
+    <button class="nav-pdf-btn" onclick="window.print()">⬇ Save as PDF</button>
   </div>
 </nav>
 
@@ -181,7 +187,7 @@ footer .contact a{color:var(--accent);text-decoration:none}
     <h1>Six Acres.<br><strong>One Intelligent Home.</strong></h1>
     <p>A complete smart home ecosystem — lighting, audio, security, climate, and voice intelligence — designed for the way you actually live on 3,600 square feet of single-story luxury.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="val">$85,668</div><div class="lbl">Confirmed Investment</div></div>
+      <div class="hero-stat"><div class="val">$73,952</div><div class="lbl">Confirmed Investment</div></div>
       <div class="hero-stat"><div class="val">14</div><div class="lbl">Rooms & Systems</div></div>
       <div class="hero-stat"><div class="val">6 Acres</div><div class="lbl">Fully Covered</div></div>
     </div>
@@ -783,18 +789,18 @@ footer .contact a{color:var(--accent);text-decoration:none}
 
     <div class="total-bar fade-in">
       <div>
-        <div class="t-main">$85,668</div>
+        <div class="t-main">$73,952</div>
         <div class="t-note">Confirmed investment total · inclusive of tax and labor</div>
       </div>
       <div class="t-sub">
-        <div class="t-sub-val">~$125,000+</div>
+        <div class="t-sub-val">~$113,000+</div>
         <div class="t-sub-label">Estimated with budgetary items</div>
       </div>
     </div>
 
     <div class="budget-callout fade-in">
       <div class="bc-icon">🌳</div>
-      <p><strong>Budgetary Items:</strong> Landscape Lighting (~$19,000 estimated) and Motorized Window Treatments (TBD based on selection) are not included in the $85,668 confirmed total. These will be scoped and priced separately as part of the design process. No tax applied to budgetary estimates.</p>
+      <p><strong>Budgetary Items:</strong> Landscape Lighting (~$19,000 estimated) and Motorized Window Treatments (TBD based on selection) are not included in the $73,952 confirmed total. These will be scoped and priced separately as part of the design process. No tax applied to budgetary estimates.</p>
     </div>
   </div>
 </section>
