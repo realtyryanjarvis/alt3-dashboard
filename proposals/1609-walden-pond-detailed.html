@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1609 Walden Pond — Detailed Proposal — Alt3 Smart Homes</title>
+<link rel="preconnect" href="https://fonts.cdnfonts.com">
+<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/neue-montreal">
+<style>
+@import url('https://fonts.cdnfonts.com/css/neue-montreal');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --accent:#113665;
+  --accent-light:#1a4a8a;
+  --text:#1a1a1a;
+  --text-light:#555;
+  --border:#e0e0e0;
+  --row-alt:#f7f9fc;
+  --amber-bg:#fffbeb;
+  --amber-border:#f59e0b;
+}
+body{
+  font-family:'Neue Montreal',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  background:#fff;
+  color:var(--text);
+  line-height:1.6;
+  font-size:14px;
+}
+a{color:inherit;text-decoration:none}
+
+/* ── NAV ── */
+.top-nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:var(--accent);
+  padding:14px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 2px 12px rgba(0,0,0,.18);
+}
+.top-nav-logo{
+  font-size:1.05rem;font-weight:700;letter-spacing:.1em;color:#fff;
+}
+.top-nav-logo span{color:rgba(255,255,255,.5);font-weight:400}
+.top-nav-right{display:flex;align-items:center;gap:16px}
+.top-nav-label{
+  font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,255,255,.65);
+}
+.btn-print{
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  color:#fff;background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);
+  padding:7px 18px;border-radius:20px;cursor:pointer;
+  font-family:inherit;transition:background .2s;
+}
+.btn-print:hover{background:rgba(255,255,255,.25)}
+
+/* ── PAGE BODY ── */
+.page{max-width:900px;margin:0 auto;padding:100px 40px 60px}
+
+/* ── HEADER ── */
+.doc-header{
+  background:var(--accent);color:#fff;
+  border-radius:8px;padding:36px 40px;margin-bottom:48px;
+  display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;
+}
+.doc-header-left h1{
+  font-size:1.6rem;font-weight:700;letter-spacing:.06em;margin-bottom:4px;
+}
+.doc-header-left .tagline{
+  font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+}
+.doc-header-right{text-align:right}
+.doc-header-right .client-name{
+  font-size:1rem;font-weight:600;margin-bottom:4px;
+}
+.doc-header-right .address{
+  font-size:.85rem;color:rgba(255,255,255,.75);margin-bottom:4px;
+}
+.doc-header-right .doc-date{
+  font-size:.75rem;color:rgba(255,255,255,.55);
+}
+
+/* ── SECTION ── */
+.section{margin-bottom:48px;page-break-inside:avoid}
+.section-header{
+  background:var(--accent);color:#fff;
+  border-radius:6px 6px 0 0;
+  padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.section-header h2{
+  font-size:.95rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+}
+.section-header .section-total{
+  font-size:1rem;font-weight:700;
+}
+.section-header.budgetary{background:#92400e}
+.section-header.budgetary::after{
+  content:'⚠ BUDGETARY';
+  font-size:.6rem;letter-spacing:.15em;background:rgba(255,255,255,.2);
+  padding:3px 10px;border-radius:12px;margin-left:12px;
+}
+
+/* ── SCOPE ── */
+.scope-block{
+  background:var(--row-alt);border:1px solid var(--border);border-top:none;
+  padding:14px 20px;
+}
+.scope-block p{
+  font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:8px;
+}
+.scope-block ul{
+  list-style:disc;padding-left:18px;color:var(--text-light);
+  font-size:.85rem;line-height:1.7;
+  columns:2;column-gap:24px;
+}
+@media(max-width:600px){.scope-block ul{columns:1}}
+
+/* ── TABLE ── */
+.item-table{width:100%;border-collapse:collapse;border:1px solid var(--border);border-top:none}
+.item-table th{
+  background:#f0f4f9;color:var(--accent);
+  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);
+}
+.item-table th:last-child,.item-table td:last-child{text-align:right}
+.item-table th:nth-child(2),.item-table td:nth-child(2){text-align:center}
+.item-table th:nth-child(3),.item-table td:nth-child(3){text-align:right}
+.item-table td{
+  padding:9px 14px;font-size:.85rem;border-bottom:1px solid var(--border);
+}
+.item-table tr:nth-child(even) td{background:var(--row-alt)}
+.item-table tr.labor-row td{color:var(--text-light);font-style:italic}
+.section-total-row td{
+  font-weight:700;color:var(--accent);font-size:.9rem;
+  background:#edf2f9!important;border-top:2px solid var(--accent);
+  padding:11px 14px;
+}
+.section-total-row td:last-child{font-size:1rem}
+
+/* ── SUMMARY TABLE ── */
+.summary-section{margin-top:56px;page-break-before:auto}
+.summary-section h2{
+  font-size:.85rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;padding-bottom:10px;
+  border-bottom:2px solid var(--accent);
+}
+.summary-table{width:100%;border-collapse:collapse}
+.summary-table td{
+  padding:10px 16px;font-size:.88rem;border-bottom:1px solid var(--border);
+}
+.summary-table td:last-child{text-align:right;font-weight:600}
+.summary-table tr:nth-child(even) td{background:var(--row-alt)}
+.summary-table tr.divider td{
+  background:#f0f4f9;font-weight:700;font-size:.75rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);
+  padding:8px 16px;border:none;
+}
+.summary-table tr.confirmed-total td{
+  background:var(--accent);color:#fff;font-weight:700;font-size:1rem;
+  padding:14px 16px;
+}
+.summary-table tr.budgetary-row td{color:#92400e;font-style:italic}
+.summary-table tr.estimated-total td{
+  background:#92400e;color:#fff;font-weight:700;font-size:1rem;
+  padding:14px 16px;
+}
+
+/* ── FOOTER ── */
+.doc-footer{
+  margin-top:56px;padding-top:24px;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  color:var(--text-light);font-size:.75rem;
+}
+.doc-footer strong{color:var(--accent)}
+
+/* ── PRINT ── */
+@media print{
+  .top-nav,.btn-print{display:none!important}
+  .page{padding:0;max-width:100%}
+  body{font-size:12px}
+  .section{page-break-inside:avoid}
+  .summary-section{page-break-before:auto}
+  @page{margin:.75in;size:letter}
+  /* print header */
+  body::before{
+    content:'ALT3  |  1609 Walden Pond  |  Farroukh Hafeez';
+    display:block;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+    color:#888;text-align:center;padding-bottom:16px;margin-bottom:24px;
+    border-bottom:1px solid #e0e0e0;
+  }
+  .doc-header{border-radius:0;margin-bottom:32px}
+  .scope-block ul{columns:1}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <div class="top-nav-logo">ALT<span>3</span></div>
+  <div class="top-nav-right">
+    <span class="top-nav-label">Detailed Proposal</span>
+    <button class="btn-print" onclick="window.print()">⬇ Download PDF</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- DOC HEADER -->
+  <div class="doc-header">
+    <div class="doc-header-left">
+      <h1>ALT3 SMART HOMES</h1>
+      <div class="tagline">Detailed Scope &amp; Line-Item Proposal</div>
+    </div>
+    <div class="doc-header-right">
+      <div class="client-name">Farroukh Hafeez</div>
+      <div class="address">1609 Walden Pond Drive</div>
+      <div class="doc-date">Prepared March 2026</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       EQUIPMENT ROOM
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Equipment Room</h2>
+      <div class="section-total">$25,552.64</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>42U skeleton rack frame installation</li>
+        <li>Wattbox IP UPS 1100VA for power protection</li>
+        <li>Araknis router &amp; 16-port POE switch</li>
+        <li>2× WiFi 6 indoor access points (Araknis)</li>
+        <li>1× WiFi 6 outdoor access point (Araknis)</li>
+        <li>AVPro Edge audio distribution hub</li>
+        <li>6× Sonos Amp G1 (whole-home audio)</li>
+        <li>Josh.ai Core hardware + Lifetime license</li>
+        <li>SFP+ fiber transceiver, Cat6 cabling, DMARK install kit</li>
+        <li>Binary audio interconnects throughout rack</li>
+        <li>Cat6 drops for APs, cameras &amp; keypads</li>
+        <li>Includes 4 hours of programming</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>42U Skeleton Rack Frame (Strong)</td><td>1</td><td>$1,036.99</td><td>$70.00</td></tr>
+        <tr><td>IP UPS Kit 1100VA (Wattbox)</td><td>1</td><td>$2,112.98</td><td>$142.63</td></tr>
+        <tr><td>Router (Araknis)</td><td>1</td><td>$907.99</td><td>$61.29</td></tr>
+        <tr><td>Araknis 16 Port POE Switch</td><td>1</td><td>$1,700.99</td><td>$114.82</td></tr>
+        <tr><td>WiFi 6 Indoor AP (Araknis)</td><td>2</td><td>$816.99</td><td>$110.30</td></tr>
+        <tr><td>WiFi 6 Outdoor AP (Araknis)</td><td>1</td><td>$679.99</td><td>$45.90</td></tr>
+        <tr><td>AVP-AC-AEX-RC-HUB (AVPro Edge)</td><td>1</td><td>$1,959.00</td><td>$132.22</td></tr>
+        <tr><td>Sonos Amp G1</td><td>6</td><td>$799.00</td><td>$323.58</td></tr>
+        <tr><td>Josh Core: Hardware + Lifetime</td><td>1</td><td>$3,078.90</td><td>$207.83</td></tr>
+        <tr><td>SFP+ Transceiver (Araknis)</td><td>1</td><td>$51.99</td><td>$3.51</td></tr>
+        <tr><td>Cat6 (Vanco/1TouchSolutions)</td><td>10</td><td>$10.80</td><td>$7.30</td></tr>
+        <tr><td>Audio Interconnects (Binary)</td><td>8</td><td>$33.99</td><td>$18.32</td></tr>
+        <tr><td>DMARK Install Kit (1TouchSolutions)</td><td>1</td><td>$1,028.99</td><td>$69.45</td></tr>
+        <tr><td>CAT6/RG6QS/Fiber accessories</td><td>1</td><td>$203.75</td><td>$13.75</td></tr>
+        <tr><td>Cat6 drops (APs/cameras/keypads)</td><td>3</td><td>$35.00</td><td>$7.08</td></tr>
+        <tr class="labor-row"><td>Labor (incl. 4 hrs programming)</td><td>1</td><td>$4,252.50</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">Equipment Room Total</td><td>$25,552.64</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECURITY
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Security</h2>
+      <div class="section-total">$10,697.95</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>Qolsys IQ Panel 4 (Verizon) alarm system</li>
+        <li>5× door/window sensors</li>
+        <li>2× motion sensors</li>
+        <li>CO detector</li>
+        <li>3× glass break sensors</li>
+        <li>Wireless siren</li>
+        <li>IC Realtime 6TB NVR</li>
+        <li>5× IC Realtime IP cameras</li>
+        <li>Security system prewire</li>
+        <li>6× Cat6 drops for cameras</li>
+        <li>Josh Video Doorbell</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Qolsys IQ Panel 4 Verizon</td><td>1</td><td>$1,132.43</td><td>$76.44</td></tr>
+        <tr><td>Door/Window Sensors (Qolsys)</td><td>5</td><td>$65.08</td><td>$21.95</td></tr>
+        <tr><td>Motion Sensors (Qolsys)</td><td>2</td><td>$129.32</td><td>$17.46</td></tr>
+        <tr><td>CO Detector (Qolsys)</td><td>1</td><td>$156.74</td><td>$10.58</td></tr>
+        <tr><td>Glass Break Sensors (Qolsys)</td><td>3</td><td>$141.34</td><td>$28.61</td></tr>
+        <tr><td>IQ Siren Wireless (Qolsys)</td><td>1</td><td>$158.54</td><td>$10.70</td></tr>
+        <tr><td>NVR 6TB (IC Realtime)</td><td>1</td><td>$1,600.00</td><td>$108.00</td></tr>
+        <tr><td>IP Cameras (IC Realtime)</td><td>5</td><td>$330.00</td><td>$111.40</td></tr>
+        <tr><td>Security Prewire</td><td>1</td><td>$200.00</td><td>$13.50</td></tr>
+        <tr><td>Cat6 drops</td><td>6</td><td>$35.00</td><td>$14.16</td></tr>
+        <tr><td>Josh Video Doorbell</td><td>1</td><td>$598.00</td><td>$40.36</td></tr>
+        <tr class="labor-row"><td>Labor</td><td>1</td><td>$3,300.00</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">Security Total</td><td>$10,697.95</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       CLIMATE CONTROL
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Climate Control</h2>
+      <div class="section-total">$459.22</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>Replace existing thermostats with ecobee smart thermostats</li>
+        <li>Integration with Josh.ai for voice &amp; app control</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ecobee Thermostat</td><td>2</td><td>$149.94</td><td>$20.23</td></tr>
+        <tr class="labor-row"><td>Labor</td><td>1</td><td>$130.00</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">Climate Control Total</td><td>$459.22</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       RA3 LIGHTING CONTROL
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>RA3 Lighting Control</h2>
+      <div class="section-total">$14,221.00</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>Replace standard switches with Lutron RA3 Sunnata RF keypads at all switch bank locations</li>
+        <li>21 keypads total throughout the home</li>
+        <li>RA3 processor installation &amp; programming</li>
+        <li>Full integration with Josh.ai</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sunnata RF Keypad (Lutron)</td><td>21</td><td>$468.50</td><td>$664.02</td></tr>
+        <tr><td>RA3 Processor</td><td>1</td><td>$549.00</td><td>$37.06</td></tr>
+        <tr class="labor-row"><td>Labor / Programming</td><td>1</td><td>$2,927.50</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">RA3 Lighting Control Total</td><td>$14,221.00</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       LUMARIS LIGHTING
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Lumaris Lighting</h2>
+      <div class="section-total">$14,984.50</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>46× Lutron Lumaris 4" tunable white / warm dim retrofit downlights</li>
+        <li>Electrician to provide rough-in cans and wiring</li>
+        <li>Alt3 to install fixtures and program scenes</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Lumaris 4" Tunable White Downlight (Lutron)</td><td>46</td><td>$240.00</td><td>$745.20</td></tr>
+        <tr class="labor-row"><td>Labor / Programming</td><td>1</td><td>$2,990.00</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">Lumaris Lighting Total</td><td>$14,984.50</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       LIVING ROOM
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Living Room</h2>
+      <div class="section-total">$6,907.79</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>2× MartinLogan IW6 in-wall speakers</li>
+        <li>Sonos Amp G1 for speaker amplification</li>
+        <li>Sonos Arc Ultra soundbar + Sonos Sub 4</li>
+        <li>Josh Nano voice controller</li>
+        <li>Josh Edge display</li>
+        <li>House audio prewire &amp; 2-port Ethernet plate</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>MartinLogan IW6 Speakers</td><td>2</td><td>$299.99</td><td>$40.50</td></tr>
+        <tr><td>Sonos Amp G1</td><td>1</td><td>$799.00</td><td>$53.93</td></tr>
+        <tr><td>Sonos Arc Ultra Soundbar</td><td>1</td><td>$999.00</td><td>$67.43</td></tr>
+        <tr><td>Sonos Sub 4</td><td>1</td><td>$899.00</td><td>$60.68</td></tr>
+        <tr><td>Josh Nano: Coral White</td><td>1</td><td>$878.90</td><td>$59.33</td></tr>
+        <tr><td>Josh Edge</td><td>1</td><td>$548.90</td><td>$37.04</td></tr>
+        <tr><td>House Audio Prewire</td><td>1</td><td>$175.00</td><td>$11.81</td></tr>
+        <tr><td>2-Port Ethernet Plate</td><td>1</td><td>$100.00</td><td>$6.75</td></tr>
+        <tr><td>Speaker Wire</td><td>1</td><td>$93.00</td><td>$6.28</td></tr>
+        <tr class="labor-row"><td>Labor</td><td>1</td><td>$1,375.00</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">Living Room Total</td><td>$6,907.79</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       LIVING ROOM TV LIFT
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Living Room TV Lift</h2>
+      <div class="section-total">$4,248.42</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>MantelMount MM860V2 motorized TV lift installation</li>
+        <li>TV mount, power, and cable management</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>MantelMount MM860V2</td><td>1</td><td>$3,000.00</td><td>$202.50</td></tr>
+        <tr class="labor-row"><td>Labor</td><td>1</td><td>$977.50</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">TV Lift Total</td><td>$4,248.42</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       KITCHEN
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Kitchen</h2>
+      <div class="section-total">$6,196.99</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>4× MartinLogan ML-IC8 in-ceiling speakers</li>
+        <li>Josh Nano voice controller</li>
+        <li>Josh 10" Touchscreen for full home control</li>
+        <li>House audio prewire</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>MartinLogan ML-IC8 Speakers</td><td>4</td><td>$320.00</td><td>$86.40</td></tr>
+        <tr><td>Josh Nano: Coral White</td><td>1</td><td>$878.90</td><td>$59.33</td></tr>
+        <tr><td>Josh 10" Touchscreen</td><td>1</td><td>$2,238.19</td><td>$151.07</td></tr>
+        <tr><td>House Audio Prewire</td><td>1</td><td>$100.00</td><td>$6.75</td></tr>
+        <tr class="labor-row"><td>Labor</td><td>1</td><td>$1,305.00</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">Kitchen Total</td><td>$6,196.99</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       MASTER BEDROOM
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Master Bedroom</h2>
+      <div class="section-total">$6,334.99</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>Josh Nano voice controller</li>
+        <li>Josh 10" Touchscreen</li>
+        <li>Josh Edge display</li>
+        <li>2× ML-IC8 in-ceiling speakers</li>
+        <li>2-port Ethernet plate &amp; house audio prewire</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Josh Nano: Coral White</td><td>1</td><td>$878.90</td><td>$59.33</td></tr>
+        <tr><td>Josh 10" Touchscreen</td><td>1</td><td>$2,238.19</td><td>$151.07</td></tr>
+        <tr><td>Josh Edge</td><td>1</td><td>$548.90</td><td>$37.04</td></tr>
+        <tr><td>ML-IC8 Speakers</td><td>2</td><td>$320.00</td><td>$43.20</td></tr>
+        <tr><td>2-Port Ethernet Plate</td><td>1</td><td>$175.00</td><td>$11.81</td></tr>
+        <tr><td>House Audio Prewire</td><td>1</td><td>$93.00</td><td>$6.28</td></tr>
+        <tr><td>Speaker Wire</td><td>1</td><td>$100.00</td><td>$6.75</td></tr>
+        <tr class="labor-row"><td>Labor</td><td>1</td><td>$1,257.50</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">Master Bedroom Total</td><td>$6,334.99</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       MASTER BATHROOM
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Master Bathroom</h2>
+      <div class="section-total">$2,621.63</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>Josh Nano voice controller</li>
+        <li>2× ML-IC8 in-ceiling speakers</li>
+        <li>House audio prewire</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Josh Nano: Coral White</td><td>1</td><td>$878.90</td><td>$59.33</td></tr>
+        <tr><td>ML-IC8 Speakers</td><td>2</td><td>$320.00</td><td>$43.20</td></tr>
+        <tr><td>House Audio Prewire</td><td>1</td><td>$100.00</td><td>$6.75</td></tr>
+        <tr class="labor-row"><td>Labor</td><td>1</td><td>$835.00</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">Master Bathroom Total</td><td>$2,621.63</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PATIO
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Patio</h2>
+      <div class="section-total">$1,674.59</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>2× MartinLogan ML-75AW outdoor speakers</li>
+        <li>House audio prewire</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ML-75AW Outdoor Speakers</td><td>2</td><td>$469.99</td><td>$63.44</td></tr>
+        <tr><td>House Audio Prewire</td><td>1</td><td>$100.00</td><td>$6.75</td></tr>
+        <tr class="labor-row"><td>Labor</td><td>1</td><td>$527.50</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">Patio Total</td><td>$1,674.59</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       MASTER PATIO
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Master Patio</h2>
+      <div class="section-total">$1,052.51</div>
+    </div>
+    <div class="scope-block">
+      <p>Scope of Work</p>
+      <ul>
+        <li>1× MartinLogan ML-75AW outdoor speaker</li>
+        <li>House audio prewire</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ML-75AW Outdoor Speaker</td><td>1</td><td>$469.99</td><td>$31.72</td></tr>
+        <tr><td>House Audio Prewire</td><td>1</td><td>$100.00</td><td>$6.75</td></tr>
+        <tr class="labor-row"><td>Labor</td><td>1</td><td>$415.00</td><td>$0.00</td></tr>
+        <tr class="section-total-row"><td colspan="3">Master Patio Total</td><td>$1,052.51</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       BUDGETARY: WINDOW TREATMENTS
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header budgetary">
+      <h2>Window Treatments</h2>
+      <div class="section-total">$106.75</div>
+    </div>
+    <div class="scope-block" style="background:#fffbeb;border-color:#f59e0b">
+      <p style="color:#92400e">Scope of Work — Budgetary</p>
+      <ul>
+        <li>Prewire for 1 motorized shade</li>
+        <li>Final pricing subject to shade selection</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Prewire for 1 shade motor</td><td>1</td><td>$100.00</td><td>$6.75</td></tr>
+        <tr class="section-total-row"><td colspan="3">Window Treatments Total</td><td>$106.75</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       BUDGETARY: LANDSCAPE LIGHTING
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header budgetary">
+      <h2>Landscape Lighting</h2>
+      <div class="section-total">$20,282.50</div>
+    </div>
+    <div class="scope-block" style="background:#fffbeb;border-color:#f59e0b">
+      <p style="color:#92400e">Scope of Work — Budgetary</p>
+      <ul>
+        <li>9× Beverly driveway downlights</li>
+        <li>6× path lights around pond</li>
+        <li>3× pond lights</li>
+        <li>14× hideaway soffit lights (front of house)</li>
+        <li>2× path lights in back lounge area</li>
+        <li>1× path light at patio exit</li>
+        <li>1× icon uplight on crape myrtle</li>
+        <li>4× Timberline waterfall lights</li>
+      </ul>
+    </div>
+    <table class="item-table">
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Item Price</th><th>Tax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Landscape Lighting Package</td><td>1</td><td>$19,000.00</td><td>$1,282.50</td></tr>
+        <tr class="section-total-row"><td colspan="3">Landscape Lighting Total</td><td>$20,282.50</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SUMMARY
+  ══════════════════════════════════════ -->
+  <div class="summary-section">
+    <h2>Proposal Summary</h2>
+    <table class="summary-table">
+      <tbody>
+        <tr class="divider"><td colspan="2">Confirmed Scope</td></tr>
+        <tr><td>Equipment Room</td><td>$25,552.64</td></tr>
+        <tr><td>Security</td><td>$10,697.95</td></tr>
+        <tr><td>Climate Control</td><td>$459.22</td></tr>
+        <tr><td>RA3 Lighting Control</td><td>$14,221.00</td></tr>
+        <tr><td>Lumaris Lighting</td><td>$14,984.50</td></tr>
+        <tr><td>Living Room</td><td>$6,907.79</td></tr>
+        <tr><td>Living Room TV Lift</td><td>$4,248.42</td></tr>
+        <tr><td>Kitchen</td><td>$6,196.99</td></tr>
+        <tr><td>Master Bedroom</td><td>$6,334.99</td></tr>
+        <tr><td>Master Bathroom</td><td>$2,621.63</td></tr>
+        <tr><td>Patio</td><td>$1,674.59</td></tr>
+        <tr><td>Master Patio</td><td>$1,052.51</td></tr>
+        <tr class="confirmed-total"><td>Confirmed Total</td><td>$115,341.56</td></tr>
+        <tr class="divider"><td colspan="2">Budgetary Items (Subject to Change)</td></tr>
+        <tr class="budgetary-row"><td>Window Treatments</td><td>$106.75</td></tr>
+        <tr class="budgetary-row"><td>Landscape Lighting</td><td>$20,282.50</td></tr>
+        <tr class="estimated-total"><td>Estimated Total with Budgetary</td><td>~$134,000+</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div><strong>Alt3 Smart Homes</strong> · ryan.palmer@alt3.com</div>
+    <div>Prepared for Farroukh Hafeez · 1609 Walden Pond Drive · March 2026</div>
+    <div>Prices subject to change. Tax estimates based on 6.75% NC rate.</div>
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>
