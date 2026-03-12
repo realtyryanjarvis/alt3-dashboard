@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>1609 Walden Pond — Alt3 Smart Homes</title>
 <link rel="preconnect" href="https://fonts.cdnfonts.com">
+<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/neue-montreal">
 <style>
 @import url('https://fonts.cdnfonts.com/css/neue-montreal');
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -26,9 +27,12 @@ body{font-family:'Neue Montreal',-apple-system,BlinkMacSystemFont,'Segoe UI',Ari
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all .4s var(--ease)}
 nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(20px);box-shadow:0 1px 20px rgba(0,0,0,.06);padding:12px 0}
 nav .container{display:flex;justify-content:space-between;align-items:center}
-.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:.08em}
-.nav-logo span{color:var(--accent)}
-.nav-badge{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);border:1px solid var(--taupe);padding:4px 14px;border-radius:20px}
+.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:.08em;color:#fff}
+.nav-logo span{color:rgba(255,255,255,.6)}
+.nav-badge{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);padding:4px 14px;border-radius:20px}
+nav.scrolled .nav-logo{color:var(--text)}
+nav.scrolled .nav-logo span{color:var(--accent)}
+nav.scrolled .nav-badge{color:var(--accent);border-color:var(--taupe)}
 
 /* Hero */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(135deg,#0c264a,#113665 60%,#1a4a8a)}
